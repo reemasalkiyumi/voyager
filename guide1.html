@@ -208,21 +208,41 @@
 
     <section class="contact-form-section">
         <h2 class="section-header">Send Marie an Inquiry</h2>
-        <form class="contact-form"action="https://httpbin.org/get" method="get">
-            <label for="your-name">Your Name</label>
-            <input type="text" id="your-name" name="your-name" required>
+        <form class="contact-form" action="https://httpbin.org/get" method="get">
+    <label for="your-name">Your Name</label>
+    <input type="text" id="your-name" name="your-name" required>
 
-            <label for="your-email">Your Email</label>
-            <input type="email" id="your-email" name="your-email" required>
+    <label for="your-email">Your Email</label>
+    <input type="email" id="your-email" name="your-email" required>
 
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject" required>
 
-            <label for="message">Your Message / Availability Inquiry</label>
-            <textarea id="message" name="message" required></textarea>
+    <!--  Checkboxes for type of inquiry -->
+    <h4>Type of Inquiry:</h4>
+    <label><input type="checkbox" name="interest" value="tours" /> Tour Information</label><br>
+    <label><input type="checkbox" name="interest" value="availability" /> Check Availability</label><br>
+    <label><input type="checkbox" name="interest" value="custom" /> Custom Experience</label><br>
 
-            <button type="submit">Send Message</button>
-        </form>
+    <!--  Radio buttons for preferred contact method -->
+    <h4>Preferred Contact Method:</h4>
+    <label><input type="radio" name="contact-method" value="email" checked /> Email</label>
+    <label><input type="radio" name="contact-method" value="phone" /> Phone</label>
+
+    <!--  Select dropdown for group size -->
+    <label for="group-size">Group Size:</label>
+    <select id="group-size" name="group-size">
+        <option value="1-2">1-2 people</option>
+        <option value="3-5">3-5 people</option>
+        <option value="6-10">6-10 people</option>
+    </select>
+
+    <label for="message">Your Message / Availability Inquiry</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Send Message</button>
+</form>
+
     </section>
     <footer class="footer">
         © 2025 Voyager. All rights reserved.
