@@ -1,0 +1,295 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voyager | About Us</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Georgia", serif;
+    }
+
+    .hero {
+      margin-top: 70px;
+      height: 80vh;
+      background-image: url("background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .overlay {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay h1 {
+      color: white;
+      font-size: 50px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .action-btn {
+      background-color: #d4e7d4;
+      color: black;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.25s;
+    }
+
+    .action-btn:hover {
+      background-color: white;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 65px;
+      background-color: rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      padding-left: 70px;
+      backdrop-filter: blur(2px);
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 35px;
+      height: 35px;
+    }
+
+    .proj-name {
+      color: white;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .menu-btn {
+      position: fixed;
+      top: 16px;
+      left: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    #nav-bar {
+      display: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100%;
+      background-color: #1c1c1c;
+      padding: 30px 25px;
+      color: white;
+      overflow-y: auto;
+      transition: 0.4s;
+    }
+
+    #nav-bar:checked ~ .sidebar {
+      left: 0;
+    }
+
+    .close-btn {
+      display: block;
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 20px;
+      padding-left: 5px;
+      padding-top: 5px;
+    }
+
+    .menu {
+      list-style: none;
+    }
+
+    .menu li a {
+      display: block;
+      padding: 10px 12px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #f2f2f2;
+      border-radius: 5px;
+      transition: 0.2s;
+    }
+
+    .menu li a:hover {
+      background-color: #2f2f2f;
+    }
+
+    .menu li a.active {
+      background-color: #cfe4d5;
+      color: black;
+    }
+
+    .section-title {
+      margin-top: 22px;
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: #dcdcdc;
+      opacity: 0.6;
+    }
+
+    .sub-page a {
+      margin-left: 15px;
+      font-size: 16px;
+    }
+
+    /* ABOUT PAGE */
+    .about-container {
+      padding: 60px 10%;
+      background-color: #e3f1ea;
+    }
+
+    .about-box {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-box h2 {
+      margin-bottom: 12px;
+      font-size: 26px;
+      color: #1a1a1a;
+    }
+
+    .about-box p,
+    .about-box li {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .about-box ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+
+
+  <body>
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="overlay">
+        <h1>Explore, Review & Connect</h1>
+        <a href="signup.html" class="action-btn">Sign up now</a>
+      </div>
+    </header>
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="branding">
+        <img src="logo.png" class="logo" />
+        <span class="proj-name">voyager</span>
+      </div>
+    </header>
+
+    <!-- MENU BUTTON -->
+    <input type="checkbox" id="nav-bar" />
+    <label for="nav-bar" class="menu-btn">≡</label>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-container">
+      <div class="about-box">
+        <h2>Our Story</h2>
+        <p>
+          VOYAGER was created to help travelers explore countries, find trusted
+          local guides, and discover authentic experiences. Many travelers
+          struggle to find honest reviews and reliable information—our mission
+          is to make travel easier, safer, and more connected.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h2>Our Mission</h2>
+        <p>
+          We aim to build a platform that connects travelers and guides,
+          promotes tourism, and showcases cultural and natural destinations
+          across the world.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h2>Our Objectives</h2>
+        <ul>
+          <li>Allow users to rate countries based on travel experience.</li>
+          <li>Enable guides to register and promote their services.</li>
+          <li>Provide contact options between travelers and guides.</li>
+          <li>Display recommended foods and attractions for each country.</li>
+          <li>Help users filter destinations based on travel type.</li>
+          <li>Create a user-friendly and visually clean website.</li>
+        </ul>
+      </div>
+
+      <div class="about-box">
+        <h2>Our Team</h2>
+        <p>We are Computer Science students from Sultan Qaboos University:</p>
+        <ul>
+          <li>Rimas Al-Kiyumi — 145487</li>
+          <li>Sama Al-Shaqsi — 144398</li>
+          <li>Aaya Al-Rawahi — 143723</li>
+        </ul>
+      </div>
+
+      <div class="about-box">
+        <h2>Logo Meaning</h2>
+        <p>
+          The green and golden colors represent nature, warmth, and adventure.
+          The sun and palm tree symbolize exploration and the beauty of travel.
+          The circular shape represents unity and how VOYAGER connects travelers
+          around the world.
+        </p>
+      </div>
+    </section>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <label for="nav-bar" class="close-btn">×</label>
+
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="destination.html">Destination page</a></li>
+
+        <li class="section-title">Guides</li>
+        <li class="sub-page"><a href="guide-profile.html">Guide profile</a></li>
+        <li class="sub-page"><a href="signup.html">Sign up</a></li>
+
+        <li class="section-title">About & Contact</li>
+        <li class="sub-page"><a href="contactUs.html">Contact us</a></li>
+        <li class="sub-page">
+          <a class="active" href="aboutUs.html">About us</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

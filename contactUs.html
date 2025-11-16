@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager | Contact Us</title>
+    <link rel="stylesheet" href="design.css" />
+    <style>
+      /* GLOBAL RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Georgia", serif;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        margin-top: 70px;
+        height: 80vh;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+      }
+
+      .overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.45);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .overlay h1 {
+        color: white;
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      /* TOP BAR */
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        padding-left: 70px;
+        backdrop-filter: blur(2px);
+      }
+
+      .branding {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo {
+        width: 35px;
+        height: 35px;
+      }
+
+      .proj-name {
+        color: white;
+        font-size: 26px;
+        font-weight: bold;
+      }
+
+      /* MENU BUTTON */
+      .menu-btn {
+        position: fixed;
+        top: 16px;
+        left: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      #nav-bar {
+        display: none;
+      }
+
+      /* SIDEBAR */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 260px;
+        height: 100%;
+        background-color: #1c1c1c;
+        padding: 30px 25px;
+        color: white;
+        overflow-y: auto;
+        transition: 0.4s;
+      }
+
+      #nav-bar:checked ~ .sidebar {
+        left: 0;
+      }
+
+      .close-btn {
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 20px;
+        padding-left: 5px;
+        padding-top: 5px;
+        display: block;
+      }
+
+      .menu {
+        list-style: none;
+      }
+
+      .menu li a {
+        display: block;
+        padding: 10px 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #f2f2f2;
+        border-radius: 5px;
+        transition: 0.2s;
+      }
+
+      .menu li a:hover {
+        background-color: #2f2f2f;
+      }
+
+      .menu li a.active {
+        background-color: #cfe4d5;
+        color: black;
+      }
+
+      .section-title {
+        margin-top: 22px;
+        margin-bottom: 6px;
+        font-size: 15px;
+        color: #dcdcdc;
+        opacity: 0.6;
+      }
+
+      .sub-page a {
+        margin-left: 15px;
+        font-size: 16px;
+      }
+
+      /* CONTACT CONTENT */
+      .about-container {
+        padding: 60px 10%;
+        background-color: #e3f1ea;
+      }
+
+      .about-box {
+        background: white;
+        padding: 25px 30px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .about-box h2 {
+        margin-bottom: 12px;
+        font-size: 26px;
+        color: #1a1a1a;
+      }
+
+      .about-box p,
+      .about-box li {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      .about-box ul {
+        margin-left: 20px;
+      }
+
+      .contact-list {
+        list-style: none;
+      }
+
+      .email-item {
+        margin-bottom: 22px;
+        font-size: 18px;
+        color: #333;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="overlay">
+        <h1>Contact us</h1>
+      </div>
+    </header>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="branding">
+        <img src="logo.png" class="logo" />
+        <span class="proj-name">voyager</span>
+      </div>
+    </header>
+
+    <!-- MENU BUTTON -->
+    <input type="checkbox" id="nav-bar" />
+    <label for="nav-bar" class="menu-btn">≡</label>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-container">
+      <div class="about-box">
+        <h2>We’d love to hear from you</h2>
+        <p>
+          If you have any questions, suggestions, or feedback about VOYAGER,
+          feel free to reach out to any member of our team. We will be happy to
+          support you.
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h2>Team Emails</h2>
+
+        <ul class="contact-list">
+          <li class="email-item">
+            <strong>Rimas Al-Kiyumi</strong><br />
+            <a href="mailto:s145487@student.squ.edu.om"
+              >s145487@student.squ.edu.om</a
+            >
+          </li>
+
+          <li class="email-item">
+            <strong>Sama Al-Shaqsi</strong><br />
+            <a href="mailto:s144398@student.squ.edu.om"
+              >s144398@student.squ.edu.om</a
+            >
+          </li>
+
+          <li class="email-item">
+            <strong>Aaya Al-Rawahi</strong><br />
+            <a href="mailto:s143723@student.squ.edu.om"
+              >s143723@student.squ.edu.om</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-box">
+        <h2>Project Note</h2>
+        <p>
+          This website is part of the VOYAGER project for COMP3700, Department
+          of Computer Science, Sultan Qaboos University.
+        </p>
+      </div>
+    </section>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <label for="nav-bar" class="close-btn">×</label>
+
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="destination.html">Destination page</a></li>
+
+        <li class="section-title">Guides</li>
+        <li class="sub-page"><a href="guide-profile.html">Guide profile</a></li>
+        <li class="sub-page"><a href="signup.html">Sign up</a></li>
+
+        <li class="section-title">About & Contact</li>
+        <li class="sub-page">
+          <a class="active" href="contactUs.html">Contact us</a>
+        </li>
+        <li class="sub-page"><a href="aboutUs.html">About us</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
