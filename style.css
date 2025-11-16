@@ -1,0 +1,54 @@
+.top-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            z-index: 10;
+        }
+
+        /* The search icon is on the left in the picture */
+        .top-nav span:first-child { 
+            order: -1; 
+            font-size: 24px;
+        }
+
+        .logo-text {
+            font-family: 'Times New Roman', serif; 
+            font-size: 28px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            order: 1; 
+        }
+        .logo-bar {
+            background-color: #f7f7f7; 
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo-bar .logo-text {
+            font-family: 'Times New Roman', serif; 
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c4d57; 
+        }
+      .hero {
+        margin-top: 70px;
+        height: 80vh;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+      }

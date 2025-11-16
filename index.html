@@ -4,27 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voyager | Home</title>
-    <link rel="stylesheet" href="design.css" />
+    <link rel="stylesheet" href="style.css" />
     <style>
-      /* GLOBAL RESET */
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: "Georgia", serif;
       }
-
-      /* HERO SECTION */
-      .hero {
-        margin-top: 70px;
-        height: 80vh;
-        background-image: url("background.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        position: relative;
-      }
-
       .overlay {
         width: 100%;
         height: 100%;
@@ -34,14 +22,12 @@
         justify-content: center;
         align-items: center;
       }
-
       .overlay h1 {
         color: white;
         font-size: 50px;
         text-align: center;
         margin-bottom: 25px;
       }
-
       .action-btn {
         background-color: #d4e7d4;
         color: black;
@@ -56,8 +42,6 @@
       .action-btn:hover {
         background-color: white;
       }
-
-      /* TOP BAR */
       .topbar {
         position: fixed;
         top: 0;
@@ -87,8 +71,6 @@
         font-size: 26px;
         font-weight: bold;
       }
-
-      /* MENU BUTTON */
       .menu-btn {
         position: fixed;
         top: 16px;
@@ -100,20 +82,15 @@
         border-radius: 6px;
         background-color: rgba(0, 0, 0, 0.4);
       }
-
       #nav-bar,
       #guides-toggle,
       #about-toggle {
         display: none;
       }
-
-      /* LOWER SECTION */
       .lower-section {
         height: 40vh;
         background-color: #d9e7dd;
       }
-
-      /* SIDEBAR */
       .sidebar {
         position: fixed;
         top: 0;
@@ -126,11 +103,9 @@
         overflow-y: auto;
         transition: 0.4s;
       }
-
       #nav-bar:checked ~ .sidebar {
         left: 0;
       }
-
       .close-btn {
         font-size: 32px;
         font-weight: bold;
@@ -141,11 +116,9 @@
         padding-top: 5px;
         display: block;
       }
-
       .menu {
         list-style: none;
       }
-
       .menu li a {
         display: block;
         padding: 10px 12px;

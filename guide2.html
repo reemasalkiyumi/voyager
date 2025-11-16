@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Guide Profile | Kenji Tanaka</title>
-    
     <style>
-        /* GLOBAL RESET */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Georgia', serif; 
         }
-
-        /* LOGO BAR */
         .logo-bar {
             background-color: #f7f7f7; 
             padding: 15px 30px;
@@ -29,23 +26,7 @@
             font-weight: bold;
             color: #2c4d57; 
         }
-        
-        /* ⛰️ HERO HEADER STYLES */
-        .hero-header {
-            background-image: url('https://img.freepik.com/free-photo/green-trees-near-body-water-daytime_395237-20.jpg?semt=ais_hybrid&w=740&q=80'); 
-            background-size: cover;
-            background-position: center;
-            height: 60vh; 
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.2); 
-            background-blend-mode: overlay;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
+    
         .guide-title {
             color: white;
             font-size: 50px;
@@ -86,7 +67,6 @@
             cursor: pointer;
         }
 
-        /* 👤 GUIDE PROFILE CONTAINER (The light green section) */
         .profile-container {
             margin-top: -150px; 
             background-color: #d9e7dd; 
@@ -99,7 +79,6 @@
             margin-bottom: 50px; 
         }
         
-        /* 📸 GUIDE PHOTO STYLES */
         .profile-photo-area {
             flex-basis: 350px; 
             max-width: 350px;
@@ -114,7 +93,6 @@
             display: block;
         }
 
-        /* 📚 GUIDE DETAILS STYLES */
         .profile-details-box {
             flex-grow: 1; 
             margin-top: 50px; 
@@ -144,8 +122,6 @@
         .detail-value {
             color: #333;
         }
-
-        /* --- SHARED INFO SECTION STYLES --- */
         .section-header {
             font-size: 28px;
             color: #2c4d57;
@@ -153,8 +129,7 @@
             border-bottom: 2px solid #ddd;
             padding-bottom: 10px;
         }
-        
-        /* --- CONTACT DETAILS TABLE SECTION --- */
+    
         .contact-details-section {
             padding: 0 10% 50px 10%; 
             background-color: white;
@@ -182,7 +157,6 @@
             background-color: #f9f9f9;
         }
 
-        /* --- CONTACT FORM SECTION --- */
         .contact-form-section {
             padding: 0 10% 50px 10%;
             background-color: #e6e9e6; 
@@ -230,7 +204,6 @@
 </head>
 <body>
 
-    <!-- Logo Bar Section -->
     <div class="logo-bar">
         <span class="logo-text">voyager</span>
     </div>
@@ -275,7 +248,6 @@
         </div>
     </main>
 
-    <!-- 1. Contact Details Table Section (Contact Info) -->
     <section class="contact-details-section">
         <h2 class="section-header">Contact & Social Media</h2>
         <table class="info-table">
@@ -303,7 +275,6 @@
     <!-- 2. Contact Form Section (Inquiry Form) -->
     <section class="contact-form-section">
         <h2 class="section-header">Send Kenji an Inquiry</h2>
-        <!-- ACTION="#" ensures the form submits but stays on the same page without needing JavaScript -->
         <form class="contact-form" action="#">
             <label for="your-name">Your Name</label>
             <input type="text" id="your-name" name="your-name" required>
