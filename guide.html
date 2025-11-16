@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guides List - Voyager Experts</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     
     <style>
-        /* GLOBAL RESET for this page only */
+       
         * {
             margin: 0;
             padding: 0;
@@ -15,16 +15,13 @@
             font-family: 'Georgia', serif; 
         }
 
-        /* ⛰️ HERO HEADER STYLES (The top banner with the mountain background) */
         .hero-header {
-            /* IMPORTANT: Replace the URL below with your mountain image path if you have one. */
             background-image: url('background.jpg'); 
             background-size: cover;
             background-position: center;
             height: 60vh; 
             position: relative;
             
-            /* Dark overlay to make the text stand out */
             background-color: rgba(0, 0, 0, 0.2); 
             background-blend-mode: overlay;
             
@@ -43,7 +40,6 @@
             z-index: 1; 
         }
 
-        /* 🧭 TOP NAVIGATION BAR */
         .top-nav {
             position: absolute;
             top: 0;
@@ -59,7 +55,6 @@
             z-index: 10;
         }
 
-        /* The search icon is on the left in the picture */
         .top-nav span:first-child { 
             order: -1; 
             font-size: 24px;
@@ -81,35 +76,27 @@
             cursor: pointer;
         }
 
-        /* 👤 GUIDE PROFILE CONTAINER (The light green section) */
         .profile-container {
-            /* The crucial overlap effect: negative margin pulls it over the header */
             margin-top: -150px; 
-            background-color: #d9e7dd; /* Light sage green color */
+            background-color: #d9e7dd; 
             padding: 20px 10%; 
             
-            /* Flexbox for side-by-side layout */
             display: flex;
             gap: 30px; 
             position: relative; 
             z-index: 5;
             
-            /* Space between guide sections */
             margin-bottom: 50px; 
         }
-
-        /* The first guide container needs to start 150px higher for the overlap */
         .profile-container:first-of-type {
             margin-top: -150px;
         }
         
-        /* Subsequent containers should start from the previous container's position */
         .profile-container:not(:first-of-type) {
-            margin-top: 50px; /* Add some space between repeated profile blocks */
+            margin-top: 50px; 
         }
 
 
-        /* 📸 GUIDE PHOTO STYLES */
         .profile-photo-area {
             flex-basis: 350px; 
             max-width: 350px;
@@ -122,7 +109,6 @@
             display: block;
         }
 
-        /* 📚 GUIDE DETAILS STYLES */
         .profile-details-box {
             flex-grow: 1; 
             margin-top: 50px; 
@@ -153,7 +139,6 @@
             color: #333;
         }
 
-        /* 📧 CONTACT BUTTON */
         .contact-button {
             display: block; 
             background-color: #2c4d57; 
@@ -173,6 +158,36 @@
     </style>
 </head>
 <body>
+    <nav class="sidebar">
+      <label for="nav-bar" class="close-btn">×</label>
+
+      <ul class="menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="destination.html">Destination page</a></li>
+
+        <!-- ===== GUIDES WITH EXPAND ==== -->
+        <li class="expand-item">
+          <input type="checkbox" id="guides-toggle" />
+          <label for="guides-toggle" class="expand-title">Guides</label>
+
+          <ul class="sub-menu">
+            <li><a href="guide-profile.html">Guide profile</a></li>
+          </ul>
+        </li>
+        <li><a href="signup.html">Sign up</a></li>
+        <!-- ===== ABOUT WITH EXPAND ==== -->
+        <li class="expand-item">
+          <input type="checkbox" id="about-toggle" />
+          <label for="about-toggle" class="expand-title">About & Contact</label>
+
+          <ul class="sub-menu">
+            <li><a href="contactUs.html">Contact us</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
 
     <header class="hero-header">
         <nav class="top-nav">
