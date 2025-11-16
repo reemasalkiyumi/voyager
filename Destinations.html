@@ -1,92 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voyager Destinations</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        
-        * { 
-            margin:0; padding:0; 
-            box-sizing:border-box;
-             font-family:"Georgia", serif; }
-        body { background-color:#dbeee4; 
-        }
-        .topbar {
-            position: 
-            fixed; top:0;
-             left:0; 
-             width:100%;
-              height:65px;
-            background-color:
-            rgba(0,0,0,0.25);
-            display:flex; align-items:center;
-            padding-left:70px;
-             backdrop-filter: blur(2px);
-              z-index:1000;
-        }
-        .branding { display:flex; align-items:center; gap:10px; }
-        .logo { width:35px; height:35px; }
-        .proj-name { color:white; font-size:26px; font-weight:bold; }
-        .menu-btn {
-            position: fixed; top:16px; left:20px; font-size:30px; color:white;
-            cursor:pointer; padding:4px 8px; border-radius:6px; background-color: rgba(0,0,0,0.4);
-            z-index:1001;
-        }
-        #nav-bar { display:none; }
-        .sidebar {
-            position: fixed; top:0; left:-260px; width:260px; height:100%;
-            background-color:#1c1c1c; padding:30px 25px; color:white; overflow-y:auto; transition:0.4s; z-index:999;
-        }
-        #nav-bar:checked ~ .sidebar { left:0; }
-        .close-btn {
-             font-size:32px; font-weight:bold; color:white; cursor:pointer; margin-bottom:20px; display:block; }
-        .menu { list-style:none; }
-        .menu li a { 
-            display:block; padding:10px 12px; text-decoration:none; font-size:18px; color:#f2f2f2; border-radius:5px; transition:0.2s; }
-        .menu li a:hover { 
-            background-color:#2f2f2f; }
-        .menu li a.active { 
-            background-color:#cfe4d5; color:black; }
-        .expand-item {
-             margin-top:18px; }
-        .expand-title {
-            display:flex; align-items:center; font-size:18px; color:white; cursor:pointer; padding:10px 12px;
-        }
-        .expand-title::before { content: ">"; font-size:18px; margin-right:10px; transition:0.3s; }
-        #about-toggle:checked + .expand-title::before { content:"-"; }
-        .sub-menu { max-height:0; overflow:hidden; transition:0.4s ease; margin-left:25px; }
-        #about-toggle:checked ~ .sub-menu { max-height:300px; }
-        .sub-menu li a { padding:8px 12px; font-size:16px; color:#eaeaea; display:block; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Georgia", serif;
+      }
+      body {
+        background-color: #dbeee4;
+      }
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        padding-left: 70px;
+        backdrop-filter: blur(2px);
+        z-index: 1000;
+      }
+      .branding {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        width: 35px;
+        height: 35px;
+      }
+      .proj-name {
+        color: white;
+        font-size: 26px;
+        font-weight: bold;
+      }
+      .menu-btn {
+        position: fixed;
+        top: 16px;
+        left: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1001;
+      }
+      #nav-bar {
+        display: none;
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 260px;
+        height: 100%;
+        background-color: #1c1c1c;
+        padding: 30px 25px;
+        color: white;
+        overflow-y: auto;
+        transition: 0.4s;
+        z-index: 999;
+      }
+      #nav-bar:checked ~ .sidebar {
+        left: 0;
+      }
+      .close-btn {
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 20px;
+        display: block;
+      }
+      .menu {
+        list-style: none;
+      }
+      .menu li a {
+        display: block;
+        padding: 10px 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #f2f2f2;
+        border-radius: 5px;
+        transition: 0.2s;
+      }
+      .menu li a:hover {
+        background-color: #2f2f2f;
+      }
+      .menu li a.active {
+        background-color: #cfe4d5;
+        color: black;
+      }
+      .expand-item {
+        margin-top: 18px;
+      }
+      .expand-title {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        padding: 10px 12px;
+      }
+      .expand-title::before {
+        content: ">";
+        font-size: 18px;
+        margin-right: 10px;
+        transition: 0.3s;
+      }
+      #about-toggle:checked + .expand-title::before {
+        content: "-";
+      }
+      .sub-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.4s ease;
+        margin-left: 25px;
+      }
+      #about-toggle:checked ~ .sub-menu {
+        max-height: 300px;
+      }
+      .sub-menu li a {
+        padding: 8px 12px;
+        font-size: 16px;
+        color: #eaeaea;
+        display: block;
+      }
 
-        /* DESTINATIONS PAGE STYLES */
-        .header-img { 
-            width:100%; height:250px; background-image:url('background.jpg'); background-size:cover; background-position:center; display:flex; justify-content:center; align-items:center; margin-top:65px; }
-        .header-title { 
-            font-size:48px; color:white; font-weight:bold; letter-spacing:3px; text-shadow:2px 2px 8px rgba(0,0,0,0.6); }
-        .destinations { 
-            display:flex; justify-content:space-around; margin:50px auto; width:95%; }
-        .destination-card {
-             background-color:#dbeee4; text-align:center; padding:20px; width:30%; }
-        .destination-card img {
-             width:100%; height:280px; object-fit:cover; }
-        .city-title {
-             margin-top:18px; font-size:26px; font-weight:bold; color:#143642; }
-        .country { margin-top:6px; font-size:18px; color:#143642; }
-        .btn { margin-top:20px; background-color:#0e2f3d; color:white; padding:12px 0; width:85%; border-radius:4px; border:none; font-size:16px; font-weight:bold; cursor:pointer; }
-        .btn:hover { opacity:0.9; }
-        .footer { background-color:#143642; color:white; text-align:center; padding:20px 10px; margin-top:40px; font-size:15px; }
+      /* DESTINATIONS PAGE STYLES */
+      .header-img {
+        width: 100%;
+        height: 250px;
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 65px;
+      }
+      .header-title {
+        font-size: 48px;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      }
+      .destinations {
+        display: flex;
+        justify-content: space-around;
+        margin: 50px auto;
+        width: 95%;
+      }
+      .destination-card {
+        background-color: #dbeee4;
+        text-align: center;
+        padding: 20px;
+        width: 30%;
+      }
+      .destination-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+      }
+      .city-title {
+        margin-top: 18px;
+        font-size: 26px;
+        font-weight: bold;
+        color: #143642;
+      }
+      .country {
+        margin-top: 6px;
+        font-size: 18px;
+        color: #143642;
+      }
+      .btn {
+        margin-top: 20px;
+        background-color: #0e2f3d;
+        color: white;
+        padding: 12px 0;
+        width: 85%;
+        border-radius: 4px;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .btn:hover {
+        opacity: 0.9;
+      }
+      .footer {
+        background-color: #143642;
+        color: white;
+        text-align: center;
+        padding: 20px 10px;
+        margin-top: 40px;
+        font-size: 15px;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- TOP BAR -->
     <header class="topbar">
-        <div class="branding">
-            <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" class="logo" />
-            <span class="proj-name">voyager</span>
-        </div>
+      <div class="branding">
+        <img
+          src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+          class="logo"
+        />
+        <span class="proj-name">voyager</span>
+      </div>
     </header>
 
     <!-- MENU BUTTON & CHECKBOX -->
@@ -95,55 +226,63 @@
 
     <!-- SIDEBAR -->
     <nav class="sidebar">
-        <label for="nav-bar" class="close-btn">×</label>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Destinations.html">Explore</a></li>
-            <li><a href="guide.html">Guides page</a></li>
-            <li><a href="signup.html">Sign up</a></li>
-            <li class="expand-item">
-                <input type="checkbox" id="about-toggle" />
-                <label for="about-toggle" class="expand-title">About & Contact</label>
-                <ul class="sub-menu">
-                    <li><a href="contactUs.html">Contact us</a></li>
-                    <li><a href="aboutUs.html">About us</a></li>
-                </ul>
-            </li>
-        </ul>
+      <label for="nav-bar" class="close-btn">×</label>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Destinations.html">Explore</a></li>
+        <li><a href="guide.html">Guides page</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+        <li class="expand-item">
+          <input type="checkbox" id="about-toggle" />
+          <label for="about-toggle" class="expand-title">About & Contact</label>
+          <ul class="sub-menu">
+            <li><a href="contactUs.html">Contact us</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
 
     <!-- PAGE HEADER -->
     <div class="header-img">
-        <h1 class="header-title">DESTINATIONS</h1>
+      <h1 class="header-title">DESTINATIONS</h1>
     </div>
 
- 
     <div class="destinations">
-        <div class="destination-card">
-            <img src="https://www.vojitravel.com/wp-content/uploads/2025/05/TANZANIA-PARQUE-NACIONAL-SERENGETI-02.png">
-            <h2 class="city-title">Arusha</h2>
-            <p class="country">Tanzania</p>
-            <button class="btn" onclick="window.location.href='tanz.html'">Explore more</button>
-        </div>
+      <div class="destination-card">
+        <img
+          src="https://www.vojitravel.com/wp-content/uploads/2025/05/TANZANIA-PARQUE-NACIONAL-SERENGETI-02.png"
+        />
+        <h2 class="city-title">Arusha</h2>
+        <p class="country">Tanzania</p>
+        <button class="btn" onclick="window.location.href='tanz.html'">
+          Explore more
+        </button>
+      </div>
 
-        <div class="destination-card">
-            <img src="https://images.contentstack.io/v3/assets/blt06f605a34f1194ff/bltcfc6b43976428fbc/6809096142b2cad8807c3cee/BCC-2025-EXPLORER-BALI-BEACHES-HEADER_MOBILE.jpg?fit=crop&disable=upscale&auto=webp&quality=60&crop=smart">
-            <h2 class="city-title">Bali</h2>
-            <p class="country">Indonesia</p>
-            <button class="btn" onclick="window.location.href='indo.html'">Explore more</button>
-        </div>
+      <div class="destination-card">
+        <img
+          src="https://images.contentstack.io/v3/assets/blt06f605a34f1194ff/bltcfc6b43976428fbc/6809096142b2cad8807c3cee/BCC-2025-EXPLORER-BALI-BEACHES-HEADER_MOBILE.jpg?fit=crop&disable=upscale&auto=webp&quality=60&crop=smart"
+        />
+        <h2 class="city-title">Bali</h2>
+        <p class="country">Indonesia</p>
+        <button class="btn" onclick="window.location.href='indo.html'">
+          Explore more
+        </button>
+      </div>
 
-        <div class="destination-card">
-            <img src="https://images.ctfassets.net/wv75stsetqy3/3g3eYc9JHErfxMlj0I5Rg1/8944869cbe75632964eebfe9bc784eb8/Italy_Country_Guide.jpg?q=60&fit=fill&fm=webp">
-            <h2 class="city-title">Rome</h2>
-            <p class="country">Italy</p>
-            <button class="btn" onclick="window.location.href='italy.html'">Explore more</button>
-        </div>
+      <div class="destination-card">
+        <img
+          src="https://images.ctfassets.net/wv75stsetqy3/3g3eYc9JHErfxMlj0I5Rg1/8944869cbe75632964eebfe9bc784eb8/Italy_Country_Guide.jpg?q=60&fit=fill&fm=webp"
+        />
+        <h2 class="city-title">Rome</h2>
+        <p class="country">Italy</p>
+        <button class="btn" onclick="window.location.href='italy.html'">
+          Explore more
+        </button>
+      </div>
     </div>
 
-    <footer class="footer">
-        © 2025 Voyager. All rights reserved.
-    </footer>
-
-</body>
+    <footer class="footer">© 2025 Voyager. All rights reserved.</footer>
+  </body>
 </html>
