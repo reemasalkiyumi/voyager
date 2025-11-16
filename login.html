@@ -13,24 +13,35 @@
         box-sizing: border-box;
       }
 
+      /* MAKE FOOTER STAY DOWN */
       body {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, Arial, sans-serif;
 
-        /* SAME BACKGROUND AS index.html */
         background-image: url("background.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
-        /* Dark overlay look like index */
         background-color: rgba(0, 0, 0, 0.45);
         background-blend-mode: overlay;
 
         display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
+      }
+
+      footer {
+        margin-top: auto;
+        text-align: center;
+        padding: 15px 0;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        font-size: 14px;
       }
 
       /* LOGIN CARD */
@@ -131,8 +142,7 @@
         text-decoration: underline;
       }
 
-      /* ----- NAV BAR (COPIED FROM GUIDE PROFILE) ----- */
-
+      /* ----- NAV BAR ----- */
       .topbar {
         position: fixed;
         top: 0;
@@ -144,7 +154,7 @@
         align-items: center;
         padding-left: 70px;
         backdrop-filter: blur(2px);
-        z-index: 1000; /* Adjusted z-index for visibility */
+        z-index: 1000;
       }
 
       .branding {
@@ -152,10 +162,12 @@
         align-items: center;
         gap: 10px;
       }
+
       .logo {
         width: 35px;
         height: 35px;
       }
+
       .proj-name {
         color: white;
         font-size: 26px;
@@ -172,7 +184,7 @@
         padding: 4px 8px;
         border-radius: 6px;
         background-color: rgba(0, 0, 0, 0.4);
-        z-index: 1001; /* Adjusted z-index for visibility */
+        z-index: 1001;
       }
 
       #nav-bar {
@@ -262,7 +274,6 @@
       #about-toggle:checked ~ .sub-menu {
         max-height: 300px;
       }
-      /* ------------------------------------------------------------- */
     </style>
   </head>
 
@@ -300,6 +311,7 @@
         </li>
       </ul>
     </nav>
+
     <form class="card" action="#" method="post">
       <h1>Log in</h1>
 
@@ -333,6 +345,7 @@
         <a href="signup.html">Sign up</a>
       </div>
     </form>
+
     <footer class="footer">© 2025 Voyager. All rights reserved.</footer>
   </body>
 </html>
