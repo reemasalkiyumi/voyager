@@ -1,311 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guide Profile | Sofia Rodriguez</title>
-    <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="styles.css" />
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Georgia', serif; 
-        }
-        .logo-bar {
-            background-color: #f7f7f7; 
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Georgia", serif;
+      }
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        padding-left: 70px;
+        backdrop-filter: blur(2px);
+        z-index: 1000;
+      }
 
-        .logo-bar .logo-text {
-            font-family: 'Times New Roman', serif; 
-            font-size: 32px;
-            font-weight: bold;
-            color: #2c4d57; 
-        }
+      .branding {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        width: 35px;
+        height: 35px;
+      }
+      .proj-name {
+        color: white;
+        font-size: 26px;
+        font-weight: bold;
+      }
 
-        .hero-header {
-            background-image: url('background.jpg'); 
-            background-size: cover;
-            background-position: center;
-            height: 60vh; 
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.2); 
-            background-blend-mode: overlay;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+      .logo-bar {
+        background-color: #f7f7f7;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+      }
 
-        .guide-title {
-            color: white;
-            font-size: 50px;
-            font-weight: normal;
-            margin-top: -50px; 
-            z-index: 1; 
-        }
-        .top-nav {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            z-index: 10;
-        }
+      .logo-bar .logo-text {
+        font-family: "Times New Roman", serif;
+        font-size: 32px;
+        font-weight: bold;
+        color: #2c4d57;
+      }
 
-        .top-nav span:first-child { 
-            order: -1; 
-            font-size: 24px;
-        }
+      .hero-header {
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 60vh;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.2);
+        background-blend-mode: overlay;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
 
-        .nav-icons {
-            display: flex;
-            gap: 15px;
-            order: 1; 
-        }
+      .guide-title {
+        color: white;
+        font-size: 50px;
+        font-weight: normal;
+        margin-top: -50px;
+        z-index: 1;
+      }
+      .top-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        z-index: 10;
+      }
 
-        .icon {
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .profile-container {
-            margin-top: -150px; 
-            background-color: #d9e7dd; 
-            padding: 20px 10%; 
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 30px; 
-            position: relative; 
-            z-index: 5;
-            margin-bottom: 50px; 
-        }
-        
-        .profile-photo-area {
-            flex-basis: 350px; 
-            max-width: 350px;
-            padding-top: 50px; 
-        }
+      .top-nav span:first-child {
+        order: -1;
+        font-size: 24px;
+      }
 
-        .guide-photo {
-            content: url('https://us.images.westend61.de/0000763935j/spain-navarra-bardenas-reales-smiling-young-woman-walking-in-nature-park-KKAF00257.jpg');
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+      .nav-icons {
+        display: flex;
+        gap: 15px;
+        order: 1;
+      }
 
-        .profile-details-box {
-            flex-grow: 1; 
-            margin-top: 50px; 
-            padding-left: 20px;
-        }
+      .icon {
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .profile-container {
+        margin-top: -150px;
+        background-color: #d9e7dd;
+        padding: 20px 10%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        position: relative;
+        z-index: 5;
+        margin-bottom: 50px;
+      }
 
-        .guide-name {
-            font-size: 40px;
-            font-weight: bold;
-            margin-bottom: 25px;
-            color: #1a1a1a;
-        }
+      .profile-photo-area {
+        flex-basis: 350px;
+        max-width: 350px;
+        padding-top: 50px;
+      }
 
-        .detail-group {
-            display: flex; 
-            margin-bottom: 8px;
-            font-size: 18px;
-        }
+      .guide-photo {
+        content: url("https://us.images.westend61.de/0000763935j/spain-navarra-bardenas-reales-smiling-young-woman-walking-in-nature-park-KKAF00257.jpg");
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
-        .detail-label {
-            font-weight: bold;
-            color: #1a1a1a;
-            min-width: 110px; 
-            margin-right: 5px;
-        }
+      .profile-details-box {
+        flex-grow: 1;
+        margin-top: 50px;
+        padding-left: 20px;
+      }
 
-        .detail-value {
-            color: #333;
-        }
-        .section-header {
-            font-size: 28px;
-            color: #2c4d57;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-        
-        .contact-details-section {
-            padding: 0 10% 50px 10%; 
-            background-color: white;
-        }
-        
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        .info-table th, .info-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        .info-table th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-            width: 30%;
-        }
-        
-        .info-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+      .guide-name {
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        color: #1a1a1a;
+      }
 
-        .contact-form-section {
-            padding: 0 10% 50px 10%;
-            background-color: #e6e9e6; 
-        }
-        
-        .contact-form label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #2c4d57;
-        }
-        
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        .contact-form button {
-            background-color: #4b6a73; 
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            margin-top: 20px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
+      .detail-group {
+        display: flex;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
 
-        .contact-form button:hover {
-            background-color: #314d56;
-        }
+      .detail-label {
+        font-weight: bold;
+        color: #1a1a1a;
+        min-width: 110px;
+        margin-right: 5px;
+      }
+
+      .detail-value {
+        color: #333;
+      }
+      .section-header {
+        font-size: 28px;
+        color: #2c4d57;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+      }
+
+      .contact-details-section {
+        padding: 0 10% 50px 10%;
+        background-color: white;
+      }
+
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      .info-table th,
+      .info-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .info-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        width: 30%;
+      }
+
+      .info-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .contact-form-section {
+        padding: 0 10% 50px 10%;
+        background-color: #e6e9e6;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #2c4d57;
+      }
+
+      .contact-form input[type="text"],
+      .contact-form input[type="email"],
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      .contact-form button {
+        background-color: #4b6a73;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+
+      .contact-form button:hover {
+        background-color: #314d56;
+      }
     </style>
-</head>
-<body>
-    
-
+  </head>
+  <body>
     <!-- Logo Bar Section -->
-    <div class="logo-bar">
-        <span class="logo-text">voyager</span>
-    </div>
+    <header class="topbar">
+      <div class="branding">
+        <img
+          src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+          class="logo"
+        />
 
+        <span class="proj-name">voyager</span>
+      </div>
+    </header>
     <header class="hero-header">
-        <nav class="top-nav">
-            <span class="icon">&#9906;</span> 
-            <div class="nav-icons">
-                <span class="icon menu-icon">&#9776;</span> 
-            </div>
-        </nav>
-        
-        <h1 class="guide-title">Sofia Rodriguez</h1>
-        <div class="center-feature"></div> 
+      <nav class="top-nav">
+        <span class="icon">&#9906;</span>
+        <div class="nav-icons">
+          <span class="icon menu-icon">&#9776;</span>
+        </div>
+      </nav>
+
+      <h1 class="guide-title">Sofia Rodriguez</h1>
+      <div class="center-feature"></div>
     </header>
 
     <main class="profile-container">
-        <div class="profile-photo-area">
-            <img src="https://placehold.co/350x450/4B779A/DDEEF9?text=Sofia+Rodriguez" alt="Sofia Rodriguez photo" class="guide-photo">
+      <div class="profile-photo-area">
+        <img
+          src="https://placehold.co/350x450/4B779A/DDEEF9?text=Sofia+Rodriguez"
+          alt="Sofia Rodriguez photo"
+          class="guide-photo"
+        />
+      </div>
+      <div class="profile-details-box">
+        <h2 class="guide-name">Sofia Rodriguez, Accredited Guide</h2>
+        <div class="detail-group">
+          <p class="detail-label">Location:</p>
+          <p class="detail-value">Barcelona, Spain</p>
         </div>
-        <div class="profile-details-box">
-            <h2 class="guide-name">Sofia Rodriguez, Accredited Guide</h2>
-            <div class="detail-group">
-                <p class="detail-label">Location:</p>
-                <p class="detail-value">Barcelona, Spain</p>
-            </div>
-            <div class="detail-group">
-                <p class="detail-label">Languages:</p>
-                <p class="detail-value">Spanish, Catalan, English, French</p>
-            </div>
-            <div class="detail-group">
-                <p class="detail-label">Specialty:</p>
-                <p class="detail-value">Gaudi architecture, Gothic Quarter history, local tapas routes</p>
-            </div>
-            <div class="detail-group">
-                <p class="detail-label">Rating:</p>
-                <p class="detail-value">4.2/5 stars (510 reviews)</p>
-            </div>
-            <p style="margin-top: 20px; font-size: 16px; color: #555;">
-                *Sofia has 15 years of experience and is an accredited Spanish History Guide and Wine Specialist. She is well-known for handling large group tours (Max 20 people) through Barcelona's vibrant center.*
-            </p>
+        <div class="detail-group">
+          <p class="detail-label">Languages:</p>
+          <p class="detail-value">Spanish, Catalan, English, French</p>
         </div>
+        <div class="detail-group">
+          <p class="detail-label">Specialty:</p>
+          <p class="detail-value">
+            Gaudi architecture, Gothic Quarter history, local tapas routes
+          </p>
+        </div>
+        <div class="detail-group">
+          <p class="detail-label">Rating:</p>
+          <p class="detail-value">4.2/5 stars (510 reviews)</p>
+        </div>
+        <p style="margin-top: 20px; font-size: 16px; color: #555">
+          *Sofia has 15 years of experience and is an accredited Spanish History
+          Guide and Wine Specialist. She is well-known for handling large group
+          tours (Max 20 people) through Barcelona's vibrant center.*
+        </p>
+      </div>
     </main>
 
     <!-- 1. Contact Details Table Section (Contact Info) -->
     <section class="contact-details-section">
-        <h2 class="section-header">Contact & Social Media</h2>
-        <table class="info-table">
-            <tbody>
-                <tr>
-                    <th>Email Address</th>
-                    <td>sofia.rodriguez@voyager.com</td>
-                </tr>
-                <tr>
-                    <th>Phone Number</th>
-                    <td>+34 93 XXXX 9012</td>
-                </tr>
-                <tr>
-                    <th>Instagram</th>
-                    <td><a href="#">@BarcelonaTapasQueen</a></td>
-                </tr>
-                <tr>
-                    <th>Twitter</th>
-                    <td><a href="#">@SofiaBCNGuide</a></td>
-                </tr>
-            </tbody>
-        </table>
+      <h2 class="section-header">Contact & Social Media</h2>
+      <table class="info-table">
+        <tbody>
+          <tr>
+            <th>Email Address</th>
+            <td>sofia.rodriguez@voyager.com</td>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <td>+34 93 XXXX 9012</td>
+          </tr>
+          <tr>
+            <th>Instagram</th>
+            <td><a href="#">@BarcelonaTapasQueen</a></td>
+          </tr>
+          <tr>
+            <th>Twitter</th>
+            <td><a href="#">@SofiaBCNGuide</a></td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <!-- 2. Contact Form Section (Inquiry Form) -->
     <section class="contact-form-section">
-        <h2 class="section-header">Send Sofia an Inquiry</h2>
-        <form class="contact-form" action="#">
-            <label for="your-name">Your Name</label>
-            <input type="text" id="your-name" name="your-name" required>
+      <h2 class="section-header">Send Sofia an Inquiry</h2>
+      <form class="contact-form" action="#">
+        <label for="your-name">Your Name</label>
+        <input type="text" id="your-name" name="your-name" required />
 
-            <label for="your-email">Your Email</label>
-            <input type="email" id="your-email" name="your-email" required>
+        <label for="your-email">Your Email</label>
+        <input type="email" id="your-email" name="your-email" required />
 
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required />
 
-            <label for="message">Your Message / Availability Inquiry</label>
-            <textarea id="message" name="message" required></textarea>
+        <label for="message">Your Message / Availability Inquiry</label>
+        <textarea id="message" name="message" required></textarea>
 
-            <button type="submit">Send Message</button>
-        </form>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
-    
-</body>
+  </body>
 </html>
