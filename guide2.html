@@ -1,296 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Guide Profile | Kenji Tanaka</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Georgia', serif; 
-        }
-        .logo-bar {
-            background-color: #f7f7f7; 
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Georgia", serif;
+      }
 
-        .logo-bar .logo-text {
-            font-family: 'Times New Roman', serif; 
-            font-size: 32px;
-            font-weight: bold;
-            color: #2c4d57; 
-        }
-    
-        .guide-title {
-            color: white;
-            font-size: 50px;
-            font-weight: normal;
-            margin-top: -50px; 
-            z-index: 1; 
-        }
+      body {
+        background-color: #dbeee4;
+      }
 
-        /* 🧭 TOP NAVIGATION BAR */
-        .top-nav {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            z-index: 10;
-        }
+      /* ======= NAV BAR (same as other pages) ======= */
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        padding-left: 70px;
+        backdrop-filter: blur(2px);
+        z-index: 1000;
+      }
 
-        .top-nav span:first-child { 
-            order: -1; 
-            font-size: 24px;
-        }
+      .branding {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        width: 35px;
+        height: 35px;
+      }
+      .proj-name {
+        color: white;
+        font-size: 26px;
+        font-weight: bold;
+      }
 
-        .nav-icons {
-            display: flex;
-            gap: 15px;
-            order: 1; 
-        }
+      .menu-btn {
+        position: fixed;
+        top: 16px;
+        left: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1001;
+      }
 
-        .icon {
-            font-size: 24px;
-            cursor: pointer;
-        }
+      #nav-bar {
+        display: none;
+      }
 
-        .profile-container {
-            margin-top: -150px; 
-            background-color: #d9e7dd; 
-            padding: 20px 10%; 
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 30px; 
-            position: relative; 
-            z-index: 5;
-            margin-bottom: 50px; 
-        }
-        
-        .profile-photo-area {
-            flex-basis: 350px; 
-            max-width: 350px;
-            padding-top: 50px; 
-        }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 260px;
+        height: 100%;
+        background-color: #1c1c1c;
+        padding: 30px 25px;
+        color: white;
+        overflow-y: auto;
+        transition: 0.4s;
+        z-index: 999;
+      }
 
-        .guide-photo {
-            /* Using a simple placeholder image URL */
-            content: url('https://media.istockphoto.com/id/1511207680/photo/asian-man-backpacker-or-hiking-in-nature-forest-trekking-woods-or-japanese-trees-in-adventure.jpg?s=612x612&w=0&k=20&c=Zj5tu7gvYHKn7pWQ4GGBidjtEixiU-yO-nPSHUtWa3Y=');
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+      #nav-bar:checked ~ .sidebar {
+        left: 0;
+      }
 
-        .profile-details-box {
-            flex-grow: 1; 
-            margin-top: 50px; 
-            padding-left: 20px;
-        }
+      .close-btn {
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 20px;
+        display: block;
+      }
 
-        .guide-name {
-            font-size: 40px;
-            font-weight: bold;
-            margin-bottom: 25px;
-            color: #1a1a1a;
-        }
+      .menu {
+        list-style: none;
+      }
 
-        .detail-group {
-            display: flex; 
-            margin-bottom: 8px;
-            font-size: 18px;
-        }
+      .menu li a {
+        display: block;
+        padding: 10px 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #f2f2f2;
+        border-radius: 5px;
+        transition: 0.2s;
+      }
 
-        .detail-label {
-            font-weight: bold;
-            color: #1a1a1a;
-            min-width: 110px; 
-            margin-right: 5px;
-        }
+      .menu li a:hover {
+        background-color: #2f2f2f;
+      }
 
-        .detail-value {
-            color: #333;
-        }
-        .section-header {
-            font-size: 28px;
-            color: #2c4d57;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-    
-        .contact-details-section {
-            padding: 0 10% 50px 10%; 
-            background-color: white;
-        }
-        
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        .info-table th, .info-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        .info-table th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-            width: 30%;
-        }
-        
-        .info-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+      .menu li a.active {
+        background-color: #cfe4d5;
+        color: black;
+      }
 
-        .contact-form-section {
-            padding: 0 10% 50px 10%;
-            background-color: #e6e9e6; 
-        }
-        
-        .contact-form label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #2c4d57;
-        }
-        
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        .contact-form button {
-            background-color: #4b6a73; 
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            margin-top: 20px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
+      .expand-item {
+        margin-top: 18px;
+      }
 
-        .contact-form button:hover {
-            background-color: #314d56;
-        }
+      .expand-title {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        padding: 10px 12px;
+      }
+
+      .expand-title::before {
+        content: ">";
+        font-size: 18px;
+        margin-right: 10px;
+        transition: 0.3s;
+      }
+
+      #about-toggle:checked + .expand-title::before {
+        content: "-";
+      }
+
+      .sub-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.4s ease;
+        margin-left: 25px;
+      }
+
+      #about-toggle:checked ~ .sub-menu {
+        max-height: 300px;
+      }
+
+      .sub-menu li a {
+        padding: 8px 12px;
+        font-size: 16px;
+        color: #eaeaea;
+        display: block;
+      }
+
+      /* ===== HERO HEADER ===== */
+      .hero-header {
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 60vh;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.2);
+        background-blend-mode: overlay;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 65px; /* so it doesn't hide behind nav */
+      }
+
+      .guide-title {
+        color: white;
+        font-size: 50px;
+        font-weight: normal;
+        margin-top: -50px;
+        z-index: 1;
+      }
+
+      /* ===== PROFILE CONTENT ===== */
+      .profile-container {
+        margin-top: -150px;
+        background-color: #d9e7dd;
+        padding: 20px 10%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        position: relative;
+        z-index: 5;
+        margin-bottom: 50px;
+      }
+
+      .profile-photo-area {
+        flex-basis: 350px;
+        max-width: 350px;
+        padding-top: 50px;
+      }
+
+      .guide-photo {
+        content: url("https://media.istockphoto.com/id/1511207680/photo/asian-man-backpacker-or-hiking-in-nature-forest-trekking-woods-or-japanese-trees-in-adventure.jpg?s=612x612&w=0&k=20&c=Zj5tu7gvYHKn7pWQ4GGBidjtEixiU-yO-nPSHUtWa3Y=");
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .profile-details-box {
+        flex-grow: 1;
+        margin-top: 50px;
+        padding-left: 20px;
+      }
+
+      .guide-name {
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        color: #1a1a1a;
+      }
+
+      .detail-group {
+        display: flex;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .detail-label {
+        font-weight: bold;
+        color: #1a1a1a;
+        min-width: 110px;
+        margin-right: 5px;
+      }
+
+      .detail-value {
+        color: #333;
+      }
+
+      .section-header {
+        font-size: 28px;
+        color: #2c4d57;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+      }
+
+      .contact-details-section {
+        padding: 0 10% 50px 10%;
+        background-color: white;
+      }
+
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      .info-table th,
+      .info-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      .info-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        width: 30%;
+      }
+
+      .info-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .contact-form-section {
+        padding: 0 10% 50px 10%;
+        background-color: #e6e9e6;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #2c4d57;
+      }
+
+      .contact-form input[type="text"],
+      .contact-form input[type="email"],
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      .contact-form button {
+        background-color: #4b6a73;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+
+      .contact-form button:hover {
+        background-color: #314d56;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- TOP BAR (same as other pages) -->
+    <header class="topbar">
+      <div class="branding">
+        <img
+          src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+          class="logo"
+        />
+        <span class="proj-name">voyager</span>
+      </div>
+    </header>
 
-    <div class="logo-bar">
-        <span class="logo-text">voyager</span>
-    </div>
+    <!-- MENU CHECKBOX + BUTTON -->
+    <input type="checkbox" id="nav-bar" />
+    <label for="nav-bar" class="menu-btn">≡</label>
 
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <label for="nav-bar" class="close-btn">×</label>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="destination.html">Destinations</a></li>
+        <li><a href="guide.html" class="active">Guides page</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+
+        <li class="expand-item">
+          <input type="checkbox" id="about-toggle" />
+          <label for="about-toggle" class="expand-title">About & Contact</label>
+          <ul class="sub-menu">
+            <li><a href="contactUs.html">Contact us</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- HERO HEADER -->
     <header class="hero-header">
-        <nav class="top-nav">
-            <span class="icon">&#9906;</span> 
-            <div class="nav-icons">
-                <span class="icon menu-icon">&#9776;</span> 
-            </div>
-        </nav>
-        
-        <h1 class="guide-title">Kenji Tanaka</h1>
-        <div class="center-feature"></div> 
+      <h1 class="guide-title">Kenji Tanaka</h1>
+      <div class="center-feature"></div>
     </header>
 
     <main class="profile-container">
-        <div class="profile-photo-area">
-            <img src="https://media.istockphoto.com/id/1511207680/photo/asian-man-backpacker-or-hiking-in-nature-forest-trekking-woods-or-japanese-trees-in-adventure.jpg?s=612x612&w=0&k=20&c=Zj5tu7gvYHKn7pWQ4GGBidjtEixiU-yO-nPSHUtWa3Y=" alt="Kenji Tanaka photo" class="guide-photo">
+      <div class="profile-photo-area">
+        <img
+          src="https://media.istockphoto.com/id/1511207680/photo/asian-man-backpacker-or-hiking-in-nature-forest-trekking-woods-or-japanese-trees-in-adventure.jpg?s=612x612&w=0&k=20&c=Zj5tu7gvYHKn7pWQ4GGBidjtEixiU-yO-nPSHUtWa3Y="
+          alt="Kenji Tanaka photo"
+          class="guide-photo"
+        />
+      </div>
+      <div class="profile-details-box">
+        <h2 class="guide-name">Kenji Tanaka, Certified Guide</h2>
+        <div class="detail-group">
+          <p class="detail-label">Location:</p>
+          <p class="detail-value">Kyoto, Japan</p>
         </div>
-        <div class="profile-details-box">
-            <h2 class="guide-name">Kenji Tanaka, Certified Guide</h2>
-            <div class="detail-group">
-                <p class="detail-label">Location:</p>
-                <p class="detail-value">Kyoto, Japan</p>
-            </div>
-            <div class="detail-group">
-                <p class="detail-label">Languages:</p>
-                <p class="detail-value">Japanese, English</p>
-            </div>
-            <div class="detail-group">
-                <p class="detail-label">Specialty:</p>
-                <p class="detail-value">Zen gardens & temples, traditional tea ceremonies, photography tours</p>
-            </div>
-            <div class="detail-group">
-                <p class="detail-label">Rating:</p>
-                <p class="detail-value">4.7/5 stars (180 reviews)</p>
-            </div>
-            <p style="margin-top: 20px; font-size: 16px; color: #555;">
-                *Kenji is a Certified Japanese Cultural Heritage Expert with 8 years of experience. He specializes in creating intimate, focused experiences (Max 6 people) centered on Kyoto's artistic and spiritual heart.*
-            </p>
+        <div class="detail-group">
+          <p class="detail-label">Languages:</p>
+          <p class="detail-value">Japanese, English</p>
         </div>
+        <div class="detail-group">
+          <p class="detail-label">Specialty:</p>
+          <p class="detail-value">
+            Zen gardens & temples, traditional tea ceremonies, photography tours
+          </p>
+        </div>
+        <div class="detail-group">
+          <p class="detail-label">Rating:</p>
+          <p class="detail-value">4.7/5 stars (180 reviews)</p>
+        </div>
+        <p style="margin-top: 20px; font-size: 16px; color: #555">
+          *Kenji is a Certified Japanese Cultural Heritage Expert with 8 years
+          of experience. He specializes in creating intimate, focused
+          experiences (Max 6 people) centered on Kyoto's artistic and spiritual
+          heart.*
+        </p>
+      </div>
     </main>
 
     <section class="contact-details-section">
-        <h2 class="section-header">Contact & Social Media</h2>
-        <table class="info-table">
-            <tbody>
-                <tr>
-                    <th>Email Address</th>
-                    <td>kenji.tanaka@voyager.com</td>
-                </tr>
-                <tr>
-                    <th>Phone Number</th>
-                    <td>+81 75 XXXX 5678</td>
-                </tr>
-                <tr>
-                    <th>Instagram</th>
-                    <td><a href="#">@KyotoZenGuide</a></td>
-                </tr>
-                <tr>
-                    <th>Website</th>
-                    <td><a href="#">/TanakaTours</a></td>
-                </tr>
-            </tbody>
-        </table>
+      <h2 class="section-header">Contact & Social Media</h2>
+      <table class="info-table">
+        <tbody>
+          <tr>
+            <th>Email Address</th>
+            <td>kenji.tanaka@voyager.com</td>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <td>+81 75 XXXX 5678</td>
+          </tr>
+          <tr>
+            <th>Instagram</th>
+            <td><a href="#">@KyotoZenGuide</a></td>
+          </tr>
+          <tr>
+            <th>Website</th>
+            <td><a href="#">/TanakaTours</a></td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
-    <!-- 2. Contact Form Section (Inquiry Form) -->
     <section class="contact-form-section">
-        <h2 class="section-header">Send Kenji an Inquiry</h2>
-        <form class="contact-form" action="#">
-            <label for="your-name">Your Name</label>
-            <input type="text" id="your-name" name="your-name" required>
+      <h2 class="section-header">Send Kenji an Inquiry</h2>
+      <form class="contact-form" action="#">
+        <label for="your-name">Your Name</label>
+        <input type="text" id="your-name" name="your-name" required />
 
-            <label for="your-email">Your Email</label>
-            <input type="email" id="your-email" name="your-email" required>
+        <label for="your-email">Your Email</label>
+        <input type="email" id="your-email" name="your-email" required />
 
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required />
 
-            <label for="message">Your Message / Availability Inquiry</label>
-            <textarea id="message" name="message" required></textarea>
+        <label for="message">Your Message / Availability Inquiry</label>
+        <textarea id="message" name="message" required></textarea>
 
-            <button type="submit">Send Message</button>
-        </form>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
-    
-</body>
+  </body>
 </html>
