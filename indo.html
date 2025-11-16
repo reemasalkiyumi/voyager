@@ -6,17 +6,26 @@
     <title>Voyager — Bali</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        /* COMMON STYLES FOR NAVBAR */
+
         * { margin:0; padding:0; box-sizing:border-box; font-family:"Georgia", serif; }
         body { background-color:#dbeee4; }
         .topbar {
-            position: fixed; top:0; left:0; width:100%; height:65px;
-            background-color: rgba(0,0,0,0.25); display:flex; align-items:center;
-            padding-left:70px; backdrop-filter: blur(2px); z-index:1000;
+            position:
+             fixed; top:0; left:0; width:100%; height:65px;
+            background-color: rgba(0,0,0,0.25);
+             display:flex; align-items:center;
+            padding-left:70px;
+             backdrop-filter: blur(2px); z-index:1000;
         }
-        .branding { display:flex; align-items:center; gap:10px; }
-        .logo { width:35px; height:35px; }
-        .proj-name { color:white; font-size:26px; font-weight:bold; }
+        .branding {
+             display:flex; align-items:center; 
+             gap:10px; }
+        .logo {
+             width:35px;
+              height:35px; }
+        .proj-name { 
+            color:white; font-size:26px;
+             font-weight:bold; }
         .menu-btn {
             position: fixed; top:16px; left:20px; font-size:30px; color:white;
             cursor:pointer; padding:4px 8px; border-radius:6px; background-color: rgba(0,0,0,0.4);
@@ -43,7 +52,7 @@
         #about-toggle:checked ~ .sub-menu { max-height:300px; }
         .sub-menu li a { padding:8px 12px; font-size:16px; color:#eaeaea; display:block; }
 
-        /* BALI PAGE STYLES */
+       
         .header-img { width:100%; height:260px; background-image:url('background.jpg'); background-size:cover; background-position:center; display:flex; justify-content:center; align-items:center; margin-top:65px; }
         .header-title { font-size:42px; color:white; font-weight:bold; text-shadow:2px 2px 8px rgba(0,0,0,0.5); }
         .country-table { width:90%; margin:40px auto; vertical-align:top; }
