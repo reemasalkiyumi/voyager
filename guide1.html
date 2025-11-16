@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Profile | Marie Conti</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif; 
+        }
+        .logo-bar {
+            background-color: #f7f7f7; 
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo-bar .logo-text {
+            font-family: 'Times New Roman', serif; 
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c4d57; 
+        }
+        
+        /* ⛰️ HERO HEADER STYLES */
+        .hero-header {
+            background-image: url('background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 60vh; 
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.2); 
+            background-blend-mode: overlay;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .guide-title {
+            color: white;
+            font-size: 50px;
+            font-weight: normal;
+            margin-top: -50px; 
+            z-index: 1; 
+        }
+
+        /* 🧭 TOP NAVIGATION BAR */
+        .top-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            z-index: 10;
+        }
+
+        .top-nav span:first-child { 
+            order: -1; 
+            font-size: 24px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            order: 1; 
+        }
+
+        .icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+    
+        .profile-container {
+            margin-top: -150px; 
+            background-color: #d9e7dd; 
+            padding: 20px 10%; 
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 30px; 
+            position: relative; 
+            z-index: 5;
+            margin-bottom: 50px; 
+        }
+        
+        .profile-photo-area {
+            flex-basis: 350px; 
+            max-width: 350px;
+            padding-top: 50px; 
+        }
+
+        .guide-photo {
+            content: url('https://www.schooltripworld.co.uk/wp-content/uploads/2025/03/woman-traveling-in-venice-italy.jpg');
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .profile-details-box {
+            flex-grow: 1; 
+            margin-top: 50px; 
+            padding-left: 20px;
+        }
+        .guide-name {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+        }
+
+        .detail-group {
+            display: flex; 
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #1a1a1a;
+            min-width: 110px; 
+            margin-right: 5px;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .section-header {
+            font-size: 28px;
+            color: #2c4d57;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .contact-details-section {
+            padding: 0 10% 50px 10%; 
+            background-color: white;
+        }
+        
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .info-table th, .info-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .info-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            width: 30%;
+        }
+        
+        .info-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .contact-form-section {
+            padding: 0 10% 50px 10%;
+            background-color: #e6e9e6; 
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c4d57;
+        }
+        
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .contact-form button {
+            background-color: #4b6a73; 
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .contact-form button:hover {
+            background-color: #314d56;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-bar">
+        <span class="logo-text">voyager</span>
+    </div>
+
+    <header class="hero-header">
+        <nav class="top-nav">
+            <span class="icon">&#9906;</span> 
+            <div class="nav-icons">
+                <span class="icon menu-icon">&#9776;</span> 
+            </div>
+        </nav>
+        
+        <h1 class="guide-title">Marie Conti</h1>
+        <div class="center-feature"></div> 
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-photo-area">
+            <img src="https://www.schooltripworld.co.uk/wp-content/uploads/2025/03/woman-traveling-in-venice-italy.jpg" alt="Marie photo" class="guide-photo">
+        </div>
+        <div class="profile-details-box">
+            <h2 class="guide-name">Marie Conti, Certified Guide</h2>
+            <div class="detail-group">
+                <p class="detail-label">Location:</p>
+                <p class="detail-value">Rome, Italy</p>
+            </div>
+            <div class="detail-group">
+                <p class="detail-label">Languages:</p>
+                <p class="detail-value">Italian, English, French</p>
+            </div>
+            <div class="detail-group">
+                <p class="detail-label">Specialty:</p>
+                <p class="detail-value">Historical walking tours, food tours, hidden local spots</p>
+            </div>
+            <div class="detail-group">
+                <p class="detail-label">Rating:</p>
+                <p class="detail-value">4.9/5 stars (62 reviews)</p>
+            </div>
+            <p style="margin-top: 20px; font-size: 16px; color: #555;">
+ *Marie has 12 years of experience leading tours across Rome. She is a certified Roman History Guide and Culinary Expert, specializing in small group experiences (Max 10 people).*            </p>
+        </div>
+    </main>
+
+    <section class="contact-details-section">
+        <h2 class="section-header">Contact & Social Media</h2>
+        <table class="info-table">
+            <tbody>
+                <tr>
+                    <th>Email Address</th>
+                    <td>marie.conti@voyager.com</td>
+                </tr>
+                <tr>
+                    <th>Phone Number</th>
+                    <td>+39 06 XXXX 1234</td>
+                </tr>
+                <tr>
+                    <th>Instagram</th>
+                    <td><a href="#">@RomeWithMarie</a></td>
+                </tr>
+                <tr>
+                    <th>FaceBook</th>
+                    <td><a href="#">/MarieContiTours</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="contact-form-section">
+        <h2 class="section-header">Send Marie an Inquiry</h2>
+        <form class="contact-form" action="#">
+            <label for="your-name">Your Name</label>
+            <input type="text" id="your-name" name="your-name" required>
+
+            <label for="your-email">Your Email</label>
+            <input type="email" id="your-email" name="your-email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Your Message / Availability Inquiry</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+</body>
+</html>
