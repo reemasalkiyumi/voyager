@@ -1,120 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voyager — Bali</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voyager — Bali</title>
 
-        * { margin:0; padding:0; box-sizing:border-box; font-family:"Georgia", serif; }
-        body { background-color:#dbeee4; }
-        .topbar {
-            position:
-             fixed; top:0; left:0; width:100%; height:65px;
-            background-color: rgba(0,0,0,0.25);
-             display:flex; align-items:center;
-            padding-left:70px;
-             backdrop-filter: blur(2px); z-index:1000;
-        }
-        .branding {
-             display:flex; align-items:center; 
-             gap:10px; }
-        .logo {
-             width:35px;
-              height:35px; }
-        .proj-name { 
-            color:white; font-size:26px;
-             font-weight:bold; }
-        .menu-btn {
-            position: fixed; top:16px; left:20px; font-size:30px; color:white;
-            cursor:pointer; padding:4px 8px; border-radius:6px; background-color: rgba(0,0,0,0.4);
-            z-index:1001;
-        }
-        #nav-bar { display:none; }
-        .sidebar {
-            position: fixed; top:0; left:-260px; width:260px; height:100%;
-            background-color:#1c1c1c; padding:30px 25px; color:white; overflow-y:auto; transition:0.4s; z-index:999;
-        }
-        #nav-bar:checked ~ .sidebar { left:0; }
-        .close-btn { font-size:32px; font-weight:bold; color:white; cursor:pointer; margin-bottom:20px; display:block; }
-        .menu { list-style:none; }
-        .menu li a { display:block; padding:10px 12px; text-decoration:none; font-size:18px; color:#f2f2f2; border-radius:5px; transition:0.2s; }
-        .menu li a:hover { background-color:#2f2f2f; }
-        .menu li a.active { background-color:#cfe4d5; color:black; }
-        .expand-item { margin-top:18px; }
-        .expand-title {
-            display:flex; align-items:center; font-size:18px; color:white; cursor:pointer; padding:10px 12px;
-        }
-        .expand-title::before { content: ">"; font-size:18px; margin-right:10px; transition:0.3s; }
-        #about-toggle:checked + .expand-title::before { content:"-"; }
-        .sub-menu { max-height:0; overflow:hidden; transition:0.4s ease; margin-left:25px; }
-        #about-toggle:checked ~ .sub-menu { max-height:300px; }
-        .sub-menu li a { padding:8px 12px; font-size:16px; color:#eaeaea; display:block; }
-
-       
-        .header-img { width:100%; height:260px; background-image:url('background.jpg'); background-size:cover; background-position:center; display:flex; justify-content:center; align-items:center; margin-top:65px; }
-        .header-title { font-size:42px; color:white; font-weight:bold; text-shadow:2px 2px 8px rgba(0,0,0,0.5); }
-        .country-table { width:90%; margin:40px auto; vertical-align:top; }
-        .country-img { width:100%; height:auto; max-height:600px; border-radius:4px; display:block; }
-        .country-text { font-size:18px; color:#143642; line-height:1.7; padding-right:15px; }
-        .country-title { font-size:30px; font-weight:bold; color:#0e2f3d; margin-bottom:15px; }
-        .footer { background-color:#143642; color:white; padding:16px; text-align:center; margin-top:50px; font-size:14px; }
-    </style>
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light" style="background-color:#dbeee4; font-family: Georgia, serif;">
 
-    <header class="topbar">
-        <div class="branding">
-            <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" class="logo" />
-            <span class="proj-name">voyager</span>
+<!-- NAV BAR -->
+<nav class="navbar fixed-top navbar-dark" style="background-color: rgba(0,0,0,0.25); backdrop-filter: blur(2px);">
+  <div class="container">
+    <div class="d-flex align-items-center">
+      <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" class="me-2" style="width:35px;height:35px;">
+      <span class="navbar-brand mb-0 h1">voyager</span>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+      ≡
+    </button>
+  </div>
+</nav>
+
+<!-- SIDE MENU -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebar">
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title">Menu</h4>
+    <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-group list-group-flush">
+      <li><a href="index.html" class="list-group-item list-group-item-action bg-dark text-light">Home</a></li>
+      <li><a href="Destinations.html" class="list-group-item list-group-item-action bg-dark text-light">Explore</a></li>
+      <li><a href="guide.html" class="list-group-item list-group-item-action bg-dark text-light">Guides page</a></li>
+      <li><a href="signup.html" class="list-group-item list-group-item-action bg-dark text-light">Sign up</a></li>
+      <li class="mt-3">
+        <details>
+          <summary class="text-light">About & Contact</summary>
+          <ul class="list-group mt-2">
+            <li><a href="contactUs.html" class="list-group-item list-group-item-action bg-dark text-light">Contact us</a></li>
+            <li><a href="aboutUs.html" class="list-group-item list-group-item-action bg-dark text-light">About us</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- TITLE IMAGE -->
+<div class="d-flex justify-content-center align-items-center" style="background-image:url('background.jpg'); background-size:cover; background-position:center; height:260px; margin-top:65px;">
+  <h1 class="text-white fw-bold" style="font-size:42px; text-shadow:2px 2px 8px rgba(0,0,0,0.4);">BALI</h1>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container py-5">
+
+  <div class="row align-items-start g-4">
+    <div class="col-md-6">
+      <img src="https://cdn.sanity.io/images/nxpteyfv/goguides/15486940194b45347ac5037248d2363d27dec5ad-1600x1066.jpg" class="img-fluid rounded mb-3" alt="Bali">
+    </div>
+    <div class="col-md-6">
+      <h2 class="fw-bold text-dark">Bali</h2>
+      <p class="text-dark" style="font-size:18px; line-height:1.7;">
+        Bali is one of Southeast Asia’s most loved destinations. Known for its tropical beaches, emerald rice terraces, waterfalls, traditional dance, volcanoes, jungle temples and vibrant markets.
+        Travelers can enjoy surfing, luxury spas, hiking, cultural festivals, rich cuisine and a welcoming atmosphere that blends tradition and modern tourism perfectly.
+      </p>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e" class="img-fluid rounded" alt="Balinese Restaurant">
+      <p class="mt-2 text-dark" style="font-size:17px;">Bali is famous for its fresh seafood, Nasi Goreng, peanut-based dishes, and beachfront dining experiences.</p>
+    </div>
+    <div class="col-md-6">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="img-fluid rounded" alt="Bali Temple">
+      <p class="mt-2 text-dark" style="font-size:17px;">Temples such as Uluwatu and Tanah Lot are major cultural landmarks where visitors experience spiritual ceremonies, dances, and panoramic sunsets.</p>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <h3 class="fw-bold mb-3 text-dark">Is Bali Good For…?</h3>
+  <ul class="text-dark" style="font-size:18px; line-height:1.7;">
+    <li><b>Solo Travelers:</b> Safe, budget-friendly, lots of hostels, co-working hubs, and friendly social culture.</li>
+    <li><b>Families:</b> Many kid-friendly resorts, safe beaches, animal parks and adventure parks.</li>
+    <li><b>Couples:</b> Ultra-romantic villas, sunsets, private pools and spa retreats.</li>
+    <li><b>Adventure Seekers:</b> Volcano hiking, white water rafting, diving, surfing, quad biking.</li>
+    <li><b>Food Lovers:</b> Great seafood, vegan cafes, fusion restaurants, street snacks.</li>
+  </ul>
+
+  <hr class="my-5">
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Weather</h5>
+          <p class="mb-0">Warm year-round, around 25-31°C. Best months: May–September.</p>
         </div>
-    </header>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Average Trip Cost</h5>
+          <p class="mb-0">Budget travelers: $25–40/day. Luxury: $150+ per day.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Best For</h5>
+          <p class="mb-0">Relaxation, culture, beaches, nature and photography.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <input type="checkbox" id="nav-bar" />
-    <label for="nav-bar" class="menu-btn">≡</label>
-    <nav class="sidebar">
-        <label for="nav-bar" class="close-btn">×</label>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Destinations.html">Explore</a></li>
-            <li><a href="guide.html">Guides page</a></li>
-            <li><a href="signup.html">Sign up</a></li>
-            <li class="expand-item">
-                <input type="checkbox" id="about-toggle" />
-                <label for="about-toggle" class="expand-title">About & Contact</label>
-                <ul class="sub-menu">
-                    <li><a href="contactUs.html">Contact us</a></li>
-                    <li><a href="aboutUs.html">About us</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+  <hr class="my-5">
 
-    <!-- PAGE HEADER -->
-    <div class="header-img">
-        <h1 class="header-title">BALI</h1>
+  <!-- TRAVELER REVIEWS WITH RATINGS -->
+  <h3 class="fw-bold mb-3 text-dark">Traveler Reviews with Ratings</h3>
+  <div class="row g-3">
+
+    <!-- Review 1 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Sarah (UK) ⭐️⭐️⭐️⭐️</h5>
+          <p class="card-text">“Amazing beaches, wonderful food, beautiful culture. Would go again!”</p>
+          <ul class="list-unstyled mb-0">
+            <li>Food: 4/5</li>
+            <li>Price: 4/5</li>
+            <li>Weather: 3/5</li>
+            <li>Local Hospitality: 3.5/5</li>
+            <li>Adventure: 4/5</li>
+            <li>Entertainment: 3/5</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <!-- BALI CONTENT -->
-    <table class="country-table" cellpadding="20" cellspacing="15">
-        <tr>
-            <td style="width:55%;">
-                <img class="country-img" src="https://cdn.sanity.io/images/nxpteyfv/goguides/15486940194b45347ac5037248d2363d27dec5ad-1600x1066.jpg" alt="Bali">
-            </td>
-            <td style="width:45%;">
-                <h2 class="country-title">Bali</h2>
-                <p class="country-text">
-                    Bali, Indonesia, is famous for its stunning beaches, lush rice terraces, and vibrant culture. 
-                    Visitors can enjoy surfing, tropical forests, volcanic landscapes, and traditional Balinese arts, making it a paradise for nature and culture lovers alike.
-                </p>
-            </td>
-        </tr>
-    </table>
+    <!-- Review 2 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Omar (UAE) ⭐️⭐️⭐️</h5>
+          <p class="card-text">“Perfect for families. Safe, affordable and full of things for kids.”</p>
+          <ul class="list-unstyled mb-0">
+            <li>Food: 3/5</li>
+            <li>Price: 2.5/5</li>
+            <li>Weather: 5/5</li>
+            <li>Local Hospitality: 5/5</li>
+            <li>Adventure: 4.5/5</li>
+            <li>Entertainment: 2/5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <footer class="footer">
-        © 2025 Voyager. All rights reserved.
-    </footer>
+    <!-- Review 3 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Tom (USA) ⭐️⭐️⭐️⭐️</h5>
+          <p class="card-text">“Great for surfing and solo backpacking. Easy to make friends!”</p>
+          <ul class="list-unstyled mb-0">
+            <li>Food: 4.5/5</li>
+            <li>Price: 3/5</li>
+            <li>Weather: 4/5</li>
+            <li>Local Hospitality: 4/5</li>
+            <li>Adventure: 5/5 </li>
+            <li>Entertainment: 3.2/5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
+  </div>
+
+  <!-- REVIEW SUMMARY -->
+  <div class="p-4 rounded mt-4" style="background-color:#ffffffdd;">
+    <h5 class="fw-bold">Travel Experience Summary – Bali</h5>
+    <p class="text-dark" style="font-size:17px;">
+      Visitors praise the <b>delicious and diverse food</b>, with prices being reasonable for most budgets. The <b>weather is excellent</b> year-round, and the beaches and natural landscapes are stunning. The <b>Local Hospitality</b> is friendly and welcoming, making the trip safe and comfortable. Bali is ideal for <b>adventure lovers</b> with activities like surfing, hiking, and diving, and it offers plenty of <b>poor entertainment options</b> for families and friends. Overall, Bali provides an enjoyable experience for all types of travelers, whether traveling solo, with family, or with friends.
+    </p>
+  </div>
+
+  <hr class="my-5">
+
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center py-3 mt-5" style="background-color:#143642; color:white;">
+  © 2025 Voyager. All rights reserved.
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

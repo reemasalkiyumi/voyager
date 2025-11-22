@@ -1,259 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voyager — Country Info</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voyager — Rome</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Georgia", serif;
-        }
-        body {
-            background-color: #dbeee4;
-        }
-
-        .topbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 65px;
-            background-color: rgba(0, 0, 0, 0.25);
-            display: flex;
-            align-items: center;
-            padding-left: 70px;
-            backdrop-filter: blur(2px);
-            z-index: 1000;
-        }
-        .branding {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo {
-            width: 35px;
-            height: 35px;
-        }
-        .proj-name {
-            color: white;
-            font-size: 26px;
-            font-weight: bold;
-        }
-        .menu-btn {
-            position: fixed;
-            top: 16px;
-            left: 20px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-            padding: 4px 8px;
-            border-radius: 6px;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 1001;
-        }
-        #nav-bar {
-            display: none;
-        }
-
-        /* SIDEBAR */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -260px;
-            width: 260px;
-            height: 100%;
-            background-color: #1c1c1c;
-            padding: 30px 25px;
-            color: white;
-            overflow-y: auto;
-            transition: 0.4s;
-            z-index: 999;
-        }
-        #nav-bar:checked ~ .sidebar {
-            left: 0;
-        }
-        .close-btn {
-            font-size: 32px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            margin-bottom: 20px;
-            padding-left: 5px;
-            padding-top: 5px;
-            display: block;
-        }
-        .menu {
-            list-style: none;
-        }
-        .menu li a {
-            display: block;
-            padding: 10px 12px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #f2f2f2;
-            border-radius: 5px;
-            transition: 0.2s;
-        }
-        .menu li a:hover {
-            background-color: #2f2f2f;
-        }
-        .menu li a.active {
-            background-color: #cfe4d5;
-            color: black;
-        }
-        /* EXPAND MENU */
-        .expand-item {
-            margin-top: 18px;
-        }
-        .expand-title {
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-            color: white;
-            cursor: pointer;
-            padding: 10px 12px;
-        }
-        .expand-title::before {
-            content: ">";
-            font-size: 18px;
-            margin-right: 10px;
-            transition: 0.3s;
-        }
-        #about-toggle:checked + .expand-title::before {
-            content: "-";
-        }
-        .sub-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: 0.4s ease;
-            margin-left: 25px;
-        }
-        #about-toggle:checked ~ .sub-menu {
-            max-height: 300px;
-        }
-        .sub-menu li a {
-            padding: 8px 12px;
-            font-size: 16px;
-            color: #eaeaea;
-            display: block;
-        }
-
-        /* CITY PAGE STYLES */
-        .header-img {
-            width: 100%;
-            height: 260px;
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 65px; /* offset topbar */
-        }
-        .header-title {
-            font-size: 42px;
-            color: white;
-            font-weight: bold;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        .country-table {
-            width: 90%;
-            margin: 40px auto;
-            vertical-align: top;
-        }
-        .country-img {
-            width: 100%;
-            height: auto;
-            max-height: 600px;
-            border-radius: 4px;
-            display: block;
-        }
-        .country-text {
-            font-size: 18px;
-            color: #143642;
-            line-height: 1.7;
-            padding-right: 15px;
-        }
-        .country-title {
-            font-size: 30px;
-            font-weight: bold;
-            color: #0e2f3d;
-            margin-bottom: 15px;
-        }
-        .footer {
-            background-color: #143642;
-            color: white;
-            padding: 16px;
-            text-align: center;
-            margin-top: 50px;
-            font-size: 14px;
-        }
-    </style>
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light" style="background-color:#dbeee4; font-family: Georgia, serif;">
 
-    <!-- TOP BAR -->
-    <header class="topbar">
-        <div class="branding">
-            <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" class="logo" />
-            <span class="proj-name">voyager</span>
+<!-- NAV BAR -->
+<nav class="navbar fixed-top navbar-dark" style="background-color: rgba(0,0,0,0.25); backdrop-filter: blur(2px);">
+  <div class="container">
+    <div class="d-flex align-items-center">
+      <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" class="me-2" style="width:35px;height:35px;">
+      <span class="navbar-brand mb-0 h1">voyager</span>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+      ≡
+    </button>
+  </div>
+</nav>
+
+<!-- SIDE MENU -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebar">
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title">Menu</h4>
+    <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-group list-group-flush">
+      <li><a href="index.html" class="list-group-item list-group-item-action bg-dark text-light">Home</a></li>
+      <li><a href="Destinations.html" class="list-group-item list-group-item-action bg-dark text-light">Explore</a></li>
+      <li><a href="guide.html" class="list-group-item list-group-item-action bg-dark text-light">Guides page</a></li>
+      <li><a href="signup.html" class="list-group-item list-group-item-action bg-dark text-light">Sign up</a></li>
+      <li class="mt-3">
+        <details>
+          <summary class="text-light">About & Contact</summary>
+          <ul class="list-group mt-2">
+            <li><a href="contactUs.html" class="list-group-item list-group-item-action bg-dark text-light">Contact us</a></li>
+            <li><a href="aboutUs.html" class="list-group-item list-group-item-action bg-dark text-light">About us</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- TITLE IMAGE -->
+<div class="d-flex justify-content-center align-items-center" style="background-image:url('background.jpg'); background-size:cover; background-position:center; height:260px; margin-top:65px;">
+  <h1 class="text-white fw-bold" style="font-size:42px; text-shadow:2px 2px 8px rgba(0,0,0,0.4);">ROME</h1>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container py-5">
+
+  <div class="row align-items-start g-4">
+    <div class="col-md-6">
+      <img src="https://i0.wp.com/reporterontheroad.com/wp-content/uploads/voyage-a-rome-cover.png?fit=1600%2C1067&ssl=1" class="img-fluid rounded mb-3" alt="Rome">
+    </div>
+    <div class="col-md-6">
+      <h2 class="fw-bold text-dark">Rome</h2>
+      <p class="text-dark" style="font-size:18px; line-height:1.7;">
+        Rome, Italy's capital, is a treasure trove of history, culture, and architecture. Known for its ancient ruins like the Colosseum and Roman Forum, stunning piazzas, Baroque churches, and world-class cuisine, Rome offers a rich experience for history buffs, food lovers, and culture enthusiasts alike.
+      </p>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <div class="row g-4">
+    <div class="col-md-6">
+      <img src="https://www.trafalgar.com/real-word/wp-content/uploads/sites/3/2022/07/southern-italian-food2.jpeg" class="img-fluid rounded" alt="Italian Food">
+      <p class="mt-2 text-dark" style="font-size:17px;">Rome is famous for its authentic Italian cuisine: pizza, pasta, gelato, espresso, and traditional trattorias.</p>
+    </div>
+    <div class="col-md-6">
+      <img src="https://www.thoughtco.com/thmb/ZFRfv-6guynhZ17sI1T8xuZFkfU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sunrise-at-the-colosseum--rome--italy-175572577-5aa29950c5542e00364d91f9.jpg" class="img-fluid rounded" alt="Rome Landmarks">
+      <p class="mt-2 text-dark" style="font-size:17px;">Must-visit landmarks include the Colosseum, Vatican City, St. Peter’s Basilica, Trevi Fountain, and the Pantheon.</p>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <h3 class="fw-bold mb-3 text-dark">Is Rome Good For…?</h3>
+  <ul class="text-dark" style="font-size:18px; line-height:1.7;">
+    <li><b>Solo Travelers:</b> Easy to navigate, rich in history, plenty of cafes and walking tours.</li>
+    <li><b>Families:</b> Kid-friendly museums, open piazzas, gelato shops, safe areas.</li>
+    <li><b>Couples:</b> Romantic walks, candle-lit dinners, sunset views from Spanish Steps.</li>
+    <li><b>Adventure Seekers:</b> Urban exploration, historic landmarks, cycling tours.</li>
+    <li><b>Food Lovers:</b> Classic Italian cuisine, wine tasting, local markets, authentic trattorias.</li>
+  </ul>
+
+  <hr class="my-5">
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Weather</h5>
+          <p class="mb-0">Mild Mediterranean climate. Best months: April–June & September–October.</p>
         </div>
-    </header>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Average Trip Cost</h5>
+          <p class="mb-0">Budget travelers: €50–80/day. Luxury: €200+ per day.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Best For</h5>
+          <p class="mb-0">History, culture, food, romantic getaways, sightseeing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- MENU BUTTON & CHECKBOX -->
-    <input type="checkbox" id="nav-bar" />
-    <label for="nav-bar" class="menu-btn">≡</label>
+  <hr class="my-5">
 
-    <!-- SIDEBAR -->
-    <nav class="sidebar">
-        <label for="nav-bar" class="close-btn">×</label>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Destinations.html">Explore</a></li>
-            <li><a href="guide.html">Guides page</a></li>
-            <li><a href="signup.html">Sign up</a></li>
-            <!-- ===== ABOUT WITH EXPAND ==== -->
-            <li class="expand-item">
-                <input type="checkbox" id="about-toggle" />
-                <label for="about-toggle" class="expand-title">About & Contact</label>
-                <ul class="sub-menu">
-                    <li><a href="contactUs.html">Contact us</a></li>
-                    <li><a href="aboutUs.html">About us</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+  <!-- TRAVELER REVIEWS WITH RATINGS -->
+  <h3 class="fw-bold mb-3 text-dark">Traveler Reviews with Ratings</h3>
+  <div class="row g-3">
 
-    <!-- CITY HEADER -->
-    <div class="header-img">
-        <h1 class="header-title">ROME</h1>
+    <!-- Review 1 -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Anna (UK) ⭐️⭐️⭐️</h5>
+          <p class="card-text">“History everywhere, amazing food, great walking city.some museums have long lines and the metro can be confusing.”</p>
+          <ul class="list-unstyled mb-0">
+            <li>Food: 5/5</li>
+            <li>Price: 2/5</li>
+            <li>Weather: 4/5</li>
+            <li>Local Hospitality: 4.5/5</li>
+            <li>Adventure: 3.5/5</li>
+            <li>Entertainment: 3/5</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <!-- Rome -->
-    <table class="country-table" cellpadding="20" cellspacing="15">
-        <tr>
-            <td style="width: 55%;">
-                <img class="country-img" src="https://travelpassionate.com/wp-content/uploads/2019/12/Night-view-of-Rome-Trevi-Fountain.jpg" alt="Rome">
-            </td>
-            <td style="width: 45%;">
-                <h2 class="country-title">Rome</h2>
-                <p class="country-text">
-                    Rome, the capital of Italy, is known as the "Eternal City" for its rich history that spans over 2,500 years. 
-                    It is home to world-famous landmarks such as the Colosseum, Pantheon, Trevi Fountain, and St. Peter's Basilica in Vatican City. 
-                    Rome played a central role in the Roman Empire and Renaissance, influencing art, architecture, law, and culture worldwide. 
-                </p>
-            </td>
-        </tr>
-    </table>
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Luca (Italy) ⭐️⭐️</h5>
+          <p class="card-text">“Perfect for a solo trip, safe, and lots of cultural spots , price are quite expensive !”</p>
+          <ul class="list-unstyled mb-0">
+            <li>Food: 4.5/5</li>
+            <li>Price: 2/5</li>
+            <li>Weather: 4/5</li>
+            <li>Local Hospitality: 5/5</li>
+            <li>Adventure: 1/5</li>
+            <li>Entertainment: 4/5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <footer class="footer">
-        © 2025 Voyager. All rights reserved.
-    </footer>
 
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Mark (USA) ⭐️⭐️⭐️⭐️</h5>
+          <p class="card-text">“Beautiful city, easy to explore solo, amazing gelato!”</p>
+          <ul class="list-unstyled mb-0">
+            <li>Food: 500/5</li>
+            <li>Price: 3.5/5</li>
+            <li>Weather: 4/5</li>
+            <li>Local Hospitality: 4/5</li>
+            <li>Adventure: 3.5/5</li>
+            <li>Entertainment: 4/5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+ 
+  <div class="p-4 rounded mt-4" style="background-color:#ffffffdd;">
+    <h5 class="fw-bold">Travel Experience Summary – Rome</h5>
+    <p class="text-dark" style="font-size:17px;">
+      Visitors praise the <b>amazing Italian food</b>, explore rich history at landmarks like the Colosseum and Vatican, and enjoy a mild climate ideal for sightseeing. The <b>Local Hospitality</b> is welcoming and friendly, making the trip enjoyable for solo travelers, families, and couples alike. Rome is perfect for <b>cultural exploration, culinary experiences, and romantic getaways</b>, with endless entertainment, walking tours, and picturesque cityscapes.
+    </p>
+  </div>
+
+  <hr class="my-5">
+
+</div>
+
+<footer class="text-center py-3 mt-5" style="background-color:#143642; color:white;">
+  © 2025 Voyager. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
