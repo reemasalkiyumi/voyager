@@ -4,348 +4,250 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="style.css" />
 
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Colors / background only -->
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* MAKE FOOTER STAY DOWN */
       body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, Arial, sans-serif;
-
+        color: #000000;
         background-image: url("background.jpg");
+        background-repeat: no-repeat;
+
         background-size: cover;
         background-position: center;
-        background-repeat: no-repeat;
 
         background-color: rgba(0, 0, 0, 0.45);
         background-blend-mode: overlay;
-
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-
-        align-items: center;
-        justify-content: center;
       }
 
-      footer {
-        margin-top: auto;
-        text-align: center;
-        padding: 15px 0;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.4);
-        width: 100%;
-        font-size: 14px;
+      /* top mini navbar background */
+      .topbar-bg {
+        background-color: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(4px);
       }
 
-      /* LOGIN CARD */
-      .card {
-        background-color: #ffffff;
-        width: 100%;
-        max-width: 400px;
-        padding: 2rem 2.5rem;
-        border-radius: 1rem;
-        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06),
-          0 4px 16px rgba(0, 0, 0, 0.04);
-        position: relative;
-        z-index: 10;
-        margin-top: 80px;
+      /* sidebar colors */
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #ffffff;
+      }
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+      }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
+      .sidebar-custom .offcanvas-title span {
+        color: #ffffff;
       }
 
-      h1 {
-        font-size: 1.4rem;
-        font-weight: 600;
-        text-align: center;
-        margin: 0 0 0.5rem;
-        color: #1a1a1a;
-      }
-
-      p.subtitle {
-        text-align: center;
-        color: #6b6b6b;
-        font-size: 0.9rem;
-        margin-top: 0;
-        margin-bottom: 1.5rem;
-      }
-
-      .form-group {
-        margin-bottom: 1rem;
-      }
-
-      label {
-        display: block;
-        font-size: 0.9rem;
-        font-weight: 500;
-        color: #1a1a1a;
-        margin-bottom: 0.4rem;
-      }
-
-      input[type="text"],
-      input[type="email"],
-      input[type="password"] {
-        width: 100%;
-        padding: 0.75rem 0.8rem;
-        font-size: 0.95rem;
-        border-radius: 0.6rem;
-        border: 1px solid #d1d5db;
-        outline: none;
-        background-color: #fff;
-        box-sizing: border-box;
-        transition: all 0.15s ease;
-      }
-
-      input[type="text"]:focus,
-      input[type="email"]:focus,
-      input[type="password"]:focus {
-        border-color: #6366f1;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-      }
-
-      button[type="submit"] {
-        width: 100%;
+      /* primary button color */
+      .btn-primary {
         background-color: #4f46e5;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 600;
-        border: 0;
-        border-radius: 0.6rem;
-        padding: 0.8rem 1rem;
-        cursor: pointer;
-        transition: background-color 0.15s ease, box-shadow 0.15s ease;
+        border-color: #4f46e5;
       }
-
-      button[type="submit"]:hover {
+      .btn-primary:hover {
         background-color: #4338ca;
+        border-color: #4338ca;
         box-shadow: 0 12px 24px rgba(67, 56, 202, 0.24);
       }
 
-      .login-hint {
-        text-align: center;
-        font-size: 0.85rem;
-        color: #6b6b6b;
-        margin-top: 1rem;
-      }
-
-      .login-hint a {
-        color: #4f46e5;
-        text-decoration: none;
-        font-weight: 500;
-      }
-
-      .login-hint a:hover {
-        text-decoration: underline;
-      }
-
-      /* ----- NAV BAR ----- */
-      .topbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 65px;
-        background-color: rgba(0, 0, 0, 0.25);
-        display: flex;
-        align-items: center;
-        padding-left: 70px;
-        backdrop-filter: blur(2px);
-        z-index: 1000;
-      }
-
-      .branding {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .logo {
-        width: 35px;
-        height: 35px;
-      }
-
-      .proj-name {
+      /* footer colors */
+      .footer {
+        background-color: #143642;
         color: white;
-        font-size: 26px;
-        font-weight: bold;
-      }
-
-      .menu-btn {
-        position: fixed;
-        top: 16px;
-        left: 20px;
-        font-size: 30px;
-        color: white;
-        cursor: pointer;
-        padding: 4px 8px;
-        border-radius: 6px;
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: 1001;
-      }
-
-      #nav-bar {
-        display: none;
-      }
-
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: -260px;
-        width: 260px;
-        height: 100%;
-        background-color: #1c1c1c;
-        padding: 30px 25px;
-        color: white;
-        overflow-y: auto;
-        transition: 0.4s;
-        z-index: 999;
-      }
-
-      #nav-bar:checked ~ .sidebar {
-        left: 0;
-      }
-
-      .close-btn {
-        font-size: 30px;
-        font-weight: bold;
-        color: white;
-        cursor: pointer;
-        margin-bottom: 20px;
-        display: block;
-      }
-
-      .menu {
-        list-style: none;
-      }
-
-      .menu li a {
-        display: block;
-        padding: 10px 12px;
-        text-decoration: none;
-        font-size: 18px;
-        color: #f2f2f2;
-        border-radius: 5px;
-        transition: 0.2s;
-      }
-
-      .menu li a:hover {
-        background-color: #2f2f2f;
-      }
-
-      .menu li a.active {
-        background-color: #cfe4d5;
-        color: black;
-      }
-
-      .expand-item {
-        margin-top: 18px;
-      }
-
-      .expand-title {
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-        color: white;
-        cursor: pointer;
-        padding: 10px 12px;
-      }
-
-      .expand-title::before {
-        content: ">";
-        margin-right: 10px;
-        transition: 0.3s;
-      }
-
-      #about-toggle:checked + .expand-title::before {
-        content: "-";
-      }
-
-      .sub-menu {
-        max-height: 0;
-        overflow: hidden;
-        transition: 0.4s;
-        margin-left: 25px;
-      }
-
-      #about-toggle:checked ~ .sub-menu {
-        max-height: 300px;
       }
     </style>
   </head>
 
-  <body>
-    <header class="topbar">
-      <div class="branding">
-        <img
-          src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-          class="logo"
-        />
-        <span class="proj-name">voyager</span>
+  <body class="bg-hero bg-cover bg-center">
+    <!-- SIDEBAR TOGGLE BUTTON -->
+    <div
+      class="position-fixed top-0 start-0 w-100 z-3"
+      style="background: rgba(0, 0, 0, 0.35); backdrop-filter: blur(4px)"
+    >
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <!-- Sidebar toggle button -->
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
+
+        <!-- Logo + Voyager text -->
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <!-- smaller text on phones, larger on bigger screens -->
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
       </div>
-    </header>
+    </div>
 
-    <input type="checkbox" id="nav-bar" />
-    <label for="nav-bar" class="menu-btn">≡</label>
-
-    <nav class="sidebar">
-      <label for="nav-bar" class="close-btn">×</label>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Destinations.html">Explore</a></li>
-
-        <li><a href="guide.html">Guides page</a></li>
-        <li><a href="signup.html">Sign up</a></li>
-
-        <li class="expand-item">
-          <input type="checkbox" id="about-toggle" />
-          <label for="about-toggle" class="expand-title">About & Contact</label>
-
-          <ul class="sub-menu">
-            <li><a href="contactUs.html">Contact us</a></li>
-            <li><a href="aboutUs.html">About us</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-
-    <form class="card" action="#" method="post">
-      <h1>Log in</h1>
-
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          placeholder="you@example.com"
-          required
-        />
+    <!-- SIDEBAR NAV (Offcanvas) -->
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="••••••••"
-          minlength="6"
-          required
-        />
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link active mb-1" href="index.html">Home</a>
+          <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
       </div>
+    </div>
 
-      <button type="submit">Log in</button>
+    <!-- MAIN CONTENT: centered login card -->
+    <main class="d-flex align-items-center justify-content-center min-vh-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-10 col-md-8 col-lg-4">
+            <div class="card shadow-lg border-0 rounded-4 mt-5">
+              <div class="card-body p-4">
+                <h1 class="h4 text-center mb-2">Log in</h1>
+                <p class="text-center text-muted small mb-4">Welcome back 👋</p>
 
-      <div class="login-hint">
-        <p>Don't have an account?</p>
-        <a href="signup.html">Sign up</a>
+                <form
+                  action="#"
+                  method="post"
+                  class="needs-validation"
+                  novalidate
+                >
+                  <!-- Email -->
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="you@example.com"
+                      required
+                    />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">
+                      Please fill ou this field.
+                    </div>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      class="form-control"
+                      placeholder="••••••••"
+                      minlength="6"
+                      required
+                    />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">
+                      Please fill ou this field.
+                    </div>
+                  </div>
+
+                  <!-- Submit -->
+                  <button type="submit" class="btn btn-primary w-100">
+                    Log in
+                  </button>
+
+                  <!-- Hint -->
+                  <div class="text-center small text-muted mt-3">
+                    <p class="mb-1">Don't have an account?</p>
+                    <a
+                      href="signup.html"
+                      style="color: #4f46e5; text-decoration: none"
+                      >Sign up</a
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </form>
+    </main>
 
-    <footer class="footer">© 2025 Voyager. All rights reserved.</footer>
+    <!-- FOOTER -->
+    <footer class="footer mt-4 py-5 px-3 fs-6 text-center">
+      © 2025 Voyager. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (() => {
+        "use strict";
+
+        // Get all forms that need validation
+        const forms = document.querySelectorAll(".needs-validation");
+
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              // If form is invalid, stop submit
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              // Tell Bootstrap: "show validation styles now"
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>

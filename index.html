@@ -71,10 +71,6 @@
         color: #ffffff;
       }
 
-      .banner-text {
-        display: inline-block;
-      }
-
       .linked-pages-btn {
         background-color: #195438;
       }
@@ -85,16 +81,38 @@
   </head>
 
   <body>
-    <!-- SIDEBAR TOGGLE BUTTON -->
-    <button
-      class="btn btn-light position-fixed top-0 start-0 mt-3 ms-3 z-3"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#mainSidebar"
-      aria-controls="mainSidebar"
+    <!-- TOP MINI NAVBAR -->
+    <div
+      class="position-fixed top-0 start-0 w-100 z-3"
+      style="background: rgba(0, 0, 0, 0.35); backdrop-filter: blur(4px)"
     >
-      ☰
-    </button>
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <!-- Sidebar toggle button -->
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
+
+        <!-- Logo + Voyager text -->
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <!-- smaller text on phones, larger on bigger screens -->
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
 
     <!-- SIDEBAR NAV (Offcanvas) -->
     <div
@@ -111,8 +129,7 @@
           <img
             src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
             alt="Voyager logo"
-            width="35"
-            height="35"
+            style="width: 32px; height: 32px"
           />
           <span>voyager</span>
         </h5>
@@ -138,10 +155,6 @@
           <a class="nav-link mb-3" href="aboutUs.html">About us</a>
 
           <h6 class="text-white-50 text-uppercase mt-3 mb-2">New Features</h6>
-          <!-- direct links to new pages: questionnaire, calculate, fun -->
-          <a class="nav-link mb-1" href="questionnaire.html">Questionnaire</a>
-          <a class="nav-link mb-1" href="calculate.html">Calculate Page</a>
-          <a class="nav-link" href="funpage.html">Fun Page</a>
         </nav>
       </div>
     </div>
