@@ -69,13 +69,10 @@
       .banner-container {
         background-color: #143642;
         color: #ffffff;
-        white-space: nowrap;
-        overflow: hidden;
       }
 
       .banner-text {
         display: inline-block;
-        padding-left: 100%;
       }
 
       .linked-pages-btn {
@@ -241,30 +238,30 @@
 
         <div
           id="homeCarousel"
-          class="carousel slide"
+          class="carousel slide carousel-dark"
           data-bs-ride="carousel"
           data-bs-interval="3000"
         >
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active justify-content-center">
               <img
-                src="img/gallery1.jpg"
-                class="d-block w-100"
-                alt="Beautiful coastal city"
+                src="https://i0.wp.com/reporterontheroad.com/wp-content/uploads/voyage-a-rome-cover.png?fit=1600%2C1067&ssl=1"
+                class="d-block mx-auto w-50"
+                alt="Italy"
               />
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item justify-content-center">
               <img
-                src="img/gallery2.jpg"
-                class="d-block w-100"
-                alt="Mountain landscape"
+                src="https://www.storylines.com/hs-fs/hubfs/Blogs/Australia/shutterstock_355039454.jpg?width=800&name=shutterstock_355039454.jpg"
+                class="d-block mx-auto w-50"
+                alt="Australia"
               />
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item justify-content-center">
               <img
-                src="img/gallery3.jpg"
-                class="d-block w-100"
-                alt="Historic city street"
+                src="https://etimg.etb2bimg.com/photo/115997634.cms"
+                class="d-block mx-auto w-50"
+                alt="Indonesia"
               />
             </div>
           </div>
@@ -279,6 +276,7 @@
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
+
           <button
             class="carousel-control-next"
             type="button"
@@ -293,8 +291,8 @@
     </section>
 
     <!-- TEXT BANNER (MOVING MESSAGE WITH DATE & TIME) -->
-    <div class="banner-container py-2">
-      <div id="bannerText" class="banner-text"></div>
+    <div class="banner-container text-nowrap overflow-hidden py-2">
+      <div id="bannerText" class="banner-text d-inline-block"></div>
     </div>
 
     <!-- FOOTER -->
@@ -311,14 +309,15 @@
     <!-- Custom JS for banner date/time -->
     <script>
       const banner = document.getElementById("bannerText");
-      let position = window.innerWidth;
+      let position;
 
       function moveBanner() {
         position -= 1; // move 1px left
         banner.style.transform = `translateX(${position}px)`;
 
+        // when it fully leaves to the left, reset to the right
         if (position < -banner.offsetWidth) {
-          position = window.innerWidth; // restart from right
+          position = banner.parentElement.offsetWidth; // restart from right edge of container
         }
 
         requestAnimationFrame(moveBanner);
@@ -341,13 +340,18 @@
           dateStr +
           ", and the time is " +
           timeStr;
-
-        // START movement only after the text is set
-        moveBanner();
       }
 
-      // Start everything
+      // 1) set the text first
       updateBanner();
+
+      // 2) set starting position AFTER we know the width
+      position = banner.parentElement.offsetWidth;
+
+      // 3) start movement ONCE
+      moveBanner();
+
+      // 4) keep updating the time every second
       setInterval(updateBanner, 1000);
     </script>
   </body>
