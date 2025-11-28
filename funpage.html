@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager | Fun page</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #cfe4d5;
+      }
+
+      /* HERO: background image */
+      .hero {
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* Dark overlay on hero */
+      .hero-overlay {
+        background-color: rgba(0, 0, 0, 0.45);
+      }
+
+      /* lower section background */
+      .lower-section {
+        background-color: #d9e7dd;
+      }
+
+      /* footer colors */
+      .footer-custom {
+        background-color: #143642;
+        color: #ffffff;
+      }
+
+      .footer-title,
+      .footer-text {
+        color: #ffffff;
+      }
+
+      /* sidebar colors */
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #ffffff;
+      }
+
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+      }
+
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
+
+      .sidebar-custom .offcanvas-title span {
+        color: #ffffff;
+      }
+
+      /* text banner (scrolling) */
+      .banner-container {
+        background-color: #143642;
+        color: #ffffff;
+      }
+
+      .linked-pages-btn {
+        background-color: #195438;
+      }
+      .linked-pages-btn:hover {
+        background-color: #0e301f;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- TOP MINI NAVBAR -->
+    <div class="position-fixed top-0 start-0 w-100 z-3">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <!-- Sidebar toggle button -->
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
+
+        <!-- Logo + Voyager text -->
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <!-- smaller text on phones, larger on bigger screens -->
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR NAV (Offcanvas) -->
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link active mb-1" href="index.html">Home</a>
+          <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="hero position-relative text-white text-center">
+      <!-- dark overlay -->
+      <div
+        class="hero-overlay position-absolute top-0 start-0 w-100 h-100"
+      ></div>
+
+      <!-- inner container (controls hero height) -->
+      <div
+        class="container position-relative z-1 d-flex flex-column justify-content-center align-items-center py-5"
+        style="min-height: 60vh"
+      >
+        <h1 class="display-5 fw-bold mb-0">
+          Voyager World Quiz – Guess the Flag & Place!
+        </h1>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container mb-5 m-4" id="main">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-sm">
+            <div
+              class="card-header d-flex justify-content-between align-items-center"
+            >
+              <h2 class="h5 mb-0">
+                Question <span id="questionNumber">1</span> / 5
+              </h2>
+              <span class="badge bg-primary" id="scoreBadge">Score: 0</span>
+            </div>
+
+            <div class="card-body justify-content-center">
+              <!-- Question text -->
+              <h3 id="questionText" class="h5 mb-4"></h3>
+              <img id="questionImage" class="w-25 d-block mx-auto" />
+
+              <br /><br />
+              <!-- Options -->
+              <div id="optionsContainer" class="d-grid gap-2">
+                <!-- JS will create 4 buttons here -->
+              </div>
+            </div>
+
+            <div class="card-footer d-flex justify-content-between">
+              <small class="text-muted" id="feedbackText">
+                Choose the correct answer.
+              </small>
+              <button id="nextBtn" class="btn btn-success btn-sm" disabled>
+                Next Question
+              </button>
+            </div>
+          </div>
+
+          <!-- FINAL RESULT -->
+          <div id="resultBox" class="alert alert-info mt-4 d-none" role="alert">
+            <!-- JS will write the final score and comment here -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--  JS -->
+    <script>
+      /****************************************************
+       * Voyager Fun Zone – Flag & Place Quiz
+       * - 5 questions (flags & famous places)
+       * - 4 choices each
+       * - If correct: button -> green
+       * - If wrong: clicked -> red, correct -> green
+       * - After 5 questions: show score + comment
+       ****************************************************/
+
+      // 1. Question data
+      const questions = [
+        {
+          text: "This Nordic cross flag belongs to which country?",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/2560px-Flag_of_Norway.svg.png",
+          imageAlt: "Red flag with a blue cross outlined in white",
+          choices: ["Denmark", "Iceland", "Norway", "Sweden"],
+          correctIndex: 2,
+        },
+        {
+          text: "In which country can you find this white-washed cliffside town overlooking the sea?",
+          image:
+            "https://www.marriott.com/content/dam/marriott-digital/destinations/destinationheroimages/en_us/photo/assets/pdt-grc-santorini-587986249568062.jpg",
+          imageAlt: "White houses with blue domes on a cliff above the sea",
+          choices: ["Italy", "Greece", "Spain", "Croatia"],
+          correctIndex: 1,
+        },
+        {
+          text: "This red flag with a white star and crescent belongs to which country?",
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/1200px-Flag_of_Turkey.svg.png",
+          imageAlt: "Red flag with a white star and crescent",
+          choices: ["Turkey", "Tunisia", "Pakistan", "Algeria"],
+          correctIndex: 0,
+        },
+        {
+          text: "This ancient city in the mountains is known as Machu Picchu. Which country is it in?",
+          image: "https://cdn.hswstatic.com/gif/machu-picchu-1.jpg",
+          imageAlt: "Old stone ruins on a mountain surrounded by green peaks",
+          choices: ["Peru", "Chile", "Bolivia", "Mexico"],
+          correctIndex: 0,
+        },
+        {
+          text: "This flag belongs to which Middle Eastern country?",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZFBiNRWukKX42GRP9tsSmDqxzbVLnuon0BQ&s",
+          imageAlt:
+            "Red, white, and green flag with a national emblem in the top left",
+          choices: ["Oman", "United Arab Emirates", "Jordan", "Kuwait"],
+          correctIndex: 0,
+        },
+      ];
+
+      // 2. Game state
+      let currentQuestionIndex = 0;
+      let score = 0;
+      let questionAnswered = false;
+
+      // 3. DOM elements (note: use Qimage id)
+      const qNum = document.getElementById("questionNumber");
+      const scoreBadgeEl = document.getElementById("scoreBadge");
+      const questionTextEl = document.getElementById("questionText");
+      const questionImageEl = document.getElementById("questionImage");
+      const optionsContainerEl = document.getElementById("optionsContainer");
+      const feedbackTextEl = document.getElementById("feedbackText");
+      const nextBtn = document.getElementById("nextBtn");
+      const resultBoxEl = document.getElementById("resultBox");
+
+      /****************************************************
+       * showQuestion()
+       * - Displays the current question & its options
+       ****************************************************/
+      function showQuestion() {
+        // Clear old buttons
+        optionsContainerEl.innerHTML = "";
+        // Reset feedback
+        feedbackTextEl.textContent = "Choose the correct answer.";
+        // Disable Next until user answers
+        nextBtn.disabled = true;
+        // Allow answering
+        questionAnswered = false;
+
+        // Current question object
+        const q = questions[currentQuestionIndex];
+
+        // Show number (1..5)
+        qNum.textContent = currentQuestionIndex + 1;
+
+        // Show question text + image
+        questionTextEl.textContent = q.text;
+        questionImageEl.src = q.image;
+        questionImageEl.alt = q.imageAlt;
+
+        // Create 4 buttons
+        q.choices.forEach((choiceText, index) => {
+          const btn = document.createElement("button");
+          btn.className = "btn btn-outline-primary";
+          btn.textContent = choiceText;
+          btn.dataset.index = index;
+
+          // When clicked, handle answer
+          btn.addEventListener("click", handleAnswerClick);
+
+          optionsContainerEl.appendChild(btn);
+        });
+      }
+
+      /****************************************************
+       * handleAnswerClick(event)
+       * - Checks if correct, colors buttons, updates score
+       ****************************************************/
+      function handleAnswerClick(event) {
+        if (questionAnswered) return;
+
+        questionAnswered = true;
+        nextBtn.disabled = false;
+
+        const clickedBtn = event.currentTarget;
+        const selectedIndex = parseInt(clickedBtn.dataset.index, 10);
+        const q = questions[currentQuestionIndex];
+        const correctIndex = q.correctIndex;
+
+        const buttons = optionsContainerEl.querySelectorAll("button");
+
+        buttons.forEach((btn, index) => {
+          // Disable all after one click
+          btn.disabled = true;
+
+          if (index === correctIndex) {
+            // Correct answer -> green
+            btn.classList.remove("btn-outline-primary");
+            btn.classList.add("btn-success");
+          } else if (index === selectedIndex && index !== correctIndex) {
+            // Wrong clicked answer -> red
+            btn.classList.remove("btn-outline-primary");
+            btn.classList.add("btn-danger");
+          }
+        });
+
+        if (selectedIndex === correctIndex) {
+          score++;
+          feedbackTextEl.textContent = "Correct! 🎉 Well done, traveler.";
+        } else {
+          feedbackTextEl.textContent =
+            "Not quite! The correct answer is highlighted in green.";
+        }
+
+        // Update score badge
+        scoreBadgeEl.textContent = "Score: " + score;
+      }
+
+      /****************************************************
+       * showFinalResult()
+       * - Shows final score + comment
+       ****************************************************/
+      function showFinalResult() {
+        questionTextEl.textContent = "Quiz finished!";
+        optionsContainerEl.innerHTML = "";
+        feedbackTextEl.textContent = "Thanks for playing Voyager World Quiz!";
+        questionImageEl.remove();
+
+        nextBtn.disabled = true;
+        nextBtn.textContent = "Done";
+
+        let comment = "";
+        switch (score) {
+          case 5:
+            comment =
+              "5/5 – Travel Genius! 🌟 You have a world-class eye for flags and places.";
+            break;
+          case 4:
+            comment = "4/5 – Amazing! 🌍 You are almost a geography expert.";
+            break;
+          case 3:
+            comment = "3/5 – Nice job! ✈️ You know a lot, keep exploring!";
+            break;
+          case 2:
+            comment =
+              "2/5 – Good effort 😊 A few more trips and you’ll get there.";
+            break;
+          case 1:
+            comment =
+              "1/5 – Every explorer starts somewhere 🌱 Keep learning about the world.";
+            break;
+          default:
+            comment =
+              "0/5 – Time to open a map 🗺️ Voyager is here to help you discover the world!";
+        }
+
+        resultBoxEl.innerHTML =
+          "<strong>Your score: " + score + "/5</strong><br>" + comment;
+        resultBoxEl.classList.remove("d-none");
+      }
+
+      /****************************************************
+       * Next button
+       ****************************************************/
+      nextBtn.addEventListener("click", function () {
+        if (currentQuestionIndex < questions.length - 1) {
+          currentQuestionIndex++;
+          showQuestion();
+        } else {
+          showFinalResult();
+        }
+      });
+
+      /****************************************************
+       * Start the quiz
+       ****************************************************/
+      showQuestion();
+    </script>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
