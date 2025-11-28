@@ -4,149 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voyager Destinations</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Georgia", serif;
-      }
+      /* General body background */
       body {
         background-color: #dbeee4;
       }
-      .topbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 65px;
+
+      /* Custom styles to match the look of the reference navbar/footer */
+      .topbar-custom {
         background-color: rgba(0, 0, 0, 0.25);
-        display: flex;
-        align-items: center;
-        padding-left: 70px;
         backdrop-filter: blur(2px);
-        z-index: 1000;
       }
-      .branding {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .logo {
-        width: 35px;
-        height: 35px;
-      }
-      .proj-name {
+      .branding-text {
         color: white;
-        font-size: 26px;
-        font-weight: bold;
       }
-      .menu-btn {
-        position: fixed;
-        top: 16px;
-        left: 20px;
-        font-size: 30px;
-        color: white;
-        cursor: pointer;
-        padding: 4px 8px;
-        border-radius: 6px;
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: 1001;
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #ffffff;
       }
-      #nav-bar {
-        display: none;
-      }
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: -260px;
-        width: 260px;
-        height: 100%;
-        background-color: #1c1c1c;
-        padding: 30px 25px;
-        color: white;
-        overflow-y: auto;
-        transition: 0.4s;
-        z-index: 999;
-      }
-      #nav-bar:checked ~ .sidebar {
-        left: 0;
-      }
-      .close-btn {
-        font-size: 32px;
-        font-weight: bold;
-        color: white;
-        cursor: pointer;
-        margin-bottom: 20px;
-        display: block;
-      }
-      .menu {
-        list-style: none;
-      }
-      .menu li a {
-        display: block;
-        padding: 10px 12px;
-        text-decoration: none;
-        font-size: 18px;
+      .sidebar-custom .nav-link {
         color: #f2f2f2;
-        border-radius: 5px;
-        transition: 0.2s;
       }
-      .menu li a:hover {
-        background-color: #2f2f2f;
-      }
-      .menu li a.active {
+      .sidebar-custom .nav-link.active {
         background-color: #cfe4d5;
-        color: black;
+        color: #000000;
       }
-      .expand-item {
-        margin-top: 18px;
-      }
-      .expand-title {
-        display: flex;
-        align-items: center;
-        font-size: 18px;
+      .footer-custom {
+        background-color: #143642;
         color: white;
-        cursor: pointer;
-        padding: 10px 12px;
-      }
-      .expand-title::before {
-        content: ">";
-        font-size: 18px;
-        margin-right: 10px;
-        transition: 0.3s;
-      }
-      #about-toggle:checked + .expand-title::before {
-        content: "-";
-      }
-      .sub-menu {
-        max-height: 0;
-        overflow: hidden;
-        transition: 0.4s ease;
-        margin-left: 25px;
-      }
-      #about-toggle:checked ~ .sub-menu {
-        max-height: 300px;
-      }
-      .sub-menu li a {
-        padding: 8px 12px;
-        font-size: 16px;
-        color: #eaeaea;
-        display: block;
+        font-size: 15px;
       }
 
-      /* DESTINATIONS PAGE STYLES */
+      /* Header Image/Banner */
       .header-img {
         width: 100%;
         height: 250px;
-        background-image: url("background.jpg");
+        background-image: url("background.jpg"); /* Assumes 'background.jpg' exists */
         background-size: cover;
         background-position: center;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 65px;
+        margin-top: 56px; /* Adjust margin for fixed top bar */
+      }
+      @media (min-width: 768px) {
+        /* Adjust for larger screens if the top bar is bigger */
+        .header-img {
+          margin-top: 66px;
+        }
       }
       .header-title {
         font-size: 48px;
@@ -155,17 +66,11 @@
         letter-spacing: 3px;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
       }
-      .destinations {
-        display: flex;
-        justify-content: space-around;
-        margin: 50px auto;
-        width: 95%;
-      }
+
+      /* Destination Cards */
       .destination-card {
-        background-color: #dbeee4;
+        background-color: white;
         text-align: center;
-        padding: 20px;
-        width: 30%;
       }
       .destination-card img {
         width: 100%;
@@ -183,106 +88,225 @@
         font-size: 18px;
         color: #143642;
       }
-      .btn {
-        margin-top: 20px;
+      .btn-explore {
         background-color: #0e2f3d;
         color: white;
-        padding: 12px 0;
-        width: 85%;
-        border-radius: 4px;
-        border: none;
-        font-size: 16px;
         font-weight: bold;
-        cursor: pointer;
+        transition: opacity 0.2s;
       }
-      .btn:hover {
+      .btn-explore:hover {
         opacity: 0.9;
-      }
-      .footer {
-        background-color: #143642;
         color: white;
-        text-align: center;
-        padding: 20px 10px;
-        margin-top: 40px;
-        font-size: 15px;
       }
     </style>
   </head>
   <body>
-    <!-- TOP BAR -->
-    <header class="topbar">
-      <div class="branding">
-        <img
-          src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-          class="logo"
-        />
-        <span class="proj-name">voyager</span>
+    <div class="position-fixed top-0 start-0 w-100 z-3 topbar-custom">
+      <div
+        class="container-fluid d-flex align-items-center gap-3 py-2"
+        style="min-height: 56px"
+      >
+        <button
+          class="btn btn-light"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
+
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold fs-5 fs-md-4 branding-text">voyager</span>
+        </div>
       </div>
-    </header>
+    </div>
 
-    <!-- MENU BUTTON & CHECKBOX -->
-    <input type="checkbox" id="nav-bar" />
-    <label for="nav-bar" class="menu-btn">≡</label>
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span class="text-white">voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
 
-    <!-- SIDEBAR -->
-    <nav class="sidebar">
-      <label for="nav-bar" class="close-btn">×</label>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Destinations.html">Explore</a></li>
-        <li><a href="guide.html">Guides page</a></li>
-        <li><a href="signup.html">Sign up</a></li>
-        <li class="expand-item">
-          <input type="checkbox" id="about-toggle" />
-          <label for="about-toggle" class="expand-title">About & Contact</label>
-          <ul class="sub-menu">
-            <li><a href="contactUs.html">Contact us</a></li>
-            <li><a href="aboutUs.html">About us</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
 
-    <!-- PAGE HEADER -->
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
+    </div>
+
     <div class="header-img">
       <h1 class="header-title">DESTINATIONS</h1>
     </div>
 
-    <div class="destinations">
-      <div class="destination-card">
-        <img
-          src="https://www.vojitravel.com/wp-content/uploads/2025/05/TANZANIA-PARQUE-NACIONAL-SERENGETI-02.png"
-        />
-        <h2 class="city-title">Arusha</h2>
-        <p class="country">Tanzania</p>
-        <button class="btn" onclick="window.location.href='tanz.html'">
-          Explore more
-        </button>
-      </div>
+    <div class="container my-5">
+      <div
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
+        id="destination-grid"
+      >
+        <div class="col destination-col">
+          <div class="card h-100 destination-card shadow-sm border-0">
+            <img
+              src="https://www.vojitravel.com/wp-content/uploads/2025/05/TANZANIA-PARQUE-NACIONAL-SERENGETI-02.png"
+              class="card-img-top"
+              alt="Arusha, Tanzania"
+            />
+            <div class="card-body">
+              <h2 class="card-title city-title">Arusha</h2>
+              <p class="card-text country">Tanzania</p>
+              <a href="tanz.html" class="btn btn-explore w-75 mt-2"
+                >Explore more</a
+              >
+            </div>
+          </div>
+        </div>
 
-      <div class="destination-card">
-        <img
-          src="https://images.contentstack.io/v3/assets/blt06f605a34f1194ff/bltcfc6b43976428fbc/6809096142b2cad8807c3cee/BCC-2025-EXPLORER-BALI-BEACHES-HEADER_MOBILE.jpg?fit=crop&disable=upscale&auto=webp&quality=60&crop=smart"
-        />
-        <h2 class="city-title">Bali</h2>
-        <p class="country">Indonesia</p>
-        <button class="btn" onclick="window.location.href='indo.html'">
-          Explore more
-        </button>
-      </div>
+        <div class="col destination-col">
+          <div class="card h-100 destination-card shadow-sm border-0">
+            <img
+              src="https://images.contentstack.io/v3/assets/blt06f605a34f1194ff/bltcfc6b43976428fbc/6809096142b2cad8807c3cee/BCC-2025-EXPLORER-BALI-BEACHES-HEADER_MOBILE.jpg?fit=crop&disable=upscale&auto=webp&quality=60&crop=smart"
+              class="card-img-top"
+              alt="Bali, Indonesia"
+            />
+            <div class="card-body">
+              <h2 class="card-title city-title">Bali</h2>
+              <p class="card-text country">Indonesia</p>
+              <a href="indo.html" class="btn btn-explore w-75 mt-2"
+                >Explore more</a
+              >
+            </div>
+          </div>
+        </div>
 
-      <div class="destination-card">
-        <img
-          src="https://images.ctfassets.net/wv75stsetqy3/3g3eYc9JHErfxMlj0I5Rg1/8944869cbe75632964eebfe9bc784eb8/Italy_Country_Guide.jpg?q=60&fit=fill&fm=webp"
-        />
-        <h2 class="city-title">Rome</h2>
-        <p class="country">Italy</p>
-        <button class="btn" onclick="window.location.href='italy.html'">
-          Explore more
-        </button>
+        <div class="col destination-col">
+          <div class="card h-100 destination-card shadow-sm border-0">
+            <img
+              src="https://images.ctfassets.net/wv75stsetqy3/3g3eYc9JHErfxMlj0I5Rg1/8944869cbe75632964eebfe9bc784eb8/Italy_Country_Guide.jpg?q=60&fit=fill&fm=webp"
+              class="card-img-top"
+              alt="Rome, Italy"
+            />
+            <div class="card-body">
+              <h2 class="card-title city-title">Rome</h2>
+              <p class="card-text country">Italy</p>
+              <a href="italy.html" class="btn btn-explore w-75 mt-2"
+                >Explore more</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col destination-col">
+          <div class="card h-100 destination-card shadow-sm border-0">
+            <img
+              src="https://res.cloudinary.com/take-memories/images/f_auto,dpr_auto,q_auto,w_2000,c_fill,h_1200/cc/rnyxb28ipvmd1aehuahy/historic-fortress-rocky-hill-water"
+              class="card-img-top"
+              alt="Kyoto, Japan"
+            />
+            <div class="card-body">
+              <h2 class="card-title city-title">Oman</h2>
+    
+              <a href="oman.html" class="btn btn-explore w-75 mt-2"
+                >Explore more</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col destination-col">
+          <div class="card h-100 destination-card shadow-sm border-0">
+            <img
+              src="https://us.images.westend61.de/0001959936pw/aerial-view-of-the-beautiful-seychelles-coast-with-palm-trees-and-turquoise-blue-ocean-la-digue-and-inner-islands-seychelles-AAEF28327.jpg"
+              class="card-img-top"
+              alt="Chefchaouen, Morocco"
+            />
+            <div class="card-body">
+              <h2 class="card-title city-title">Seychelles</h2>
+              
+              <a href="seychelles.html" class="btn btn-explore w-75 mt-2"
+                >Explore more</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col destination-col">
+          <div class="card h-100 destination-card shadow-sm border-0">
+            <img
+              src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0e/f6/4e/c0.jpg"
+              class="card-img-top"
+              
+            />
+            <div class="card-body">
+              <h2 class="card-title city-title">Morocco</h2>
+            
+              <a href="morocco.html" class="btn btn-explore w-75 mt-2"
+                >Explore more</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col destination-col">
+          <div class="card h-100 destination-card shadow-sm border-0">
+            <img
+              src="https://i.natgeofe.com/n/ce61e163-64b5-4b64-b703-15c92f594cac/whitsunday-islands-australia.jpg"
+              class="card-img-top"
+              alt="Cape Town, South Africa"
+            />
+            <div class="card-body">
+              <h2 class="card-title city-title">Australia</h2>
+             
+              <a href="australia.html" class="btn btn-explore w-75 mt-2"
+                >Explore more</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <footer class="footer">© 2025 Voyager. All rights reserved.</footer>
-  </body>
+    <footer class="footer-custom text-center py-3">
+      <div class="container">
+        <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
 </html>

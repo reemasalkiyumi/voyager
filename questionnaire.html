@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager | Feedback Quest</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+        /* --- Custom Colors & Overrides based on Index Page Template --- */
+        :root {
+            --color-dark-main: #143642; /* Footer, Submit Button, Main Accent */
+            --color-light-bg: #d9e7dd; /* Lower Section Background */
+            --color-text-light: #f2f2f2;
+            --color-text-dark: #000000;
+            --color-accent-green: #195438; /* Based on linked-pages-btn */
+        }
+
+        body {
+            color: var(--color-text-dark);
+            padding-top: 60px; /* Space for fixed navbar */
+            background-color: #ffffff;
+        }
+
+        /* Fixed Navbar background styling (from template) */
+        .fixed-top-nav {
+            background: rgba(0, 0, 0, 0.35); 
+            backdrop-filter: blur(4px);
+        }
+
+        /* Sidebar colors (from template) */
+        .sidebar-custom {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: var(--color-text-light);
+        }
+        .sidebar-custom .nav-link {
+            color: var(--color-text-light);
+        }
+        .sidebar-custom .nav-link.active {
+            background-color: #cfe4d5;
+            color: var(--color-text-dark);
+        }
+
+        /* Hero Section for Questionnaire */
+        .hero-questionnaire {
+            background-image: url("background.jpg"); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dark overlay on hero (from template) */
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.45);
+        }
+
+        /* Lower Section Background (from template) */
+        .lower-section {
+            background-color: var(--color-light-bg);
+        }
+
+        /* Footer colors (from template) */
+        .footer-custom {
+            background-color: var(--color-dark-main);
+            color: var(--color-text-light);
+        }
+        .footer-custom .footer-title,
+        .footer-custom .footer-text {
+            color: var(--color-text-light);
+        }
+
+        /* Form Styling */
+        .card {
+            border: none;
+            border-radius: 10px;
+        }
+        .question-title {
+            color: var(--color-dark-main);
+            border-bottom: 2px solid var(--color-dark-main);
+            padding-bottom: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .form-check-input:checked {
+            background-color: var(--color-accent-green);
+            border-color: var(--color-accent-green);
+        }
+        .form-control.is-invalid {
+            border-color: #dc3545;
+            padding-right: calc(1.5em + 0.75rem);
+        }
+
+        /* Submit Button Styling */
+        #submit-btn {
+            background-color: var(--color-dark-main);
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+        #submit-btn:hover {
+            background-color: #0e2531;
+        }
+        
+        /* Success/Invalid Feedback Styling */
+        .results-section {
+            background-color: #cfe4d5;
+            border: 2px solid var(--color-accent-green);
+        }
+        .invalid-feedback {
+            display: none; /* Controlled by JS when validation fails */
+            color: #dc3545;
+            margin-top: 0.25rem;
+            font-size: 0.875em;
+        }
+        .form-control.is-invalid ~ .invalid-feedback {
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div
+      class="fixed-top position-fixed fixed-top-nav w-100 z-3"
+    >
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
+
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link active mb-3" href="questionnaire.html">Questionnaire</a> <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+
+          
+        </nav>
+      </div>
+    </div>
+
+    <header
+      class="hero-questionnaire min-vh-50 d-flex align-items-center justify-content-center text-center position-relative"
+    >
+      <div
+        class="hero-overlay position-absolute top-0 start-0 w-100 h-100"
+      ></div>
+
+      <div class="position-relative z-1 text-white py-5">
+        <h1 class="display-4 fw-bold mb-3">Voyager Feedback </h1>
+        <p class="lead mb-0 px-3">
+          Your input is the fuel we need to chart the best course. Tell us about your website experience!
+        </p>
+      </div>
+    </header>
+
+    <section class="lower-section py-5">
+      <div class="container">
+        
+        <form id="feedback-form" class="row g-4" novalidate> <div class="col-lg-6">
+                <div class="card shadow-lg p-3 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold question-title">1. Your Profile & Navigation</h5>
+
+                        <div class="mb-4">
+                            <label for="user-name" class="form-label fw-semibold">Your Name or Traveler Alias (Required)</label>
+                            <input type="text" class="form-control" id="user-name" placeholder="E.g., Captain Jack, Alex Smith" required>
+                            <div class="invalid-feedback" id="name-feedback">
+                                Please enter a valid name (2-20 characters, letters/spaces only).
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="ease-of-use" class="form-label fw-semibold">How intuitively did you navigate between pages (e.g., Home to Guides)?</label>
+                            <select id="ease-of-use" class="form-select" required>
+                                <option value="" disabled selected>Select your ease of travel...</option>
+                                <option value="5">5 - Effortless (Autopilot)</option>
+                                <option value="4">4 - Very Smooth</option>
+                                <option value="3">3 - Occasional Detours</option>
+                                <option value="2">2 - Required a Map</option>
+                                <option value="1">1 - Lost at Sea</option>
+                            </select>
+                            <div class="invalid-feedback">Please select an option.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card shadow-lg p-3 h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold question-title">2. Aesthetics & Content Value</h5>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold d-block">How well does the color scheme and overall aesthetic suit a travel site?</label>
+                            <div class="d-flex justify-content-around mt-3">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="design-rating" id="design-poor" value="Off-Track" required>
+                                    <label class="form-check-label" for="design-poor">Off-Track ☹️</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="design-rating" id="design-good" value="Solid-Ground">
+                                    <label class="form-check-label" for="design-good">Solid Ground 🙂</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="design-rating" id="design-excellent" value="World-Class">
+                                    <label class="form-check-label" for="design-excellent">World-Class ✨</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 pt-4 border-top">
+                            <label for="recommend-score" class="form-label fw-semibold">How likely are you to **recommend Voyager** to a friend planning a trip?</label>
+                            <input type="range" class="form-range" min="0" max="10" value="7" id="recommend-score" oninput="document.getElementById('recommend-value').innerText = this.value">
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>0 = Not a chance</span>
+                                <span>10 = Absolutely</span>
+                            </div>
+                            <p class="mt-2 mb-0 text-center">Current Score: <span id="recommend-value" class="badge bg-dark fs-6">7</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card shadow-lg p-3">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold question-title">3. The Next Port of Call: Suggestions & Contact</h5>
+                        
+                        <div class="mb-4">
+                            <label for="improvement-suggestions" class="form-label fw-semibold">If Voyager could add one *killer feature* to make it perfect, what would it be? (Minimum 15 words)</label>
+                            <textarea class="form-control" id="improvement-suggestions" rows="4" placeholder="Be bold! Tell us your most creative idea..." required></textarea>
+                            <div class="invalid-feedback" id="suggestion-feedback">
+                                Please provide substantive feedback. You need at least 15 words.
+                            </div>
+                        </div>
+
+                        <div class="mb-0">
+                            <label for="contact-email" class="form-label fw-semibold">Your Traveler ID (Email for follow-up)</label>
+                            <input type="text" class="form-control" id="contact-email" placeholder="name@domain.com"> <div class="invalid-feedback" id="email-feedback">
+                                Please enter a valid email address (e.g., must contain an @ and a valid domain suffix like .com/.net/.org).
+                            </div>
+                            <div class="form-text">Optional: Your confidentiality is our priority.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 text-center mt-5">
+                <button type="submit" id="submit-btn" class="btn btn-lg fw-bold px-5 py-3 shadow-lg">
+                    Launch Feedback Rocket 🚀
+                </button>
+            </div>
+
+        </form>
+
+        <div id="results-section" class="card results-section p-4 mt-5 d-none shadow-lg">
+            <div class="card-body text-center">
+                <h3 class="card-title text-success fw-bold">Mission Complete! Feedback Secured. 🗺️</h3>
+                <p class="lead">Your detailed input is now logged. You've helped us upgrade the Voyager experience!</p>
+                <hr class="my-3">
+                <p>Your **Aesthetics rating** was: <span id="summary-design" class="text-dark fw-bold"></span>.</p>
+                <p>Your **Recommendation Score** was: <span id="summary-score" class="text-dark fw-bold fs-5"></span>/10.</p>
+                <p class="small text-muted mt-3">We are already working on the next version of Voyager!</p>
+            </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer-custom text-center py-3">
+      <div class="container">
+        <p class="mb-1 footer-title">Voyager</p>
+        <p class="mb-0 footer-text">© 2025 Voyager. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('feedback-form');
+            const resultsSection = document.getElementById('results-section');
+            const userNameInput = document.getElementById('user-name');
+            const suggestionsInput = document.getElementById('improvement-suggestions');
+            const emailInput = document.getElementById('contact-email');
+
+            // Attach a listener to the form's submit event
+            form.addEventListener('submit', function (event) {
+                // Prevent the default form submission (which would reload the page)
+                event.preventDefault();
+                event.stopPropagation();
+                
+                // Clear all previous invalid states
+                resetValidation();
+
+                // Run all custom validation checks
+                if (validateForm()) {
+                    // If all validation passes:
+                    
+                    // 1. Gather data and update summary section
+                    const designRating = form.querySelector('input[name="design-rating"]:checked')?.value || 'N/A';
+                    const recommendScore = document.getElementById('recommend-score').value;
+
+                    document.getElementById('summary-design').innerText = designRating;
+                    document.getElementById('summary-score').innerText = recommendScore;
+
+                    // 2. Hide the form and display the thank you/results
+                    form.classList.add('d-none');
+                    resultsSection.classList.remove('d-none');
+                    
+                    // 3. Scroll to the results section for good UX
+                    resultsSection.scrollIntoView({ behavior: 'smooth' });
+
+                } else {
+                    // If validation fails, apply Bootstrap's error class to the form
+                    form.classList.add('was-validated');
+                }
+            }, false);
+
+            /**
+             * Resets the 'is-invalid' class on all controlled inputs.
+             */
+            function resetValidation() {
+                const inputs = [userNameInput, suggestionsInput, emailInput];
+                inputs.forEach(input => {
+                    input.classList.remove('is-invalid');
+                });
+                form.classList.remove('was-validated');
+            }
+
+            /**
+             * Runs all custom validation functions and returns true if all pass.
+             * @returns {boolean} True if the form is valid, false otherwise.
+             */
+            function validateForm() {
+                let isValid = true;
+                
+                // Note: We use the logical AND assignment (&&=) to ensure isValid stays false if any single check fails
+                
+                // 1. Check required fields (Select and Radio buttons) using native browser logic
+                if (!form.checkValidity()) {
+                    isValid = false;
+                }
+                
+                // 2. Custom Validation for Name (Control 1)
+                if (!validateUserName()) {
+                    isValid = false;
+                }
+                
+                // 3. Custom Validation for Textarea Word Count (Control 5)
+                if (!validateSuggestions()) {
+                    isValid = false;
+                }
+
+                // 4. Custom Validation for Optional Email (Control 6)
+                if (emailInput.value.trim() !== '' && !validateEmail()) {
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+
+            // --- ADVANCED VALIDATION FUNCTION 1: Name Format (Regex) ---
+            function validateUserName() {
+                // REGEX Pattern: ^[a-zA-Z\s]{2,20}$
+                // ^ and $: Anchor to the start and end of the string.
+                // [a-zA-Z\s]: Allows only uppercase letters, lowercase letters, and spaces.
+                // {2,20}: Specifies the length must be between 2 and 20 characters (inclusive).
+                const namePattern = /^[a-zA-Z\s]{2,20}$/;
+                
+                if (userNameInput.value.trim() === '') {
+                    // Re-use standard required flag for empty case
+                    userNameInput.classList.add('is-invalid');
+                    return false;
+                } else if (!namePattern.test(userNameInput.value)) {
+                    // Custom pattern failure
+                    userNameInput.classList.add('is-invalid');
+                    return false;
+                }
+                userNameInput.classList.remove('is-invalid');
+                return true;
+            }
+
+            // --- ADVANCED VALIDATION FUNCTION 2: Textarea Word Count (Split Logic) ---
+            function validateSuggestions() {
+                const text = suggestionsInput.value.trim();
+                
+                if (text === '') {
+                    // Re-use standard required flag for empty case
+                    suggestionsInput.classList.add('is-invalid');
+                    return false;
+                }
+
+                // Split the text by one or more whitespace characters (/\s+/) 
+                // and filter out empty strings to get an accurate word count.
+                const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
+                const minWords = 15;
+
+                if (wordCount < minWords) {
+                    suggestionsInput.classList.add('is-invalid');
+                    // Update feedback message to show current count
+                    document.getElementById('suggestion-feedback').innerText = 
+                        `You have entered ${wordCount} words. Please provide at least ${minWords} words for substantive feedback.`;
+                    return false;
+                }
+                
+                suggestionsInput.classList.remove('is-invalid');
+                return true;
+            }
+
+            // --- ADVANCED VALIDATION FUNCTION 3: Email Format (Advanced Regex) ---
+            function validateEmail() {
+                // REGEX Pattern: Checks for typical email structure and requires a TLD of 2-4 characters.
+                // This is a robust check that is more specific than the default browser email validation.
+                const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                
+                if (!emailPattern.test(emailInput.value.toLowerCase())) {
+                    emailInput.classList.add('is-invalid');
+                    return false;
+                }
+                
+                emailInput.classList.remove('is-invalid');
+                return true;
+            }
+        });
+    </script>
+</body>
+</html>
