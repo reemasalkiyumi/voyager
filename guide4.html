@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guide Profile | Omar Al-Ghareeb</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #cfe4d5;
+      }
+
+      /* HERO: background image */
+      .hero {
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* Dark overlay on hero */
+      .hero-overlay {
+        background-color: rgba(0, 0, 0, 0.45);
+      }
+
+      /* lower section background */
+      .lower-section {
+        background-color: #d9e7dd;
+      }
+
+      /* sidebar colors */
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #ffffff;
+      }
+
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+      }
+
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
+
+      .sidebar-custom .offcanvas-title span {
+        color: #ffffff;
+      }
+
+      /* text banner (scrolling) */
+      .banner-container {
+        background-color: #143642;
+        color: #ffffff;
+      }
+
+      .linked-pages-btn {
+        background-color: #195438;
+      }
+      .linked-pages-btn:hover {
+        background-color: #0e301f;
+      }
+      .footer-custom {
+        background-color: var(--color-dark-main);
+        color: var(--color-text-light);
+      }
+      .footer-custom .footer-title,
+      .footer-custom .footer-text {
+        color: var(--color-text-light);
+      }
+      :root {
+        --color-dark-main: #143642; /* Footer, Submit Button, Main Accent */
+        --color-light-bg: #d9e7dd; /* Lower Section Background */
+        --color-text-light: #f2f2f2;
+        --color-text-dark: #000000;
+        --color-accent-green: #195438; /* Based on linked-pages-btn */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP MINI NAVBAR -->
+    <div class="position-fixed top-0 start-0 w-100 z-3">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <!-- Sidebar toggle button -->
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
+
+        <!-- Logo + Voyager text -->
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR NAV (Offcanvas) -->
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1 active" href="guide.html">Guides page</a>
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
+    </div>
+
+    <header class="text-center mt-5 pt-5">
+      <h1 class="guide-title">Omar Al-Ghareeb</h1>
+    </header>
+
+    <main class="profile-container">
+      <div class="profile-photo-area">
+        <img
+          src="https://us.images.westend61.de/0000763935j/spain-navarra-bardenas-reales-smiling-young-woman-walking-in-nature-park-KKAF00257.jpg"
+          alt="Sofia photo"
+          class="guide-photo"
+        />
+      </div>
+      <div class="profile-details-box">
+        <h2 class="guide-name">Omar Al-Ghareeb, Accredited Guide</h2>
+        <div class="detail-group">
+          <p class="detail-label">Location:</p>
+          <p class="detail-value">Marrakech, Morocco</p>
+        </div>
+        <div class="detail-group">
+          <p class="detail-label">Languages:</p>
+          <p class="detail-value">Arabic, French, English, Spanish</p>
+        </div>
+        <div class="detail-group">
+          <p class="detail-label">Specialty:</p>
+          <p class="detail-value">
+            Desert expeditions, Moroccan food experiences, Cultural history
+            tours, Souk shopping assistance
+          </p>
+        </div>
+        <div class="detail-group">
+          <p class="detail-label">Rating:</p>
+          <p class="detail-value">4.8/5 stars (580 reviews)</p>
+        </div>
+        <p style="margin-top: 20px; font-size: 16px; color: #555">
+          Omar is a certified Moroccan guide with over 10 years of experience.
+          He’s known for his warm personality, Berber culture expertise, and
+          memorable desert tours.
+        </p>
+      </div>
+    </main>
+
+    <section class="contact-details-section">
+      <h2 class="section-header">Contact & Social Media</h2>
+      <table class="info-table">
+        <tbody>
+          <tr style="background-color: #2c4d57; color: #2c4d57">
+            <th>Email Address</th>
+            <td style="background-color: #d9e7dd; color: #1a1a1a">
+              omar.ghareeb@voyager.com
+            </td>
+          </tr>
+          <tr style="background-color: #1a3a3e; color: #2c4d57">
+            <th>Phone Number</th>
+            <td style="background-color: #d9e7dd; color: #1a1a1a">
+              +212 6 45 XX 9981
+            </td>
+          </tr>
+          <tr style="background-color: #2c4d57; color: #2c4d57">
+            <th>Instagram</th>
+            <td style="background-color: #d9e7dd; color: #1a1a1a">
+              <a href="#" style="color: #1a1a1a; text-decoration: none"
+                >@DesertGuideOmar</a
+              >
+            </td>
+          </tr>
+          <tr style="background-color: #1a3a3e; color: #2c4d57">
+            <th>Website</th>
+            <td style="background-color: #d9e7dd; color: #1a1a1a">
+              <a href="#" style="color: #1a1a1a; text-decoration: none"
+                >moroccospirit</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contact-form-section">
+      <h2 class="section-header">Send Omar an Inquiry</h2>
+      <form class="contact-form" action="https://httpbin.org/get" method="get">
+        <label for="your-name">Your Name</label>
+        <input type="text" id="your-name" name="your-name" required />
+
+        <label for="your-email">Your Email</label>
+        <input type="email" id="your-email" name="your-email" required />
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required />
+
+        <!--  Checkboxes for type of inquiry -->
+        <h4>Type of Inquiry:</h4>
+        <label
+          ><input type="checkbox" name="interest" value="tours" /> Tour
+          Information</label
+        ><br />
+        <label
+          ><input type="checkbox" name="interest" value="availability" /> Check
+          Availability</label
+        ><br />
+        <label
+          ><input type="checkbox" name="interest" value="custom" /> Custom
+          Experience</label
+        ><br />
+
+        <!--  Radio buttons for preferred contact method -->
+        <h4>Preferred Contact Method:</h4>
+        <label
+          ><input type="radio" name="contact-method" value="email" checked />
+          Email</label
+        >
+        <label
+          ><input type="radio" name="contact-method" value="phone" />
+          Phone</label
+        >
+
+        <!--  Select dropdown for group size -->
+        <label for="group-size">Group Size:</label>
+        <select id="group-size" name="group-size">
+          <option value="1-2">1-2 people</option>
+          <option value="3-5">3-5 people</option>
+          <option value="6-10">6-10 people</option>
+        </select>
+
+        <label for="message">Your Message / Availability Inquiry</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <footer class="footer">© 2025 Voyager. All rights reserved.</footer>
+  </body>
+</html>
