@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tour Cost Calculator | Voyager</title>
+    <title>Voyager | Calculator</title>
 
+    <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
 
+    <!-- SAME CSS FROM contactUs/aboutUs (بدون أي إضافة جديدة) -->
     <style>
       body {
-        background-color: #cfe4d5;
+        color: #000000;
       }
 
       .hero {
@@ -24,43 +26,30 @@
 
       .sidebar-custom {
         background-color: rgba(0, 0, 0, 0.9);
-        color: #ffffff;
+        color: white;
       }
 
       .sidebar-custom .nav-link {
         color: #f2f2f2;
       }
-
       .sidebar-custom .nav-link.active {
         background-color: #cfe4d5;
-        color: #000000;
-      }
-
-      .sidebar-custom .offcanvas-title span {
-        color: #ffffff;
-      }
-
-      :root {
-        --color-dark-main: #143642;
-        --color-text-light: #f2f2f2;
+        color: #000;
       }
 
       .footer-custom {
-        background-color: var(--color-dark-main);
-        color: var(--color-text-light);
+        background-color: #143642;
+        color: white;
       }
     </style>
   </head>
 
   <body>
-    <!-- TOP MINI NAVBAR -->
+    <!-- TOP NAVBAR -->
     <div class="position-fixed top-0 start-0 w-100 z-3">
-      <div
-        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
-      >
+      <div class="container-fluid d-flex align-items-center gap-2 py-2">
         <button
-          class="btn btn-light me-2"
-          type="button"
+          class="btn btn-light"
           data-bs-toggle="offcanvas"
           data-bs-target="#mainSidebar"
         >
@@ -70,20 +59,16 @@
         <div class="d-flex align-items-center">
           <img
             src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-            class="me-2"
             style="width: 32px; height: 32px"
+            class="me-2"
           />
-          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+          <span class="fw-bold text-white fs-5">voyager</span>
         </div>
       </div>
     </div>
 
-    <!-- SIDEBAR NAV -->
-    <div
-      class="offcanvas offcanvas-start sidebar-custom"
-      tabindex="-1"
-      id="mainSidebar"
-    >
+    <!-- SIDEBAR -->
+    <div class="offcanvas offcanvas-start sidebar-custom" id="mainSidebar">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title d-flex align-items-center gap-2">
           <img
@@ -92,7 +77,6 @@
           />
           <span>voyager</span>
         </h5>
-
         <button
           class="btn-close btn-close-white"
           data-bs-dismiss="offcanvas"
@@ -108,92 +92,105 @@
 
           <hr class="border-secondary" />
 
-          <h6 class="text-white-50 text-uppercase mb-2">About & Contact</h6>
-          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
-          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+          <h6 class="text-white-50 text-uppercase">About & Contact</h6>
+          <a class="nav-link" href="contactUs.html">Contact us</a>
+          <a class="nav-link" href="aboutUs.html">About us</a>
         </nav>
       </div>
     </div>
 
-    <!-- PAGE TITLE -->
-    <header class="text-center mt-5 pt-5">
-      <h1 class="mt-5 pt-4">Tour Cost Calculator</h1>
-    </header>
+    <!-- FULL BACKGROUND + CENTERED CARD -->
+    <div
+      class="min-vh-100 d-flex justify-content-center align-items-center"
+      style="
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <!-- WHITE CARD -->
+      <div
+        class="card p-4 shadow-lg"
+        style="max-width: 450px; width: 100%; border-radius: 20px"
+      >
+        <h3 class="fw-bold text-center mb-1">Tour Cost Calculator</h3>
+        <p class="text-center text-muted mb-4">Quick estimate 🌍</p>
 
-    <!-- MAIN CALCULATOR CONTENT -->
-    <main class="container my-5">
-      <div class="card shadow p-4 mx-auto" style="max-width: 600px">
         <form id="calcForm" onsubmit="calculateCost(event)">
           <div class="mb-3">
-            <label class="form-label fw-bold">Select Guide</label>
-            <select class="form-select" id="guideSelect" required>
+            <label class="form-label">Select Guide</label>
+            <select id="guideSelect" class="form-select" required>
               <option value="">Choose a guide...</option>
-              <option value="Liam" data-rate="25">Marie Conti – $25/hr</option>
-              <option value="Hana" data-rate="30">Kenji Tanaka – $30/hr</option>
-              <option value="Marco" data-rate="20">
-                Sofia Rodriguez – $20/hr
-              </option>
 
-              <option value="Layla" data-rate="28">
-                Omar Al-Ghareeb – $28/hr
+              <option value="Marie" data-rate="25">Marie Conti – $25/hr</option>
+              <option value="Kenji" data-rate="30">
+                Kenji Tanaka – $30/hr
               </option>
-              <option value="Liam" data-rate="20">
-                Liam Thompson – $20/hr
+              <option value="Sofia" data-rate="20">
+                Sofia Rodriguez – $20/hr
               </option>
               <option value="Hana" data-rate="35">Hana Kim – $35/hr</option>
               <option value="Marco" data-rate="19">Marco Reyes – $19/hr</option>
+              <option value="Liam" data-rate="20">
+                Liam Thompson – $20/hr
+              </option>
               <option value="Layla" data-rate="40">
                 Layla Haddad – $40/hr
+              </option>
+              <option value="Omar" data-rate="28">
+                Omar Al-Ghareeb – $28/hr
               </option>
             </select>
           </div>
 
           <div class="mb-3">
-            <label class="form-label fw-bold">Number of Hours</label>
+            <label class="form-label">Number of Hours</label>
             <input
               type="number"
               class="form-control"
               id="hours"
-              required
               min="1"
+              required
             />
           </div>
 
           <div class="mb-3">
-            <label class="form-label fw-bold">Number of People</label>
+            <label class="form-label">Number of People</label>
             <input
               type="number"
               class="form-control"
               id="people"
-              required
               min="1"
+              required
             />
           </div>
 
           <div class="mb-3">
-            <label class="form-label fw-bold">Oldest Person's Age</label>
+            <label class="form-label">Oldest Person's Age</label>
             <input
               type="number"
               class="form-control"
               id="age"
-              required
               min="1"
+              required
             />
           </div>
 
-          <button type="submit" class="btn btn-success w-100">Calculate</button>
+          <button class="btn btn-primary w-100" type="submit">Calculate</button>
         </form>
 
         <div id="result" class="alert alert-info mt-4 d-none"></div>
       </div>
-    </main>
+    </div>
 
-    <footer class="footer-custom py-3 text-center">
-      © 2025 Voyager. All rights reserved.
+    <!-- FOOTER -->
+    <footer class="footer-custom text-center py-3">
+      <p class="mb-1">Voyager</p>
+      <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
     </footer>
 
+    <!-- JS -->
     <script>
-      // JavaScript function to calculate total tour cost
       function calculateCost(event) {
         event.preventDefault();
 
@@ -205,18 +202,18 @@
         let people = Number(document.getElementById("people").value);
         let age = Number(document.getElementById("age").value);
 
-        // Base cost
         let cost = rate * hours * people;
 
-        if (people > 5) cost *= 0.9; // 10% discount for big groups
-        if (age > 60) cost *= 0.85; // Senior discount
+        if (people > 5) cost *= 0.9;
+        if (age > 60) cost *= 0.85;
 
         let resultBox = document.getElementById("result");
         resultBox.classList.remove("d-none");
+
         resultBox.innerHTML = `
-          <strong>Total Cost:</strong> $${cost.toFixed(2)} <br>
-          <strong>Guide:</strong> ${selectedOption.value}
-        `;
+        <strong>Total Cost:</strong> $${cost.toFixed(2)} <br>
+        <strong>Guide:</strong> ${selectedOption.value}
+      `;
       }
     </script>
 
