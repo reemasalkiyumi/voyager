@@ -4,155 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voyager | Contact Us</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- SAME CSS FROM aboutUs.html EXACTLY -->
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Georgia", serif;
+      body {
+        color: #000000;
       }
+
+      /* HERO */
       .hero {
-        margin-top: 70px;
-        height: 80vh;
         background-image: url("background.jpg");
-        background-size: cover;
+        background-size: 100% auto;
         background-position: center;
         background-repeat: no-repeat;
-        position: relative;
-      }
-
-      .overlay {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.45);
+        height: 85vh;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
+        margin-top: 0px;
       }
 
-      .overlay h1 {
-        color: white;
-        font-size: 50px;
-        text-align: center;
-        margin-bottom: 25px;
-      }
-
-      /* TOP BAR */
-      .topbar {
-        position: fixed;
+      .hero-overlay {
+        background-color: rgba(0, 0, 0, 0.45);
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 65px;
-        background-color: rgba(0, 0, 0, 0.25);
-        display: flex;
-        align-items: center;
-        padding-left: 70px;
-        backdrop-filter: blur(2px);
+        height: 100%;
       }
 
-      .branding {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+      /* LOWER SECTION */
+      .lower-section {
+        background-color: #d9e7dd;
       }
 
-      .logo {
-        width: 35px;
-        height: 35px;
+      /* FOOTER */
+      .footer-custom {
+        background-color: #143642;
+        color: #ffffff;
       }
 
-      .proj-name {
-        color: white;
-        font-size: 26px;
-        font-weight: bold;
-      }
-
-      /* MENU BUTTON */
-      .menu-btn {
-        position: fixed;
-        top: 16px;
-        left: 20px;
-        font-size: 30px;
-        color: white;
-        cursor: pointer;
-        padding: 4px 8px;
-        border-radius: 6px;
-        background-color: rgba(0, 0, 0, 0.4);
-      }
-
-      #nav-bar {
-        display: none;
+      .footer-title,
+      .footer-text {
+        color: #ffffff;
       }
 
       /* SIDEBAR */
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: -260px;
-        width: 260px;
-        height: 100%;
-        background-color: #1c1c1c;
-        padding: 30px 25px;
-        color: white;
-        overflow-y: auto;
-        transition: 0.4s;
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #ffffff;
       }
 
-      #nav-bar:checked ~ .sidebar {
-        left: 0;
-      }
-
-      .close-btn {
-        font-size: 32px;
-        font-weight: bold;
-        color: white;
-        cursor: pointer;
-        margin-bottom: 20px;
-        padding-left: 5px;
-        padding-top: 5px;
-        display: block;
-      }
-
-      .menu {
-        list-style: none;
-      }
-
-      .menu li a {
-        display: block;
-        padding: 10px 12px;
-        text-decoration: none;
-        font-size: 18px;
+      .sidebar-custom .nav-link {
         color: #f2f2f2;
-        border-radius: 5px;
-        transition: 0.2s;
       }
 
-      .menu li a:hover {
-        background-color: #2f2f2f;
-      }
-
-      .menu li a.active {
+      .sidebar-custom .nav-link.active {
         background-color: #cfe4d5;
-        color: black;
+        color: #000000;
       }
 
-      .section-title {
-        margin-top: 22px;
-        margin-bottom: 6px;
-        font-size: 15px;
-        color: #dcdcdc;
-        opacity: 0.6;
-      }
-
-      .sub-page a {
-        margin-left: 15px;
-        font-size: 16px;
-      }
-
-      /* CONTACT CONTENT */
+      /* ABOUT BOXES (used for contact too) */
       .about-container {
         padding: 60px 10%;
         background-color: #e3f1ea;
@@ -182,80 +101,108 @@
       .about-box ul {
         margin-left: 20px;
       }
-
-      .contact-list {
-        list-style: none;
-      }
-
-      .email-item {
-        margin-bottom: 22px;
-        font-size: 18px;
-        color: #333;
-        line-height: 1.6;
-      }
     </style>
   </head>
 
   <body>
+    <!-- TOP NAVBAR -->
+    <div class="position-fixed top-0 start-0 w-100 z-3">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+        >
+          ☰
+        </button>
+
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title d-flex align-items-center gap-2">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About & Contact</h6>
+          <a class="nav-link mb-1 active" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
+    </div>
+
     <!-- HERO SECTION -->
     <header class="hero">
-      <div class="overlay">
-        <h1>Contact us</h1>
+      <div class="hero-overlay"></div>
+      <div class="text-center text-white position-relative z-1">
+        <h1 class="display-4 fw-bold mb-4">Contact us</h1>
       </div>
     </header>
 
-    <!-- TOP BAR -->
-    <header class="topbar">
-      <div class="branding">
-        <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" class="logo" />
-        <span class="proj-name">voyager</span>
-      </div>
-    </header>
-
-    <!-- MENU BUTTON -->
-    <input type="checkbox" id="nav-bar" />
-    <label for="nav-bar" class="menu-btn">≡</label>
-
-    <!-- MAIN CONTENT -->
+    <!-- CONTACT CONTENT (same boxes) -->
     <section class="about-container">
       <div class="about-box">
         <h2>We’d love to hear from you</h2>
         <p>
           If you have any questions, suggestions, or feedback about VOYAGER,
-          feel free to reach out to any member of our team. We will be happy to
-          support you.
+          feel free to reach out to any member of our team. We’re here to help!
         </p>
       </div>
 
       <div class="about-box">
         <h2>Team Emails</h2>
-
-        <ul class="contact-list">
-          <li class="email-item">
-            <strong>Rimas Al-Kiyumi</strong><br />
-            <a href="mailto:s145487@student.squ.edu.om"
-              >s145487@student.squ.edu.om</a
-            >
+        <ul>
+          <li>
+            <strong>Rimas Al-Kiyumi</strong><br />s145487@student.squ.edu.om
           </li>
-
-          <li class="email-item">
-            <strong>Sama Al-Shaqsi</strong><br />
-            <a href="mailto:s144398@student.squ.edu.om"
-              >s144398@student.squ.edu.om</a
-            >
+          <li>
+            <strong>Sama Al-Shaqsi</strong><br />s144398@student.squ.edu.om
           </li>
-
-          <li class="email-item">
-            <strong>Aaya Al-Rawahi</strong><br />
-            <a href="mailto:s143723@student.squ.edu.om"
-              >s143723@student.squ.edu.om</a
-            >
+          <li>
+            <strong>Aaya Al-Rawahi</strong><br />s143723@student.squ.edu.om
           </li>
         </ul>
       </div>
 
       <div class="about-box">
-        <h2>Project Note</h2>
+        <h2>Project Information</h2>
         <p>
           This website is part of the VOYAGER project for COMP3700, Department
           of Computer Science, Sultan Qaboos University.
@@ -263,29 +210,15 @@
       </div>
     </section>
 
-    <!-- SIDEBAR -->
-    <nav class="sidebar">
-      <label for="nav-bar" class="close-btn">×</label>
-
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Destinations.html">Explore</a></li>
-
-        <li class="section-title">Guides</li>
-        <li class="sub-page"><a href="guide-profile.html">Guide profile</a></li>
-        <li class="sub-page"><a href="signup.html">Sign up</a></li>
-
-        <li class="section-title">About & Contact</li>
-        <li class="sub-page">
-          <a class="active" href="contactUs.html">Contact us</a>
-        </li>
-        <li class="sub-page"><a href="aboutUs.html">About us</a></li>
-      </ul>
-    </nav>
-    
-
-  </body>
-  <footer class="footer">
-        © 2025 Voyager. All rights reserved.
+    <!-- FOOTER -->
+    <footer class="footer-custom text-center py-3">
+      <div class="container">
+        <p class="mb-1 footer-title">Voyager</p>
+        <p class="mb-0 footer-text">© 2025 Voyager. All rights reserved.</p>
+      </div>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

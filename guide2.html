@@ -177,21 +177,22 @@
         </h2>
 
         <div class="detail-group">
-          <b style="min-width: 110px">Location:</b> Tokyo, Japan
+          <b style="min-width: 110px">Location:</b> Arusha, Tanzania
         </div>
         <div class="detail-group">
-          <b style="min-width: 110px">Languages:</b> Japanese, English
+          <b style="min-width: 110px">Languages:</b> Tanzanian, English
         </div>
         <div class="detail-group">
-          <b style="min-width: 110px">Specialty:</b> Modern Tokyo tours, sushi
-          tours, hidden gems
+          <b style="min-width: 110px">Specialty:</b> Wildlife safaris, Serengeti
+          migration routes, Maasai culture experiences, crater and highlands
+          tours
         </div>
         <div class="detail-group">
           <b style="min-width: 110px">Rating:</b> 4.7/5 stars (430 reviews)
         </div>
 
         <p style="margin-top: 20px; font-size: 16px; color: #555">
-          Kenji has 8 years of experience guiding Tokyo city tours, focusing on
+          Kenji has 8 years of experience guiding Tanzanian tours, focusing on
           cultural immersion, local cuisine, and modern attractions.
         </p>
       </div>
@@ -224,7 +225,7 @@
             <th style="padding: 12px">Instagram</th>
             <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
               <a href="#" style="color: #1a1a1a; text-decoration: none"
-                >@TokyoWithKenji</a
+                >@TanzaniaWithKenji</a
               >
             </td>
           </tr>
@@ -233,7 +234,7 @@
             <th style="padding: 12px">Facebook</th>
             <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
               <a href="#" style="color: #1a1a1a; text-decoration: none"
-                >/KenjiTokyoTours</a
+                >/KenjiTanzaniaTours</a
               >
             </td>
           </tr>
@@ -245,109 +246,25 @@
     <section class="contact-form-section">
       <h2 class="section-header">Send Kenji an Inquiry</h2>
 
-      <form class="contact-form" action="https://httpbin.org/get" method="get">
+      <form action="https://httpbin.org/get" method="get">
         <div class="mb-3">
-          <label for="your-name" class="form-label fw-bold">Your Name</label>
-          <input
-            type="text"
-            id="your-name"
-            name="your-name"
-            class="form-control"
-            required
-          />
+          <label class="form-label fw-bold">Your Name</label>
+          <input type="text" name="your-name" class="form-control" required />
         </div>
 
         <div class="mb-3">
-          <label for="your-email" class="form-label fw-bold">Your Email</label>
-          <input
-            type="email"
-            id="your-email"
-            name="your-email"
-            class="form-control"
-            required
-          />
+          <label class="form-label fw-bold">Your Email</label>
+          <input type="email" name="your-email" class="form-control" required />
         </div>
 
         <div class="mb-3">
-          <label for="subject" class="form-label fw-bold">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            class="form-control"
-            required
-          />
-        </div>
-
-        <h4 class="mt-4 mb-2">Type of Inquiry:</h4>
-
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            name="interest"
-            value="tours"
-            id="inq-tours"
-          />
-          <label class="form-check-label" for="inq-tours"
-            >Tour Information</label
-          >
-        </div>
-
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            name="interest"
-            value="availability"
-            id="inq-avail"
-          />
-          <label class="form-check-label" for="inq-avail"
-            >Check Availability</label
-          >
-        </div>
-
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            name="interest"
-            value="custom"
-            id="inq-custom"
-          />
-          <label class="form-check-label" for="inq-custom"
-            >Custom Experience</label
-          >
-        </div>
-
-        <h4 class="mt-4 mb-2">Preferred Contact Method:</h4>
-
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="contact-method"
-            value="email"
-            id="contact-email"
-            checked
-          />
-          <label class="form-check-label" for="contact-email">Email</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="contact-method"
-            value="phone"
-            id="contact-phone"
-          />
-          <label class="form-check-label" for="contact-phone">Phone</label>
+          <label class="form-label fw-bold">Subject</label>
+          <input type="text" name="subject" class="form-control" required />
         </div>
 
         <div class="mb-3 mt-4">
-          <label for="group-size" class="form-label fw-bold">Group Size:</label>
-          <select id="group-size" name="group-size" class="form-select">
+          <label class="form-label fw-bold">Group Size:</label>
+          <select name="group-size" class="form-select">
             <option value="1-2">1–2 people</option>
             <option value="3-5">3–5 people</option>
             <option value="6-10">6–10 people</option>
@@ -355,11 +272,10 @@
         </div>
 
         <div class="mb-3">
-          <label for="message" class="form-label fw-bold"
+          <label class="form-label fw-bold"
             >Your Message / Availability Inquiry</label
           >
           <textarea
-            id="message"
             name="message"
             rows="5"
             class="form-control"
@@ -379,7 +295,6 @@
 
     <footer class="footer">© 2025 Voyager. All rights reserved.</footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
