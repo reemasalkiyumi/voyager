@@ -5,56 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voyager — Morocco</title>
 
-  <!-- BOOTSTRAP -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Custom styles for the Navbar and Sidebar to match the Home page */
+    .top-navbar-custom {
+      /* Matching background color from the Home page's .sidebar-custom (rgba(0, 0, 0, 0.9))
+      The original Home page mini-navbar was light but I'm matching the dark theme of the sidebar for better contrast/readability */
+      background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .sidebar-custom {
+      /* Matching sidebar background/text colors from the Home page */
+      background-color: rgba(0, 0, 0, 0.9) !important;
+      color: #ffffff;
+    }
+
+    .sidebar-custom .nav-link {
+      color: #f2f2f2;
+      padding: 0.5rem 1rem; /* Added padding to match list-group-item height */
+    }
+
+    .sidebar-custom .nav-link.active {
+      background-color: #cfe4d5;
+      color: #000000;
+    }
+
+    .sidebar-custom .offcanvas-title {
+      color: #ffffff;
+    }
+
+    /* Footer colors (Matching the Home page) */
+    .footer-custom {
+      background-color: #143642;
+      color: #ffffff;
+    }
+  </style>
 </head>
 
 <body class="bg-light">
 
-<!-- NAV BAR -->
-<nav class="navbar fixed-top navbar-dark bg-dark bg-opacity-50">
-  <div class="container">
-    <div class="d-flex align-items-center">
-      <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-           class="me-2" width="35" height="35">
-      <span class="navbar-brand mb-0 h1">voyager</span>
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
-      ≡
+<div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
+  <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
+    <button
+      class="btn btn-light me-2"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#mainSidebar"
+      aria-controls="mainSidebar"
+    >
+      ☰
     </button>
-  </div>
-</nav>
 
-<!-- SIDE MENU -->
-<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebar">
-  <div class="offcanvas-header">
-    <h4 class="offcanvas-title">Menu</h4>
-    <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <ul class="list-group list-group-flush">
-      <li><a href="index.html" class="list-group-item bg-dark text-light">Home</a></li>
-      <li><a href="Destinations.html" class="list-group-item bg-dark text-light">Explore</a></li>
-      <li><a href="guide.html" class="list-group-item bg-dark text-light">Guides page</a></li>
-      <li><a href="signup.html" class="list-group-item bg-dark text-light">Sign up</a></li>
-      <li class="mt-3">
-        <details>
-          <summary class="text-light">About & Contact</summary>
-          <ul class="list-group mt-2">
-            <li><a href="contactUs.html" class="list-group-item bg-dark text-light">Contact us</a></li>
-            <li><a href="aboutUs.html" class="list-group-item bg-dark text-light">About us</a></li>
-          </ul>
-        </details>
-      </li>
-    </ul>
+    <div class="d-flex align-items-center">
+      <img
+        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+        alt="Voyager logo"
+        class="me-2"
+        style="width: 32px; height: 32px"
+      />
+      <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+    </div>
   </div>
 </div>
 
-<!-- HERO IMAGE (NO CSS, ONLY IMG) -->
-<div class="position-relative mt-5 pt-4">
+<div
+  class="offcanvas offcanvas-start sidebar-custom"
+  tabindex="-1"
+  id="mainSidebar"
+  aria-labelledby="mainSidebarLabel"
+>
+  <div class="offcanvas-header">
+    <h5
+      class="offcanvas-title d-flex align-items-center gap-2"
+      id="mainSidebarLabel"
+    >
+      <img
+        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+        alt="Voyager logo"
+        style="width: 32px; height: 32px"
+      />
+      <span>voyager</span>
+    </h5>
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <nav class="nav flex-column">
+      <a class="nav-link active mb-1" href="index.html">Home</a>
+      <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+      <a class="nav-link mb-1" href="guide.html">Guides page</a>
+      <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+      <hr class="border-secondary" />
+
+      <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+      <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+      <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+    </nav>
+  </div>
+</div>
+
+
+<div class="position-relative pt-5">
   <img src="https://colorcodes.imgix.net/4aNWbQXflJUTIOfB1YVKTl/7fa85376d10404124d8900f2383ba400/dark-red-color.png"
-       class="img-fluid w-100" height="260" alt="Morocco header">
+       class="img-fluid w-100" style="height: 260px; object-fit: cover;" alt="Morocco header">
   <h1 class="position-absolute top-50 start-50 translate-middle text-white fw-bold display-5">
     MOROCCO
   </h1>
@@ -62,11 +122,10 @@
 
 <div class="container py-5">
 
-  <!-- INTRO -->
   <div class="row g-4">
     <div class="col-md-6">
       <img src="https://www.pestana.com/content/dam/pestana/en_us/destinations/morocco/morocco-page/gallery/gallery-morocco-fes-streets.jpg"
-           class="img-fluid rounded">
+           class="img-fluid rounded" alt="Fes streets">
     </div>
 
     <div class="col-md-6">
@@ -81,11 +140,10 @@
 
   <hr class="my-5">
 
-  <!-- FOOD & NATURE -->
   <div class="row g-4">
     <div class="col-md-6">
       <img src="https://media.gadventures.com/media-server/dynamic/blogs/posts/G-Adventures/2024/09/Moroccan_National_Dish.webp"
-           class="img-fluid rounded">
+           class="img-fluid rounded" alt="Moroccan food">
       <p class="mt-2 fs-6">
         Moroccan cuisine includes tagine, couscous, mint tea, pastries, and grilled meats.
       </p>
@@ -93,7 +151,7 @@
 
     <div class="col-md-6">
       <img src="https://www.achawari.com/static/uploads/2025/03/ouzoud-waterfalls-.webp"
-           class="img-fluid rounded">
+           class="img-fluid rounded" alt="Ouzoud Waterfalls">
       <p class="mt-2 fs-6">
         Top attractions include Sahara Desert, Atlas Mountains, blue city Chefchaouen, and historic palaces.
       </p>
@@ -113,31 +171,30 @@
 
   <hr class="my-5">
 
-  <!-- INFO CARDS -->
   <div class="row g-4">
     <div class="col-md-4">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <h5>Weather</h5>
-          <p class="mb-0">Best season: March–June & Sept–Nov.</p>
+          <h5 class="card-title">Weather</h5>
+          <p class="card-text mb-0">Best season: March–June & Sept–Nov.</p>
         </div>
       </div>
     </div>
 
     <div class="col-md-4">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <h5>Average Trip Cost</h5>
-          <p class="mb-0">Budget: $40–60/day | Luxury: $250+/day</p>
+          <h5 class="card-title">Average Trip Cost</h5>
+          <p class="card-text mb-0">Budget: $40–60/day | Luxury: $250+/day</p>
         </div>
       </div>
     </div>
 
     <div class="col-md-4">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <h5>Best For</h5>
-          <p class="mb-0">Food, culture, desert, photography.</p>
+          <h5 class="card-title">Best For</h5>
+          <p class="card-text mb-0">Food, culture, desert, photography.</p>
         </div>
       </div>
     </div>
@@ -150,11 +207,11 @@
   <div class="row g-3">
 
     <div class="col-md-4">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <h5>Laura (Spain)⭐️⭐️⭐️</h5>
-          <p>“Colorful, delicious food, but souks get overwhelming.”</p>
-          <ul class="list-unstyled">
+          <h5 class="card-title">Laura (Spain)⭐️⭐️⭐️</h5>
+          <p class="card-text">“Colorful, delicious food, but souks get overwhelming.”</p>
+          <ul class="list-unstyled mb-0">
             <li>Food: 5/5</li><li>Price: 4/5</li><li>Weather: 2/5</li>
             <li>Local Hospitality: 4.5/5</li><li>Adventure: 3/5</li>
             <li>Entertainment: 2/5</li>
@@ -164,11 +221,11 @@
     </div>
 
     <div class="col-md-4">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <h5>Omar (UAE)⭐️⭐️⭐️⭐️</h5>
-          <p>“Sahara camping was unforgettable. Marrakech streets crowded.”</p>
-          <ul class="list-unstyled">
+          <h5 class="card-title">Omar (UAE)⭐️⭐️⭐️⭐️</h5>
+          <p class="card-text">“Sahara camping was unforgettable. Marrakech streets crowded.”</p>
+          <ul class="list-unstyled mb-0">
             <li>Food: 4.5/5</li><li>Price: 4/5</li><li>Weather: 4.5/5</li>
             <li>Local Hospitality: 5/5</li><li>Adventure: 5/5</li>
             <li>Entertainment: 3.5/5</li>
@@ -178,11 +235,11 @@
     </div>
 
     <div class="col-md-4">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <h5>Emily (USA) ⭐️⭐️⭐️⭐️⭐️</h5>
-          <p>“Amazing culture and food. Transport slow unless using tours.”</p>
-          <ul class="list-unstyled">
+          <h5 class="card-title">Emily (USA) ⭐️⭐️⭐️⭐️⭐️</h5>
+          <p class="card-text">“Amazing culture and food. Transport slow unless using tours.”</p>
+          <ul class="list-unstyled mb-0">
             <li>Food: 5/5</li><li>Price: 4/5</li><li>Weather: 4/5</li>
             <li>Local Hospitality: 4.5/5</li><li>Adventure: 4.5/5</li>
             <li>Entertainment: 4/5</li>
@@ -204,8 +261,11 @@
 
 </div>
 
-<footer class="text-center py-3 bg-dark text-white mt-5">
-  © 2025 Voyager. All rights reserved.
+<footer class="footer-custom text-center py-3 mt-5">
+  <div class="container">
+    <p class="mb-1 fw-bold">Voyager</p>
+    <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
