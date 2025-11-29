@@ -207,6 +207,11 @@
                     Log in
                   </button>
 
+                  <!-- Forgot password link for modal -->
+                  <div class="text-center mt-2">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#forgotModal" style="text-decoration:none; color:#4f46e5;">Forgot password?</a>
+                  </div>
+
                   <!-- Hint -->
                   <div class="text-center small text-muted mt-3">
                     <p class="mb-1">Don't have an account?</p>
@@ -223,6 +228,26 @@
         </div>
       </div>
     </main>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Forgot Password</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Enter your email address and we’ll send you a password reset link.</p>
+            <input type="email" class="form-control" placeholder="you@example.com" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Send Reset Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer-custom text-center py-3">
       <div class="container">
