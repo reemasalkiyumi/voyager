@@ -51,10 +51,20 @@
         color: #ffffff;
       }
 
-      /* footer colors */
-      .footer {
-        background-color: #143642;
-        color: white;
+      .footer-custom {
+        background-color: var(--color-dark-main);
+        color: var(--color-text-light);
+      }
+      .footer-custom .footer-title,
+      .footer-custom .footer-text {
+        color: var(--color-text-light);
+      }
+      :root {
+        --color-dark-main: #143642; /* Footer, Submit Button, Main Accent */
+        --color-light-bg: #d9e7dd; /* Lower Section Background */
+        --color-text-light: #f2f2f2;
+        --color-text-dark: #000000;
+        --color-accent-green: #195438; /* Based on linked-pages-btn */
       }
     </style>
   </head>
@@ -279,9 +289,11 @@
         </div>
       </div>
     </main>
-
-    <footer class="footer mt-4 py-5 px-3 fs-6 text-center">
-      © 2025 Voyager. All rights reserved.
+    <footer class="footer-custom text-center py-3">
+      <div class="container">
+        <p class="mb-1 footer-title">Voyager</p>
+        <p class="mb-0 footer-text">© 2025 Voyager. All rights reserved.</p>
+      </div>
     </footer>
     <script>
       (() => {
