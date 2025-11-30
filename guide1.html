@@ -15,7 +15,6 @@
         background-color: #cfe4d5;
       }
 
-      /* HERO */
       .hero-header {
         background-image: url("background.jpg");
         background-size: cover;
@@ -38,7 +37,6 @@
         margin-top: -40px;
       }
 
-      /* SIDEBAR */
       .sidebar-custom {
         background-color: rgba(0, 0, 0, 0.9);
         color: white;
@@ -51,15 +49,10 @@
         color: black;
       }
 
-      /* PROFILE */
-      .profile-container {
-        margin-top: -120px;
+      .profile-card {
         background-color: #d9e7dd;
-        padding: 40px 10%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
         border-radius: 6px;
+        padding: 40px;
       }
 
       .guide-photo {
@@ -69,7 +62,7 @@
 
       .contact-details-section,
       .contact-form-section {
-        padding: 40px 10%;
+        padding: 40px 0;
         background: white;
       }
 
@@ -94,6 +87,7 @@
       }
     </style>
   </head>
+
   <body>
     <!-- TOP NAVBAR -->
     <div class="position-fixed top-0 start-0 w-100 z-3">
@@ -157,136 +151,262 @@
       <h1 class="guide-title">Marie Conti</h1>
     </header>
 
-    <!-- PROFILE -->
-    <main class="profile-container">
-      <div style="flex-basis: 350px; max-width: 350px">
-        <img
-          class="guide-photo"
-          src="https://www.schooltripworld.co.uk/wp-content/uploads/2025/03/woman-traveling-in-venice-italy.jpg"
-        />
-      </div>
-
-      <div style="flex-grow: 1">
-        <h2 class="guide-name" style="font-size: 40px; margin-bottom: 20px">
-          Marie Conti, Certified Guide
-        </h2>
-
-        <div class="detail-group">
-          <b style="min-width: 110px">Location:</b> Rome, Italy
-        </div>
-        <div class="detail-group">
-          <b style="min-width: 110px">Languages:</b> Italian, English, French
-        </div>
-        <div class="detail-group">
-          <b style="min-width: 110px">Specialty:</b> Historical walking tours,
-          food tours, hidden local spots
-        </div>
-        <div class="detail-group">
-          <b style="min-width: 110px">Rating:</b> 4.9/5 stars (62 reviews)
+    <!-- PROFILE (converted to Bootstrap Grid) -->
+    <main class="container" style="margin-top: -120px">
+      <div class="profile-card row g-4">
+        <!-- LEFT: Photo -->
+        <div class="col-12 col-md-4">
+          <img
+            class="guide-photo"
+            src="https://www.schooltripworld.co.uk/wp-content/uploads/2025/03/woman-traveling-in-venice-italy.jpg"
+          />
         </div>
 
-        <p style="margin-top: 20px; font-size: 16px; color: #555">
-          Marie has 12 years of experience leading tours across Rome. She is a
-          certified Roman History Guide and Culinary Expert, specializing in
-          small group experiences (Max 10 people).
-        </p>
+        <!-- RIGHT: Info -->
+        <div class="col-12 col-md-8">
+          <h2 class="guide-name" style="font-size: 40px; margin-bottom: 20px">
+            Marie Conti, Certified Guide
+          </h2>
+
+          <p><b>Location:</b> Rome, Italy</p>
+          <p><b>Languages:</b> Italian, English, French</p>
+          <p>
+            <b>Specialty:</b> Historical walking tours, food tours, hidden local
+            spots
+          </p>
+          <p><b>Rating:</b> 4.9/5 stars (62 reviews)</p>
+
+          <p style="margin-top: 20px; font-size: 16px; color: #555">
+            Marie has 12 years of experience leading tours across Rome. She is a
+            certified Roman History Guide and Culinary Expert, specializing in
+            small group experiences (Max 10 people).
+          </p>
+        </div>
       </div>
     </main>
 
-    <!-- CONTACT DETAILS -->
-    <section class="contact-details-section">
-      <h2 class="section-header">Contact & Social Media</h2>
+    <!-- CONTACT DETAILS (converted to Grid but visually identical) -->
+    <section class="contact-details-section mt-5">
+      <div class="container">
+        <h2 class="section-header">Contact & Social Media</h2>
 
-      <table style="width: 100%; border-collapse: collapse; margin-top: 20px">
-        <tbody>
-          <tr style="background: #2c4d57; color: white">
-            <th style="padding: 12px">Email Address</th>
-            <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
-              marie.conti@voyager.com
-            </td>
-          </tr>
+        <div class="row g-3">
+          <div class="col-12">
+            <table style="width: 100%; border-collapse: collapse">
+              <tbody>
+                <tr style="background: #2c4d57; color: white">
+                  <th style="padding: 12px">Email Address</th>
+                  <td
+                    style="padding: 12px; background: #d9e7dd; color: #1a1a1a"
+                  >
+                    marie.conti@voyager.com
+                  </td>
+                </tr>
 
-          <tr style="background: #1a3a3e; color: white">
-            <th style="padding: 12px">Phone Number</th>
-            <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
-              +39 06 XXXX 1234
-            </td>
-          </tr>
+                <tr style="background: #1a3a3e; color: white">
+                  <th style="padding: 12px">Phone Number</th>
+                  <td
+                    style="padding: 12px; background: #d9e7dd; color: #1a1a1a"
+                  >
+                    +39 06 XXXX 1234
+                  </td>
+                </tr>
 
-          <tr style="background: #2c4d57; color: white">
-            <th style="padding: 12px">Instagram</th>
-            <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
-              <a href="#" style="color: #1a1a1a; text-decoration: none"
-                >@RomeWithMarie</a
-              >
-            </td>
-          </tr>
+                <tr style="background: #2c4d57; color: white">
+                  <th style="padding: 12px">Instagram</th>
+                  <td
+                    style="padding: 12px; background: #d9e7dd; color: #1a1a1a"
+                  >
+                    <a href="#" style="color: #1a1a1a; text-decoration: none"
+                      >@RomeWithMarie</a
+                    >
+                  </td>
+                </tr>
 
-          <tr style="background: #1a3a3e; color: white">
-            <th style="padding: 12px">Facebook</th>
-            <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
-              <a href="#" style="color: #1a1a1a; text-decoration: none"
-                >/MarieContiTours</a
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                <tr style="background: #1a3a3e; color: white">
+                  <th style="padding: 12px">Facebook</th>
+                  <td
+                    style="padding: 12px; background: #d9e7dd; color: #1a1a1a"
+                  >
+                    <a href="#" style="color: #1a1a1a; text-decoration: none"
+                      >/MarieContiTours</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- CONTACT FORM -->
+    <!-- CONTACT FORM (converted to Grid) -->
     <section class="contact-form-section">
-      <h2 class="section-header">Send Marie an Inquiry</h2>
+      <div class="container">
+        <h2 class="section-header">Send Marie an Inquiry</h2>
 
-      <form action="https://httpbin.org/get" method="get">
-        <div class="mb-3">
-          <label class="form-label fw-bold">Your Name</label>
-          <input type="text" name="your-name" class="form-control" required />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label fw-bold">Your Email</label>
-          <input type="email" name="your-email" class="form-control" required />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label fw-bold">Subject</label>
-          <input type="text" name="subject" class="form-control" required />
-        </div>
-
-        <div class="mb-3 mt-4">
-          <label class="form-label fw-bold">Group Size:</label>
-          <select name="group-size" class="form-select">
-            <option value="1-2">1–2 people</option>
-            <option value="3-5">3–5 people</option>
-            <option value="6-10">6–10 people</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label fw-bold"
-            >Your Message / Availability Inquiry</label
-          >
-          <textarea
-            name="message"
-            rows="5"
-            class="form-control"
-            required
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          class="btn w-100"
-          style="background: #143642; color: white; padding: 15px"
+        <form
+          id="marieForm"
+          class="needs-validation"
+          novalidate
+          action="#"
+          method="get"
         >
-          Send Message
-        </button>
-      </form>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Your Name</label>
+              <input
+                type="text"
+                name="your-name"
+                class="form-control"
+                id="fullName"
+                required
+              />
+              <div class="invalid-feedback">
+                Name must contain letters only.
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Your Email</label>
+              <input
+                type="email"
+                name="your-email"
+                class="form-control"
+                id="email"
+                required
+              />
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                class="form-control"
+                id="subject"
+                required
+              />
+              <div class="invalid-feedback">Subject is too long.</div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <label class="form-label fw-bold">Group Size:</label>
+              <select name="group-size" class="form-select">
+                <option value="1-2">1–2 people</option>
+                <option value="3-5">3–5 people</option>
+                <option value="6-10">6–10 people</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label fw-bold"
+                >Your Message / Availability Inquiry</label
+              >
+              <textarea
+                name="message"
+                rows="5"
+                class="form-control"
+                id="message"
+                required
+              ></textarea>
+              <div class="invalid-feedback">Message is too short.</div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn w-100 mt-4"
+            style="background: #143642; color: white; padding: 15px"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
     </section>
 
     <footer class="footer">© 2025 Voyager. All rights reserved.</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Manual validations -->
+    <script>
+      (() => {
+        const form = document.querySelector("#marieForm");
+
+        form.addEventListener("submit", (event) => {
+          let valid = true;
+
+          // 1) NAME — only letters & spaces (manual loop)
+          const nameValue = fullName.value.trim();
+          let nameOK = true;
+
+          for (let i = 0; i < nameValue.length; i++) {
+            let ch = nameValue[i].toLowerCase();
+
+            if (!((ch >= "a" && ch <= "z") || ch === " ")) {
+              nameOK = false;
+              break;
+            }
+          }
+
+          if (!nameOK || nameValue === "") {
+            fullName.setCustomValidity("invalid");
+            valid = false;
+          } else {
+            fullName.setCustomValidity("");
+          }
+
+          // 2) EMAIL basic manual check (no regex)
+          const emailValue = email.value.trim();
+          let emailOK = true;
+
+          if (
+            emailValue.includes(" ") ||
+            !emailValue.includes("@") ||
+            !emailValue.includes(".") ||
+            emailValue.startsWith("@") ||
+            emailValue.endsWith(".")
+          ) {
+            emailOK = false;
+          }
+
+          if (!emailOK) {
+            email.setCustomValidity("invalid");
+            valid = false;
+          } else {
+            email.setCustomValidity("");
+          }
+
+          // 3) SUBJECT limit
+          const subjectValue = subject.value.trim();
+          const maxLength = 50;
+
+          if (subjectValue.length > maxLength) {
+            subject.setCustomValidity("too long");
+            valid = false;
+          } else {
+            subject.setCustomValidity("");
+          }
+
+          // bootstrap UI
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          // success
+          if (valid) {
+            event.preventDefault();
+            alert("Your inquiry has been sent successfully!");
+            form.reset();
+            form.classList.remove("was-validated");
+          }
+
+          form.classList.add("was-validated");
+        });
+      })();
+    </script>
   </body>
 </html>

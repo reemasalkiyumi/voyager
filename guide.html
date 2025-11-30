@@ -48,15 +48,19 @@
         background-color: #d9e7dd;
         padding: 20px;
         border-radius: 8px;
+        height: 100%;
       }
+
       .guide-photo {
         width: 100%;
         border-radius: 6px;
       }
+
       .guide-name {
         font-size: 30px;
         font-weight: bold;
       }
+
       .contact-button {
         display: inline-block;
         background-color: #195438;
@@ -66,6 +70,7 @@
         font-size: 18px;
         border-radius: 4px;
       }
+
       .contact-button:hover {
         background-color: #0e301f;
       }
@@ -135,167 +140,163 @@
     </div>
 
     <!-- HERO -->
-    <header class="hero min-vh-100 d-flex align-items-center justify-content-center text-center position-relative">
+    <header
+      class="hero min-vh-100 d-flex align-items-center justify-content-center text-center position-relative"
+    >
       <div class="position-absolute top-0 start-0 w-100 h-100"></div>
       <div class="position-relative z-1 text-white">
         <h1 class="display-4 fw-bold">Guides</h1>
       </div>
     </header>
-      <div
-        class="hero-overlay position-absolute top-0 start-0 w-100 h-100"
-      ></div>
-    </header>
 
-    <!-- GUIDE CARDS -->
+    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+
+    <!-- GUIDE CARDS — NOW USING GRID SYSTEM -->
     <main class="container my-5">
-      <!-- ORIGINAL 3 GUIDES -->
-      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
-        <img
-          src="https://www.schooltripworld.co.uk/wp-content/uploads/2025/03/woman-traveling-in-venice-italy.jpg"
-          class="guide-photo"
-          style="max-width: 300px"
-        />
-        <div>
-          <h2 class="guide-name">Marie Conti</h2>
-          <p><strong>Location:</strong> Rome, Italy</p>
-          <p><strong>Languages:</strong> Italian, English, French</p>
-          <p>
-            <strong>Specialty:</strong> Historical walking tours, food tours,
-            hidden spots
-          </p>
-          <a href="guide1.html" class="contact-button">Contact</a>
+      <div class="row g-4">
+        <!-- كل Guide داخل col -->
+        <!-- 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="guide-card">
+            <img
+              src="https://www.schooltripworld.co.uk/wp-content/uploads/2025/03/woman-traveling-in-venice-italy.jpg"
+              class="guide-photo"
+            />
+            <h2 class="guide-name mt-3">Marie Conti</h2>
+            <p><strong>Location:</strong> Rome, Italy</p>
+            <p><strong>Languages:</strong> Italian, English, French</p>
+            <p>
+              <strong>Specialty:</strong> Historical walking tours, food tours,
+              hidden spots
+            </p>
+            <a href="guide1.html" class="contact-button">Contact</a>
+          </div>
         </div>
-      </div>
 
-      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
-        <img
-          src="https://media.istockphoto.com/id/1511207680/photo/asian-man-backpacker-or-hiking-in-nature-forest-trekking-woods-or-japanese-trees-in-adventure.jpg?s=612x612&w=0&k=20&c=Zj5tu7gvYHKn7pWQ4GGBidjtEixiU-yO-nPSHUtWa3Y="
-          class="guide-photo"
-          style="max-width: 300px"
-        />
-        <div>
-          <h2 class="guide-name">Kenji Tanaka</h2>
-          <p><strong>Location:</strong> Arusha, Tanzania</p>
-          <p><strong>Languages:</strong> Tanzanian, English</p>
-          <p>
-            <strong>Specialty:</strong> Zen gardens, temples, photography tours
-          </p>
-          <a href="guide2.html" class="contact-button">Contact</a>
+        <!-- 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="guide-card">
+            <img
+              src="https://media.istockphoto.com/id/1511207680/photo/asian-man-backpacker-or-hiking-in-nature-forest-trekking-woods-or-japanese-trees-in-adventure.jpg?s=612x612&w=0&k=20&c=Zj5tu7gvYHKn7pWQ4GGBidjtEixiU-yO-nPSHUtWa3Y="
+              class="guide-photo"
+            />
+            <h2 class="guide-name mt-3">Kenji Tanaka</h2>
+            <p><strong>Location:</strong> Arusha, Tanzania</p>
+            <p><strong>Languages:</strong> Tanzanian, English</p>
+            <p>
+              <strong>Specialty:</strong> Zen gardens, temples, photography
+              tours
+            </p>
+            <a href="guide2.html" class="contact-button">Contact</a>
+          </div>
         </div>
-      </div>
 
-      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
-        <img
-          src="https://media.istockphoto.com/id/1071461664/photo/having-a-tour-through-the-city-streets.jpg?s=612x612&w=0&k=20&c=nlr914eKeQkYVpv7UgKCGU1oWLd97eRCi5e3jRggEhw="
-          class="guide-photo"
-          style="max-width: 300px"
-        />
-        <div>
-          <h2 class="guide-name">Sofia Rodriguez</h2>
-          <p><strong>Location:</strong> Barcelona, Spain</p>
-          <p><strong>Languages:</strong> Spanish, Catalan, English, French</p>
-          <p>
-            <strong>Specialty:</strong> Gaudi sites, Gothic Quarter, tapas
-            routes
-          </p>
-          <a href="guide3.html" class="contact-button">Contact</a>
+        <!-- 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="guide-card">
+            <img
+              src="https://media.istockphoto.com/id/1071461664/photo/having-a-tour-through-the-city-streets.jpg?s=612x612&w=0&k=20&c=nlr914eKeQkYVpv7UgKCGU1oWLd97eRCi5e3jRggEhw="
+              class="guide-photo"
+            />
+            <h2 class="guide-name mt-3">Sofia Rodriguez</h2>
+            <p><strong>Location:</strong> Barcelona, Spain</p>
+            <p><strong>Languages:</strong> Spanish, Catalan, English, French</p>
+            <p>
+              <strong>Specialty:</strong> Gaudi sites, Gothic Quarter, tapas
+              routes
+            </p>
+            <a href="guide3.html" class="contact-button">Contact</a>
+          </div>
         </div>
-      </div>
 
-      <!-- NEW 5 GUIDES -->
-
-      <!-- 4. Hana Kim -->
-      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
-        <img
-          src="https://arival.travel/wp-content/uploads/2024/04/pexels-raphael-loquellano-1200x800-1-1024x682.webp"
-          class="guide-photo"
-          style="max-width: 300px"
-        />
-        <div>
-          <h2 class="guide-name">Hana Kim</h2>
-          <p><strong>Location:</strong> Bali, Indonesia</p>
-          <p><strong>Languages:</strong> Indonesian, English</p>
-          <p>
-            <strong>Specialty:</strong> culture tours, markets, food
-            experiences, night routes
-          </p>
-          <a href="guide7.html" class="contact-button">Contact</a>
+        <!-- 4 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="guide-card">
+            <img
+              src="https://arival.travel/wp-content/uploads/2024/04/pexels-raphael-loquellano-1200x800-1-1024x682.webp"
+              class="guide-photo"
+            />
+            <h2 class="guide-name mt-3">Hana Kim</h2>
+            <p><strong>Location:</strong> Bali, Indonesia</p>
+            <p><strong>Languages:</strong> Indonesian, English</p>
+            <p>
+              <strong>Specialty:</strong> culture tours, markets, food
+              experiences, night routes
+            </p>
+            <a href="guide7.html" class="contact-button">Contact</a>
+          </div>
         </div>
-      </div>
 
-      <!-- 5. Marco Reyes -->
-      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwPBrKujHAV_lW_v9kBYN54BBOFwcq-EXZ9g&s"
-          class="guide-photo"
-          style="max-width: 300px"
-        />
-        <div>
-          <h2 class="guide-name">Marco Reyes</h2>
-          <p><strong>Location:</strong> Seychelles</p>
-          <p><strong>Languages:</strong> Spanish, English</p>
-          <p>
-            <strong>Specialty:</strong> Historic districts, cultural landmarks,
-            photography, food spots
-          </p>
-          <a href="guide6.html" class="contact-button">Contact</a>
+        <!-- 5 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="guide-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwPBrKujHAV_lW_v9kBYN54BBOFwcq-EXZ9g&s"
+              class="guide-photo"
+            />
+            <h2 class="guide-name mt-3">Marco Reyes</h2>
+            <p><strong>Location:</strong> Seychelles</p>
+            <p><strong>Languages:</strong> Spanish, English</p>
+            <p>
+              <strong>Specialty:</strong> Historic districts, cultural
+              landmarks, photography, food spots
+            </p>
+            <a href="guide6.html" class="contact-button">Contact</a>
+          </div>
         </div>
-      </div>
 
-      <!-- 6. Liam Thompson -->
-      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
-        <img
-          src="https://www.dundalkdemocrat.ie/resizer/640/-1/true/2023_07_11/Walking_Tour_7_-1689069121879.jpg--liam_gaynor_s_love_and_knowledge_of_dundalk_make_him_perfect_walking_tour_guide_.jpg?1689069121964"
-          class="guide-photo"
-          style="max-width: 300px"
-        />
-        <div>
-          <h2 class="guide-name">Liam Thompson</h2>
-          <p><strong>Location:</strong> Queenstown, Australia</p>
-          <p><strong>Languages:</strong> English, Māori (basic)</p>
-          <p>
-            <strong>Specialty:</strong> Adventure tours, hiking, lake cruises,
-            wildlife exploration
-          </p>
-          <a href="guide8.html" class="contact-button">Contact</a>
+        <!-- 6 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="guide-card">
+            <img
+              src="https://www.dundalkdemocrat.ie/resizer/640/-1/true/2023_07_11/Walking_Tour_7_-1689069121879.jpg--liam_gaynor_s_love_and_knowledge_of_dundalk_make_him_perfect_walking_tour_guide_.jpg?1689069121964"
+              class="guide-photo"
+            />
+            <h2 class="guide-name mt-3">Liam Thompson</h2>
+            <p><strong>Location:</strong> Queenstown, Australia</p>
+            <p><strong>Languages:</strong> English, Māori (basic)</p>
+            <p>
+              <strong>Specialty:</strong> Adventure tours, hiking, lake cruises,
+              wildlife exploration
+            </p>
+            <a href="guide8.html" class="contact-button">Contact</a>
+          </div>
         </div>
-      </div>
 
-      <!-- 7. Layla Haddad -->
-      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
-        <img
-          src="https://t4.ftcdn.net/jpg/05/25/99/07/360_F_525990766_OKktXosEFG9McFRUNxHgpEYaundbL4N8.jpg"
-          class="guide-photo"
-          style="max-width: 300px"
-        />
-        <div>
-          <h2 class="guide-name">Layla Haddad</h2>
-          <p><strong>Location:</strong> Muscat, Oman</p>
-          <p><strong>Languages:</strong> Arabic, English</p>
-          <p>
-            <strong>Specialty:</strong> City tours, modern attractions, cultural
-            experiences, desert tours
-          </p>
-          <a href="guide5.html" class="contact-button">Contact</a>
+        <!-- 7 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="guide-card">
+            <img
+              src="https://t4.ftcdn.net/jpg/05/25/99/07/360_F_525990766_OKktXosEFG9McFRUNxHgpEYaundbL4N8.jpg"
+              class="guide-photo"
+            />
+            <h2 class="guide-name mt-3">Layla Haddad</h2>
+            <p><strong>Location:</strong> Muscat, Oman</p>
+            <p><strong>Languages:</strong> Arabic, English</p>
+            <p>
+              <strong>Specialty:</strong> City tours, modern attractions,
+              cultural experiences, desert tours
+            </p>
+            <a href="guide5.html" class="contact-button">Contact</a>
+          </div>
         </div>
-      </div>
 
-      <!-- 8. Omar Al-Ghareeb -->
-      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
-        <img
-          src="https://plus.unsplash.com/premium_photo-1718146018997-a1059f9f9420?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dG91ciUyMGd1aWRlfGVufDB8fDB8fHww"
-          class="guide-photo"
-          style="max-width: 300px"
-        />
-        <div>
-          <h2 class="guide-name">Omar Al-Ghareeb</h2>
-          <p><strong>Location:</strong> Marrakech, Morocco</p>
-          <p><strong>Languages:</strong> Arabic, French, English, Spanish</p>
-          <p>
-            <strong>Specialty:</strong> Desert expeditions, Moroccan cuisine,
-            Berber culture, souk tours
-          </p>
-          <a href="guide4.html" class="contact-button">Contact</a>
+        <!-- 8 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="guide-card">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1718146018997-a1059f9f9420?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dG91ciUyMGd1aWRlfGVufDB8fDB8fHww"
+              class="guide-photo"
+            />
+            <h2 class="guide-name mt-3">Omar Al-Ghareeb</h2>
+            <p><strong>Location:</strong> Marrakech, Morocco</p>
+            <p><strong>Languages:</strong> Arabic, French, English, Spanish</p>
+            <p>
+              <strong>Specialty:</strong> Desert expeditions, Moroccan cuisine,
+              Berber culture, souk tours
+            </p>
+            <a href="guide4.html" class="contact-button">Contact</a>
+          </div>
         </div>
       </div>
     </main>

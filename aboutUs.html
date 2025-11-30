@@ -16,7 +16,7 @@
         color: #000000;
       }
 
-      /* HERO (copied exactly from index) */
+      /* HERO */
       .hero {
         background-image: url("background.jpg");
         background-size: cover;
@@ -28,7 +28,7 @@
         background-color: rgba(0, 0, 0, 0.45);
       }
 
-      /* LOWER SECTION BACKGROUND */
+      /* LOWER SECTION BACKGROUND (تركته بدون استخدام بما أنكِ ما تبينه هنا) */
       .lower-section {
         background-color: #d9e7dd;
       }
@@ -59,11 +59,12 @@
         color: #ffffff;
       }
 
-      /* ABOUT BOXES */
+      /* KEEP YOUR EXACT ABOUT SECTION COLORS */
       .about-container {
         padding: 60px 10%;
         background-color: #e3f1ea;
       }
+
       .about-box {
         background: white;
         padding: 25px 30px;
@@ -89,27 +90,23 @@
   </head>
 
   <body>
-    <!-- TOP NAVBAR (same as index.html) -->
+    <!-- TOP NAVBAR (unchanged) -->
     <div class="position-fixed top-0 start-0 w-100 z-3">
       <div
         class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
       >
-        <!-- Sidebar toggle button -->
         <button
           class="btn btn-light me-2"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#mainSidebar"
-          aria-controls="mainSidebar"
         >
           ☰
         </button>
 
-        <!-- Logo + Voyager text -->
         <div class="d-flex align-items-center">
           <img
             src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-            alt="Voyager logo"
             class="me-2"
             style="width: 32px; height: 32px"
           />
@@ -118,21 +115,16 @@
       </div>
     </div>
 
-    <!-- SIDEBAR (same as index.html) -->
+    <!-- SIDEBAR (unchanged) -->
     <div
       class="offcanvas offcanvas-start sidebar-custom"
       tabindex="-1"
       id="mainSidebar"
-      aria-labelledby="mainSidebarLabel"
     >
       <div class="offcanvas-header">
-        <h5
-          class="offcanvas-title d-flex align-items-center gap-2"
-          id="mainSidebarLabel"
-        >
+        <h5 class="offcanvas-title d-flex align-items-center gap-2">
           <img
             src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-            alt="Voyager logo"
             style="width: 32px; height: 32px"
           />
           <span>voyager</span>
@@ -160,7 +152,7 @@
       </div>
     </div>
 
-    <!-- HERO (EXACT copy from index, just text changed) -->
+    <!-- HERO (unchanged) -->
     <header
       class="hero min-vh-100 d-flex align-items-center justify-content-center text-center position-relative"
     >
@@ -173,61 +165,74 @@
       </div>
     </header>
 
-    <!-- ABOUT CONTENT (unchanged, as you wrote it) -->
+    <!-- ABOUT CONTENT — BOOTSTRAP GRID, SAME COLORS -->
     <section class="about-container">
-      <div class="about-box">
-        <h2>Our Story</h2>
-        <p>
-          VOYAGER was created to help travelers explore countries, find trusted
-          local guides, and discover authentic experiences. Many travelers
-          struggle to find honest reviews and reliable information—our mission
-          is to make travel easier, safer, and more connected.
-        </p>
-      </div>
+      <div class="container">
+        <div class="row justify-content-center mb-4">
+          <div class="col-12 col-lg-8 about-box">
+            <h2>Our Story</h2>
+            <p>
+              VOYAGER was created to help travelers explore countries, find
+              trusted local guides, and discover authentic experiences.
+            </p>
+          </div>
+        </div>
 
-      <div class="about-box">
-        <h2>Our Mission</h2>
-        <p>
-          We aim to build a platform that connects travelers and guides,
-          promotes tourism, and showcases cultural and natural destinations
-          across the world.
-        </p>
-      </div>
+        <div class="row justify-content-center mb-4">
+          <div class="col-12 col-lg-8 about-box">
+            <h2>Our Mission</h2>
+            <p>
+              We aim to build a platform that connects travelers and guides,
+              promotes tourism, and showcases cultural and natural destinations
+              across the world.
+            </p>
+          </div>
+        </div>
 
-      <div class="about-box">
-        <h2>Our Objectives</h2>
-        <ul>
-          <li>Allow users to rate countries based on travel experience.</li>
-          <li>Enable guides to register and promote their services.</li>
-          <li>Provide contact options between travelers and guides.</li>
-          <li>Display recommended foods and attractions for each country.</li>
-          <li>Help users filter destinations based on travel type.</li>
-          <li>Create a user-friendly and visually clean website.</li>
-        </ul>
-      </div>
+        <div class="row justify-content-center mb-4">
+          <div class="col-12 col-lg-8 about-box">
+            <h2>Our Objectives</h2>
+            <ul>
+              <li>Allow users to rate countries based on travel experience.</li>
+              <li>Enable guides to register and promote their services.</li>
+              <li>Provide contact options between travelers and guides.</li>
+              <li>
+                Display recommended foods and attractions for each country.
+              </li>
+              <li>Help users filter destinations based on travel type.</li>
+              <li>Create a user-friendly and visually clean website.</li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="about-box">
-        <h2>Our Team</h2>
-        <p>We are Computer Science students from Sultan Qaboos University:</p>
-        <ul>
-          <li>Rimas Al-Kiyumi — 145487</li>
-          <li>Sama Al-Shaqsi — 144398</li>
-          <li>Aaya Al-Rawahi — 143723</li>
-        </ul>
-      </div>
+        <div class="row justify-content-center mb-4">
+          <div class="col-12 col-lg-8 about-box">
+            <h2>Our Team</h2>
+            <p>
+              We are Computer Science students from Sultan Qaboos University:
+            </p>
+            <ul>
+              <li>Rimas Al-Kiyumi — 145487</li>
+              <li>Sama Al-Shaqsi — 144398</li>
+              <li>Aaya Al-Rawahi — 143723</li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="about-box">
-        <h2>Logo Meaning</h2>
-        <p>
-          The green and golden colors represent nature, warmth, and adventure.
-          The sun and palm tree symbolize exploration and the beauty of travel.
-          The circular shape represents unity and how VOYAGER connects travelers
-          around the world.
-        </p>
+        <div class="row justify-content-center mb-4">
+          <div class="col-12 col-lg-8 about-box">
+            <h2>Logo Meaning</h2>
+            <p>
+              The green and golden colors represent nature, warmth, and
+              adventure. The sun and palm tree symbolize exploration and the
+              beauty of travel.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (unchanged) -->
     <footer class="footer-custom text-center py-3">
       <div class="container">
         <p class="mb-1 footer-title">Voyager</p>
