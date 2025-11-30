@@ -289,26 +289,30 @@
 
     <!-- YOUR SCRIPT (unchanged, only tags fixed) -->
     <script>
+      // Check if input contains letters only
       function isLettersOnly(value) {
         return /^[A-Za-z\s]+$/.test(value);
       }
 
-      // PASSWORD MATCH VALIDATION
+      //password maych validation
       function validatePasswordMatch() {
         const password = document.getElementById("password");
         const confirmPassword = document.getElementById("confirmPassword");
 
+        // If passwords are different → show error
         if (password.value !== confirmPassword.value) {
           confirmPassword.setCustomValidity("Passwords do not match.");
         } else {
+          // If passwords match → remove error
           confirmPassword.setCustomValidity("");
         }
       }
 
-      // Real-time validation
+      // Check password match while typing
       document
         .getElementById("password")
         .addEventListener("input", validatePasswordMatch);
+
       document
         .getElementById("confirmPassword")
         .addEventListener("input", validatePasswordMatch);
@@ -318,22 +322,28 @@
 
         const forms = document.querySelectorAll(".needs-validation");
 
+        // Validate first/last name field
         function validateNameField(field, errorId) {
           const errorDiv = document.getElementById(errorId);
           const value = field.value.trim();
           let message = "";
 
+          // Empty field
           if (value === "") {
             message = "Please fill out this field.";
-          } else if (!isLettersOnly(value)) {
+          }
+          // Letters only check
+          else if (!isLettersOnly(value)) {
             message = "Name must contain letters only.";
           }
 
+          // If there is a message → show error
           if (message) {
             field.setCustomValidity(message);
             if (errorDiv) errorDiv.textContent = message;
             return false;
           } else {
+            // No error → clear validation
             field.setCustomValidity("");
             return true;
           }
@@ -343,29 +353,35 @@
           const firstName = document.getElementById("firstName");
           const lastName = document.getElementById("lastName");
 
+          // real-time validation for first name
           if (firstName) {
             firstName.addEventListener("input", () =>
               validateNameField(firstName, "firstNameError")
             );
           }
 
+          // Real-time validation for last name
           if (lastName) {
             lastName.addEventListener("input", () =>
               validateNameField(lastName, "lastNameError")
             );
           }
 
+          // On form submit
           form.addEventListener(
             "submit",
             (event) => {
+              // Validate names before submission
               if (firstName) validateNameField(firstName, "firstNameError");
               if (lastName) validateNameField(lastName, "lastNameError");
 
+              // If form has any invalid field → stop submit
               if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
               }
 
+              // Add Bootstrap validation styling
               form.classList.add("was-validated");
             },
             false
