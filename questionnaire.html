@@ -16,77 +16,63 @@
     --color-accent-green: #195438;
 }
 
-body {
-    color: var(--color-text-dark);
-    padding-top: 60px;
-    background-color: #ffffff;
-}
+body { color: var(--color-text-dark); background-color: #ffffff; }
 
-.fixed-top-nav {
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(4px);
-}
-
+/* SIDEBAR */
 .sidebar-custom {
     background-color: rgba(0, 0, 0, 0.9);
     color: var(--color-text-light);
 }
-.sidebar-custom .nav-link {
-    color: var(--color-text-light);
-}
-.sidebar-custom .nav-link.active {
-    background-color: #cfe4d5;
-    color: var(--color-text-dark);
-}
+.sidebar-custom .nav-link { color: var(--color-text-light); }
+.sidebar-custom .nav-link.active { background-color: #cfe4d5; color: var(--color-text-dark); }
 
+/* HERO SECTION */
 .hero-questionnaire {
     background-image: url("background.jpg"); 
     background-size: cover;
     background-position: center;
     min-height: 100vh;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
-.hero-overlay {
-    background-color: rgba(0, 0, 0, 0.45);
-}
-.lower-section {
-    background-color: var(--color-light-bg);
-}
-.footer-custom {
-    background-color: var(--color-dark-main);
-    color: var(--color-text-light);
-}
-.footer-custom .footer-title,
-.footer-custom .footer-text {
-    color: var(--color-text-light);
-}
+.hero-overlay { background-color: rgba(0, 0, 0, 0.45); position: absolute; top:0; left:0; width:100%; height:100%; }
+.hero-questionnaire .text-white { position: relative; z-index: 1; }
 
-/* Form Styling */
+/* LOWER SECTION */
+.lower-section { background-color: var(--color-light-bg); }
+
+/* FOOTER */
+.footer-custom { background-color: var(--color-dark-main); color: var(--color-text-light); }
+.footer-custom .footer-title, .footer-custom .footer-text { color: var(--color-text-light); }
+
+/* FORM STYLING */
 .card { border: none; border-radius: 10px; }
 .question-title { color: var(--color-dark-main); border-bottom: 2px solid var(--color-dark-main); padding-bottom: 8px; margin-bottom: 1.5rem; }
 .form-check-input:checked { background-color: var(--color-accent-green); border-color: var(--color-accent-green); }
 .form-control.is-invalid { border-color: #dc3545; padding-right: calc(1.5em + 0.75rem); }
 
-/* Submit Button Styling */
+/* SUBMIT BUTTON */
 #submit-btn { background-color: var(--color-dark-main); color: #ffffff; transition: background-color 0.3s; }
 #submit-btn:hover { background-color: #0e2531; }
 
-/* Success/Invalid Feedback Styling */
+/* RESULTS SECTION */
 .results-section { background-color: #cfe4d5; border: 2px solid var(--color-accent-green); }
 .invalid-feedback { display: none; color: #dc3545; margin-top: 0.25rem; font-size: 0.875em; }
 .form-control.is-invalid ~ .invalid-feedback { display: block; }
 
-/* Dynamic Table Styling */
+/* TABLES */
 .table-section { margin-top: 50px; }
 .table thead { background-color: var(--color-dark-main); color: var(--color-text-light); }
 
-/* Small responsive tweak */
-@media (max-width: 576px) {
-  .hero-questionnaire h1 { font-size: 1.75rem; }
-}
+@media (max-width: 576px) { .hero-questionnaire h1 { font-size: 1.75rem; } }
 </style>
 </head>
 <body>
-<!-- NAVBAR AND SIDEBAR -->
+
+<!-- NAVBAR -->
 <div class="fixed-top position-fixed fixed-top-nav w-100 z-3">
   <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
     <button class="btn btn-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainSidebar" aria-controls="mainSidebar">☰</button>
@@ -97,6 +83,7 @@ body {
   </div>
 </div>
 
+<!-- SIDEBAR -->
 <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mainSidebar" aria-labelledby="mainSidebarLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title d-flex align-items-center gap-2" id="mainSidebarLabel">
@@ -120,181 +107,143 @@ body {
 </div>
 
 <!-- HERO SECTION -->
-<header class="hero-questionnaire d-flex align-items-center justify-content-center text-center position-relative">
-  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
-  <div class="position-relative z-1 text-white py-5">
-    <h1 class="display-4 fw-bold mb-3">Voyager Feedback </h1>
+<header class="hero-questionnaire text-center">
+  <div class="hero-overlay"></div>
+  <div class="text-white py-5">
+    <h1 class="display-4 fw-bold mb-3">Voyager Feedback</h1>
     <p class="lead mb-0 px-3">Your input is the fuel we need to chart the best course. Tell us about your website experience!</p>
   </div>
 </header>
 
-<!-- FEEDBACK FORM -->
+<!-- FEEDBACK FORM SECTION -->
 <section class="lower-section py-5">
   <div class="container">
     <form id="feedback-form" class="row g-4 needs-validation bg-white p-4 rounded shadow-sm" novalidate>
       <div class="col-12">
-        <h2 class="question-title">Voyager — Customer Questionnaire</h2>
+        <h2 class="question-title">Voyager — Customer Feedback</h2>
         <p class="small text-muted">We appreciate honest feedback. Fields marked * are required.</p>
       </div>
 
+      <!-- Name -->
       <div class="col-md-6">
         <label for="name" class="form-label">Full name *</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="e.g. Rimas Al Kiyumi" required pattern="^[A-Za-z\s]{2,50}$">
-        <div class="invalid-feedback">Please enter a valid name (letters and spaces only, 2-50 characters).</div>
+        <input type="text" class="form-control" id="name" required pattern="^[A-Za-z\s]{2,50}$" placeholder="e.g. Rimas Al Kiyumi">
+        <div class="invalid-feedback">Enter a valid name (2-50 letters).</div>
       </div>
 
+      <!-- Email -->
       <div class="col-md-6">
         <label for="email" class="form-label">Email *</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
-        <div class="invalid-feedback">Please enter a valid email address.</div>
+        <input type="email" class="form-control" id="email" required placeholder="you@example.com">
+        <div class="invalid-feedback">Enter a valid email address.</div>
       </div>
 
-      <div class="col-md-4">
-        <label for="age" class="form-label">Age *</label>
-        <input type="number" class="form-control" id="age" name="age" placeholder="e.g. 25" required min="13" max="120">
-        <div class="invalid-feedback">Age must be between 13 and 120.</div>
-      </div>
-
-      <div class="col-md-8">
-        <label class="form-label d-block">How would you rate site usability? *</label>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="usability" id="us1" value="1" required>
-          <label class="form-check-label" for="us1">1</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="usability" id="us2" value="2">
-          <label class="form-check-label" for="us2">2</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="usability" id="us3" value="3">
-          <label class="form-check-label" for="us3">3</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="usability" id="us4" value="4">
-          <label class="form-check-label" for="us4">4</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="usability" id="us5" value="5">
-          <label class="form-check-label" for="us5">5</label>
-        </div>
-        <div class="invalid-feedback d-block" id="usability-invalid" style="display:none;">Please select a usability rating.</div>
-      </div>
-
-      <div class="col-12">
-        <label class="form-label">Which features did you use? (check at least one) *</label>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="Search" id="feat1" name="features">
-          <label class="form-check-label" for="feat1">Search</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="Booking" id="feat2" name="features">
-          <label class="form-check-label" for="feat2">Booking</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="Guides" id="feat3" name="features">
-          <label class="form-check-label" for="feat3">Guides</label>
-        </div>
-        <div class="invalid-feedback d-block" id="features-invalid" style="display:none;">Please select at least one feature used.</div>
-      </div>
-
+      <!-- Website rating -->
       <div class="col-md-6">
-        <label for="frequency" class="form-label">How often do you use Voyager?</label>
-        <select id="frequency" class="form-select" name="frequency">
+        <label for="siteRating" class="form-label">Rate Voyager website (0-10) *</label>
+        <input type="number" class="form-control" id="siteRating" min="0" max="10" required>
+        <div class="invalid-feedback">Enter a number between 0 and 10.</div>
+      </div>
+
+      <!-- Favorite destination select -->
+      <div class="col-md-6">
+        <label for="favDest" class="form-label">Favorite destination page *</label>
+        <select id="favDest" class="form-select" required>
           <option value="">Select...</option>
-          <option value="daily">Daily</option>
-          <option value="weekly">Weekly</option>
-          <option value="monthly">Monthly</option>
-          <option value="rarely">Rarely</option>
+          <option>Australia</option>
+          <option>Oman</option>
+          <option>Seychelles</option>
+          <option>Morocco</option>
+          <option>Rome</option>
+          <option>Bali</option>
+          <option>Aurusha</option>
         </select>
+        <div class="invalid-feedback">Select a favorite destination.</div>
       </div>
 
+      <!-- Suggested destination -->
       <div class="col-md-6">
-        <label for="recommend" class="form-label">How likely are you to recommend Voyager? (<span id="recommend-val">8</span>/10)</label>
-        <input type="range" class="form-range" min="0" max="10" id="recommend" name="recommend" value="8">
+        <label for="suggestDest" class="form-label">Country you'd like us to add *</label>
+        <input type="text" class="form-control" id="suggestDest" required placeholder="e.g. Iceland">
+        <div class="invalid-feedback">Please enter a country.</div>
       </div>
 
+      <!-- Travel interest -->
+      <div class="col-md-6">
+        <label class="form-label d-block">Your travel interests *</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="History" id="interest1" name="interests" required>
+          <label class="form-check-label" for="interest1">History</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Nature" id="interest2" name="interests">
+          <label class="form-check-label" for="interest2">Nature</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Culture" id="interest3" name="interests">
+          <label class="form-check-label" for="interest3">Culture</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Adventure" id="interest4" name="interests">
+          <label class="form-check-label" for="interest4">Adventure</label>
+        </div>
+        <div class="invalid-feedback d-block" id="interests-invalid" style="display:none;">Select at least one interest.</div>
+      </div>
+      
+
+      <!-- Notes -->
       <div class="col-12">
-        <label for="comments" class="form-label">Additional comments (min 20 chars) *</label>
-        <textarea class="form-control" id="comments" name="comments" rows="4" required minlength="20" placeholder="Tell us what went well and what could be improved..."></textarea>
-        <div class="invalid-feedback">Please enter at least 20 characters in comments.</div>
+        <label for="notes" class="form-label">Notes / Improvement suggestions *</label>
+        <textarea class="form-control" id="notes" required minlength="10" placeholder="Share what went well or what we can improve..."></textarea>
+        <div class="invalid-feedback">Minimum 10 characters required.</div>
       </div>
+<div class="col-md-6">
+  <label class="form-label d-block">How often do you visit travel websites? *</label>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="visitFrequency" id="freqDaily" value="Daily" required>
+    <label class="form-check-label" for="freqDaily">Daily</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="visitFrequency" id="freqWeekly" value="Weekly">
+    <label class="form-check-label" for="freqWeekly">Weekly</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="visitFrequency" id="freqMonthly" value="Monthly">
+    <label class="form-check-label" for="freqMonthly">Monthly</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="visitFrequency" id="freqRarely" value="Rarely">
+    <label class="form-check-label" for="freqRarely">Rarely</label>
+  </div>
+  <div class="invalid-feedback d-block" id="freq-invalid" style="display:none;">Please select one option.</div>
+</div>
 
+      <!-- Submit Button -->
       <div class="col-12 text-center mt-2">
-        <button type="submit" id="submit-btn" class="btn btn-lg fw-bold px-5 py-3 shadow-lg">Launch Feedback Rocket 🚀</button>
+        <button type="submit" id="submit-btn" class="btn btn-lg fw-bold px-5 py-3 shadow-lg">Send Feedback 🚀</button>
       </div>
     </form>
 
-    <!-- RESULTS SECTION -->
-    <div id="results-section" class="card results-section p-4 mt-5 d-none shadow-lg">
-      <div class="card-body text-center">
-        <h3 class="card-title text-success fw-bold">Mission Complete! Feedback Secured. 🗺️</h3>
-        <p class="lead">Your detailed input is now logged. You've helped us upgrade the Voyager experience!</p>
-        <hr class="my-3">
-        <p>Your <strong>Aesthetics rating</strong> was: <span id="summary-design" class="text-dark fw-bold"></span>.</p>
-        <p>Your <strong>Recommendation Score</strong> was: <span id="summary-score" class="text-dark fw-bold fs-5"></span>/10.</p>
-        <p class="small text-muted mt-3">We are already working on the next version of Voyager!</p>
-      </div>
-    </div>
-
-    <!-- DYNAMIC TABLES SECTION -->
-    <div class="table-section">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="fw-bold mb-0">Travelers</h3>
-        <div style="max-width:320px; width:100%;">
-          <input id="search-traveler" class="form-control" placeholder="Search travelers by name or email..." />
-        </div>
-      </div>
-      <table id="traveler-table" class="table table-striped table-bordered table-hover">
+    <!-- TABLES -->
+    <div class="table-section mt-5">
+      <h3>Travelers</h3>
+      <input id="search-traveler" class="form-control mb-2" placeholder="Search travelers by name or email..." />
+      <table class="table table-striped table-bordered table-hover" id="traveler-table">
         <thead>
-          <tr><th>Name</th><th>Email</th><th>Navigation Score</th></tr>
+          <tr><th>Name</th><th>Email</th><th>Website Rating</th></tr>
         </thead>
-        <tbody>
-          <tr><td>Rimas</td><td>rimas@example.com</td><td>5</td></tr>
-          <tr><td>Sama</td><td>sama@example.com</td><td>4</td></tr>
-          <tr><td>Khalid</td><td>khalid@example.com</td><td>3</td></tr>
-        </tbody>
+        <tbody></tbody>
       </table>
 
-      <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
-        <h3 class="fw-bold mb-0">Destinations</h3>
-        <div style="max-width:320px; width:100%;">
-          <input id="search-destination" class="form-control" placeholder="Search destinations by country or notes..." />
-        </div>
-      </div>
-      <table id="destination-table" class="table table-striped table-bordered table-hover">
+      <h3 class="mt-4">Destinations</h3>
+      <input id="search-destination" class="form-control mb-2" placeholder="Search destinations by country or notes..." />
+      <table class="table table-striped table-bordered table-hover" id="destination-table">
         <thead>
-          <tr><th>Country</th><th>Recommended Score</th><th>Notes</th></tr>
+          <tr><th>Country</th><th>Website Rating</th><th>Notes</th></tr>
         </thead>
-        <tbody>
-          <tr><td>Oman</td><td>9</td><td>Beautiful beaches and friendly locals</td></tr>
-          <tr><td>Japan</td><td>8</td><td>Amazing culture and food</td></tr>
-          <tr><td>Portugal</td><td>7</td><td>Great coastlines and city life</td></tr>
-        </tbody>
+        <tbody></tbody>
       </table>
-
-      <!-- Add new Traveler -->
-      <div class="card p-3 mt-4">
-        <h5 class="fw-bold">Add New Traveler</h5>
-        <div class="row g-3">
-          <div class="col-md-4"><input type="text" class="form-control" id="new-traveler-name" placeholder="Name"></div>
-          <div class="col-md-4"><input type="email" class="form-control" id="new-traveler-email" placeholder="Email"></div>
-          <div class="col-md-2"><input type="number" class="form-control" id="new-traveler-score" placeholder="Score" min="0" max="5"></div>
-          <div class="col-md-2"><button class="btn btn-success w-100" id="add-traveler-btn">Add Traveler</button></div>
-        </div>
-      </div>
-
-      <!-- Add new Destination -->
-      <div class="card p-3 mt-4">
-        <h5 class="fw-bold">Add New Destination</h5>
-        <div class="row g-3">
-          <div class="col-md-4"><input type="text" class="form-control" id="new-destination-country" placeholder="Country"></div>
-          <div class="col-md-4"><input type="number" class="form-control" id="new-destination-score" placeholder="Score" min="0" max="10"></div>
-          <div class="col-md-4"><input type="text" class="form-control" id="new-destination-notes" placeholder="Notes"></div>
-          <div class="col-md-12 mt-2"><button class="btn btn-success w-100" id="add-destination-btn">Add Destination</button></div>
-        </div>
-      </div>
     </div>
-
   </div>
 </section>
 
@@ -306,12 +255,92 @@ body {
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-// ----------------------------
-// Object constructors
-function Traveler(name, email, navScore) { this.name = name; this.email = email; this.navScore = navScore; }
-function Destination(country, recScore, notes) { this.country = country; this.recScore = recScore; this.notes = notes; }
+// --- Data arrays to store feedback ---
+const travelers = [];     // Stores traveler info: name, email, website rating
+const destinations = [];  // Stores destination info: country, rating, notes
 
-// Arrays with sample data
-const travelers = [
+// --- Render traveler table ---
+function renderTravelerTable(filter='') {
+  const tbody = document.getElementById("traveler-table").querySelector("tbody");
+  tbody.innerHTML = ""; // Clear previous rows
+
+  // Filter and display travelers
+  travelers
+    .filter(t => !filter || t.name.toLowerCase().includes(filter.toLowerCase()) || t.email.toLowerCase().includes(filter.toLowerCase()))
+    .forEach(t => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${t.name}</td><td>${t.email}</td><td>${t.navScore}</td>`;
+      tbody.appendChild(row);
+    });
+}
+
+// --- Render destination table ---
+function renderDestinationTable(filter='') {
+  const tbody = document.getElementById("destination-table").querySelector("tbody");
+  tbody.innerHTML = ""; // Clear previous rows
+
+  // Filter and display destinations
+  destinations
+    .filter(d => !filter || d.country.toLowerCase().includes(filter.toLowerCase()) || d.notes.toLowerCase().includes(filter.toLowerCase()))
+    .forEach(d => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${d.country}</td><td>${d.recScore}</td><td>${d.notes}</td>`;
+      tbody.appendChild(row);
+    });
+}
+
+// --- Handle form submission ---
+document.getElementById("feedback-form").addEventListener("submit", function(e){
+  e.preventDefault(); // Prevent default form submission
+
+  // Get selected interests (checkboxes)
+  const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(i => i.value);
+
+  // Validate at least one interest is selected
+  if(interests.length === 0){ 
+    document.getElementById("interests-invalid").style.display = "block"; 
+    return; 
+  } else { 
+    document.getElementById("interests-invalid").style.display = "none"; 
+  }
+
+  // Get all form values
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const siteRating = document.getElementById("siteRating").value;
+  const favDest = document.getElementById("favDest").value;
+  const suggestDest = document.getElementById("suggestDest").value.trim();
+  const notes = document.getElementById("notes").value.trim();
+
+  // Add new traveler entry
+  travelers.push({
+    name,
+    email,
+    navScore: siteRating
+  });
+
+  // Add new destination entry
+  destinations.push({
+    country: favDest,
+    recScore: siteRating,
+    notes: notes + " | Suggested: " + suggestDest + " | Interests: " + interests.join(", ")
+  });
+
+  // Re-render tables
+  renderTravelerTable();
+  renderDestinationTable();
+
+  // Show submission confirmation
+  alert("Thank you! Your feedback has been submitted.");
+
+  // Reset the form
+  this.reset();
+});
+
+// --- Search functionality ---
+// Filter traveler table on input
+document.getElementById("search-traveler").addEventListener("input", e => renderTravelerTable(e.target.value));
+
+// Filter destination table on input
+document.getElementById("search-destination").addEventListener("input", e => renderDestinationTable(e.target.value));
