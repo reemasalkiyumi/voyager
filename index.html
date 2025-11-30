@@ -316,7 +316,9 @@
 
     <!-- Custom JS for banner date/time -->
     <script>
+      // get the banner text
       const banner = document.getElementById("bannerText");
+      // inititalize position
       let position;
 
       function moveBanner() {
@@ -339,10 +341,10 @@
           month: "long",
           day: "numeric",
         };
-
+        // get date and time
         const dateStr = now.toLocaleDateString(undefined, dateOptions);
         const timeStr = now.toLocaleTimeString();
-
+        // create the shown text
         banner.textContent =
           "Welcome to the Voyager website! Today is " +
           dateStr +
