@@ -1,249 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager — Australia</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voyager — Australia</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        color: #ffffff;
+      }
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+        padding: 0.5rem 1rem;
+      }
 
-  <style>
-    .sidebar-custom {
-      background-color: rgba(0, 0, 0, 0.9) !important;
-      color: #ffffff;
-    }
-    .sidebar-custom .nav-link {
-      color: #f2f2f2;
-      padding: 0.5rem 1rem;
-    }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
 
-    .sidebar-custom .nav-link.active {
-      background-color: #cfe4d5;
-      color: #000000;
-    }
+      .sidebar-custom .offcanvas-title {
+        color: #ffffff;
+      }
+      /* Footer */
+      .footer-custom {
+        background-color: #143642;
+        color: #ffffff;
+      }
+      /* Hero section */
+      .hero-australia {
+        background-image: url("https://lp-cms-production.imgix.net/2021-06/500pxRF_61533067.jpg?w=1920&h=640&fit=crop&crop=faces%2Cedges&auto=format&q=75");
+        background-size: cover;
+        background-position: center;
+        height: 260px;
+      }
+      /* Logo sizing */
+      .logo-small {
+        width: 32px;
+        height: 32px;
+      }
+    </style>
+  </head>
 
-    .sidebar-custom .offcanvas-title {
-      color: #ffffff;
-    }
-    /* Footer */
-    .footer-custom {
-      background-color: #143642;
-      color: #ffffff;
-    }
-    /* Hero section */
-    .hero-australia {
-      background-image: url('https://lp-cms-production.imgix.net/2021-06/500pxRF_61533067.jpg?w=1920&h=640&fit=crop&crop=faces%2Cedges&auto=format&q=75');
-      background-size: cover;
-      background-position: center;
-      height: 260px;
-    }
-    /* Logo sizing */
-    .logo-small {
-      width: 32px;
-      height: 32px;
-    }
-  </style>
-</head>
+  <body class="bg-light">
+    <!-- Navbar -->
+    <div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
 
-<body class="bg-light">
-
-  <!-- Navbar -->
-  <div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
-    <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
-      <button class="btn btn-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainSidebar"
-        aria-controls="mainSidebar">
-        ☰
-      </button>
-
-      <div class="d-flex align-items-center">
-        <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" alt="Voyager logo"
-          class="me-2 logo-small" />
-        <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2 logo-small"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Sidebar -->
-  <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mainSidebar"
-    aria-labelledby="mainSidebarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title d-flex align-items-center gap-2" id="mainSidebarLabel">
-        <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" alt="Voyager logo"
-          class="logo-small" />
-        <span>voyager</span>
-      </h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-
-    <div class="offcanvas-body">
-      <nav class="nav flex-column">
-        <a class="nav-link mb-1" href="index.html">Home</a>
-        <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
-        <a class="nav-link mb-1" href="guide.html">Guides page</a>
-        <a class="nav-link mb-3" href="signup.html">Sign up</a>
-
-        <hr class="border-secondary" />
-
-        <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
-        <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
-        <a class="nav-link mb-3" href="aboutUs.html">About us</a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <div class="d-flex justify-content-center align-items-center text-white fw-bold pt-5 hero-australia">
-    <h1 class="display-5">AUSTRALIA</h1>
-  </div>
-
-  <!-- Main Content -->
-  <div class="container py-5">
-
-    <div class="row g-4 align-items-center">
-      <div class="col-md-6">
-        <img src="https://www.state.gov/wp-content/uploads/2022/02/Australia-2499x1406.jpg"
-          class="img-fluid rounded" alt="Australia skyline">
+    <!-- Sidebar -->
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="logo-small"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
-      <div class="col-md-6">
-        <h2 class="fw-bold">Australia</h2>
-        <p class="fs-5">
-          Australia is known for its beaches, modern cities, rich Aboriginal culture, and natural wonders like the Great
-          Barrier Reef and Uluru. A dream destination for travelers seeking adventure, relaxation, and culture.
+
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-1" href="questionnaire.html">Questionnaire</a>
+          <a class="nav-link mb-1" href="funpage.html">Fun page</a>
+          <a class="nav-link mb-1" href="calculationsGuides.html"
+            >Calculation page</a
+          >
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div
+      class="d-flex justify-content-center align-items-center text-white fw-bold pt-5 hero-australia"
+    >
+      <h1 class="display-5">AUSTRALIA</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6">
+          <img
+            src="https://www.state.gov/wp-content/uploads/2022/02/Australia-2499x1406.jpg"
+            class="img-fluid rounded"
+            alt="Australia skyline"
+          />
+        </div>
+        <div class="col-md-6">
+          <h2 class="fw-bold">Australia</h2>
+          <p class="fs-5">
+            Australia is known for its beaches, modern cities, rich Aboriginal
+            culture, and natural wonders like the Great Barrier Reef and Uluru.
+            A dream destination for travelers seeking adventure, relaxation, and
+            culture.
+          </p>
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://www.wildlifeworldwide.com/images/journal/australia-forresters-kangaroo-bret-charman-blog.webp"
+            class="img-fluid rounded"
+            alt="Australian wildlife"
+          />
+          <p class="mt-2 fs-6">
+            Australia offers diverse cuisine, seafood, barbecues, meat pies,
+            pavlova, and multicultural dining.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="https://www.australia.com/content/australia/en/places/south-australia/jcr:content/image.adapt.800.HIGH.jpg"
+            class="img-fluid rounded"
+            alt="Australian landscape"
+          />
+          <p class="mt-2 fs-6">
+            Famous attractions include the Great Barrier Reef, Sydney Opera
+            House, Uluru, Gold Coast, and iconic wildlife.
+          </p>
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold">Is Australia Good For…?</h3>
+      <ul class="fs-5">
+        <li>
+          <b>Solo Travelers:</b> Hostels, transit, lively cities, easy tours.
+        </li>
+        <li><b>Families:</b> Zoos, parks, beaches, museums, wildlife.</li>
+        <li><b>Couples:</b> Wine regions, coastal resorts, cruises.</li>
+        <li><b>Adventure Seekers:</b> Surfing, diving, hiking, deserts.</li>
+        <li><b>Food Lovers:</b> Seafood, multicultural dining, markets.</li>
+      </ul>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="fw-bold card-title">Weather</h5>
+              <p class="card-text mb-0">
+                Varies by region. Best season: September–April.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="fw-bold card-title">Average Trip Cost</h5>
+              <p class="card-text mb-0">
+                Budget: \$100–160/day. Luxury: \$350+/day.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="fw-bold card-title">Best For</h5>
+              <p class="card-text mb-0">
+                Beaches, wildlife, food, outdoor adventures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold mb-3">Traveler Reviews</h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold card-title">Olivia (UK) ⭐⭐⭐⭐</h6>
+              <p class="card-text">
+                Loved the beaches and cities, but activities can be pricey.
+              </p>
+              <ul class="small list-unstyled mb-0">
+                <li>Food: 4.5/5</li>
+                <li>Price: 3/5</li>
+                <li>Weather: 5/5</li>
+                <li>Adventure: 5/5</li>
+                <li>Entertainment: 4.5/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold card-title">Jason (Canada) ⭐⭐⭐⭐⭐</h6>
+              <p class="card-text">
+                Great mix of nature and cities, but long distances between
+                places.
+              </p>
+              <ul class="small list-unstyled mb-0">
+                <li>Food: 4/5</li>
+                <li>Price: 3.5/5</li>
+                <li>Weather: 4.5/5</li>
+                <li>Adventure: 5/5</li>
+                <li>Entertainment: 4/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold card-title">Aisha (UAE) ⭐⭐⭐⭐</h6>
+              <p class="card-text">
+                Beautiful wildlife and beaches, but food and tours can be
+                expensive.
+              </p>
+              <ul class="small list-unstyled mb-0">
+                <li>Food: 4/5</li>
+                <li>Price: 2/5</li>
+                <li>Weather: 3/5</li>
+                <li>Adventure: 4/5</li>
+                <li>Entertainment: 4/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow-sm mt-4">
+        <h5 class="fw-bold">Travel Experience Summary – Australia</h5>
+        <p class="mb-0">
+          Australia is loved for its friendly people, beaches, wildlife, and
+          modern cities like Sydney and Melbourne. While prices can be high and
+          distances long, it remains an amazing destination for families,
+          adventure lovers, couples, and food enthusiasts.
         </p>
       </div>
     </div>
 
-    <hr class="my-5">
-
-    <div class="row g-4">
-      <div class="col-md-6">
-        <img src="https://www.wildlifeworldwide.com/images/journal/australia-forresters-kangaroo-bret-charman-blog.webp"
-          class="img-fluid rounded" alt="Australian wildlife">
-        <p class="mt-2 fs-6">Australia offers diverse cuisine, seafood, barbecues, meat pies, pavlova, and multicultural
-          dining.</p>
+    <!-- Footer -->
+    <footer class="footer-custom text-center py-3 mt-5">
+      <div class="container">
+        <p class="mb-1 fw-bold">Voyager</p>
+        <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
       </div>
-      <div class="col-md-6">
-        <img src="https://www.australia.com/content/australia/en/places/south-australia/jcr:content/image.adapt.800.HIGH.jpg"
-          class="img-fluid rounded" alt="Australian landscape">
-        <p class="mt-2 fs-6">Famous attractions include the Great Barrier Reef, Sydney Opera House, Uluru, Gold Coast,
-          and iconic wildlife.</p>
-      </div>
-    </div>
+    </footer>
 
-    <hr class="my-5">
-
-    <h3 class="fw-bold">Is Australia Good For…?</h3>
-    <ul class="fs-5">
-      <li><b>Solo Travelers:</b> Hostels, transit, lively cities, easy tours.</li>
-      <li><b>Families:</b> Zoos, parks, beaches, museums, wildlife.</li>
-      <li><b>Couples:</b> Wine regions, coastal resorts, cruises.</li>
-      <li><b>Adventure Seekers:</b> Surfing, diving, hiking, deserts.</li>
-      <li><b>Food Lovers:</b> Seafood, multicultural dining, markets.</li>
-    </ul>
-
-    <hr class="my-5">
-
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card shadow-sm border-0 h-100">
-          <div class="card-body">
-            <h5 class="fw-bold card-title">Weather</h5>
-            <p class="card-text mb-0">Varies by region. Best season: September–April.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card shadow-sm border-0 h-100">
-          <div class="card-body">
-            <h5 class="fw-bold card-title">Average Trip Cost</h5>
-            <p class="card-text mb-0">Budget: \$100–160/day. Luxury: \$350+/day.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card shadow-sm border-0 h-100">
-          <div class="card-body">
-            <h5 class="fw-bold card-title">Best For</h5>
-            <p class="card-text mb-0">Beaches, wildlife, food, outdoor adventures.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <hr class="my-5">
-
-    <h3 class="fw-bold mb-3">Traveler Reviews</h3>
-    <div class="row g-3">
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <h6 class="fw-bold card-title">Olivia (UK) ⭐⭐⭐⭐</h6>
-            <p class="card-text">Loved the beaches and cities, but activities can be pricey.</p>
-            <ul class="small list-unstyled mb-0">
-              <li>Food: 4.5/5</li>
-              <li>Price: 3/5</li>
-              <li>Weather: 5/5</li>
-              <li>Adventure: 5/5</li>
-              <li>Entertainment: 4.5/5</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <h6 class="fw-bold card-title">Jason (Canada) ⭐⭐⭐⭐⭐</h6>
-            <p class="card-text">Great mix of nature and cities, but long distances between places.</p>
-            <ul class="small list-unstyled mb-0">
-              <li>Food: 4/5</li>
-              <li>Price: 3.5/5</li>
-              <li>Weather: 4.5/5</li>
-              <li>Adventure: 5/5</li>
-              <li>Entertainment: 4/5</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <h6 class="fw-bold card-title">Aisha (UAE) ⭐⭐⭐⭐</h6>
-            <p class="card-text">Beautiful wildlife and beaches, but food and tours can be expensive.</p>
-            <ul class="small list-unstyled mb-0">
-              <li>Food: 4/5</li>
-              <li>Price: 2/5</li>
-              <li>Weather: 3/5</li>
-              <li>Adventure: 4/5</li>
-              <li>Entertainment: 4/5</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="bg-white p-4 rounded shadow-sm mt-4">
-      <h5 class="fw-bold">Travel Experience Summary – Australia</h5>
-      <p class="mb-0">
-        Australia is loved for its friendly people, beaches, wildlife, and modern cities like Sydney and Melbourne. While
-        prices can be high and distances long, it remains an amazing destination for families, adventure lovers,
-        couples, and food enthusiasts.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer-custom text-center py-3 mt-5">
-    <div class="container">
-      <p class="mb-1 fw-bold">Voyager</p>
-      <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

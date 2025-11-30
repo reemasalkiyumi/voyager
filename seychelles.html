@@ -1,254 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voyager — Seychelles</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager — Seychelles</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <style>
-    .sidebar-custom {
-      background-color: rgba(0, 0, 0, 0.9) !important;
-      color: #ffffff;
-    }
-    .sidebar-custom .nav-link {
-      color: #f2f2f2;
-      padding: 0.5rem 1rem;
-    }
-    .sidebar-custom .nav-link.active {
-      background-color: #cfe4d5;
-      color: #000000;
-    }
+    <style>
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        color: #ffffff;
+      }
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+        padding: 0.5rem 1rem;
+      }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
 
-    .sidebar-custom .offcanvas-title {
-      color: #ffffff;
-    }
-    .footer-custom {
-      background-color: #143642;
-      color: #ffffff;
-    }
-    .hero-seychelles {
-        background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/180709114645-anse-source-dargent-courtesy-seyvillas.jpg?q=w_3127,h_1759,x_0,y_0,c_fill');
+      .sidebar-custom .offcanvas-title {
+        color: #ffffff;
+      }
+      .footer-custom {
+        background-color: #143642;
+        color: #ffffff;
+      }
+      .hero-seychelles {
+        background-image: url("https://media.cnn.com/api/v1/images/stellar/prod/180709114645-anse-source-dargent-courtesy-seyvillas.jpg?q=w_3127,h_1759,x_0,y_0,c_fill");
         background-size: cover;
         background-position: center;
         height: 260px;
-    }
-  </style>
-</head>
-<body class="bg-light">
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
 
-<div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
-  <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
-    <button
-      class="btn btn-light me-2"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#mainSidebar"
-      aria-controls="mainSidebar"
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
     >
-      ☰
-    </button>
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
 
-    <div class="d-flex align-items-center">
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        class="me-2"
-        style="width: 32px; height: 32px"
-      />
-      <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-1" href="questionnaire.html">Questionnaire</a>
+          <a class="nav-link mb-1" href="funpage.html">Fun page</a>
+          <a class="nav-link mb-1" href="calculationsGuides.html"
+            >Calculation page</a
+          >
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
     </div>
-  </div>
-</div>
 
-<div
-  class="offcanvas offcanvas-start sidebar-custom"
-  tabindex="-1"
-  id="mainSidebar"
-  aria-labelledby="mainSidebarLabel"
->
-  <div class="offcanvas-header">
-    <h5
-      class="offcanvas-title d-flex align-items-center gap-2"
-      id="mainSidebarLabel"
+    <div
+      class="d-flex justify-content-center align-items-center pt-5 hero-seychelles"
     >
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        style="width: 32px; height: 32px"
-      />
-      <span>voyager</span>
-    </h5>
-    <button
-      type="button"
-      class="btn-close btn-close-white"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <nav class="nav flex-column">
-      <a class="nav-link mb-1" href="index.html">Home</a>
-      <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
-      <a class="nav-link mb-1" href="guide.html">Guides page</a>
-      <a class="nav-link mb-3" href="signup.html">Sign up</a>
-
-      <hr class="border-secondary" />
-
-      <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
-      <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
-      <a class="nav-link mb-3" href="aboutUs.html">About us</a>
-    </nav>
-  </div>
-</div>
-
-
-<div class="d-flex justify-content-center align-items-center pt-5 hero-seychelles">
-  <h1 class="text-white fw-bold" style="font-size:42px; text-shadow:2px 2px 8px rgba(0,0,0,0.4);">SEYCHELLES</h1>
-</div>
-
-<div class="container py-5">
-
-  <div class="row align-items-start g-4">
-    <div class="col-md-6">
-      <img src="https://www.tripsavvy.com/thmb/SJqGBFvahhB0OT6kQ0lZiqr7ajk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-530237972-8463085b11154bcca2ce7465d921c430.jpg" class="img-fluid rounded mb-3" alt="Seychelles Beach">
+      <h1
+        class="text-white fw-bold"
+        style="font-size: 42px; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4)"
+      >
+        SEYCHELLES
+      </h1>
     </div>
-    <div class="col-md-6">
-      <h2 class="fw-bold text-dark">Seychelles</h2>
-      <p class="text-dark fs-5">
-        Seychelles, an archipelago in the Indian Ocean, is renowned for its pristine beaches, turquoise waters, lush tropical forests, and unique granite islands. It’s a paradise for nature lovers, honeymooners, and adventure enthusiasts alike.
-      </p>
-    </div>
-  </div>
 
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <img src="https://admin.seychelles.com/sites/default/files/2021-05/DSC01033-large.jpg" class="img-fluid rounded" alt="Seychelles Cuisine">
-      <p class="mt-2 text-dark fs-6">Seychelles offers fresh seafood, Creole cuisine, tropical fruits, and flavorful local dishes in beachside restaurants.</p>
-    </div>
-    <div class="col-md-6">
-      <img src="https://media.audleytravel.com/-/media/images/home/africa/seychelles/itineraries/ss_1103086625_aldabra_tortoise_3000x1000.jpg?q=79&w=1920&h=685" class="img-fluid rounded" alt="Seychelles Nature">
-      <p class="mt-2 text-dark fs-6">Highlights include Anse Source d’Argent, Vallée de Mai, Morne Seychellois National Park, and snorkeling/diving spots rich in marine life.</p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <h3 class="fw-bold mb-3 text-dark">Is Seychelles Good For…?</h3>
-  <ul class="text-dark fs-5">
-    <li><b>Solo Travelers:</b> Peaceful beaches, luxury resorts, and guided tours. Best for relaxation and photography.</li>
-    <li><b>Families:</b> Kid-friendly beaches, safe waters, boat trips, and wildlife experiences.</li>
-    <li><b>Couples:</b> Romantic beaches, private villas, spa resorts, and sunset cruises.</li>
-    <li><b>Adventure Seekers:</b> Diving, snorkeling, hiking, island-hopping, kayaking.</li>
-    <li><b>Food Lovers:</b> Creole cuisine, fresh seafood, tropical fruits, and local street snacks.</li>
-  </ul>
-
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Weather</h5>
-          <p class="card-text mb-0">Warm and humid year-round. Best months: April–May & October–November.</p>
+    <div class="container py-5">
+      <div class="row align-items-start g-4">
+        <div class="col-md-6">
+          <img
+            src="https://www.tripsavvy.com/thmb/SJqGBFvahhB0OT6kQ0lZiqr7ajk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-530237972-8463085b11154bcca2ce7465d921c430.jpg"
+            class="img-fluid rounded mb-3"
+            alt="Seychelles Beach"
+          />
+        </div>
+        <div class="col-md-6">
+          <h2 class="fw-bold text-dark">Seychelles</h2>
+          <p class="text-dark fs-5">
+            Seychelles, an archipelago in the Indian Ocean, is renowned for its
+            pristine beaches, turquoise waters, lush tropical forests, and
+            unique granite islands. It’s a paradise for nature lovers,
+            honeymooners, and adventure enthusiasts alike.
+          </p>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Average Trip Cost</h5>
-          <p class="card-text mb-0">Budget: $100-150/day. Luxury: $400+/day.</p>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://admin.seychelles.com/sites/default/files/2021-05/DSC01033-large.jpg"
+            class="img-fluid rounded"
+            alt="Seychelles Cuisine"
+          />
+          <p class="mt-2 text-dark fs-6">
+            Seychelles offers fresh seafood, Creole cuisine, tropical fruits,
+            and flavorful local dishes in beachside restaurants.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="https://media.audleytravel.com/-/media/images/home/africa/seychelles/itineraries/ss_1103086625_aldabra_tortoise_3000x1000.jpg?q=79&w=1920&h=685"
+            class="img-fluid rounded"
+            alt="Seychelles Nature"
+          />
+          <p class="mt-2 text-dark fs-6">
+            Highlights include Anse Source d’Argent, Vallée de Mai, Morne
+            Seychellois National Park, and snorkeling/diving spots rich in
+            marine life.
+          </p>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Best For</h5>
-          <p class="card-text mb-0">Relaxation, beaches, nature, diving, and romantic getaways.</p>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold mb-3 text-dark">Is Seychelles Good For…?</h3>
+      <ul class="text-dark fs-5">
+        <li>
+          <b>Solo Travelers:</b> Peaceful beaches, luxury resorts, and guided
+          tours. Best for relaxation and photography.
+        </li>
+        <li>
+          <b>Families:</b> Kid-friendly beaches, safe waters, boat trips, and
+          wildlife experiences.
+        </li>
+        <li>
+          <b>Couples:</b> Romantic beaches, private villas, spa resorts, and
+          sunset cruises.
+        </li>
+        <li>
+          <b>Adventure Seekers:</b> Diving, snorkeling, hiking, island-hopping,
+          kayaking.
+        </li>
+        <li>
+          <b>Food Lovers:</b> Creole cuisine, fresh seafood, tropical fruits,
+          and local street snacks.
+        </li>
+      </ul>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Weather</h5>
+              <p class="card-text mb-0">
+                Warm and humid year-round. Best months: April–May &
+                October–November.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Average Trip Cost</h5>
+              <p class="card-text mb-0">
+                Budget: $100-150/day. Luxury: $400+/day.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Best For</h5>
+              <p class="card-text mb-0">
+                Relaxation, beaches, nature, diving, and romantic getaways.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <hr class="my-5">
+      <hr class="my-5" />
 
-  <h3 class="fw-bold mb-3 text-dark">Traveler Reviews with Ratings</h3>
-  <div class="row g-3">
+      <h3 class="fw-bold mb-3 text-dark">Traveler Reviews with Ratings</h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Emily (UK) ⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Breathtaking beaches and nature, but some resorts are very
+                expensive and remote.”
+              </p>
+              <ul class="list-unstyled mb-0 small">
+                <li>Food: 4.5/5</li>
+                <li>Price: 2.5/5</li>
+                <li>Weather: 5/5</li>
+                <li>Local Hospitality: 4/5</li>
+                <li>Adventure: 4/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Emily (UK) ⭐️⭐️⭐️</h5>
-          <p class="card-text">“Breathtaking beaches and nature, but some resorts are very expensive and remote.”</p>
-          <ul class="list-unstyled mb-0 small">
-            <li>Food: 4.5/5</li>
-            <li>Price: 2.5/5</li>
-            <li>Weather: 5/5</li>
-            <li>Local Hospitality: 4/5</li>
-            <li>Adventure: 4/5</li>
-          </ul>
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Raj (India) ⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Amazing diving spots, but island transfers are pricey and
+                limited.”
+              </p>
+              <ul class="list-unstyled mb-0 small">
+                <li>Food: 4/5</li>
+                <li>Price: 3/5</li>
+                <li>Weather: 4/5</li>
+                <li>Local Hospitality: 3/5</li>
+                <li>Adventure: 4.5/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Sophie (France) ⭐️⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Beautiful scenery, but some beaches are crowded with tourists
+                and Wi-Fi is limited in remote areas.”
+              </p>
+              <ul class="list-unstyled mb-0 small">
+                <li>Food: 4/5</li>
+                <li>Price: 3/5</li>
+                <li>Weather: 5/5</li>
+                <li>Local Hospitality: 4/5</li>
+                <li>Adventure: 4.5/5</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Raj (India) ⭐️⭐️⭐️</h5>
-          <p class="card-text">“Amazing diving spots, but island transfers are pricey and limited.”</p>
-          <ul class="list-unstyled mb-0 small">
-            <li>Food: 4/5</li>
-            <li>Price: 3/5</li>
-            <li>Weather: 4/5</li>
-            <li>Local Hospitality: 3/5</li>
-            <li>Adventure: 4.5/5</li>
-          </ul>
-        </div>
+      <div class="p-4 rounded mt-4 bg-white shadow-sm">
+        <h5 class="fw-bold">Travel Experience Summary – Seychelles</h5>
+        <p class="text-dark fs-5 mb-0">
+          Visitors love the <b>stunning beaches and tropical nature</b>,
+          crystal-clear waters, and excellent diving/snorkeling opportunities.
+          Some mention <b>high costs</b>, limited Wi-Fi, and crowded beaches in
+          popular spots. <b>Local Hospitality</b> is friendly and helpful.
+          Seychelles is perfect for
+          <b>relaxation, romantic getaways, and nature adventures</b>. Solo
+          travelers, couples, and families can enjoy a unique tropical escape,
+          though planning and budgeting are important due to remoteness and
+          higher prices.
+        </p>
       </div>
+
+      <hr class="my-5" />
     </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Sophie (France) ⭐️⭐️⭐️⭐️</h5>
-          <p class="card-text">“Beautiful scenery, but some beaches are crowded with tourists and Wi-Fi is limited in remote areas.”</p>
-          <ul class="list-unstyled mb-0 small">
-            <li>Food: 4/5</li>
-            <li>Price: 3/5</li>
-            <li>Weather: 5/5</li>
-            <li>Local Hospitality: 4/5</li>
-            <li>Adventure: 4.5/5</li>
-          </ul>
-        </div>
+    <footer class="footer-custom text-center py-3 mt-5">
+      <div class="container">
+        <p class="mb-1 fw-bold">Voyager</p>
+        <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
       </div>
-    </div>
+    </footer>
 
-  </div>
-
-  <div class="p-4 rounded mt-4 bg-white shadow-sm">
-    <h5 class="fw-bold">Travel Experience Summary – Seychelles</h5>
-    <p class="text-dark fs-5 mb-0">
-      Visitors love the <b>stunning beaches and tropical nature</b>, crystal-clear waters, and excellent diving/snorkeling opportunities. Some mention <b>high costs</b>, limited Wi-Fi, and crowded beaches in popular spots. <b>Local Hospitality</b> is friendly and helpful. Seychelles is perfect for <b>relaxation, romantic getaways, and nature adventures</b>. Solo travelers, couples, and families can enjoy a unique tropical escape, though planning and budgeting are important due to remoteness and higher prices.
-    </p>
-  </div>
-
-  <hr class="my-5">
-
-</div>
-
-<footer class="footer-custom text-center py-3 mt-5">
-  <div class="container">
-    <p class="mb-1 fw-bold">Voyager</p>
-    <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

@@ -1,269 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voyager — Bali</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager — Bali</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <style>
-    .sidebar-custom {
-      background-color: rgba(0, 0, 0, 0.9) !important;
-      color: #ffffff;
-    }
-    .sidebar-custom .nav-link {
-      color: #f2f2f2;
-      padding: 0.5rem 1rem;
-    }
-    .sidebar-custom .nav-link.active {
-      background-color: #cfe4d5;
-      color: #000000;
-    }
-    .sidebar-custom .offcanvas-title {
-      color: #ffffff;
-    }
-    .footer-custom {
-      background-color: #143642;
-      color: #ffffff;
-    }
-    .hero-bali {
-        background-image: url('https://www.volunteerforever.com/wp-content/uploads/2023/09/niklas-weiss-2WlTWZLnRc-unsplash-e1696078130797.jpg');
+    <style>
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        color: #ffffff;
+      }
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+        padding: 0.5rem 1rem;
+      }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
+      .sidebar-custom .offcanvas-title {
+        color: #ffffff;
+      }
+      .footer-custom {
+        background-color: #143642;
+        color: #ffffff;
+      }
+      .hero-bali {
+        background-image: url("https://www.volunteerforever.com/wp-content/uploads/2023/09/niklas-weiss-2WlTWZLnRc-unsplash-e1696078130797.jpg");
         background-size: cover;
         background-position: center;
-    }
-  </style>
-</head>
-<body class="bg-light">
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
 
-<div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
-  <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
-    <button
-      class="btn btn-light me-2"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#mainSidebar"
-      aria-controls="mainSidebar"
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
     >
-      ☰
-    </button>
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
 
-    <div class="d-flex align-items-center">
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        class="me-2"
-        style="width: 32px; height: 32px"
-      />
-      <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-1" href="questionnaire.html">Questionnaire</a>
+          <a class="nav-link mb-1" href="funpage.html">Fun page</a>
+          <a class="nav-link mb-1" href="calculationsGuides.html"
+            >Calculation page</a
+          >
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
     </div>
-  </div>
-</div>
 
-<div
-  class="offcanvas offcanvas-start sidebar-custom"
-  tabindex="-1"
-  id="mainSidebar"
-  aria-labelledby="mainSidebarLabel"
->
-  <div class="offcanvas-header">
-    <h5
-      class="offcanvas-title d-flex align-items-center gap-2"
-      id="mainSidebarLabel"
+    <div
+      class="d-flex justify-content-center align-items-center text-center text-white pt-5 hero-bali"
+      style="height: 260px"
     >
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        style="width: 32px; height: 32px"
-      />
-      <span>voyager</span>
-    </h5>
-    <button
-      type="button"
-      class="btn-close btn-close-white"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <nav class="nav flex-column">
-      <a class="nav-link mb-1" href="index.html">Home</a>
-      <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
-      <a class="nav-link mb-1" href="guide.html">Guides page</a>
-      <a class="nav-link mb-3" href="signup.html">Sign up</a>
-
-      <hr class="border-secondary" />
-
-      <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
-      <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
-      <a class="nav-link mb-3" href="aboutUs.html">About us</a>
-    </nav>
-  </div>
-</div>
-
-
-<div class="d-flex justify-content-center align-items-center text-center text-white pt-5 hero-bali"
-     style="height:260px;">
-  <h1 class="fw-bold display-5">BALI ,INDONESIA</h1>
-</div>
-
-<div class="container py-5">
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <img src="https://www.tripsavvy.com/thmb/QezCUEaQwF96o606XGU8DOn_TyI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/where-is-bali-5936c3e73df78c08abe9eb45.jpg"
-           class="img-fluid rounded" alt="Bali map">
+      <h1 class="fw-bold display-5">BALI ,INDONESIA</h1>
     </div>
-    <div class="col-md-6">
-      <h2 class="fw-bold">Bali</h2>
-      <p class="fs-5">
-        Bali is one of Southeast Asia’s most visited destinations, known for jungles, beaches, temples, rice terraces,
-        surfing, nature, and spiritual culture. Travelers enjoy food, music, spas, adventure sports, markets, and lively modern towns.
-      </p>
-    </div>
-  </div>
 
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <img src="https://cdn.sanity.io/images/nxpteyfv/goguides/eb3107d32986ca2d7e279e999ba219a8b7e13a97-1600x1066.jpg"
-           class="img-fluid rounded" alt="Balinese Food">
-      <p class="mt-2 fs-6">
-        Bali is famous for seafood, Nasi Goreng, peanut-based dishes, and beachside dining.
-      </p>
-    </div>
-    <div class="col-md-6">
-      <img src="https://www.lotusbungalows.com/wp-content/uploads/2018/07/besakih-1200x800.jpg"
-           class="img-fluid rounded" alt="Bali Temple">
-      <p class="mt-2 fs-6">
-        Temples like Uluwatu and Tanah Lot offer beautiful sunsets, dance performances, and spiritual ceremonies.
-      </p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <h3 class="fw-bold">Is Bali Good For…?</h3>
-  <ul class="fs-5">
-    <li><b>Solo Travelers:</b> Cheap, social, and safe with many hostels & co-working spaces.</li>
-    <li><b>Families:</b> Resorts, playgrounds, animal parks, and friendly beaches.</li>
-    <li><b>Couples:</b> Pure romance — villas, spas, infinity pools, sunset dining.</li>
-    <li><b>Adventure Seekers:</b> Volcano hiking, rafting, diving, ATVs, surfing.</li>
-    <li><b>Food Lovers:</b> Cafés, seafood, street food, vegan options, fusion cuisine.</li>
-  </ul>
-
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0 h-100">
-        <div class="card-body">
-          <h5 class="card-title">Weather</h5>
-          <p class="card-text mb-0">Warm tropical climate (25–31°C). Best months: May–September.</p>
+    <div class="container py-5">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://www.tripsavvy.com/thmb/QezCUEaQwF96o606XGU8DOn_TyI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/where-is-bali-5936c3e73df78c08abe9eb45.jpg"
+            class="img-fluid rounded"
+            alt="Bali map"
+          />
+        </div>
+        <div class="col-md-6">
+          <h2 class="fw-bold">Bali</h2>
+          <p class="fs-5">
+            Bali is one of Southeast Asia’s most visited destinations, known for
+            jungles, beaches, temples, rice terraces, surfing, nature, and
+            spiritual culture. Travelers enjoy food, music, spas, adventure
+            sports, markets, and lively modern towns.
+          </p>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0 h-100">
-        <div class="card-body">
-          <h5 class="card-title">Average Trip Cost</h5>
-          <p class="card-text mb-0">Budget: $25–40/day · Luxury: $150+/day.</p>
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://cdn.sanity.io/images/nxpteyfv/goguides/eb3107d32986ca2d7e279e999ba219a8b7e13a97-1600x1066.jpg"
+            class="img-fluid rounded"
+            alt="Balinese Food"
+          />
+          <p class="mt-2 fs-6">
+            Bali is famous for seafood, Nasi Goreng, peanut-based dishes, and
+            beachside dining.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="https://www.lotusbungalows.com/wp-content/uploads/2018/07/besakih-1200x800.jpg"
+            class="img-fluid rounded"
+            alt="Bali Temple"
+          />
+          <p class="mt-2 fs-6">
+            Temples like Uluwatu and Tanah Lot offer beautiful sunsets, dance
+            performances, and spiritual ceremonies.
+          </p>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0 h-100">
-        <div class="card-body">
-          <h5 class="card-title">Best For</h5>
-          <p class="card-text mb-0">Relaxation, beaches, culture, nature & photography.</p>
+      <hr class="my-5" />
+
+      <h3 class="fw-bold">Is Bali Good For…?</h3>
+      <ul class="fs-5">
+        <li>
+          <b>Solo Travelers:</b> Cheap, social, and safe with many hostels &
+          co-working spaces.
+        </li>
+        <li>
+          <b>Families:</b> Resorts, playgrounds, animal parks, and friendly
+          beaches.
+        </li>
+        <li>
+          <b>Couples:</b> Pure romance — villas, spas, infinity pools, sunset
+          dining.
+        </li>
+        <li>
+          <b>Adventure Seekers:</b> Volcano hiking, rafting, diving, ATVs,
+          surfing.
+        </li>
+        <li>
+          <b>Food Lovers:</b> Cafés, seafood, street food, vegan options, fusion
+          cuisine.
+        </li>
+      </ul>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title">Weather</h5>
+              <p class="card-text mb-0">
+                Warm tropical climate (25–31°C). Best months: May–September.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title">Average Trip Cost</h5>
+              <p class="card-text mb-0">
+                Budget: $25–40/day · Luxury: $150+/day.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title">Best For</h5>
+              <p class="card-text mb-0">
+                Relaxation, beaches, culture, nature & photography.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <hr class="my-5">
+      <hr class="my-5" />
 
-  <h3 class="fw-bold">Traveler Reviews with Ratings</h3>
-  <div class="row g-3">
+      <h3 class="fw-bold">Traveler Reviews with Ratings</h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Sarah (UK) ⭐⭐⭐⭐</h5>
+              <p class="card-text">
+                “Beautiful beaches, great food, friendly people. Would return!”
+              </p>
+              <ul class="list-unstyled mb-0 small">
+                <li>Food: 4/5</li>
+                <li>Price: 4/5</li>
+                <li>Weather: 3/5</li>
+                <li>Hospitality: 3.5/5</li>
+                <li>Adventure: 4/5</li>
+                <li>Entertainment: 3/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Sarah (UK) ⭐⭐⭐⭐</h5>
-          <p class="card-text">“Beautiful beaches, great food, friendly people. Would return!”</p>
-          <ul class="list-unstyled mb-0 small">
-            <li>Food: 4/5</li>
-            <li>Price: 4/5</li>
-            <li>Weather: 3/5</li>
-            <li>Hospitality: 3.5/5</li>
-            <li>Adventure: 4/5</li>
-            <li>Entertainment: 3/5</li>
-          </ul>
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Omar (UAE) ⭐⭐⭐</h5>
+              <p class="card-text">
+                “Perfect for families, affordable and filled with fun
+                activities.”
+              </p>
+              <ul class="list-unstyled mb-0 small">
+                <li>Food: 3/5</li>
+                <li>Price: 2.5/5</li>
+                <li>Weather: 5/5</li>
+                <li>Hospitality: 5/5</li>
+                <li>Adventure: 4.5/5</li>
+                <li>Entertainment: 2/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Tom (USA) ⭐⭐⭐⭐</h5>
+              <p class="card-text">
+                “Great for surfing and backpacking. Made friends easily!”
+              </p>
+              <ul class="list-unstyled mb-0 small">
+                <li>Food: 4.5/5</li>
+                <li>Price: 3/5</li>
+                <li>Weather: 4/5</li>
+                <li>Hospitality: 4/5</li>
+                <li>Adventure: 5/5</li>
+                <li>Entertainment: 3/5</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
+      <div class="card mt-4 shadow-sm">
         <div class="card-body">
-          <h5 class="card-title">Omar (UAE) ⭐⭐⭐</h5>
-          <p class="card-text">“Perfect for families, affordable and filled with fun activities.”</p>
-          <ul class="list-unstyled mb-0 small">
-            <li>Food: 3/5</li>
-            <li>Price: 2.5/5</li>
-            <li>Weather: 5/5</li>
-            <li>Hospitality: 5/5</li>
-            <li>Adventure: 4.5/5</li>
-            <li>Entertainment: 2/5</li>
-          </ul>
+          <h5 class="fw-bold">Travel Experience Summary – Bali</h5>
+          <p class="card-text mb-0">
+            Travelers love Bali’s food, scenery, prices, beaches, and friendly
+            welcome. It offers something for everyone — adventurers, families,
+            couples, or solo backpackers.
+          </p>
         </div>
       </div>
+
+      <hr class="my-5" />
     </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Tom (USA) ⭐⭐⭐⭐</h5>
-          <p class="card-text">“Great for surfing and backpacking. Made friends easily!”</p>
-          <ul class="list-unstyled mb-0 small">
-            <li>Food: 4.5/5</li>
-            <li>Price: 3/5</li>
-            <li>Weather: 4/5</li>
-            <li>Hospitality: 4/5</li>
-            <li>Adventure: 5/5 </li>
-            <li>Entertainment: 3/5</li>
-          </ul>
-        </div>
+    <footer class="footer-custom text-center py-3">
+      <div class="container">
+        <p class="mb-1 fw-bold">Voyager</p>
+        <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
       </div>
-    </div>
+    </footer>
 
-  </div>
-
-  <div class="card mt-4 shadow-sm">
-    <div class="card-body">
-      <h5 class="fw-bold">Travel Experience Summary – Bali</h5>
-      <p class="card-text mb-0">
-        Travelers love Bali’s food, scenery, prices, beaches, and friendly welcome.
-        It offers something for everyone — adventurers, families, couples, or solo backpackers.
-      </p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-</div>
-
-<footer class="footer-custom text-center py-3">
-  <div class="container">
-    <p class="mb-1 fw-bold">Voyager</p>
-    <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
