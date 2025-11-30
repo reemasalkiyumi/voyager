@@ -17,10 +17,8 @@
         color: #000000;
         background-image: url("background.jpg");
         background-repeat: no-repeat;
-
         background-size: cover;
         background-position: center;
-
         background-color: rgba(0, 0, 0, 0.45);
         background-blend-mode: overlay;
       }
@@ -35,7 +33,6 @@
         box-shadow: 0 12px 24px rgba(67, 56, 202, 0.24);
       }
 
-      /* sidebar colors */
       .sidebar-custom {
         background-color: rgba(0, 0, 0, 0.9);
         color: #ffffff;
@@ -60,11 +57,11 @@
         color: var(--color-text-light);
       }
       :root {
-        --color-dark-main: #143642; /* Footer, Submit Button, Main Accent */
-        --color-light-bg: #d9e7dd; /* Lower Section Background */
+        --color-dark-main: #143642;
+        --color-light-bg: #d9e7dd;
         --color-text-light: #f2f2f2;
         --color-text-dark: #000000;
-        --color-accent-green: #195438; /* Based on linked-pages-btn */
+        --color-accent-green: #195438;
       }
     </style>
   </head>
@@ -75,7 +72,6 @@
       <div
         class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
       >
-        <!-- Sidebar toggle button -->
         <button
           class="btn btn-light me-2"
           type="button"
@@ -86,7 +82,6 @@
           ☰
         </button>
 
-        <!-- Logo + Voyager text -->
         <div class="d-flex align-items-center">
           <img
             src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
@@ -94,13 +89,12 @@
             class="me-2"
             style="width: 32px; height: 32px"
           />
-          <!-- smaller text on phones, larger on bigger screens -->
           <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
         </div>
       </div>
     </div>
 
-    <!-- SIDEBAR NAV (Offcanvas) -->
+    <!-- SIDEBAR NAV -->
     <div
       class="offcanvas offcanvas-start sidebar-custom"
       tabindex="-1"
@@ -136,14 +130,14 @@
 
           <hr class="border-secondary" />
 
-          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <h6 class="text-white-50 text-uppercase mb-2">About & Contact</h6>
           <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
           <a class="nav-link mb-3" href="aboutUs.html">About us</a>
         </nav>
       </div>
     </div>
 
-    <!-- MAIN CONTENT: centered card using Bootstrap -->
+    <!-- MAIN CONTENT -->
     <main class="d-flex align-items-center justify-content-center min-vh-100">
       <div class="container">
         <div class="row justify-content-center">
@@ -161,7 +155,7 @@
                   class="needs-validation"
                   novalidate
                 >
-                  <!-- First + Last name -->
+                  <!-- FIRST + LAST NAME -->
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="firstName" class="form-label"
@@ -174,12 +168,13 @@
                         class="form-control"
                         placeholder="First name"
                         required
+                        pattern="[A-Za-z\s]+"
                       />
-                      <div class="valid-feedback">Valid.</div>
-                      <div class="invalid-feedback">
-                        Please fill ou this field.
+                      <div class="invalid-feedback" id="firstNameError">
+                        First name must contain letters only.
                       </div>
                     </div>
+
                     <div class="col-md-6 mb-3">
                       <label for="lastName" class="form-label">Last name</label>
                       <input
@@ -189,15 +184,15 @@
                         class="form-control"
                         placeholder="Last name"
                         required
+                        pattern="[A-Za-z\s]+"
                       />
-                      <div class="valid-feedback">Valid.</div>
-                      <div class="invalid-feedback">
-                        Please fill ou this field.
+                      <div class="invalid-feedback" id="lastNameError">
+                        Last name must contain letters only.
                       </div>
                     </div>
                   </div>
 
-                  <!-- Email -->
+                  <!-- EMAIL -->
                   <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input
@@ -210,11 +205,11 @@
                     />
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">
-                      Please fill ou this field.
+                      Please fill out this field.
                     </div>
                   </div>
 
-                  <!-- Password -->
+                  <!-- PASSWORD -->
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input
@@ -228,11 +223,11 @@
                     />
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">
-                      Please fill ou this field.
+                      Please fill out this field.
                     </div>
                   </div>
 
-                  <!-- Confirm Password -->
+                  <!-- CONFIRM PASSWORD -->
                   <div class="mb-3">
                     <label for="confirmPassword" class="form-label"
                       >Confirm password</label
@@ -248,36 +243,33 @@
                     />
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">
-                      Please fill ou this field.
+                      Please fill out this field.
                     </div>
                   </div>
 
-                  <!-- Terms -->
+                  <!-- TERMS -->
                   <div class="form-check mb-3">
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      value=""
                       id="terms"
                       name="terms"
                       required
                     />
                     <label class="form-check-label small" for="terms">
                       I agree to the
-                      <a href="#" class="primary">Terms &amp; Conditions</a>.
+                      <a href="#" class="primary">Terms & Conditions</a>.
                     </label>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">
-                      Please Check this checkbox.
+                      Please check this checkbox.
                     </div>
                   </div>
 
-                  <!-- Submit -->
                   <button type="submit" class="btn btn-primary w-100">
                     Sign up
                   </button>
 
-                  <!-- Login hint -->
                   <p class="text-center small text-muted mt-3 mb-0">
                     Already have an account?
                     <a href="login.html" class="primary">Log in</a>
@@ -289,30 +281,73 @@
         </div>
       </div>
     </main>
+
     <footer class="footer-custom text-center py-3">
       <div class="container">
         <p class="mb-1 footer-title">Voyager</p>
         <p class="mb-0 footer-text">© 2025 Voyager. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- YOUR SCRIPT (unchanged, only tags fixed) -->
     <script>
+      function isLettersOnly(value) {
+        return /^[A-Za-z\s]+$/.test(value);
+      }
+
       (() => {
         "use strict";
 
-        // Get all forms that need validation
         const forms = document.querySelectorAll(".needs-validation");
 
+        function validateNameField(field, errorId) {
+          const errorDiv = document.getElementById(errorId);
+          const value = field.value.trim();
+          let message = "";
+
+          if (value === "") {
+            message = "Please fill out this field.";
+          } else if (!isLettersOnly(value)) {
+            message = "Name must contain letters only.";
+          }
+
+          if (message) {
+            field.setCustomValidity(message);
+            if (errorDiv) errorDiv.textContent = message;
+            return false;
+          } else {
+            field.setCustomValidity("");
+            return true;
+          }
+        }
+
         Array.from(forms).forEach((form) => {
+          const firstName = document.getElementById("firstName");
+          const lastName = document.getElementById("lastName");
+
+          if (firstName) {
+            firstName.addEventListener("input", () =>
+              validateNameField(firstName, "firstNameError")
+            );
+          }
+
+          if (lastName) {
+            lastName.addEventListener("input", () =>
+              validateNameField(lastName, "lastNameError")
+            );
+          }
+
           form.addEventListener(
             "submit",
             (event) => {
-              // If form is invalid, stop submit
+              if (firstName) validateNameField(firstName, "firstNameError");
+              if (lastName) validateNameField(lastName, "lastNameError");
+
               if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
               }
 
-              // Tell Bootstrap: "show validation styles now"
               form.classList.add("was-validated");
             },
             false
