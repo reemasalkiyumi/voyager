@@ -304,23 +304,18 @@
       */
       function calculateCost(event) {
         event.preventDefault();
-
         let guide = document.getElementById("guideSelect");
         let selectedOption = guide.options[guide.selectedIndex];
         let rate = Number(selectedOption.getAttribute("data-rate"));
         let hours = Number(document.getElementById("hours").value);
         let people = Number(document.getElementById("people").value);
         let age = Number(document.getElementById("age").value);
-
         //Base cost calculation
         let cost = rate * hours * people;
-
         //Group discount
         if (people > 5) cost *= 0.9;
-
         //Senior discount
         if (age > 60) cost *= 0.85;
-
         //Display result section
         let resultBox = document.getElementById("result");
         resultBox.classList.remove("d-none");
