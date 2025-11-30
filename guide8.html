@@ -53,16 +53,30 @@
       }
 
       /* PROFILE */
-      .profile-section {
+      .profile-container {
         margin-top: -120px;
         background-color: #d9e7dd;
         padding: 40px 10%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
         border-radius: 6px;
       }
 
       .guide-photo {
         width: 100%;
         border-radius: 6px;
+      }
+
+      /* CONTACT + FORM SECTIONS */
+      .contact-details-section,
+      .contact-form-section {
+        padding: 40px 10%;
+        background: white;
+      }
+
+      .contact-form-section {
+        background: #e6e9e6;
       }
 
       .section-header {
@@ -146,68 +160,78 @@
       <h1 class="guide-title">Liam Thompson</h1>
     </header>
 
-    <!-- PROFILE GRID -->
-    <section class="profile-section">
-      <div class="row g-4">
-        <!-- IMAGE -->
-        <div class="col-md-4">
-          <img
-            class="guide-photo"
-            src="https://www.dundalkdemocrat.ie/resizer/640/-1/true/2023_07_11/Walking_Tour_7_-1689069121879.jpg--liam_gaynor_s_love_and_knowledge_of_dundalk_make_him_perfect_walking_tour_guide_.jpg?1689069121964"
-          />
-        </div>
-
-        <!-- TEXT -->
-        <div class="col-md-8">
-          <h2 class="guide-name" style="font-size: 40px; margin-bottom: 20px">
-            Liam Thompson, Accredited Guide
-          </h2>
-
-          <p><b>Location:</b> Queenstown, Australia</p>
-          <p><b>Languages:</b> English, Māori (basic)</p>
-          <p>
-            <b>Specialty:</b> Adventure tours, hiking trails, lake cruises,
-            wildlife exploration
-          </p>
-          <p><b>Rating:</b> 4.8/5 stars (187 reviews)</p>
-
-          <p style="margin-top: 20px; color: #555">
-            Liam is an experienced Australia guide known for his calm
-            personality and deep knowledge of nature trails, adventure spots,
-            and local wildlife. He creates unforgettable outdoor experiences.
-          </p>
-        </div>
+    <!-- PROFILE -->
+    <main class="profile-container">
+      <div style="flex-basis: 350px; max-width: 350px">
+        <img
+          class="guide-photo"
+          src="https://www.dundalkdemocrat.ie/resizer/640/-1/true/2023_07_11/Walking_Tour_7_-1689069121879.jpg--liam_gaynor_s_love_and_knowledge_of_dundalk_make_him_perfect_walking_tour_guide_.jpg?1689069121964"
+        />
       </div>
-    </section>
+
+      <div style="flex-grow: 1">
+        <h2 class="guide-name" style="font-size: 40px; margin-bottom: 20px">
+          Liam Thompson, Accredited Guide
+        </h2>
+
+        <div class="detail-group">
+          <b style="min-width: 110px">Location:</b>
+          Queenstown, Australia
+        </div>
+
+        <div class="detail-group">
+          <b style="min-width: 110px">Languages:</b> English, Māori (basic)
+        </div>
+
+        <div class="detail-group">
+          <b style="min-width: 110px">Specialty:</b>
+          Adventure tours, hiking trails, lake cruises, wildlife exploration
+        </div>
+
+        <div class="detail-group">
+          <b style="min-width: 110px">Rating:</b> 4.8/5 stars (187 reviews)
+        </div>
+
+        <p style="margin-top: 20px; font-size: 16px; color: #555">
+          Liam is an experienced Australia guide known for his calm personality
+          and deep knowledge of nature trails, adventure spots, and local
+          wildlife. He creates unforgettable outdoor experiences.
+        </p>
+      </div>
+    </main>
 
     <!-- CONTACT DETAILS -->
     <section class="contact-details-section">
       <h2 class="section-header">Contact & Social Media</h2>
 
-      <table class="table table-bordered">
+      <table style="width: 100%; border-collapse: collapse; margin-top: 20px">
         <tbody>
-          <tr>
-            <th class="bg-dark text-white">Email Address</th>
-            <td class="bg-light">liam.thompson@voyager.com</td>
+          <tr style="background: #2c4d57; color: white">
+            <th style="padding: 12px">Email Address</th>
+            <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
+              liam.thompson@voyager.com
+            </td>
           </tr>
 
-          <tr>
-            <th class="bg-secondary text-white">Phone Number</th>
-            <td class="bg-light">+64 21 XXX 4472</td>
+          <tr style="background: #1a3a3e; color: white">
+            <th style="padding: 12px">Phone Number</th>
+            <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
+              +64 21 XXX 4472
+            </td>
           </tr>
 
-          <tr>
-            <th class="bg-dark text-white">Instagram</th>
-            <td class="bg-light">
+          <tr style="background: #2c4d57; color: white">
+            <th style="padding: 12px">Instagram</th>
+            <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
               <a href="#" style="color: #1a1a1a; text-decoration: none"
                 >@ExploreNZwithLiam</a
               >
             </td>
           </tr>
 
-          <tr>
-            <th class="bg-secondary text-white">Website</th>
-            <td class="bg-light">
+          <tr style="background: #1a3a3e; color: white">
+            <th style="padding: 12px">Website</th>
+            <td style="padding: 12px; background: #d9e7dd; color: #1a1a1a">
               <a href="#" style="color: #1a1a1a; text-decoration: none"
                 >LiamNZAdventures</a
               >
@@ -221,7 +245,7 @@
     <section class="contact-form-section">
       <h2 class="section-header">Send Liam an Inquiry</h2>
 
-      <form id="contactForm">
+      <form id="liamForm">
         <div class="mb-3">
           <label class="form-label fw-bold">Your Name</label>
           <input type="text" id="yourName" class="form-control" required />
@@ -270,10 +294,9 @@
 
     <footer class="footer">© 2025 Voyager. All rights reserved.</footer>
 
-    <!-- VALIDATION SCRIPT -->
     <script>
       document
-        .getElementById("contactForm")
+        .getElementById("liamForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
@@ -282,7 +305,7 @@
           let subject = document.getElementById("subject").value.trim();
           let message = document.getElementById("message").value.trim();
 
-          // NAME VALIDATION
+          /* NAME VALIDATION */
           for (let i = 0; i < name.length; i++) {
             let ch = name[i].toLowerCase();
             if (!((ch >= "a" && ch <= "z") || ch === " ")) {
@@ -291,7 +314,7 @@
             }
           }
 
-          // EMAIL VALIDATION
+          /* EMAIL VALIDATION */
           if (
             email.indexOf("@") < 1 ||
             email.indexOf(".") === -1 ||
@@ -302,20 +325,20 @@
             return;
           }
 
-          // SUBJECT LENGTH
+          /* SUBJECT LENGTH */
           if (subject.length > 50) {
             alert("Subject is too long (maximum 50 characters).");
             return;
           }
 
-          // MESSAGE
+          /* MESSAGE CHECK */
           if (message.length < 1) {
             alert("Message cannot be empty.");
             return;
           }
 
           alert("Your inquiry has been sent successfully!");
-          document.getElementById("contactForm").reset();
+          document.getElementById("liamForm").reset();
         });
     </script>
 
