@@ -1,262 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voyager — Morocco</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager — Morocco</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <style>
-   
-    .sidebar-custom {
-      background-color: rgba(0, 0, 0, 0.9) ;
-      color: #ffffff;
-    }
-    .sidebar-custom .nav-link {
-      color: #f2f2f2;
-      padding: 0.5rem 1rem; 
-    }
-    .sidebar-custom .nav-link.active {
-      background-color: #cfe4d5;
-      color: #000000;
-    }
+    <style>
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #ffffff;
+      }
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+        padding: 0.5rem 1rem;
+      }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
 
-    .sidebar-custom .offcanvas-title {
-      color: #ffffff;
-    }
-    .footer-custom {
-      background-color: #143642;
-      color: #ffffff;
-    }
-  </style>
-</head>
+      .sidebar-custom .offcanvas-title {
+        color: #ffffff;
+      }
+      .footer-custom {
+        background-color: #143642;
+        color: #ffffff;
+      }
+    </style>
+  </head>
 
-<body class="bg-light">
+  <body class="bg-light">
+    <div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
 
-<div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
-  <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
-    <button
-      class="btn btn-light me-2"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#mainSidebar"
-      aria-controls="mainSidebar"
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
     >
-      ☰
-    </button>
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
 
-    <div class="d-flex align-items-center">
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link active mb-1" href="index.html">Home</a>
+          <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-1" href="questionnaire.html">Questionnaire</a>
+          <a class="nav-link mb-1" href="funpage.html">Fun page</a>
+          <a class="nav-link mb-1" href="calculationsGuides.html"
+            >Calculation page</a
+          >
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="position-relative pt-5">
       <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        class="me-2"
-        style="width: 32px; height: 32px"
+        src="https://www.geoex.com/_next/image?url=https%3A%2F%2Fkxn3vdktxmez55pl.public.blob.vercel-storage.com%2FHero-Morocco-AitBenhaddou-GettyImages-982105774.jpg&w=2048&q=85"
+        class="img-fluid w-100"
+        style="height: 260px; object-fit: cover"
+        alt="Morocco header"
       />
-      <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
-    </div>
-  </div>
-</div>
-
-<div
-  class="offcanvas offcanvas-start sidebar-custom"
-  tabindex="-1"
-  id="mainSidebar"
-  aria-labelledby="mainSidebarLabel"
->
-  <div class="offcanvas-header">
-    <h5
-      class="offcanvas-title d-flex align-items-center gap-2"
-      id="mainSidebarLabel"
-    >
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        style="width: 32px; height: 32px"
-      />
-      <span>voyager</span>
-    </h5>
-    <button
-      type="button"
-      class="btn-close btn-close-white"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <nav class="nav flex-column">
-      <a class="nav-link active mb-1" href="index.html">Home</a>
-      <a class="nav-link mb-1" href="Destinations.html">Explore</a>
-      <a class="nav-link mb-1" href="guide.html">Guides page</a>
-      <a class="nav-link mb-3" href="signup.html">Sign up</a>
-
-      <hr class="border-secondary" />
-
-      <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
-      <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
-      <a class="nav-link mb-3" href="aboutUs.html">About us</a>
-    </nav>
-  </div>
-</div>
-
-
-<div class="position-relative pt-5">
-  <img src="https://www.geoex.com/_next/image?url=https%3A%2F%2Fkxn3vdktxmez55pl.public.blob.vercel-storage.com%2FHero-Morocco-AitBenhaddou-GettyImages-982105774.jpg&w=2048&q=85"
-       class="img-fluid w-100" style="height: 260px; object-fit: cover;" alt="Morocco header">
-  <h1 class="position-absolute top-50 start-50 translate-middle text-white fw-bold display-5">
-    MOROCCO
-  </h1>
-</div>
-
-<div class="container py-5">
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <img src="https://www.pestana.com/content/dam/pestana/en_us/destinations/morocco/morocco-page/gallery/gallery-morocco-fes-streets.jpg"
-           class="img-fluid rounded" alt="Fes streets">
+      <h1
+        class="position-absolute top-50 start-50 translate-middle text-white fw-bold display-5"
+      >
+        MOROCCO
+      </h1>
     </div>
 
-    <div class="col-md-6">
-      <h2 class="fw-bold">Morocco</h2>
-      <p class="fs-5">
-        Morocco blends Arab, Berber, African, and European influences, offering ancient medinas,
-        colorful souks, mountains, beaches, and Sahara landscapes. Popular cities include Marrakesh,
-        Fez, Chefchaouen, and Casablanca.
-      </p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <img src="https://media.gadventures.com/media-server/dynamic/blogs/posts/G-Adventures/2024/09/Moroccan_National_Dish.webp"
-           class="img-fluid rounded" alt="Moroccan food">
-      <p class="mt-2 fs-6">
-        Moroccan cuisine includes tagine, couscous, mint tea, pastries, and grilled meats.
-      </p>
-    </div>
-
-    <div class="col-md-6">
-      <img src="https://www.achawari.com/static/uploads/2025/03/ouzoud-waterfalls-.webp"
-           class="img-fluid rounded" alt="Ouzoud Waterfalls">
-      <p class="mt-2 fs-6">
-        Top attractions include Sahara Desert, Atlas Mountains, blue city Chefchaouen, and historic palaces.
-      </p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <h3 class="fw-bold mb-3">Is Morocco Good For…?</h3>
-  <ul class="fs-5">
-    <li><b>Solo Travelers:</b> Hostels, tours, and cultural experiences.</li>
-    <li><b>Families:</b> Museums, desert camps, calm towns.</li>
-    <li><b>Couples:</b> Riads, rooftop dinners, romantic cities.</li>
-    <li><b>Adventure Seekers:</b> Desert safaris, hiking, camel rides.</li>
-    <li><b>Food Lovers:</b> Street markets, pastries, spiced dishes.</li>
-  </ul>
-
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Weather</h5>
-          <p class="card-text mb-0">Best season: March–June & Sept–Nov.</p>
+    <div class="container py-5">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://www.pestana.com/content/dam/pestana/en_us/destinations/morocco/morocco-page/gallery/gallery-morocco-fes-streets.jpg"
+            class="img-fluid rounded"
+            alt="Fes streets"
+          />
         </div>
+
+        <div class="col-md-6">
+          <h2 class="fw-bold">Morocco</h2>
+          <p class="fs-5">
+            Morocco blends Arab, Berber, African, and European influences,
+            offering ancient medinas, colorful souks, mountains, beaches, and
+            Sahara landscapes. Popular cities include Marrakesh, Fez,
+            Chefchaouen, and Casablanca.
+          </p>
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://media.gadventures.com/media-server/dynamic/blogs/posts/G-Adventures/2024/09/Moroccan_National_Dish.webp"
+            class="img-fluid rounded"
+            alt="Moroccan food"
+          />
+          <p class="mt-2 fs-6">
+            Moroccan cuisine includes tagine, couscous, mint tea, pastries, and
+            grilled meats.
+          </p>
+        </div>
+
+        <div class="col-md-6">
+          <img
+            src="https://www.achawari.com/static/uploads/2025/03/ouzoud-waterfalls-.webp"
+            class="img-fluid rounded"
+            alt="Ouzoud Waterfalls"
+          />
+          <p class="mt-2 fs-6">
+            Top attractions include Sahara Desert, Atlas Mountains, blue city
+            Chefchaouen, and historic palaces.
+          </p>
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold mb-3">Is Morocco Good For…?</h3>
+      <ul class="fs-5">
+        <li>
+          <b>Solo Travelers:</b> Hostels, tours, and cultural experiences.
+        </li>
+        <li><b>Families:</b> Museums, desert camps, calm towns.</li>
+        <li><b>Couples:</b> Riads, rooftop dinners, romantic cities.</li>
+        <li><b>Adventure Seekers:</b> Desert safaris, hiking, camel rides.</li>
+        <li><b>Food Lovers:</b> Street markets, pastries, spiced dishes.</li>
+      </ul>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Weather</h5>
+              <p class="card-text mb-0">Best season: March–June & Sept–Nov.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Average Trip Cost</h5>
+              <p class="card-text mb-0">
+                Budget: $40–60/day | Luxury: $250+/day
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Best For</h5>
+              <p class="card-text mb-0">Food, culture, desert, photography.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold mb-3">Traveler Reviews with Ratings</h3>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Laura (Spain)⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Colorful, delicious food, but souks get overwhelming.”
+              </p>
+              <ul class="list-unstyled mb-0">
+                <li>Food: 5/5</li>
+                <li>Price: 4/5</li>
+                <li>Weather: 2/5</li>
+                <li>Local Hospitality: 4.5/5</li>
+                <li>Adventure: 3/5</li>
+                <li>Entertainment: 2/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Omar (UAE)⭐️⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Sahara camping was unforgettable. Marrakech streets crowded.”
+              </p>
+              <ul class="list-unstyled mb-0">
+                <li>Food: 4.5/5</li>
+                <li>Price: 4/5</li>
+                <li>Weather: 4.5/5</li>
+                <li>Local Hospitality: 5/5</li>
+                <li>Adventure: 5/5</li>
+                <li>Entertainment: 3.5/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">Emily (USA) ⭐️⭐️⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Amazing culture and food. Transport slow unless using tours.”
+              </p>
+              <ul class="list-unstyled mb-0">
+                <li>Food: 5/5</li>
+                <li>Price: 4/5</li>
+                <li>Weather: 4/5</li>
+                <li>Local Hospitality: 4.5/5</li>
+                <li>Adventure: 4.5/5</li>
+                <li>Entertainment: 4/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded bg-white mt-4 shadow-sm">
+        <h5 class="fw-bold">Travel Experience Summary - Morocco</h5>
+        <p class="mb-0">
+          Morocco is loved for its culture, food, friendly locals, and desert
+          adventures. Some travelers note crowded markets and strong bargaining,
+          but overall, Morocco is a top destination for food lovers,
+          photographers, and adventure seekers.
+        </p>
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Average Trip Cost</h5>
-          <p class="card-text mb-0">Budget: $40–60/day | Luxury: $250+/day</p>
-        </div>
+    <footer class="footer-custom text-center py-3 mt-5">
+      <div class="container">
+        <p class="mb-1 fw-bold">Voyager</p>
+        <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
       </div>
-    </div>
+    </footer>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Best For</h5>
-          <p class="card-text mb-0">Food, culture, desert, photography.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <h3 class="fw-bold mb-3">Traveler Reviews with Ratings</h3>
-
-  <div class="row g-3">
-
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Laura (Spain)⭐️⭐️⭐️</h5>
-          <p class="card-text">“Colorful, delicious food, but souks get overwhelming.”</p>
-          <ul class="list-unstyled mb-0">
-            <li>Food: 5/5</li><li>Price: 4/5</li><li>Weather: 2/5</li>
-            <li>Local Hospitality: 4.5/5</li><li>Adventure: 3/5</li>
-            <li>Entertainment: 2/5</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Omar (UAE)⭐️⭐️⭐️⭐️</h5>
-          <p class="card-text">“Sahara camping was unforgettable. Marrakech streets crowded.”</p>
-          <ul class="list-unstyled mb-0">
-            <li>Food: 4.5/5</li><li>Price: 4/5</li><li>Weather: 4.5/5</li>
-            <li>Local Hospitality: 5/5</li><li>Adventure: 5/5</li>
-            <li>Entertainment: 3.5/5</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title">Emily (USA) ⭐️⭐️⭐️⭐️⭐️</h5>
-          <p class="card-text">“Amazing culture and food. Transport slow unless using tours.”</p>
-          <ul class="list-unstyled mb-0">
-            <li>Food: 5/5</li><li>Price: 4/5</li><li>Weather: 4/5</li>
-            <li>Local Hospitality: 4.5/5</li><li>Adventure: 4.5/5</li>
-            <li>Entertainment: 4/5</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="p-4 rounded bg-white mt-4 shadow-sm">
-    <h5 class="fw-bold">Travel Experience Summary - Morocco</h5>
-    <p class="mb-0">
-      Morocco is loved for its culture, food, friendly locals, and desert adventures.
-      Some travelers note crowded markets and strong bargaining, but overall,
-      Morocco is a top destination for food lovers, photographers, and adventure seekers.
-    </p>
-  </div>
-
-</div>
-
-<footer class="footer-custom text-center py-3 mt-5">
-  <div class="container">
-    <p class="mb-1 fw-bold">Voyager</p>
-    <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

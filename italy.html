@@ -1,285 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voyager — Rome</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager — Rome</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <style>
+    <style>
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        color: #ffffff;
+      }
 
-    .sidebar-custom {
-      
-      background-color: rgba(0, 0, 0, 0.9) !important;
-      color: #ffffff;
-    }
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+        padding: 0.5rem 1rem;
+      }
 
-    .sidebar-custom .nav-link {
-      color: #f2f2f2;
-      padding: 0.5rem 1rem;
-    }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
 
-    .sidebar-custom .nav-link.active {
-      background-color: #cfe4d5;
-      color: #000000;
-    }
-
-    .sidebar-custom .offcanvas-title {
-      color: #ffffff;
-    }
-    .footer-custom {
-      background-color: #143642;
-      color: #ffffff;
-    }
-    .hero-rome {
-        background-image: url('https://www.italyperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.italyperfect.com/g/photos/upload/sml_845543004-1590582528-ip-info-rome.jpg');
+      .sidebar-custom .offcanvas-title {
+        color: #ffffff;
+      }
+      .footer-custom {
+        background-color: #143642;
+        color: #ffffff;
+      }
+      .hero-rome {
+        background-image: url("https://www.italyperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.italyperfect.com/g/photos/upload/sml_845543004-1590582528-ip-info-rome.jpg");
         background-size: cover;
         background-position: center;
         height: 260px;
-    }
-  </style>
-</head>
+      }
+    </style>
+  </head>
 
-<body class="bg-light">
+  <body class="bg-light">
+    <div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
 
-<div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
-  <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
-    <button
-      class="btn btn-light me-2"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#mainSidebar"
-      aria-controls="mainSidebar"
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
     >
-      ☰
-    </button>
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
 
-    <div class="d-flex align-items-center">
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        class="me-2"
-        style="width: 32px; height: 32px"
-      />
-      <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-1" href="questionnaire.html">Questionnaire</a>
+          <a class="nav-link mb-1" href="funpage.html">Fun page</a>
+          <a class="nav-link mb-1" href="calculationsGuides.html"
+            >Calculation page</a
+          >
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
     </div>
-  </div>
-</div>
 
-<div
-  class="offcanvas offcanvas-start sidebar-custom"
-  tabindex="-1"
-  id="mainSidebar"
-  aria-labelledby="mainSidebarLabel"
->
-  <div class="offcanvas-header">
-    <h5
-      class="offcanvas-title d-flex align-items-center gap-2"
-      id="mainSidebarLabel"
+    <div
+      class="d-flex justify-content-center align-items-center text-white text-center pt-5 hero-rome"
     >
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        style="width: 32px; height: 32px"
-      />
-      <span>voyager</span>
-    </h5>
-    <button
-      type="button"
-      class="btn-close btn-close-white"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <nav class="nav flex-column">
-      <a class="nav-link mb-1" href="index.html">Home</a>
-      <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
-      <a class="nav-link mb-1" href="guide.html">Guides page</a>
-      <a class="nav-link mb-3" href="signup.html">Sign up</a>
-
-      <hr class="border-secondary" />
-
-      <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
-      <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
-      <a class="nav-link mb-3" href="aboutUs.html">About us</a>
-    </nav>
-  </div>
-</div>
-
-
-<div class="d-flex justify-content-center align-items-center text-white text-center pt-5 hero-rome">
-  <h1 class="fw-bold display-5">ROME</h1>
-</div>
-
-<div class="container py-5">
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <img src="https://i0.wp.com/reporterontheroad.com/wp-content/uploads/voyage-a-rome-cover.png?fit=1600%2C1067&ssl=1"
-           class="img-fluid rounded" alt="Rome">
-    </div>
-    <div class="col-md-6">
-      <h2 class="fw-bold">Rome</h2>
-      <p class="fs-5">
-        Rome, Italy’s capital, is a museum of ancient history in the open air —
-        with the Colosseum, Roman Forum, Vatican City, piazzas, fountains,
-        and world-famous cuisine that attracts visitors from all over the world.
-      </p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <img src="https://www.trafalgar.com/real-word/wp-content/uploads/sites/3/2022/07/southern-italian-food2.jpeg"
-           class="img-fluid rounded" alt="Italian Food">
-      <p class="mt-2 small">
-        Rome is famous for pizza, pasta, gelato, espresso, street food, and traditional trattorias.
-      </p>
+      <h1 class="fw-bold display-5">ROME</h1>
     </div>
 
-    <div class="col-md-6">
-      <img src="https://i0.wp.com/www.touristitaly.com/wp-content/uploads/2023/03/Trevi-Fountain-rome-2-scaled.jpg?fit=4272%2C2848&ssl=1"
-           class="img-fluid rounded" alt="Colosseum">
-      <p class="mt-2 small">
-        Top landmarks include the Colosseum, Vatican Museums, Pantheon, Trevi Fountain, Spanish Steps, and ancient ruins.
-      </p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <h3 class="fw-bold">Is Rome Good For…?</h3>
-  <ul class="fs-5">
-    <li><b>Solo Travelers:</b> Safe, walkable, lots of tours, cafés & museums.</li>
-    <li><b>Families:</b> Parks, gelato, museums, piazzas & easy transport.</li>
-    <li><b>Couples:</b> Romantic views, fine dining, sunset spots.</li>
-    <li><b>Adventure Seekers:</b> Urban exploration, biking, guided history tours.</li>
-    <li><b>Food Lovers:</b> Pasta, pizza, desserts, wine tasting and markets.</li>
-  </ul>
-
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0 h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Weather</h5>
-          <p class="card-text mb-0">Mediterranean climate. Best months: April–June & September–October.</p>
+    <div class="container py-5">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://i0.wp.com/reporterontheroad.com/wp-content/uploads/voyage-a-rome-cover.png?fit=1600%2C1067&ssl=1"
+            class="img-fluid rounded"
+            alt="Rome"
+          />
         </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0 h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Average Trip Cost</h5>
-          <p class="card-text mb-0">Budget: €50–80/day · Luxury: €200+ per day.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0 h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Best For</h5>
-          <p class="card-text mb-0">History, culture, food, romance & world-famous sightseeing.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <h3 class="fw-bold">Traveler Reviews with Ratings</h3>
-  <div class="row g-3">
-
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Anna (UK) ⭐⭐⭐</h5>
-          <p class="card-text">
-            “Stunning history and food! But long queues and the metro can be confusing.”
+        <div class="col-md-6">
+          <h2 class="fw-bold">Rome</h2>
+          <p class="fs-5">
+            Rome, Italy’s capital, is a museum of ancient history in the open
+            air — with the Colosseum, Roman Forum, Vatican City, piazzas,
+            fountains, and world-famous cuisine that attracts visitors from all
+            over the world.
           </p>
-          <ul class="list-unstyled small mb-0">
-            <li>Food: 5/5</li>
-            <li>Price: 2/5</li>
-            <li>Weather: 4/5</li>
-            <li>Hospitality: 4.5/5</li>
-            <li>Adventure: 3.5/5</li>
-            <li>Entertainment: 3/5</li>
-          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Luca (Italy) ⭐⭐</h5>
-          <p class="card-text">
-            “Great for solo exploring, super safe and beautiful — but expensive!”
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://www.trafalgar.com/real-word/wp-content/uploads/sites/3/2022/07/southern-italian-food2.jpeg"
+            class="img-fluid rounded"
+            alt="Italian Food"
+          />
+          <p class="mt-2 small">
+            Rome is famous for pizza, pasta, gelato, espresso, street food, and
+            traditional trattorias.
           </p>
-          <ul class="list-unstyled small mb-0">
-            <li>Food: 4.5/5</li>
-            <li>Price: 2/5</li>
-            <li>Weather: 4/5</li>
-            <li>Hospitality: 5/5</li>
-            <li>Adventure: 1/5</li>
-            <li>Entertainment: 4/5</li>
-          </ul>
         </div>
-      </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Mark (USA) ⭐⭐⭐⭐</h5>
-          <p class="card-text">
-            “Amazing gelato, walkable city, great for solo travelers!”
+        <div class="col-md-6">
+          <img
+            src="https://i0.wp.com/www.touristitaly.com/wp-content/uploads/2023/03/Trevi-Fountain-rome-2-scaled.jpg?fit=4272%2C2848&ssl=1"
+            class="img-fluid rounded"
+            alt="Colosseum"
+          />
+          <p class="mt-2 small">
+            Top landmarks include the Colosseum, Vatican Museums, Pantheon,
+            Trevi Fountain, Spanish Steps, and ancient ruins.
           </p>
-          <ul class="list-unstyled small mb-0">
-            <li>Food: 5/5</li>
-            <li>Price: 3.5/5</li>
-            <li>Weather: 4/5</li>
-            <li>Hospitality: 4/5</li>
-            <li>Adventure: 3.5/5</li>
-            <li>Entertainment: 4/5</li>
-          </ul>
         </div>
       </div>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold">Is Rome Good For…?</h3>
+      <ul class="fs-5">
+        <li>
+          <b>Solo Travelers:</b> Safe, walkable, lots of tours, cafés & museums.
+        </li>
+        <li>
+          <b>Families:</b> Parks, gelato, museums, piazzas & easy transport.
+        </li>
+        <li><b>Couples:</b> Romantic views, fine dining, sunset spots.</li>
+        <li>
+          <b>Adventure Seekers:</b> Urban exploration, biking, guided history
+          tours.
+        </li>
+        <li>
+          <b>Food Lovers:</b> Pasta, pizza, desserts, wine tasting and markets.
+        </li>
+      </ul>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Weather</h5>
+              <p class="card-text mb-0">
+                Mediterranean climate. Best months: April–June &
+                September–October.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Average Trip Cost</h5>
+              <p class="card-text mb-0">
+                Budget: €50–80/day · Luxury: €200+ per day.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Best For</h5>
+              <p class="card-text mb-0">
+                History, culture, food, romance & world-famous sightseeing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold">Traveler Reviews with Ratings</h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Anna (UK) ⭐⭐⭐</h5>
+              <p class="card-text">
+                “Stunning history and food! But long queues and the metro can be
+                confusing.”
+              </p>
+              <ul class="list-unstyled small mb-0">
+                <li>Food: 5/5</li>
+                <li>Price: 2/5</li>
+                <li>Weather: 4/5</li>
+                <li>Hospitality: 4.5/5</li>
+                <li>Adventure: 3.5/5</li>
+                <li>Entertainment: 3/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Luca (Italy) ⭐⭐</h5>
+              <p class="card-text">
+                “Great for solo exploring, super safe and beautiful — but
+                expensive!”
+              </p>
+              <ul class="list-unstyled small mb-0">
+                <li>Food: 4.5/5</li>
+                <li>Price: 2/5</li>
+                <li>Weather: 4/5</li>
+                <li>Hospitality: 5/5</li>
+                <li>Adventure: 1/5</li>
+                <li>Entertainment: 4/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Mark (USA) ⭐⭐⭐⭐</h5>
+              <p class="card-text">
+                “Amazing gelato, walkable city, great for solo travelers!”
+              </p>
+              <ul class="list-unstyled small mb-0">
+                <li>Food: 5/5</li>
+                <li>Price: 3.5/5</li>
+                <li>Weather: 4/5</li>
+                <li>Hospitality: 4/5</li>
+                <li>Adventure: 3.5/5</li>
+                <li>Entertainment: 4/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4 shadow-sm bg-white">
+        <div class="card-body">
+          <h5 class="fw-bold">Travel Experience Summary – Rome</h5>
+          <p class="mb-0">
+            Visitors love the food, historic landmarks, walkability, and warm
+            hospitality. Rome suits couples, families and solo travelers —
+            especially those who enjoy museums, culture, and romantic European
+            atmosphere.
+          </p>
+        </div>
+      </div>
+
+      <hr class="my-5" />
     </div>
 
-  </div>
+    <footer class="footer-custom text-center py-3 mt-5">
+      <div class="container">
+        <p class="mb-1 fw-bold">Voyager</p>
+        <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
+      </div>
+    </footer>
 
-  <div class="card mt-4 shadow-sm bg-white">
-    <div class="card-body">
-      <h5 class="fw-bold">Travel Experience Summary – Rome</h5>
-      <p class="mb-0">
-        Visitors love the food, historic landmarks, walkability, and warm hospitality.
-        Rome suits couples, families and solo travelers — especially those who enjoy
-        museums, culture, and romantic European atmosphere.
-      </p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-</div>
-
-<footer class="footer-custom text-center py-3 mt-5">
-  <div class="container">
-    <p class="mb-1 fw-bold">Voyager</p>
-    <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

@@ -1,279 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voyager — Oman</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager — Oman</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <style>
+    <style>
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        color: #ffffff;
+      }
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+        padding: 0.5rem 1rem;
+      }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
 
-    
-    .sidebar-custom {
-      background-color: rgba(0, 0, 0, 0.9) !important;
-      color: #ffffff;
-    }
-    .sidebar-custom .nav-link {
-      color: #f2f2f2;
-      padding: 0.5rem 1rem;
-    }
-    .sidebar-custom .nav-link.active {
-      background-color: #cfe4d5;
-      color: #000000;
-    }
+      .sidebar-custom .offcanvas-title {
+        color: #ffffff;
+      }
 
-    .sidebar-custom .offcanvas-title {
-      color: #ffffff;
-    }
+      .footer-custom {
+        background-color: #143642;
+        color: #ffffff;
+      }
 
-    .footer-custom {
-      background-color: #143642;
-      color: #ffffff;
-    }
-
-   
-    .hero-oman {
-        background-image: url('https://tripjive.com/wp-content/uploads/2024/10/Nizwa-fort-visiting-hours.jpg');
+      .hero-oman {
+        background-image: url("https://tripjive.com/wp-content/uploads/2024/10/Nizwa-fort-visiting-hours.jpg");
         background-size: cover;
         background-position: center;
         height: 260px;
-    }
-    
-    
-    .summary-box {
+      }
+
+      .summary-box {
         background-color: #ffffff;
-    }
-  </style>
-</head>
-<body class="bg-light">
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
 
-<div class="position-fixed top-0 start-0 w-100 z-3 top-navbar-custom">
-  <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
-    <button
-      class="btn btn-light me-2"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#mainSidebar"
-      aria-controls="mainSidebar"
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
     >
-      ☰
-    </button>
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
 
-    <div class="d-flex align-items-center">
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        class="me-2"
-        style="width: 32px; height: 32px"
-      />
-      <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link mb-1" href="questionnaire.html">Questionnaire</a>
+          <a class="nav-link mb-1" href="funpage.html">Fun page</a>
+          <a class="nav-link mb-1" href="calculationsGuides.html"
+            >Calculation page</a
+          >
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
     </div>
-  </div>
-</div>
 
-<div
-  class="offcanvas offcanvas-start sidebar-custom"
-  tabindex="-1"
-  id="mainSidebar"
-  aria-labelledby="mainSidebarLabel"
->
-  <div class="offcanvas-header">
-    <h5
-      class="offcanvas-title d-flex align-items-center gap-2"
-      id="mainSidebarLabel"
+    <div
+      class="d-flex justify-content-center align-items-center pt-5 hero-oman"
     >
-      <img
-        src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-        alt="Voyager logo"
-        style="width: 32px; height: 32px"
-      />
-      <span>voyager</span>
-    </h5>
-    <button
-      type="button"
-      class="btn-close btn-close-white"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <nav class="nav flex-column">
-      <a class="nav-link mb-1" href="index.html">Home</a>
-      <a class="nav-link active mb-1" href="Destinations.html">Explore</a>
-      <a class="nav-link mb-1" href="guide.html">Guides page</a>
-      <a class="nav-link mb-3" href="signup.html">Sign up</a>
-
-      <hr class="border-secondary" />
-
-      <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
-      <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
-      <a class="nav-link mb-3" href="aboutUs.html">About us</a>
-    </nav>
-  </div>
-</div>
-
-
-<div class="d-flex justify-content-center align-items-center pt-5 hero-oman">
-  <h1 class="text-white fw-bold display-5" style="text-shadow:2px 2px 8px rgba(0,0,0,0.4);">OMAN</h1>
-</div>
-
-<div class="container py-5">
-
-  <div class="row align-items-start g-4">
-    <div class="col-md-6">
-      <img src="https://www.danflyingsolo.com/wp-content/uploads/2016/11/OmanTravelVideo_guide.jpg" class="img-fluid rounded mb-3" alt="Muscat Oman">
+      <h1
+        class="text-white fw-bold display-5"
+        style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4)"
+      >
+        OMAN
+      </h1>
     </div>
-    <div class="col-md-6">
-      <h2 class="fw-bold text-dark">Oman</h2>
-      <p class="text-dark fs-5">
-        Oman, located on the southeastern coast of the Arabian Peninsula, is a country known for its rich history, majestic deserts, turquoise wadis, dramatic mountains, and warm hospitality. 
-        Whether you explore ancient forts, swim in natural pools, or stargaze in the Empty Quarter, Oman offers a unique blend of adventure and cultural authenticity.
-      </p>
-    </div>
-  </div>
 
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <img src="https://www.tootingfamilykitchen.com/wp-content/uploads/2020/06/file-31-768x511.png" class="img-fluid rounded" alt="Omani Food">
-      <p class="mt-2 text-dark small">
-        Omani cuisine includes flavorful dishes like shuwa, harees, majboos, and freshly caught seafood, often enjoyed with dates and Omani kahwa.
-      </p>
-    </div>
-    <div class="col-md-6">
-      <img src="https://res.cloudinary.com/ddjuftfy2/image/upload/f_webp,c_fill,q_auto/memphis/xlarge/274158227_Salalah%20City.jpg" class="img-fluid rounded" alt="Oman Nature">
-      <p class="mt-2 text-dark small">
-        Highlights include Wadi Shab, Jebel Akhdar, Wahiba Sands, and historic forts in Nizwa and Bahla—perfect for hiking, desert camping, and cultural immersion.
-      </p>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <h3 class="fw-bold mb-3 text-dark">Is Oman Good For…?</h3>
-  <ul class="fs-5">
-    <li><b>Solo Travelers:</b> Safe destinations, friendly locals, peaceful environments, and natural adventures.</li>
-    <li><b>Families:</b> Clean beaches, desert tours, wildlife experiences, and museums.</li>
-    <li><b>Couples:</b> Romantic mountain resorts, desert nights, and stargazing.</li>
-    <li><b>Adventure Seekers:</b> Hiking, canyoning, dune bashing, and mountain trekking.</li>
-    <li><b>Food Lovers:</b> Authentic Arabian dishes, seafood, halwa, and local Omani coffee.</li>
-  </ul>
-
-  <hr class="my-5">
-
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Weather</h5>
-          <p class="mb-0">Warm climate year-round. Best months: October–April.</p>
+    <div class="container py-5">
+      <div class="row align-items-start g-4">
+        <div class="col-md-6">
+          <img
+            src="https://www.danflyingsolo.com/wp-content/uploads/2016/11/OmanTravelVideo_guide.jpg"
+            class="img-fluid rounded mb-3"
+            alt="Muscat Oman"
+          />
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Average Trip Cost</h5>
-          <p class="mb-0">Budget: $60–120/day. Luxury: $300+/day.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Best For</h5>
-          <p class="mb-0">History, nature, mountains, desert, and cultural experiences.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <h3 class="fw-bold mb-3 text-dark">Traveler Reviews with Ratings</h3>
-  <div class="row g-3">
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Sarah (UK) ⭐️⭐️⭐️</h5>
-          <p class="card-text">
-            “Amazing hospitality and breathtaking landscapes, but renting a car can be expensive.”
+        <div class="col-md-6">
+          <h2 class="fw-bold text-dark">Oman</h2>
+          <p class="text-dark fs-5">
+            Oman, located on the southeastern coast of the Arabian Peninsula, is
+            a country known for its rich history, majestic deserts, turquoise
+            wadis, dramatic mountains, and warm hospitality. Whether you explore
+            ancient forts, swim in natural pools, or stargaze in the Empty
+            Quarter, Oman offers a unique blend of adventure and cultural
+            authenticity.
           </p>
-          <ul class="list-unstyled small mb-0">
-            <li>Food: 4.5/5</li>
-            <li>Price: 3/5</li>
-            <li>Weather: 4.5/5</li>
-            <li>Local Hospitality: 5/5</li>
-            <li>Adventure: 4.5/5</li>
-            <li>Entertainment: 3/5</li>
-          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Hassan (UAE) ⭐️⭐️⭐️⭐️</h5>
-          <p class="card-text">
-            “Wadi Shab and Wahiba Sands are unforgettable. Some locations need a 4x4 though.”
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img
+            src="https://www.tootingfamilykitchen.com/wp-content/uploads/2020/06/file-31-768x511.png"
+            class="img-fluid rounded"
+            alt="Omani Food"
+          />
+          <p class="mt-2 text-dark small">
+            Omani cuisine includes flavorful dishes like shuwa, harees, majboos,
+            and freshly caught seafood, often enjoyed with dates and Omani
+            kahwa.
           </p>
-          <ul class="list-unstyled small mb-0">
-            <li>Food: 4/5</li>
-            <li>Price: 4/5</li>
-            <li>Weather: 4.5/5</li>
-            <li>Local Hospitality: 5/5</li>
-            <li>Adventure: 5/5</li>
-            <li>Entertainment: 2/5</li>
-          </ul>
         </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h5 class="card-title fw-bold">Elena (Italy) ⭐️⭐️⭐️⭐️</h5>
-          <p class="card-text">
-            “Beautiful country with rich history, though public transport options are limited.”
+        <div class="col-md-6">
+          <img
+            src="https://res.cloudinary.com/ddjuftfy2/image/upload/f_webp,c_fill,q_auto/memphis/xlarge/274158227_Salalah%20City.jpg"
+            class="img-fluid rounded"
+            alt="Oman Nature"
+          />
+          <p class="mt-2 text-dark small">
+            Highlights include Wadi Shab, Jebel Akhdar, Wahiba Sands, and
+            historic forts in Nizwa and Bahla—perfect for hiking, desert
+            camping, and cultural immersion.
           </p>
-          <ul class="list-unstyled small mb-0">
-            <li>Food: 4/5</li>
-            <li>Price: 3.5/5</li>
-            <li>Weather: 4/5</li>
-            <li>Local Hospitality: 5/5</li>
-            <li>Adventure: 4.5/5</li>
-            <li>Entertainment: 3/5</li>
-          </ul>
         </div>
       </div>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold mb-3 text-dark">Is Oman Good For…?</h3>
+      <ul class="fs-5">
+        <li>
+          <b>Solo Travelers:</b> Safe destinations, friendly locals, peaceful
+          environments, and natural adventures.
+        </li>
+        <li>
+          <b>Families:</b> Clean beaches, desert tours, wildlife experiences,
+          and museums.
+        </li>
+        <li>
+          <b>Couples:</b> Romantic mountain resorts, desert nights, and
+          stargazing.
+        </li>
+        <li>
+          <b>Adventure Seekers:</b> Hiking, canyoning, dune bashing, and
+          mountain trekking.
+        </li>
+        <li>
+          <b>Food Lovers:</b> Authentic Arabian dishes, seafood, halwa, and
+          local Omani coffee.
+        </li>
+      </ul>
+
+      <hr class="my-5" />
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Weather</h5>
+              <p class="mb-0">
+                Warm climate year-round. Best months: October–April.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Average Trip Cost</h5>
+              <p class="mb-0">Budget: $60–120/day. Luxury: $300+/day.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Best For</h5>
+              <p class="mb-0">
+                History, nature, mountains, desert, and cultural experiences.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5" />
+
+      <h3 class="fw-bold mb-3 text-dark">Traveler Reviews with Ratings</h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Sarah (UK) ⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Amazing hospitality and breathtaking landscapes, but renting a
+                car can be expensive.”
+              </p>
+              <ul class="list-unstyled small mb-0">
+                <li>Food: 4.5/5</li>
+                <li>Price: 3/5</li>
+                <li>Weather: 4.5/5</li>
+                <li>Local Hospitality: 5/5</li>
+                <li>Adventure: 4.5/5</li>
+                <li>Entertainment: 3/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Hassan (UAE) ⭐️⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Wadi Shab and Wahiba Sands are unforgettable. Some locations
+                need a 4x4 though.”
+              </p>
+              <ul class="list-unstyled small mb-0">
+                <li>Food: 4/5</li>
+                <li>Price: 4/5</li>
+                <li>Weather: 4.5/5</li>
+                <li>Local Hospitality: 5/5</li>
+                <li>Adventure: 5/5</li>
+                <li>Entertainment: 2/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Elena (Italy) ⭐️⭐️⭐️⭐️</h5>
+              <p class="card-text">
+                “Beautiful country with rich history, though public transport
+                options are limited.”
+              </p>
+              <ul class="list-unstyled small mb-0">
+                <li>Food: 4/5</li>
+                <li>Price: 3.5/5</li>
+                <li>Weather: 4/5</li>
+                <li>Local Hospitality: 5/5</li>
+                <li>Adventure: 4.5/5</li>
+                <li>Entertainment: 3/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded mt-4 shadow-sm summary-box">
+        <h5 class="fw-bold">Travel Experience Summary – Oman</h5>
+        <p class="text-dark fs-6 mb-0">
+          Visitors appreciate Oman’s
+          <b
+            >warm hospitality, dramatic natural landscapes, rich history, and
+            peaceful atmosphere</b
+          >. Highlights include
+          <b>Wadi Shab, Nizwa, Muscat, Jebel Akhdar, and Wahiba Sands</b>. Some
+          travelers mention the need for
+          <b>car rentals and limited transport</b>. Oman is ideal for
+          <b
+            >adventure lovers, families, couples, and travelers seeking
+            authentic cultural experiences</b
+          >.
+        </p>
+      </div>
+
+      <hr class="my-5" />
     </div>
 
-  </div>
-
-  <div class="p-4 rounded mt-4 shadow-sm summary-box">
-    <h5 class="fw-bold">Travel Experience Summary – Oman</h5>
-    <p class="text-dark fs-6 mb-0">
-      Visitors appreciate Oman’s <b>warm hospitality, dramatic natural landscapes, rich history, and peaceful atmosphere</b>. 
-      Highlights include <b>Wadi Shab, Nizwa, Muscat, Jebel Akhdar, and Wahiba Sands</b>. 
-      Some travelers mention the need for <b>car rentals and limited transport</b>. 
-      Oman is ideal for <b>adventure lovers, families, couples, and travelers seeking authentic cultural experiences</b>.
-    </p>
-  </div>
-
-  <hr class="my-5">
-
-</div>
-
-<footer class="footer-custom text-center py-3 mt-5">
-  <div class="container">
-    <p class="mb-1 fw-bold">Voyager</p>
-    <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
-  </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <footer class="footer-custom text-center py-3 mt-5">
+      <div class="container">
+        <p class="mb-1 fw-bold">Voyager</p>
+        <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
