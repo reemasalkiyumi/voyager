@@ -262,56 +262,89 @@ body { color: var(--color-text-dark); background-color: #ffffff; }
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// --- Data arrays to store feedback ---
-const travelers = [];     // Stores traveler info: name, email, website rating
-const destinations = [];  // Stores destination info: country, rating, notes
+// ---------------------------------------------------------------------------
+//  FEEDBACK SYSTEM — STORE DATA INSIDE TWO ARRAYS
+//  travelers[]   → stores: name, email, rating
+//  destinations[] → stores: country, rating, notes
+// ---------------------------------------------------------------------------
 
-// --- Render traveler table ---
-function renderTravelerTable(filter='') {
-  const tbody = document.getElementById("traveler-table").querySelector("tbody");
+// DATA ARRAYS
+const travelers = [];     // Stores traveler records
+const destinations = [];  // Stores destination records
+
+// ---------------------------------------------------------------------------
+// FUNCTION: renderTravelerTable()
+// PURPOSE:  Update the traveler table with all stored traveler entries.
+//           If a search filter is provided, only matching rows appear.
+// ---------------------------------------------------------------------------
+function renderTravelerTable(filter = "") {
+  const tbody = document.querySelector("#traveler-table tbody");
   tbody.innerHTML = ""; // Clear previous rows
 
-  // Filter and display travelers
   travelers
-    .filter(t => !filter || t.name.toLowerCase().includes(filter.toLowerCase()) || t.email.toLowerCase().includes(filter.toLowerCase()))
+    .filter(t =>
+      !filter ||
+      t.name.toLowerCase().includes(filter.toLowerCase()) ||
+      t.email.toLowerCase().includes(filter.toLowerCase())
+    )
     .forEach(t => {
       const row = document.createElement("tr");
-      row.innerHTML = `<td>${t.name}</td><td>${t.email}</td><td>${t.navScore}</td>`;
+      row.innerHTML = `
+        <td>${t.name}</td>
+        <td>${t.email}</td>
+        <td>${t.navScore}</td>
+      `;
       tbody.appendChild(row);
     });
 }
 
-// --- Render destination table ---
-function renderDestinationTable(filter='') {
-  const tbody = document.getElementById("destination-table").querySelector("tbody");
-  tbody.innerHTML = ""; // Clear previous rows
+// ---------------------------------------------------------------------------
+// FUNCTION: renderDestinationTable()
+// PURPOSE:  Update the destination table with all stored destination entries.
+//           Applies search filtering if provided.
+// ---------------------------------------------------------------------------
+function renderDestinationTable(filter = "") {
+  const tbody = document.querySelector("#destination-table tbody");
+  tbody.innerHTML = ""; // Clear table
 
-  // Filter and display destinations
   destinations
-    .filter(d => !filter || d.country.toLowerCase().includes(filter.toLowerCase()) || d.notes.toLowerCase().includes(filter.toLowerCase()))
+    .filter(d =>
+      !filter ||
+      d.country.toLowerCase().includes(filter.toLowerCase()) ||
+      d.notes.toLowerCase().includes(filter.toLowerCase())
+    )
     .forEach(d => {
       const row = document.createElement("tr");
-      row.innerHTML = `<td>${d.country}</td><td>${d.recScore}</td><td>${d.notes}</td>`;
+      row.innerHTML = `
+        <td>${d.country}</td>
+        <td>${d.recScore}</td>
+        <td>${d.notes}</td>
+      `;
       tbody.appendChild(row);
     });
 }
 
-// --- Handle form submission ---
-document.getElementById("feedback-form").addEventListener("submit", function(e){
-  e.preventDefault(); // Prevent default form submission
+// ---------------------------------------------------------------------------
+// FORM SUBMISSION
+// PURPOSE: Get all form inputs → validate → push into arrays → update tables
+// ---------------------------------------------------------------------------
+document.getElementById("feedback-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // Stop page reload
 
-  // Get selected interests (checkboxes)
-  const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(i => i.value);
+  // Collect checked interests
+  const interests = Array.from(
+    document.querySelectorAll('input[name="interests"]:checked')
+  ).map(i => i.value);
 
-  // Validate at least one interest is selected
-  if(interests.length === 0){ 
-    document.getElementById("interests-invalid").style.display = "block"; 
-    return; 
-  } else { 
-    document.getElementById("interests-invalid").style.display = "none"; 
+  // Validation: must pick at least ONE interest
+  if (interests.length === 0) {
+    document.getElementById("interests-invalid").style.display = "block";
+    return;
+  } else {
+    document.getElementById("interests-invalid").style.display = "none";
   }
 
-  // Get all form values
+  // Collect form values
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const siteRating = document.getElementById("siteRating").value;
@@ -319,34 +352,41 @@ document.getElementById("feedback-form").addEventListener("submit", function(e){
   const suggestDest = document.getElementById("suggestDest").value.trim();
   const notes = document.getElementById("notes").value.trim();
 
-  // Add new traveler entry
+  // SAVE traveler to array
   travelers.push({
-    name,
-    email,
+    name: name,
+    email: email,
     navScore: siteRating
   });
 
-  // Add new destination entry
+  // SAVE destination feedback to array
   destinations.push({
     country: favDest,
     recScore: siteRating,
-    notes: notes + " | Suggested: " + suggestDest + " | Interests: " + interests.join(", ")
+    notes: `${notes} | Suggested: ${suggestDest} | Interests: ${interests.join(", ")}`
   });
 
-  // Re-render tables
+  // UPDATE TABLES
   renderTravelerTable();
   renderDestinationTable();
 
-  // Show submission confirmation
-  alert("Thank you! Your feedback has been submitted.");
+  // CONFIRMATION MESSAGE
+  alert("Thank you! Your feedback has been submitted ❤️");
 
-  // Reset the form
+  // RESET FORM
   this.reset();
 });
 
-// --- Search functionality ---
-// Filter traveler table on input
-document.getElementById("search-traveler").addEventListener("input", e => renderTravelerTable(e.target.value));
+// ---------------------------------------------------------------------------
+// SEARCH INPUT LISTENERS
+// PURPOSE: Filter table content as the user types.
+// ---------------------------------------------------------------------------
 
-// Filter destination table on input
-document.getElementById("search-destination").addEventListener("input", e => renderDestinationTable(e.target.value));
+// Filter travelers
+document.getElementById("search-traveler")
+  .addEventListener("input", e => renderTravelerTable(e.target.value));
+
+// Filter destinations
+document.getElementById("search-destination")
+  .addEventListener("input", e => renderDestinationTable(e.target.value));
+</script>
