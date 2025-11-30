@@ -1,152 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guides List - Voyager Experts</title>
-    <link rel="stylesheet" href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager | Guides</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <style>
-        /* COMMON NAVBAR STYLES */
-        * { margin:0; padding:0; box-sizing:border-box; font-family:"Georgia", serif; }
-        body { background-color:#dbeee4; }
-        .topbar {
-            position: fixed; top:0; left:0; width:100%; height:65px;
-            background-color: rgba(0,0,0,0.25); display:flex; align-items:center;
-            padding-left:70px; backdrop-filter: blur(2px); z-index:1000;
-        }
-        .branding { display:flex; align-items:center; gap:10px; }
-        .logo { width:35px; height:35px; }
-        .proj-name { color:white; font-size:26px; font-weight:bold; }
-        .menu-btn {
-            position: fixed; top:16px; left:20px; font-size:30px; color:white;
-            cursor:pointer; padding:4px 8px; border-radius:6px; background-color: rgba(0,0,0,0.4);
-            z-index:1001;
-        }
-        #nav-bar { display:none; }
-        .sidebar {
-            position: fixed; top:0; left:-260px; width:260px; height:100%;
-            background-color:#1c1c1c; padding:30px 25px; color:white; overflow-y:auto; transition:0.4s; z-index:999;
-        }
-        #nav-bar:checked ~ .sidebar { left:0; }
-        .close-btn { font-size:32px; font-weight:bold; color:white; cursor:pointer; margin-bottom:20px; display:block; }
-        .menu { list-style:none; }
-        .menu li a { display:block; padding:10px 12px; text-decoration:none; font-size:18px; color:#f2f2f2; border-radius:5px; transition:0.2s; }
-        .menu li a:hover { background-color:#2f2f2f; }
-        .menu li a.active { background-color:#cfe4d5; color:black; }
-        .expand-item { margin-top:18px; }
-        .expand-title {
-            display:flex; align-items:center; font-size:18px; color:white; cursor:pointer; padding:10px 12px;
-        }
-        .expand-title::before { content: ">"; font-size:18px; margin-right:10px; transition:0.3s; }
-        #about-toggle:checked + .expand-title::before { content:"-"; }
-        .sub-menu { max-height:0; overflow:hidden; transition:0.4s ease; margin-left:25px; }
-        #about-toggle:checked ~ .sub-menu { max-height:300px; }
-        .sub-menu li a { padding:8px 12px; font-size:16px; color:#eaeaea; display:block; }
+      body {
+        background-color: #cfe4d5;
+      }
 
-        /* PAGE SPECIFIC STYLES */
-        .hero-header {
-            background-image: url('background.jpg'); 
-            background-size: cover; background-position: center;
-            height: 60vh; display:flex; flex-direction: column;
-            align-items:center; justify-content:center; text-align:center;
-            margin-top:65px;
-        }
-        .guide-title { color:white; font-size:50px; font-weight:normal; z-index:1; }
-        .profile-container {
-            margin-top:50px; background-color:#d9e7dd; padding:20px 10%;
-            display:flex; gap:30px; position:relative; z-index:5; margin-bottom:50px;
-        }
-        .profile-photo-area { flex-basis:350px; max-width:350px; padding-top:50px; }
-        .guide-photo { width:100%; height:auto; display:block; }
-        .profile-details-box { flex-grow:1; margin-top:50px; padding-left:20px; }
-        .guide-name { font-size:40px; font-weight:bold; margin-bottom:25px; color:#1a1a1a; }
-        .detail-group { display:flex; margin-bottom:8px; font-size:18px; }
-        .detail-label { font-weight:bold; color:#1a1a1a; min-width:110px; margin-right:5px; }
-        .detail-value { color:#333; }
-        .contact-button { display:block; background-color:#2c4d57; color:white; padding:15px 40px; text-decoration:none; font-size:20px; font-weight:bold; border-radius:0px; margin-top:30px; text-align:center; }
-        .contact-button:hover { background-color:#1a333a; }
+      .hero {
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .hero-overlay {
+        background-color: rgba(0, 0, 0, 0.45);
+      }
+
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #ffffff;
+      }
+      .sidebar-custom .nav-link {
+        color: #f2f2f2;
+      }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: #000000;
+      }
+
+      .footer-custom {
+        background-color: #143642;
+        color: #f2f2f2;
+      }
+
+      .guide-card {
+        background-color: #d9e7dd;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .guide-photo {
+        width: 100%;
+        border-radius: 6px;
+      }
+      .guide-name {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .contact-button {
+        display: inline-block;
+        background-color: #195438;
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-size: 18px;
+        border-radius: 4px;
+      }
+      .contact-button:hover {
+        background-color: #0e301f;
+      }
     </style>
-</head>
-<body>
+  </head>
 
-    <!-- TOP BAR -->
-    <header class="topbar">
-        <div class="branding">
-            <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" class="logo" />
-            <span class="proj-name">voyager</span>
+  <body>
+    <!-- TOP NAV -->
+    <div class="position-fixed top-0 start-0 w-100 z-3">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+        >
+          ☰
+        </button>
+
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
         </div>
-    </header>
-
-    <!-- MENU BUTTON & CHECKBOX -->
-    <input type="checkbox" id="nav-bar" />
-    <label for="nav-bar" class="menu-btn">≡</label>
+      </div>
+    </div>
 
     <!-- SIDEBAR -->
-    <nav class="sidebar">
-        <label for="nav-bar" class="close-btn">×</label>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Destinations.html">Explore</a></li>
-            <li><a href="guide.html" class="active">Guides</a></li>
-            <li><a href="signup.html">Sign up</a></li>
-            <li class="expand-item">
-                <input type="checkbox" id="about-toggle" />
-                <label for="about-toggle" class="expand-title">About & Contact</label>
-                <ul class="sub-menu">
-                    <li><a href="contactUs.html">Contact us</a></li>
-                    <li><a href="aboutUs.html">About us</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title d-flex align-items-center gap-2">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
 
-    <!-- HERO HEADER -->
-    <header class="hero-header">
-        <h1 class="guide-title">Guides</h1>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link active mb-1" href="guide.html">Guides</a>
+          <a class="nav-link mb-3" href="signup.html">Sign up</a>
+
+          <hr class="border-secondary" />
+          <h6 class="text-white-50">About & Contact</h6>
+
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <header
+      class="hero position-relative text-white text-center"
+      style="min-height: 50vh"
+    >
+      <div
+        class="hero-overlay position-absolute top-0 start-0 w-100 h-100"
+      ></div>
+      <div
+        class="container position-relative d-flex flex-column justify-content-center align-items-center"
+        style="height: 50vh"
+      >
+        <h1 class="display-4 fw-bold">Guides</h1>
+      </div>
     </header>
 
-    <!-- GUIDE PROFILES -->
-    <main class="profile-container">
-        <div class="profile-photo-area">
-            <img src="https://www.schooltripworld.co.uk/wp-content/uploads/2025/03/woman-traveling-in-venice-italy.jpg" alt="Marie Conti photo" class="guide-photo">
+    <!-- GUIDE CARDS -->
+    <main class="container my-5">
+      <!-- ORIGINAL 3 GUIDES -->
+      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
+        <img
+          src="https://www.schooltripworld.co.uk/wp-content/uploads/2025/03/woman-traveling-in-venice-italy.jpg"
+          class="guide-photo"
+          style="max-width: 300px"
+        />
+        <div>
+          <h2 class="guide-name">Marie Conti</h2>
+          <p><strong>Location:</strong> Rome, Italy</p>
+          <p><strong>Languages:</strong> Italian, English, French</p>
+          <p>
+            <strong>Specialty:</strong> Historical walking tours, food tours,
+            hidden spots
+          </p>
+          <a href="guide1.html" class="contact-button">Contact</a>
         </div>
-        <div class="profile-details-box">
-            <h2 class="guide-name">Marie Conti</h2>
-            <div class="detail-group"><p class="detail-label">Location:</p><p class="detail-value">Rome, Italy</p></div>
-            <div class="detail-group"><p class="detail-label">Languages:</p><p class="detail-value">Italian, English, French</p></div>
-            <div class="detail-group"><p class="detail-label">Specialty:</p><p class="detail-value">Historical walking tours, food tours, hidden local spots</p></div>
-            <a href="guide1.html" class="contact-button">Contact</a>
+      </div>
+
+      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
+        <img
+          src="https://media.istockphoto.com/id/1511207680/photo/asian-man-backpacker-or-hiking-in-nature-forest-trekking-woods-or-japanese-trees-in-adventure.jpg?s=612x612&w=0&k=20&c=Zj5tu7gvYHKn7pWQ4GGBidjtEixiU-yO-nPSHUtWa3Y="
+          class="guide-photo"
+          style="max-width: 300px"
+        />
+        <div>
+          <h2 class="guide-name">Kenji Tanaka</h2>
+          <p><strong>Location:</strong> Arusha, Tanzania</p>
+          <p><strong>Languages:</strong> Tanzanian, English</p>
+          <p>
+            <strong>Specialty:</strong> Zen gardens, temples, photography tours
+          </p>
+          <a href="guide2.html" class="contact-button">Contact</a>
         </div>
+      </div>
+
+      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
+        <img
+          src="https://media.istockphoto.com/id/1071461664/photo/having-a-tour-through-the-city-streets.jpg?s=612x612&w=0&k=20&c=nlr914eKeQkYVpv7UgKCGU1oWLd97eRCi5e3jRggEhw="
+          class="guide-photo"
+          style="max-width: 300px"
+        />
+        <div>
+          <h2 class="guide-name">Sofia Rodriguez</h2>
+          <p><strong>Location:</strong> Barcelona, Spain</p>
+          <p><strong>Languages:</strong> Spanish, Catalan, English, French</p>
+          <p>
+            <strong>Specialty:</strong> Gaudi sites, Gothic Quarter, tapas
+            routes
+          </p>
+          <a href="guide3.html" class="contact-button">Contact</a>
+        </div>
+      </div>
+
+      <!-- NEW 5 GUIDES -->
+
+      <!-- 4. Hana Kim -->
+      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
+        <img
+          src="https://arival.travel/wp-content/uploads/2024/04/pexels-raphael-loquellano-1200x800-1-1024x682.webp"
+          class="guide-photo"
+          style="max-width: 300px"
+        />
+        <div>
+          <h2 class="guide-name">Hana Kim</h2>
+          <p><strong>Location:</strong> Bali, Indonesia</p>
+          <p><strong>Languages:</strong> Indonesian, English</p>
+          <p>
+            <strong>Specialty:</strong> culture tours, markets, food
+            experiences, night routes
+          </p>
+          <a href="guide7.html" class="contact-button">Contact</a>
+        </div>
+      </div>
+
+      <!-- 5. Marco Reyes -->
+      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwPBrKujHAV_lW_v9kBYN54BBOFwcq-EXZ9g&s"
+          class="guide-photo"
+          style="max-width: 300px"
+        />
+        <div>
+          <h2 class="guide-name">Marco Reyes</h2>
+          <p><strong>Location:</strong> Seychelles</p>
+          <p><strong>Languages:</strong> Spanish, English</p>
+          <p>
+            <strong>Specialty:</strong> Historic districts, cultural landmarks,
+            photography, food spots
+          </p>
+          <a href="guide6.html" class="contact-button">Contact</a>
+        </div>
+      </div>
+
+      <!-- 6. Liam Thompson -->
+      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
+        <img
+          src="https://www.dundalkdemocrat.ie/resizer/640/-1/true/2023_07_11/Walking_Tour_7_-1689069121879.jpg--liam_gaynor_s_love_and_knowledge_of_dundalk_make_him_perfect_walking_tour_guide_.jpg?1689069121964"
+          class="guide-photo"
+          style="max-width: 300px"
+        />
+        <div>
+          <h2 class="guide-name">Liam Thompson</h2>
+          <p><strong>Location:</strong> Queenstown, Australia</p>
+          <p><strong>Languages:</strong> English, Māori (basic)</p>
+          <p>
+            <strong>Specialty:</strong> Adventure tours, hiking, lake cruises,
+            wildlife exploration
+          </p>
+          <a href="guide8.html" class="contact-button">Contact</a>
+        </div>
+      </div>
+
+      <!-- 7. Layla Haddad -->
+      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
+        <img
+          src="https://t4.ftcdn.net/jpg/05/25/99/07/360_F_525990766_OKktXosEFG9McFRUNxHgpEYaundbL4N8.jpg"
+          class="guide-photo"
+          style="max-width: 300px"
+        />
+        <div>
+          <h2 class="guide-name">Layla Haddad</h2>
+          <p><strong>Location:</strong> Muscat, Oman</p>
+          <p><strong>Languages:</strong> Arabic, English</p>
+          <p>
+            <strong>Specialty:</strong> City tours, modern attractions, cultural
+            experiences, desert tours
+          </p>
+          <a href="guide5.html" class="contact-button">Contact</a>
+        </div>
+      </div>
+
+      <!-- 8. Omar Al-Ghareeb -->
+      <div class="guide-card mb-4 d-flex flex-wrap align-items-center gap-4">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1718146018997-a1059f9f9420?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dG91ciUyMGd1aWRlfGVufDB8fDB8fHww"
+          class="guide-photo"
+          style="max-width: 300px"
+        />
+        <div>
+          <h2 class="guide-name">Omar Al-Ghareeb</h2>
+          <p><strong>Location:</strong> Marrakech, Morocco</p>
+          <p><strong>Languages:</strong> Arabic, French, English, Spanish</p>
+          <p>
+            <strong>Specialty:</strong> Desert expeditions, Moroccan cuisine,
+            Berber culture, souk tours
+          </p>
+          <a href="guide4.html" class="contact-button">Contact</a>
+        </div>
+      </div>
     </main>
 
-    <main class="profile-container">
-        <div class="profile-photo-area">
-            <img src="https://media.istockphoto.com/id/1511207680/photo/asian-man-backpacker-or-hiking-in-nature-forest-trekking-woods-or-japanese-trees-in-adventure.jpg?s=612x612&w=0&k=20&c=Zj5tu7gvYHKn7pWQ4GGBidjtEixiU-yO-nPSHUtWa3Y=" alt="Kenji Tanaka photo" class="guide-photo">
-        </div>
-        <div class="profile-details-box">
-            <h2 class="guide-name">Kenji Tanaka</h2>
-            <div class="detail-group"><p class="detail-label">Location:</p><p class="detail-value">Kyoto, Japan</p></div>
-            <div class="detail-group"><p class="detail-label">Languages:</p><p class="detail-value">Japanese, English</p></div>
-            <div class="detail-group"><p class="detail-label">Specialty:</p><p class="detail-value">Zen gardens & temples, traditional tea ceremonies, photography tours</p></div>
-            <a href="guide2.html" class="contact-button">Contact</a>
-        </div>
-    </main>
-
-    <main class="profile-container">
-        <div class="profile-photo-area">
-            <img src="https://us.images.westend61.de/0000763935j/spain-navarra-bardenas-reales-smiling-young-woman-walking-in-nature-park-KKAF00257.jpg" alt="Sofia Rodriguez photo" class="guide-photo">
-        </div>
-        <div class="profile-details-box">
-            <h2 class="guide-name">Sofia Rodriguez</h2>
-            <div class="detail-group"><p class="detail-label">Location:</p><p class="detail-value">Barcelona, Spain</p></div>
-            <div class="detail-group"><p class="detail-label">Languages:</p><p class="detail-value">Spanish, Catalan, English, French</p></div>
-            <div class="detail-group"><p class="detail-label">Specialty:</p><p class="detail-value">Gaudi architecture, Gothic Quarter history, local tapas routes</p></div>
-            <a href="guide3.html" class="contact-button">Contact</a>
-        </div>
-    </main>
-<footer class="footer">
-        © 2025 Voyager. All rights reserved.
+    <footer class="footer-custom text-center py-3">
+      <div class="container">
+        <p class="mb-1">Voyager</p>
+        <p class="mb-0">© 2025 Voyager. All rights reserved.</p>
+      </div>
     </footer>
 
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
