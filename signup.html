@@ -287,7 +287,7 @@
       </div>
     </footer>
 
-    <!-- YOUR SCRIPT (unchanged, only tags fixed) -->
+    <!-- YOUR SCRIPT -->
     <script>
       // Check if input contains letters only
       function isLettersOnly(value) {
@@ -343,7 +343,7 @@
             if (errorDiv) errorDiv.textContent = message;
             return false;
           } else {
-            // No error → clear validation
+            // No error -> clear validation
             field.setCustomValidity("");
             return true;
           }
@@ -375,7 +375,7 @@
               if (firstName) validateNameField(firstName, "firstNameError");
               if (lastName) validateNameField(lastName, "lastNameError");
 
-              // If form has any invalid field → stop submit
+              // If form has any invalid field -> stop submit
               if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
