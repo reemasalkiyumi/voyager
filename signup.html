@@ -242,9 +242,7 @@
                       required
                     />
                     <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">
-                      Please fill out this field.
-                    </div>
+                    <div class="invalid-feedback">Passwords must match.</div>
                   </div>
 
                   <!-- TERMS -->
@@ -294,6 +292,26 @@
       function isLettersOnly(value) {
         return /^[A-Za-z\s]+$/.test(value);
       }
+
+      // PASSWORD MATCH VALIDATION
+      function validatePasswordMatch() {
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        if (password.value !== confirmPassword.value) {
+          confirmPassword.setCustomValidity("Passwords do not match.");
+        } else {
+          confirmPassword.setCustomValidity("");
+        }
+      }
+
+      // Real-time validation
+      document
+        .getElementById("password")
+        .addEventListener("input", validatePasswordMatch);
+      document
+        .getElementById("confirmPassword")
+        .addEventListener("input", validatePasswordMatch);
 
       (() => {
         "use strict";
