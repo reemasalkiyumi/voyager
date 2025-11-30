@@ -84,30 +84,53 @@
     <!-- TOP MINI NAVBAR -->
     <div class="position-fixed top-0 start-0 w-100 z-3">
       <div
-        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+        class="container-fluid d-flex align-items-center justify-content-between flex-wrap py-2"
       >
-        <!-- Sidebar toggle button -->
-        <button
-          class="btn btn-light me-2"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#mainSidebar"
-          aria-controls="mainSidebar"
-        >
-          ☰
-        </button>
+        <div class="d-flex align-items-center gap-2">
+          <!-- Sidebar toggle button -->
+          <button
+            class="btn btn-light me-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mainSidebar"
+            aria-controls="mainSidebar"
+          >
+            ☰
+          </button>
 
-        <!-- Logo + Voyager text -->
-        <div class="d-flex align-items-center">
-          <img
-            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
-            alt="Voyager logo"
-            class="me-2"
-            style="width: 32px; height: 32px"
-          />
-          <!-- smaller text on phones, larger on bigger screens -->
-          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+          <!-- Logo + Voyager text -->
+          <div class="d-flex align-items-center">
+            <img
+              src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+              alt="Voyager logo"
+              class="me-2"
+              style="width: 32px; height: 32px"
+            />
+            <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+          </div>
         </div>
+
+        <!-- 🔥 ADDED BUTTONS HERE -->
+        <div class="d-flex align-items-center gap-2">
+          <a
+            href="questionnaire.html"
+            class="btn btn-outline-light btn-sm fw-bold"
+          >
+            Questionnaire
+          </a>
+
+          <a
+            href="calculationsGuides.html"
+            class="btn btn-outline-light btn-sm fw-bold"
+          >
+            Calculate
+          </a>
+
+          <a href="funpage.html" class="btn btn-outline-light btn-sm fw-bold">
+            Fun Page
+          </a>
+        </div>
+        <!-- END ADDED BUTTONS -->
       </div>
     </div>
 
