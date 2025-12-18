@@ -1,392 +1,735 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Voyager | Feedback Quest</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voyager | Feedback Quest</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-<style>
-:root {
-    --color-dark-main: #143642;
-    --color-light-bg: #d9e7dd;
-    --color-text-light: #f2f2f2;
-    --color-text-dark: #000000;
-    --color-accent-green: #195438;
-}
+    <style>
+      :root {
+        --color-dark-main: #143642;
+        --color-light-bg: #d9e7dd;
+        --color-text-light: #f2f2f2;
+        --color-text-dark: #000000;
+        --color-accent-green: #195438;
+      }
 
-body { color: var(--color-text-dark); background-color: #ffffff; }
+      body {
+        color: var(--color-text-dark);
+        background-color: #ffffff;
+      }
 
-/* SIDEBAR */
-.sidebar-custom {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: var(--color-text-light);
-}
-.sidebar-custom .nav-link { color: var(--color-text-light); }
-.sidebar-custom .nav-link.active { background-color: #cfe4d5; color: var(--color-text-dark); }
+      /* SIDEBAR */
+      .sidebar-custom {
+        background-color: rgba(0, 0, 0, 0.9);
+        color: var(--color-text-light);
+      }
+      .sidebar-custom .nav-link {
+        color: var(--color-text-light);
+      }
+      .sidebar-custom .nav-link.active {
+        background-color: #cfe4d5;
+        color: var(--color-text-dark);
+      }
 
-/* HERO SECTION */
-.hero-questionnaire {
-    background-image: url("background.jpg"); 
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.hero-overlay { background-color: rgba(0, 0, 0, 0.45); position: absolute; top:0; left:0; width:100%; height:100%; }
-.hero-questionnaire .text-white { position: relative; z-index: 1; }
+      /* HERO SECTION */
+      .hero-questionnaire {
+        background-image: url("background.jpg");
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .hero-overlay {
+        background-color: rgba(0, 0, 0, 0.45);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .hero-questionnaire .text-white {
+        position: relative;
+        z-index: 1;
+      }
 
-/* LOWER SECTION */
-.lower-section { background-color: var(--color-light-bg); }
+      /* LOWER SECTION */
+      .lower-section {
+        background-color: var(--color-light-bg);
+      }
 
-/* FOOTER */
-.footer-custom { background-color: var(--color-dark-main); color: var(--color-text-light); }
-.footer-custom .footer-title, .footer-custom .footer-text { color: var(--color-text-light); }
+      /* FOOTER */
+      .footer-custom {
+        background-color: var(--color-dark-main);
+        color: var(--color-text-light);
+      }
+      .footer-custom .footer-title,
+      .footer-custom .footer-text {
+        color: var(--color-text-light);
+      }
 
-/* FORM STYLING */
-.card { border: none; border-radius: 10px; }
-.question-title { color: var(--color-dark-main); border-bottom: 2px solid var(--color-dark-main); padding-bottom: 8px; margin-bottom: 1.5rem; }
-.form-check-input:checked { background-color: var(--color-accent-green); border-color: var(--color-accent-green); }
-.form-control.is-invalid { border-color: #dc3545; padding-right: calc(1.5em + 0.75rem); }
+      /* FORM STYLING */
+      .card {
+        border: none;
+        border-radius: 10px;
+      }
+      .question-title {
+        color: var(--color-dark-main);
+        border-bottom: 2px solid var(--color-dark-main);
+        padding-bottom: 8px;
+        margin-bottom: 1.5rem;
+      }
+      .form-check-input:checked {
+        background-color: var(--color-accent-green);
+        border-color: var(--color-accent-green);
+      }
+      .form-control.is-invalid {
+        border-color: #dc3545;
+        padding-right: calc(1.5em + 0.75rem);
+      }
 
-/* SUBMIT BUTTON */
-#submit-btn { background-color: var(--color-dark-main); color: #ffffff; transition: background-color 0.3s; }
-#submit-btn:hover { background-color: #0e2531; }
+      /* SUBMIT BUTTON */
+      #submit-btn {
+        background-color: var(--color-dark-main);
+        color: #ffffff;
+        transition: background-color 0.3s;
+      }
+      #submit-btn:hover {
+        background-color: #0e2531;
+      }
 
-/* RESULTS SECTION */
-.results-section { background-color: #cfe4d5; border: 2px solid var(--color-accent-green); }
-.invalid-feedback { display: none; color: #dc3545; margin-top: 0.25rem; font-size: 0.875em; }
-.form-control.is-invalid ~ .invalid-feedback { display: block; }
+      /* RESULTS SECTION */
+      .results-section {
+        background-color: #cfe4d5;
+        border: 2px solid var(--color-accent-green);
+      }
+      .invalid-feedback {
+        display: none;
+        color: #dc3545;
+        margin-top: 0.25rem;
+        font-size: 0.875em;
+      }
+      .form-control.is-invalid ~ .invalid-feedback {
+        display: block;
+      }
 
-/* TABLES */
-.table-section { margin-top: 50px; }
-.table thead { background-color: var(--color-dark-main); color: var(--color-text-light); }
+      /* TABLES */
+      .table-section {
+        margin-top: 50px;
+      }
+      .table thead {
+        background-color: var(--color-dark-main);
+        color: var(--color-text-light);
+      }
 
-@media (max-width: 576px) { .hero-questionnaire h1 { font-size: 1.75rem; } }
-</style>
-</head>
-<body>
-
-<!-- NAVBAR -->
-<div class="fixed-top position-fixed fixed-top-nav w-100 z-3">
-  <div class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2">
-    <button class="btn btn-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainSidebar" aria-controls="mainSidebar">☰</button>
-    <div class="d-flex align-items-center">
-      <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" alt="Voyager logo" class="me-2" style="width: 32px; height: 32px"/>
-      <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+      @media (max-width: 576px) {
+        .hero-questionnaire h1 {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="fixed-top position-fixed fixed-top-nav w-100 z-3">
+      <div
+        class="container-fluid d-flex align-items-center flex-wrap gap-2 py-2"
+      >
+        <button
+          class="btn btn-light me-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mainSidebar"
+          aria-controls="mainSidebar"
+        >
+          ☰
+        </button>
+        <div class="d-flex align-items-center">
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            class="me-2"
+            style="width: 32px; height: 32px"
+          />
+          <span class="fw-bold text-white fs-5 fs-md-4">voyager</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- SIDEBAR -->
-<div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mainSidebar" aria-labelledby="mainSidebarLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title d-flex align-items-center gap-2" id="mainSidebarLabel">
-      <img src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png" alt="Voyager logo" style="width: 32px; height: 32px"/>
-      <span>voyager</span>
-    </h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <nav class="nav flex-column">
-      <a class="nav-link mb-1" href="index.html">Home</a>
-      <a class="nav-link mb-1" href="Destinations.html">Explore</a>
-      <a class="nav-link mb-1" href="guide.html">Guides page</a>
-      <a class="nav-link active mb-1" href="questionnaire.html">Questionnaire</a>
+    <!-- SIDEBAR -->
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mainSidebar"
+      aria-labelledby="mainSidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5
+          class="offcanvas-title d-flex align-items-center gap-2"
+          id="mainSidebarLabel"
+        >
+          <img
+            src="https://i.ibb.co/vC1nMSsz/Bon-Voyage-Travel-Logo-2-bg-removed-png.png"
+            alt="Voyager logo"
+            style="width: 32px; height: 32px"
+          />
+          <span>voyager</span>
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <nav class="nav flex-column">
+          <a class="nav-link mb-1" href="index.html">Home</a>
+          <a class="nav-link mb-1" href="Destinations.html">Explore</a>
+          <a class="nav-link mb-1" href="guide.html">Guides page</a>
+          <a class="nav-link active mb-1" href="questionnaire.html"
+            >Questionnaire</a
+          >
           <a class="nav-link mb-1" href="funpage.html">Fun page</a>
           <a class="nav-link mb-1" href="calculationsGuides.html"
             >Calculation page</a
           >
-      
-      <a class="nav-link  mb-3" href="signup.html">Sign Up</a>
-      <hr class="border-secondary"/>
-      <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
-      <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
-      <a class="nav-link mb-3" href="aboutUs.html">About us</a>
-    </nav>
-  </div>
-</div>
 
-<!-- HERO SECTION -->
-<header class="hero-questionnaire text-center">
-  <div class="hero-overlay"></div>
-  <div class="text-white py-5">
-    <h1 class="display-4 fw-bold mb-3">Voyager Feedback</h1>
-    <p class="lead mb-0 px-3">Your input is the fuel we need to chart the best course. Tell us about your website experience!</p>
-  </div>
-</header>
-
-<!-- FEEDBACK FORM SECTION -->
-<section class="lower-section py-5">
-  <div class="container">
-    <form id="feedback-form" class="row g-4 needs-validation bg-white p-4 rounded shadow-sm" novalidate>
-      <div class="col-12">
-        <h2 class="question-title">Voyager — Customer Feedback</h2>
-        <p class="small text-muted">We appreciate honest feedback. Fields marked * are required.</p>
+          <a class="nav-link mb-3" href="signup.html">Sign Up</a>
+          <hr class="border-secondary" />
+          <h6 class="text-white-50 text-uppercase mb-2">About &amp; Contact</h6>
+          <a class="nav-link mb-1" href="contactUs.html">Contact us</a>
+          <a class="nav-link mb-3" href="aboutUs.html">About us</a>
+        </nav>
       </div>
-
-      <!-- Name -->
-      <div class="col-md-6">
-        <label for="name" class="form-label">Full name *</label>
-        <input type="text" class="form-control" id="name" required pattern="^[A-Za-z\s]{2,50}$" placeholder="e.g. Rimas Al Kiyumi">
-        <div class="invalid-feedback">Enter a valid name (2-50 letters).</div>
-      </div>
-
-      <!-- Email -->
-      <div class="col-md-6">
-        <label for="email" class="form-label">Email *</label>
-        <input type="email" class="form-control" id="email" required placeholder="you@example.com">
-        <div class="invalid-feedback">Enter a valid email address.</div>
-      </div>
-
-      <!-- Website rating -->
-      <div class="col-md-6">
-        <label for="siteRating" class="form-label">Rate Voyager website (0-10) *</label>
-        <input type="number" class="form-control" id="siteRating" min="0" max="10" required>
-        <div class="invalid-feedback">Enter a number between 0 and 10.</div>
-      </div>
-
-      <!-- Favorite destination select -->
-      <div class="col-md-6">
-        <label for="favDest" class="form-label">Favorite destination page *</label>
-        <select id="favDest" class="form-select" required>
-          <option value="">Select...</option>
-          <option>Australia</option>
-          <option>Oman</option>
-          <option>Seychelles</option>
-          <option>Morocco</option>
-          <option>Rome</option>
-          <option>Bali</option>
-          <option>Aurusha</option>
-        </select>
-        <div class="invalid-feedback">Select a favorite destination.</div>
-      </div>
-
-      <!-- Suggested destination -->
-      <div class="col-md-6">
-        <label for="suggestDest" class="form-label">Country you'd like us to add *</label>
-        <input type="text" class="form-control" id="suggestDest" required placeholder="e.g. Iceland">
-        <div class="invalid-feedback">Please enter a country.</div>
-      </div>
-
-      <!-- Travel interest -->
-      <div class="col-md-6">
-        <label class="form-label d-block">Your travel interests *</label>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="History" id="interest1" name="interests" required>
-          <label class="form-check-label" for="interest1">History</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="Nature" id="interest2" name="interests">
-          <label class="form-check-label" for="interest2">Nature</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="Culture" id="interest3" name="interests">
-          <label class="form-check-label" for="interest3">Culture</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="Adventure" id="interest4" name="interests">
-          <label class="form-check-label" for="interest4">Adventure</label>
-        </div>
-        <div class="invalid-feedback d-block" id="interests-invalid" style="display:none;">Select at least one interest.</div>
-      </div>
-      
-
-      <!-- Notes -->
-      <div class="col-12">
-        <label for="notes" class="form-label">Notes / Improvement suggestions *</label>
-        <textarea class="form-control" id="notes" required minlength="10" placeholder="Share what went well or what we can improve..."></textarea>
-        <div class="invalid-feedback">Minimum 10 characters required.</div>
-      </div>
-<div class="col-md-6">
-  <label class="form-label d-block">How often do you visit travel websites? *</label>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="visitFrequency" id="freqDaily" value="Daily" required>
-    <label class="form-check-label" for="freqDaily">Daily</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="visitFrequency" id="freqWeekly" value="Weekly">
-    <label class="form-check-label" for="freqWeekly">Weekly</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="visitFrequency" id="freqMonthly" value="Monthly">
-    <label class="form-check-label" for="freqMonthly">Monthly</label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="visitFrequency" id="freqRarely" value="Rarely">
-    <label class="form-check-label" for="freqRarely">Rarely</label>
-  </div>
-  <div class="invalid-feedback d-block" id="freq-invalid" style="display:none;">Please select one option.</div>
-</div>
-
-      <!-- Submit Button -->
-      <div class="col-12 text-center mt-2">
-        <button type="submit" id="submit-btn" class="btn btn-lg fw-bold px-5 py-3 shadow-lg">Send Feedback 🚀</button>
-      </div>
-    </form>
-
-    <!-- TABLES -->
-    <div class="table-section mt-5">
-      <h3>Travelers</h3>
-      <input id="search-traveler" class="form-control mb-2" placeholder="Search travelers by name or email..." />
-      <table class="table table-striped table-bordered table-hover" id="traveler-table">
-        <thead>
-          <tr><th>Name</th><th>Email</th><th>Website Rating</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-
-      <h3 class="mt-4">Destinations</h3>
-      <input id="search-destination" class="form-control mb-2" placeholder="Search destinations by country or notes..." />
-      <table class="table table-striped table-bordered table-hover" id="destination-table">
-        <thead>
-          <tr><th>Country</th><th>Website Rating</th><th>Notes</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
     </div>
-  </div>
-</section>
 
-<footer class="footer-custom text-center py-3">
-  <div class="container">
-    <p class="mb-1 footer-title">Voyager</p>
-    <p class="mb-0 footer-text">© 2025 Voyager. All rights reserved.</p>
-  </div>
-</footer>
+    <!-- HERO SECTION -->
+    <header class="hero-questionnaire text-center">
+      <div class="hero-overlay"></div>
+      <div class="text-white py-5">
+        <h1 class="display-4 fw-bold mb-3">Voyager Feedback</h1>
+        <p class="lead mb-0 px-3">
+          Your input is the fuel we need to chart the best course. Tell us about
+          your website experience!
+        </p>
+      </div>
+    </header>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-// ---------------------------------------------------------------------------
-//  FEEDBACK SYSTEM — STORE DATA INSIDE TWO ARRAYS
-//  travelers[]   → stores: name, email, rating
-//  destinations[] → stores: country, rating, notes
-// ---------------------------------------------------------------------------
+    <!-- FEEDBACK FORM SECTION -->
+    <section class="lower-section py-5">
+      <div class="container">
+        <form
+          id="feedback-form"
+          class="row g-4 needs-validation bg-white p-4 rounded shadow-sm"
+          novalidate
+        >
+          <div class="col-12">
+            <h2 class="question-title">Voyager — Customer Feedback</h2>
+            <p class="small text-muted">
+              We appreciate honest feedback. Fields marked * are required.
+            </p>
+          </div>
 
-// DATA ARRAYS
-const travelers = [];     // Stores traveler records
-const destinations = [];  // Stores destination records
+          <!-- Name -->
+          <div class="col-md-6">
+            <label for="name" class="form-label">Full name *</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              pattern="^[A-Za-z\s]{2,50}$"
+              placeholder="e.g. Rimas Al Kiyumi"
+            />
+            <div class="invalid-feedback">
+              Enter a valid name (2-50 letters).
+            </div>
+          </div>
 
-// ---------------------------------------------------------------------------
-// FUNCTION: renderTravelerTable()
-// PURPOSE:  Update the traveler table with all stored traveler entries.
-//           If a search filter is provided, only matching rows appear.
-// ---------------------------------------------------------------------------
-function renderTravelerTable(filter = "") {
-  const tbody = document.querySelector("#traveler-table tbody");
-  tbody.innerHTML = ""; // Clear previous rows
+          <!-- Email -->
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email *</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              required
+              placeholder="you@example.com"
+            />
+            <div class="invalid-feedback">Enter a valid email address.</div>
+          </div>
 
-  travelers
-    .filter(t =>
-      !filter ||
-      t.name.toLowerCase().includes(filter.toLowerCase()) ||
-      t.email.toLowerCase().includes(filter.toLowerCase())
-    )
-    .forEach(t => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
+          <!-- Website rating -->
+          <div class="col-md-6">
+            <label for="siteRating" class="form-label"
+              >Rate Voyager website (0-10) *</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="siteRating"
+              min="0"
+              max="10"
+              required
+            />
+            <div class="invalid-feedback">Enter a number between 0 and 10.</div>
+          </div>
+
+          <!-- Favorite destination select -->
+          <div class="col-md-6">
+            <label for="favDest" class="form-label"
+              >Favorite destination page *</label
+            >
+            <select id="favDest" class="form-select" required>
+              <option value="">Select...</option>
+              <option>Australia</option>
+              <option>Oman</option>
+              <option>Seychelles</option>
+              <option>Morocco</option>
+              <option>Rome</option>
+              <option>Bali</option>
+              <option>Aurusha</option>
+            </select>
+            <div class="invalid-feedback">Select a favorite destination.</div>
+          </div>
+
+          <!-- Suggested destination -->
+          <div class="col-md-6">
+            <label for="suggestDest" class="form-label"
+              >Country you'd like us to add *</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="suggestDest"
+              required
+              placeholder="e.g. Iceland"
+            />
+            <div class="invalid-feedback">Please enter a country.</div>
+          </div>
+
+          <!-- Travel interest -->
+          <div class="col-md-6">
+            <label class="form-label d-block">Your travel interests *</label>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="History"
+                id="interest1"
+                name="interests"
+                required
+              />
+              <label class="form-check-label" for="interest1">History</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Nature"
+                id="interest2"
+                name="interests"
+              />
+              <label class="form-check-label" for="interest2">Nature</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Culture"
+                id="interest3"
+                name="interests"
+              />
+              <label class="form-check-label" for="interest3">Culture</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Adventure"
+                id="interest4"
+                name="interests"
+              />
+              <label class="form-check-label" for="interest4">Adventure</label>
+            </div>
+            <div
+              class="invalid-feedback d-block"
+              id="interests-invalid"
+              style="display: none"
+            >
+              Select at least one interest.
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="col-12">
+            <label for="notes" class="form-label"
+              >Notes / Improvement suggestions *</label
+            >
+            <textarea
+              class="form-control"
+              id="notes"
+              required
+              minlength="10"
+              placeholder="Share what went well or what we can improve..."
+            ></textarea>
+            <div class="invalid-feedback">Minimum 10 characters required.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label d-block"
+              >How often do you visit travel websites? *</label
+            >
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="visitFrequency"
+                id="freqDaily"
+                value="Daily"
+                required
+              />
+              <label class="form-check-label" for="freqDaily">Daily</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="visitFrequency"
+                id="freqWeekly"
+                value="Weekly"
+              />
+              <label class="form-check-label" for="freqWeekly">Weekly</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="visitFrequency"
+                id="freqMonthly"
+                value="Monthly"
+              />
+              <label class="form-check-label" for="freqMonthly">Monthly</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="visitFrequency"
+                id="freqRarely"
+                value="Rarely"
+              />
+              <label class="form-check-label" for="freqRarely">Rarely</label>
+            </div>
+            <div
+              class="invalid-feedback d-block"
+              id="freq-invalid"
+              style="display: none"
+            >
+              Please select one option.
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="col-12 text-center mt-2">
+            <button
+              type="submit"
+              id="submit-btn"
+              class="btn btn-lg fw-bold px-5 py-3 shadow-lg"
+            >
+              Send Feedback 🚀
+            </button>
+          </div>
+        </form>
+
+        <!-- TABLES -->
+        <div class="table-section mt-5">
+          <h3>Travelers</h3>
+          <input
+            id="search-traveler"
+            class="form-control mb-2"
+            placeholder="Search travelers by name or email..."
+          />
+          <table
+            class="table table-striped table-bordered table-hover"
+            id="traveler-table"
+          >
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Website Rating</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          <h3 class="mt-4">Destinations</h3>
+          <input
+            id="search-destination"
+            class="form-control mb-2"
+            placeholder="Search destinations by country or notes..."
+          />
+          <table
+            class="table table-striped table-bordered table-hover"
+            id="destination-table"
+          >
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Website Rating</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-custom text-center py-3">
+      <div class="container">
+        <p class="mb-1 footer-title">Voyager</p>
+        <p class="mb-0 footer-text">© 2025 Voyager. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // ---------------------------------------------------------------------------
+      //  FEEDBACK SYSTEM — STORE DATA INSIDE TWO ARRAYS
+      //  travelers[]   → stores: name, email, rating
+      //  destinations[] → stores: country, rating, notes
+      // ---------------------------------------------------------------------------
+
+      // DATA ARRAYS
+      const travelers = []; // Stores traveler records
+      const destinations = []; // Stores destination records
+
+      // ---------------------------------------------------------------------------
+      // FUNCTION: renderTravelerTable()
+      // PURPOSE:  Update the traveler table with all stored traveler entries.
+      //           If a search filter is provided, only matching rows appear.
+      // ---------------------------------------------------------------------------
+      function renderTravelerTable(filter = "") {
+        const tbody = document.querySelector("#traveler-table tbody");
+        tbody.innerHTML = ""; // Clear previous rows
+
+        travelers
+          .filter(
+            (t) =>
+              !filter ||
+              t.name.toLowerCase().includes(filter.toLowerCase()) ||
+              t.email.toLowerCase().includes(filter.toLowerCase())
+          )
+          .forEach((t) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
         <td>${t.name}</td>
         <td>${t.email}</td>
         <td>${t.navScore}</td>
       `;
-      tbody.appendChild(row);
-    });
-}
+            tbody.appendChild(row);
+          });
+      }
 
-// ---------------------------------------------------------------------------
-// FUNCTION: renderDestinationTable()
-// PURPOSE:  Update the destination table with all stored destination entries.
-//           Applies search filtering if provided.
-// ---------------------------------------------------------------------------
-function renderDestinationTable(filter = "") {
-  const tbody = document.querySelector("#destination-table tbody");
-  tbody.innerHTML = ""; // Clear table
+      // ---------------------------------------------------------------------------
+      // FUNCTION: renderDestinationTable()
+      // PURPOSE:  Update the destination table with all stored destination entries.
+      //           Applies search filtering if provided.
+      // ---------------------------------------------------------------------------
+      function renderDestinationTable(filter = "") {
+        const tbody = document.querySelector("#destination-table tbody");
+        tbody.innerHTML = ""; // Clear table
 
-  destinations
-    .filter(d =>
-      !filter ||
-      d.country.toLowerCase().includes(filter.toLowerCase()) ||
-      d.notes.toLowerCase().includes(filter.toLowerCase())
-    )
-    .forEach(d => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
+        destinations
+          .filter(
+            (d) =>
+              !filter ||
+              d.country.toLowerCase().includes(filter.toLowerCase()) ||
+              d.notes.toLowerCase().includes(filter.toLowerCase())
+          )
+          .forEach((d) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
         <td>${d.country}</td>
         <td>${d.recScore}</td>
         <td>${d.notes}</td>
       `;
-      tbody.appendChild(row);
-    });
-}
+            tbody.appendChild(row);
+          });
+      }
 
-// ---------------------------------------------------------------------------
-// FORM SUBMISSION
-// PURPOSE: Get all form inputs → validate → push into arrays → update tables
-// ---------------------------------------------------------------------------
-document.getElementById("feedback-form").addEventListener("submit", function (e) {
-  e.preventDefault(); // Stop page reload
+      // ---------------------------------------------------------------------------
+      // FORM SUBMISSION
+      // PURPOSE: Get all form inputs → validate → push into arrays → update tables
+      // ---------------------------------------------------------------------------
+      document
+        .getElementById("feedback-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Stop page reload
 
-  // Collect checked interests
-  const interests = Array.from(
-    document.querySelectorAll('input[name="interests"]:checked')
-  ).map(i => i.value);
+          // Collect checked interests
+          const interests = Array.from(
+            document.querySelectorAll('input[name="interests"]:checked')
+          ).map((i) => i.value);
 
-  // Validation: must pick at least ONE interest
-  if (interests.length === 0) {
-    document.getElementById("interests-invalid").style.display = "block";
-    return;
-  } else {
-    document.getElementById("interests-invalid").style.display = "none";
-  }
+          // ================== PART 1 VALIDATION ==================
+          let valid = true;
 
-  // Collect form values
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const siteRating = document.getElementById("siteRating").value;
-  const favDest = document.getElementById("favDest").value;
-  const suggestDest = document.getElementById("suggestDest").value.trim();
-  const notes = document.getElementById("notes").value.trim();
+          valid &&= validateText(
+            document.getElementById("name"),
+            /^[A-Za-z\s]{2,50}$/
+          );
 
-  // SAVE traveler to array
-  travelers.push({
-    name: name,
-    email: email,
-    navScore: siteRating
-  });
+          valid &&= validateText(
+            document.getElementById("email"),
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          );
 
-  // SAVE destination feedback to array
-  destinations.push({
-    country: favDest,
-    recScore: siteRating,
-    notes: `${notes} | Suggested: ${suggestDest} | Interests: ${interests.join(", ")}`
-  });
+          valid &&= validateRange(document.getElementById("siteRating"), 0, 10);
 
-  // UPDATE TABLES
-  renderTravelerTable();
-  renderDestinationTable();
+          valid &&= validateSelect(document.getElementById("favDest"));
 
-  // CONFIRMATION MESSAGE
-  alert("Thank you! Your feedback has been submitted ❤️");
+          const notesField = document.getElementById("notes");
+          if (notesField.value.trim().length < 10) {
+            notesField.classList.add("is-invalid");
+            valid = false;
+          } else {
+            notesField.classList.remove("is-invalid");
+          }
 
-  // RESET FORM
-  this.reset();
-});
+          valid &&= validateCheckboxGroup("interests", "interests-invalid");
 
-// ---------------------------------------------------------------------------
-// SEARCH INPUT LISTENERS
-// PURPOSE: Filter table content as the user types.
-// ---------------------------------------------------------------------------
+          valid &&= validateRadioGroup("visitFrequency", "freq-invalid");
 
-// Filter travelers
-document.getElementById("search-traveler")
-  .addEventListener("input", e => renderTravelerTable(e.target.value));
+          if (!valid) return;
+          // ======================================================
 
-// Filter destinations
-document.getElementById("search-destination")
-  .addEventListener("input", e => renderDestinationTable(e.target.value));
-</script>
+          // Collect form values
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const siteRating = document.getElementById("siteRating").value;
+          const favDest = document.getElementById("favDest").value;
+          const suggestDest = document
+            .getElementById("suggestDest")
+            .value.trim();
+          const notes = document.getElementById("notes").value.trim();
+
+          // SAVE traveler to array
+          travelers.push({
+            name: name,
+            email: email,
+            navScore: siteRating,
+          });
+
+          // SAVE destination feedback to array
+          destinations.push({
+            country: favDest,
+            recScore: siteRating,
+            notes: `${notes} | Suggested: ${suggestDest} | Interests: ${interests.join(
+              ", "
+            )}`,
+          });
+
+          // UPDATE TABLES
+          renderTravelerTable();
+          renderDestinationTable();
+
+          // CONFIRMATION MESSAGE
+          alert("Thank you! Your feedback has been submitted ❤️");
+
+          // RESET FORM
+          this.reset();
+        });
+
+      // ---------------------------------------------------------------------------
+      // SEARCH INPUT LISTENERS
+      // PURPOSE: Filter table content as the user types.
+      // ---------------------------------------------------------------------------
+
+      // Filter travelers
+      document
+        .getElementById("search-traveler")
+        .addEventListener("input", (e) => renderTravelerTable(e.target.value));
+
+      // Filter destinations
+      document
+        .getElementById("search-destination")
+        .addEventListener("input", (e) =>
+          renderDestinationTable(e.target.value)
+        );
+    </script>
+    <script>
+      /* =====================================================
+   PART 1 — STRICT JAVASCRIPT FORM VALIDATION
+   (NO DESIGN / NO HTML CHANGES)
+   ===================================================== */
+
+      function validateText(input, regex) {
+        if (!regex.test(input.value.trim())) {
+          input.classList.add("is-invalid");
+          return false;
+        }
+        input.classList.remove("is-invalid");
+        return true;
+      }
+
+      function validateRange(input, min, max) {
+        const val = Number(input.value);
+        if (isNaN(val) || val < min || val > max) {
+          input.classList.add("is-invalid");
+          return false;
+        }
+        input.classList.remove("is-invalid");
+        return true;
+      }
+
+      function validateSelect(select) {
+        if (select.value === "") {
+          select.classList.add("is-invalid");
+          return false;
+        }
+        select.classList.remove("is-invalid");
+        return true;
+      }
+
+      function validateCheckboxGroup(name, errorId) {
+        const checked = document.querySelectorAll(
+          `input[name="${name}"]:checked`
+        );
+        const error = document.getElementById(errorId);
+
+        if (checked.length === 0) {
+          error.style.display = "block";
+          return false;
+        }
+        error.style.display = "none";
+        return true;
+      }
+
+      function validateRadioGroup(name, errorId) {
+        const checked = document.querySelectorAll(
+          `input[name="${name}"]:checked`
+        );
+        const error = document.getElementById(errorId);
+
+        if (checked.length === 0) {
+          error.style.display = "block";
+          return false;
+        }
+        error.style.display = "none";
+        return true;
+      }
+    </script>
+  </body>
+</html>

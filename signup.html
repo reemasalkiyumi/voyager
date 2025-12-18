@@ -292,106 +292,112 @@
       </div>
     </footer>
 
-    <!-- YOUR SCRIPT -->
     <script>
-      // Check if input contains letters only
+      // =========================
+      // Helper validation methods
+      // =========================
+
       function isLettersOnly(value) {
         return /^[A-Za-z\s]+$/.test(value);
       }
 
-      //password maych validation
-      function validatePasswordMatch() {
-        const password = document.getElementById("password");
-        const confirmPassword = document.getElementById("confirmPassword");
-
-        // If passwords are different → show error
-        if (password.value !== confirmPassword.value) {
-          confirmPassword.setCustomValidity("Passwords do not match.");
-        } else {
-          // If passwords match → remove error
-          confirmPassword.setCustomValidity("");
-        }
+      function validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
       }
 
-      // Check password match while typing
-      document
-        .getElementById("password")
-        .addEventListener("input", validatePasswordMatch);
+      function validatePasswordLength(password) {
+        return password.length >= 6;
+      }
 
-      document
-        .getElementById("confirmPassword")
-        .addEventListener("input", validatePasswordMatch);
+      function validatePasswordMatch(password, confirmPassword) {
+        return password === confirmPassword;
+      }
+
+      function validateTerms(checked) {
+        return checked === true;
+      }
 
       (() => {
         "use strict";
 
-        const forms = document.querySelectorAll(".needs-validation");
+        const form = document.querySelector(".needs-validation");
 
-        // Validate first/last name field
+        const firstName = document.getElementById("firstName");
+        const lastName = document.getElementById("lastName");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const terms = document.getElementById("terms");
+
         function validateNameField(field, errorId) {
-          const errorDiv = document.getElementById(errorId);
           const value = field.value.trim();
-          let message = "";
+          const errorDiv = document.getElementById(errorId);
 
-          // Empty field
           if (value === "") {
-            message = "Please fill out this field.";
-          }
-          // Letters only check
-          else if (!isLettersOnly(value)) {
-            message = "Name must contain letters only.";
+            field.setCustomValidity("Please fill out this field.");
+            if (errorDiv) errorDiv.textContent = "Please fill out this field.";
+            return false;
           }
 
-          // If there is a message → show error
-          if (message) {
-            field.setCustomValidity(message);
-            if (errorDiv) errorDiv.textContent = message;
+          if (!isLettersOnly(value)) {
+            field.setCustomValidity("Name must contain letters only.");
+            if (errorDiv)
+              errorDiv.textContent = "Name must contain letters only.";
             return false;
-          } else {
-            // No error -> clear validation
-            field.setCustomValidity("");
-            return true;
           }
+
+          field.setCustomValidity("");
+          return true;
         }
 
-        Array.from(forms).forEach((form) => {
-          const firstName = document.getElementById("firstName");
-          const lastName = document.getElementById("lastName");
+        form.addEventListener(
+          "submit",
+          (event) => {
+            let valid = true;
 
-          // real-time validation for first name
-          if (firstName) {
-            firstName.addEventListener("input", () =>
-              validateNameField(firstName, "firstNameError")
-            );
-          }
+            valid &= validateNameField(firstName, "firstNameError");
+            valid &= validateNameField(lastName, "lastNameError");
 
-          // Real-time validation for last name
-          if (lastName) {
-            lastName.addEventListener("input", () =>
-              validateNameField(lastName, "lastNameError")
-            );
-          }
+            if (!validateEmail(email.value.trim())) {
+              email.setCustomValidity("Invalid email format.");
+              valid = false;
+            } else {
+              email.setCustomValidity("");
+            }
 
-          // On form submit
-          form.addEventListener(
-            "submit",
-            (event) => {
-              // Validate names before submission
-              if (firstName) validateNameField(firstName, "firstNameError");
-              if (lastName) validateNameField(lastName, "lastNameError");
+            if (!validatePasswordLength(password.value)) {
+              password.setCustomValidity(
+                "Password must be at least 6 characters."
+              );
+              valid = false;
+            } else {
+              password.setCustomValidity("");
+            }
 
-              // If form has any invalid field -> stop submit
-              if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
+            if (!validatePasswordMatch(password.value, confirmPassword.value)) {
+              confirmPassword.setCustomValidity("Passwords must match.");
+              valid = false;
+            } else {
+              confirmPassword.setCustomValidity("");
+            }
 
-              // Add Bootstrap validation styling
-              form.classList.add("was-validated");
-            },
-            false
-          );
-        });
+            if (!validateTerms(terms.checked)) {
+              terms.setCustomValidity("You must accept the terms.");
+              valid = false;
+            } else {
+              terms.setCustomValidity("");
+            }
+
+            if (!valid || !form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+
+            form.classList.add("was-validated");
+          },
+          false
+        );
       })();
     </script>
   </body>
