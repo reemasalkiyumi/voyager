@@ -15,7 +15,7 @@ include 'db.php';
 
 <div class="container mt-5">
     <div class="card shadow p-4">
-        <h2 class="text-center mb-4 text-primary">Explore Our Travel Guides 🌍</h2>
+        <h2 style="color:green;" class="text-center mb-4 text-primary">Explore Our Travel Guides 🌍</h2>
         
         <form method="POST" class="row g-3 mb-4">
             <div class="col-md-9">
@@ -23,7 +23,7 @@ include 'db.php';
                        placeholder="Search by Country..." required>
             </div>
             <div class="col-md-3 d-grid">
-                <button type="submit" name="search" class="btn btn-primary btn-lg">
+                <button style="color:green;" type="submit" name="search" class="btn btn-primary btn-lg">
                     Find My Guide
                 </button>
             </div>
