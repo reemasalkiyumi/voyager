@@ -155,7 +155,7 @@
                 </p>
 
                 <form
-                  action="#"
+                  action="signup_process.php"
                   method="post"
                   class="needs-validation"
                   novalidate
@@ -355,9 +355,8 @@
           "submit",
           (event) => {
             let valid = true;
-
-            valid &= validateNameField(firstName, "firstNameError");
-            valid &= validateNameField(lastName, "lastNameError");
+            valid = validateNameField(firstName, "firstNameError") && valid;
+            valid = validateNameField(lastName, "lastNameError") && valid;
 
             if (!validateEmail(email.value.trim())) {
               email.setCustomValidity("Invalid email format.");
