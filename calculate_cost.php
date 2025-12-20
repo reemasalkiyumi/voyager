@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 $isPost = ($_SERVER["REQUEST_METHOD"] === "POST");
 
-// Read inputs (match your form names!)
+
 $guide  = htmlspecialchars($_POST["guide"] ?? "");
 $rate   = isset($_POST["rate"]) ? (float)$_POST["rate"] : 0;
 $hours  = isset($_POST["hours"]) ? (int)$_POST["hours"] : 0;
@@ -15,7 +15,7 @@ $age    = isset($_POST["age"]) ? (int)$_POST["age"] : 0;
 // Validate
 $valid = $isPost && ($guide !== "") && ($rate > 0) && ($hours > 0) && ($people > 0) && ($age > 0);
 
-// Calculate like your JS rules
+
 $baseCost = $rate * $hours * $people;
 
 $groupDiscountApplied  = ($people > 5);
@@ -98,7 +98,7 @@ function money($n) {
         ⚠️ No valid form data received. Please fill the calculator form and submit it.
       </div>
 
-      <!-- Debug to show what arrived (remove later) -->
+      
       <pre class="bg-light p-3 rounded"><?php print_r($_POST); ?></pre>
 
       <div class="d-grid mt-3">
