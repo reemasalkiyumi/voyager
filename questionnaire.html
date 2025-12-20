@@ -336,7 +336,6 @@
                 value="History"
                 id="interest1"
                 name="interests"
-                required
               />
               <label class="form-check-label" for="interest1">History</label>
             </div>
@@ -514,176 +513,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // ---------------------------------------------------------------------------
-      //  FEEDBACK SYSTEM — STORE DATA INSIDE TWO ARRAYS
-      //  travelers[]   → stores: name, email, rating
-      //  destinations[] → stores: country, rating, notes
-      // ---------------------------------------------------------------------------
-
-      // DATA ARRAYS
-      const travelers = []; // Stores traveler records
-      const destinations = []; // Stores destination records
-
-      // ---------------------------------------------------------------------------
-      // FUNCTION: renderTravelerTable()
-      // PURPOSE:  Update the traveler table with all stored traveler entries.
-      //           If a search filter is provided, only matching rows appear.
-      // ---------------------------------------------------------------------------
-      function renderTravelerTable(filter = "") {
-        const tbody = document.querySelector("#traveler-table tbody");
-        tbody.innerHTML = ""; // Clear previous rows
-
-        travelers
-          .filter(
-            (t) =>
-              !filter ||
-              t.name.toLowerCase().includes(filter.toLowerCase()) ||
-              t.email.toLowerCase().includes(filter.toLowerCase())
-          )
-          .forEach((t) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-        <td>${t.name}</td>
-        <td>${t.email}</td>
-        <td>${t.navScore}</td>
-      `;
-            tbody.appendChild(row);
-          });
-      }
-
-      // ---------------------------------------------------------------------------
-      // FUNCTION: renderDestinationTable()
-      // PURPOSE:  Update the destination table with all stored destination entries.
-      //           Applies search filtering if provided.
-      // ---------------------------------------------------------------------------
-      function renderDestinationTable(filter = "") {
-        const tbody = document.querySelector("#destination-table tbody");
-        tbody.innerHTML = ""; // Clear table
-
-        destinations
-          .filter(
-            (d) =>
-              !filter ||
-              d.country.toLowerCase().includes(filter.toLowerCase()) ||
-              d.notes.toLowerCase().includes(filter.toLowerCase())
-          )
-          .forEach((d) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-        <td>${d.country}</td>
-        <td>${d.recScore}</td>
-        <td>${d.notes}</td>
-      `;
-            tbody.appendChild(row);
-          });
-      }
-
-      // ---------------------------------------------------------------------------
-      // FORM SUBMISSION
-      // PURPOSE: Get all form inputs → validate → push into arrays → update tables
-      // ---------------------------------------------------------------------------
-      document
-        .getElementById("feedback-form")
-        .addEventListener("submit", function (e) {
-          //e.preventDefault(); // Stop page reload
-
-          // Collect checked interests
-          const interests = Array.from(
-            document.querySelectorAll('input[name="interests"]:checked')
-          ).map((i) => i.value);
-
-          // ================== PART 1 VALIDATION ==================
-          let valid = true;
-
-          valid &&= validateText(
-            document.getElementById("name"),
-            /^[A-Za-z\s]{2,50}$/
-          );
-
-          valid &&= validateText(
-            document.getElementById("email"),
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-          );
-
-          valid &&= validateRange(document.getElementById("siteRating"), 0, 10);
-
-          valid &&= validateSelect(document.getElementById("favDest"));
-
-          const notesField = document.getElementById("notes");
-          if (notesField.value.trim().length < 10) {
-            notesField.classList.add("is-invalid");
-            valid = false;
-          } else {
-            notesField.classList.remove("is-invalid");
-          }
-
-          valid &&= validateCheckboxGroup("interests", "interests-invalid");
-
-          valid &&= validateRadioGroup("visitFrequency", "freq-invalid");
-
-          if (!valid) return;
-          // ======================================================
-
-          // Collect form values
-          const name = document.getElementById("name").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const siteRating = document.getElementById("siteRating").value;
-          const favDest = document.getElementById("favDest").value;
-          const suggestDest = document
-            .getElementById("suggestDest")
-            .value.trim();
-          const notes = document.getElementById("notes").value.trim();
-
-          // SAVE traveler to array
-          travelers.push({
-            name: name,
-            email: email,
-            navScore: siteRating,
-          });
-
-          // SAVE destination feedback to array
-          destinations.push({
-            country: favDest,
-            recScore: siteRating,
-            notes: `${notes} | Suggested: ${suggestDest} | Interests: ${interests.join(
-              ", "
-            )}`,
-          });
-
-          // UPDATE TABLES
-          renderTravelerTable();
-          renderDestinationTable();
-
-          // CONFIRMATION MESSAGE
-          alert("Thank you! Your feedback has been submitted ❤️");
-
-          // RESET FORM
-          this.reset();
-        });
-
-      // ---------------------------------------------------------------------------
-      // SEARCH INPUT LISTENERS
-      // PURPOSE: Filter table content as the user types.
-      // ---------------------------------------------------------------------------
-
-      // Filter travelers
-      document
-        .getElementById("search-traveler")
-        .addEventListener("input", (e) => renderTravelerTable(e.target.value));
-
-      // Filter destinations
-      document
-        .getElementById("search-destination")
-        .addEventListener("input", (e) =>
-          renderDestinationTable(e.target.value)
-        );
-    </script>
-    <script>
-      /* =====================================================
-   PART 1 — STRICT JAVASCRIPT FORM VALIDATION
-   (NO DESIGN / NO HTML CHANGES)
-   ===================================================== */
-
+      // ================== VALIDATION FUNCTIONS ==================
       function validateText(input, regex) {
         if (!regex.test(input.value.trim())) {
           input.classList.add("is-invalid");
@@ -713,6 +543,7 @@
       }
 
       function validateCheckboxGroup(name, errorId) {
+        const boxes = document.querySelectorAll(`input[name="${name}"]`);
         const checked = document.querySelectorAll(
           `input[name="${name}"]:checked`
         );
@@ -720,9 +551,12 @@
 
         if (checked.length === 0) {
           error.style.display = "block";
+          boxes.forEach((b) => b.classList.add("is-invalid"));
           return false;
         }
+
         error.style.display = "none";
+        boxes.forEach((b) => b.classList.remove("is-invalid"));
         return true;
       }
 
@@ -736,9 +570,125 @@
           error.style.display = "block";
           return false;
         }
+
         error.style.display = "none";
         return true;
       }
+
+      // ================== TABLE ARRAYS + RENDER ==================
+      const travelers = [];
+      const destinations = [];
+
+      function renderTravelerTable(filter = "") {
+        const tbody = document.querySelector("#traveler-table tbody");
+        tbody.innerHTML = "";
+
+        travelers
+          .filter(
+            (t) =>
+              !filter ||
+              t.name.toLowerCase().includes(filter.toLowerCase()) ||
+              t.email.toLowerCase().includes(filter.toLowerCase())
+          )
+          .forEach((t) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${t.name}</td><td>${t.email}</td><td>${t.navScore}</td>`;
+            tbody.appendChild(row);
+          });
+      }
+
+      function renderDestinationTable(filter = "") {
+        const tbody = document.querySelector("#destination-table tbody");
+        tbody.innerHTML = "";
+
+        destinations
+          .filter(
+            (d) =>
+              !filter ||
+              d.country.toLowerCase().includes(filter.toLowerCase()) ||
+              d.notes.toLowerCase().includes(filter.toLowerCase())
+          )
+          .forEach((d) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${d.country}</td><td>${d.recScore}</td><td>${d.notes}</td>`;
+            tbody.appendChild(row);
+          });
+      }
+
+      // ================== SUBMIT HANDLER ==================
+      document
+        .getElementById("feedback-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // ✅ stop instant submit to PHP
+
+          const interests = Array.from(
+            document.querySelectorAll('input[name="interests"]:checked')
+          ).map((i) => i.value);
+
+          let valid = true;
+
+          valid &&= validateText(
+            document.getElementById("name"),
+            /^[A-Za-z\s]{2,50}$/
+          );
+          valid &&= validateText(
+            document.getElementById("email"),
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          );
+          valid &&= validateRange(document.getElementById("siteRating"), 0, 10);
+          valid &&= validateSelect(document.getElementById("favDest"));
+
+          const notesField = document.getElementById("notes");
+          if (notesField.value.trim().length < 10) {
+            notesField.classList.add("is-invalid");
+            valid = false;
+          } else {
+            notesField.classList.remove("is-invalid");
+          }
+
+          valid &&= validateCheckboxGroup("interests", "interests-invalid");
+          valid &&= validateRadioGroup("visitFrequency", "freq-invalid");
+
+          if (!valid) return; // ✅ stay on page, show errors
+
+          // (Optional) Update tables BEFORE submitting (you’ll lose them after reload)
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const siteRating = document.getElementById("siteRating").value;
+          const favDest = document.getElementById("favDest").value;
+          const suggestDest = document
+            .getElementById("suggestDest")
+            .value.trim();
+          const notes = document.getElementById("notes").value.trim();
+
+          travelers.push({ name, email, navScore: siteRating });
+          destinations.push({
+            country: favDest,
+            recScore: siteRating,
+            notes: `${notes} | Suggested: ${suggestDest} | Interests: ${interests.join(
+              ", "
+            )}`,
+          });
+
+          renderTravelerTable();
+          renderDestinationTable();
+
+          // ✅ Now submit to PHP (bypasses the submit event so it won’t loop)
+          HTMLFormElement.prototype.submit.call(this);
+        });
+
+      // ================== SEARCH ==================
+      document
+        .getElementById("search-traveler")
+        .addEventListener("input", (e) => {
+          renderTravelerTable(e.target.value);
+        });
+
+      document
+        .getElementById("search-destination")
+        .addEventListener("input", (e) => {
+          renderDestinationTable(e.target.value);
+        });
     </script>
   </body>
 </html>
