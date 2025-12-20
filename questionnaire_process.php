@@ -17,9 +17,14 @@ $suggestDest = h($_POST["suggestDest"] ?? "");
 $notes = h($_POST["notes"] ?? "");
 $visitFrequency = h($_POST["visitFrequency"] ?? "");
 
-$interestsArr = $_POST["interests"] ?? []; // interests[]
-if (!is_array($interestsArr)) $interestsArr = [];
-$interestsSafe = array_map(function($x){ return htmlspecialchars($x, ENT_QUOTES, 'UTF-8'); }, $interestsArr);
+// Fix for interests array
+$interestsArr = $_POST["interests"] ?? [];
+if (!is_array($interestsArr)) {
+    $interestsArr = [];
+}
+$interestsSafe = array_map(function($x){ 
+    return htmlspecialchars($x, ENT_QUOTES, 'UTF-8'); 
+}, $interestsArr);
 $interestsText = (count($interestsSafe) > 0) ? implode(", ", $interestsSafe) : "None";
 ?>
 <!DOCTYPE html>
@@ -32,11 +37,33 @@ $interestsText = (count($interestsSafe) > 0) ? implode(", ", $interestsSafe) : "
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
-    body { background-color: #f4f1ec; }
-    .travel-title { color: #2f5d50; }
-    .form-card { background-color: #ffffff; }
-    .badge-travel { background-color: #3a7d44; }
-    .table thead { background-color: #2f5d50; color: #fff; }
+    body { 
+      background-color: #f4f1ec; 
+      padding-top: 20px;
+    }
+    .travel-title { 
+      color: #2f5d50; 
+    }
+    .form-card { 
+      background-color: #ffffff; 
+    }
+    .badge-travel { 
+      background-color: #3a7d44; 
+      padding: 5px 10px;
+      font-size: 0.9rem;
+    }
+    .table thead { 
+      background-color: #2f5d50; 
+      color: #fff; 
+    }
+    .btn-success {
+      background-color: #2f5d50;
+      border-color: #2f5d50;
+    }
+    .btn-success:hover {
+      background-color: #1f4033;
+      border-color: #1f4033;
+    }
   </style>
 </head>
 
@@ -54,7 +81,7 @@ $interestsText = (count($interestsSafe) > 0) ? implode(", ", $interestsSafe) : "
       </div>
     <?php } else { ?>
       <div class="alert alert-success text-center">
-        ✔️ Feedback submitted successfully!
+        ✔️ Feedback submitted successfully! Thank you for your input.
       </div>
 
       <div class="table-responsive">
@@ -66,23 +93,57 @@ $interestsText = (count($interestsSafe) > 0) ? implode(", ", $interestsSafe) : "
             </tr>
           </thead>
           <tbody>
-            <tr><td>Full Name</td><td><?php echo $fullName; ?></td></tr>
-            <tr><td>Email</td><td><?php echo $email; ?></td></tr>
-            <tr><td>Website Rating</td><td><?php echo $siteRating; ?></td></tr>
-            <tr><td>Favorite Destination</td><td><?php echo $favDest; ?></td></tr>
-            <tr><td>Suggested Destination</td><td><?php echo $suggestDest; ?></td></tr>
-            <tr><td>Interests</td><td><span class="badge text-white badge-travel"><?php echo $interestsText; ?></span></td></tr>
-            <tr><td>Visit Frequency</td><td><?php echo $visitFrequency; ?></td></tr>
-            <tr><td>Notes</td><td><?php echo nl2br($notes); ?></td></tr>
+            <tr>
+              <td><strong>Full Name</strong></td>
+              <td><?php echo $fullName; ?></td>
+            </tr>
+            <tr>
+              <td><strong>Email</strong></td>
+              <td><?php echo $email; ?></td>
+            </tr>
+            <tr>
+              <td><strong>Website Rating</strong></td>
+              <td><?php echo $siteRating; ?> / 10</td>
+            </tr>
+            <tr>
+              <td><strong>Favorite Destination</strong></td>
+              <td><?php echo $favDest; ?></td>
+            </tr>
+            <tr>
+              <td><strong>Suggested Destination</strong></td>
+              <td><?php echo $suggestDest; ?></td>
+            </tr>
+            <tr>
+              <td><strong>Travel Interests</strong></td>
+              <td>
+                <?php if (count($interestsSafe) > 0): ?>
+                  <?php foreach ($interestsSafe as $interest): ?>
+                    <span class="badge text-white badge-travel me-1"><?php echo $interest; ?></span>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <span class="text-muted">None selected</span>
+                <?php endif; ?>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Visit Frequency</strong></td>
+              <td><?php echo $visitFrequency; ?></td>
+            </tr>
+            <tr>
+              <td><strong>Notes / Suggestions</strong></td>
+              <td><?php echo nl2br($notes); ?></td>
+            </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="d-grid mt-3">
-        <a class="btn btn-success btn-lg" href="questionnaire.html">Back to Questionnaire</a>
+      <div class="d-grid mt-4">
+        <a class="btn btn-success btn-lg" href="questionnaire.html">Submit Another Response</a>
       </div>
     <?php } ?>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

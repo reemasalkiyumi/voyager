@@ -118,7 +118,8 @@
         margin-top: 0.25rem;
         font-size: 0.875em;
       }
-      .form-control.is-invalid ~ .invalid-feedback {
+      .form-control.is-invalid ~ .invalid-feedback,
+      .form-select.is-invalid ~ .invalid-feedback {
         display: block;
       }
 
@@ -233,6 +234,7 @@
           action="questionnaire_process.php"
           method="post"
           class="row g-4 needs-validation bg-white p-4 rounded shadow-sm"
+          novalidate
         >
           <div class="col-12">
             <h2 class="question-title">Voyager — Customer Feedback</h2>
@@ -290,12 +292,10 @@
           </div>
 
           <!-- Favorite destination select -->
-          <!-- Favorite destination select -->
           <div class="col-md-6">
             <label for="favDest" class="form-label"
               >Favorite destination page *</label
             >
-
             <select id="favDest" name="favDest" class="form-select" required>
               <option value="">Select...</option>
               <option value="Australia">Australia</option>
@@ -306,7 +306,6 @@
               <option value="Bali">Bali</option>
               <option value="Aurusha">Aurusha</option>
             </select>
-
             <div class="invalid-feedback">Select a favorite destination.</div>
           </div>
 
@@ -335,7 +334,7 @@
                 type="checkbox"
                 value="History"
                 id="interest1"
-                name="interests"
+                name="interests[]"
               />
               <label class="form-check-label" for="interest1">History</label>
             </div>
@@ -345,7 +344,7 @@
                 type="checkbox"
                 value="Nature"
                 id="interest2"
-                name="interests"
+                name="interests[]"
               />
               <label class="form-check-label" for="interest2">Nature</label>
             </div>
@@ -355,7 +354,7 @@
                 type="checkbox"
                 value="Culture"
                 id="interest3"
-                name="interests"
+                name="interests[]"
               />
               <label class="form-check-label" for="interest3">Culture</label>
             </div>
@@ -365,7 +364,7 @@
                 type="checkbox"
                 value="Adventure"
                 id="interest4"
-                name="interests"
+                name="interests[]"
               />
               <label class="form-check-label" for="interest4">Adventure</label>
             </div>
@@ -378,21 +377,7 @@
             </div>
           </div>
 
-          <!-- Notes -->
-          <div class="col-12">
-            <label for="notes" class="form-label"
-              >Notes / Improvement suggestions *</label
-            >
-            <textarea
-              class="form-control"
-              id="notes"
-              required
-              name="notes"
-              minlength="10"
-              placeholder="Share what went well or what we can improve..."
-            ></textarea>
-            <div class="invalid-feedback">Minimum 10 characters required.</div>
-          </div>
+          <!-- Visit Frequency -->
           <div class="col-md-6">
             <label class="form-label d-block"
               >How often do you visit travel websites? *</label
@@ -447,8 +432,25 @@
             </div>
           </div>
 
+          <!-- Notes -->
+          <div class="col-12">
+            <label for="notes" class="form-label"
+              >Notes / Improvement suggestions *</label
+            >
+            <textarea
+              class="form-control"
+              id="notes"
+              required
+              name="notes"
+              minlength="10"
+              rows="4"
+              placeholder="Share what went well or what we can improve..."
+            ></textarea>
+            <div class="invalid-feedback">Minimum 10 characters required.</div>
+          </div>
+
           <!-- Submit Button -->
-          <div class="col-12 text-center mt-2">
+          <div class="col-12 text-center mt-4">
             <button
               type="submit"
               id="submit-btn"
@@ -478,7 +480,11 @@
                 <th>Website Rating</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <tr>
+                <td colspan="3" class="text-center text-muted">No data yet</td>
+              </tr>
+            </tbody>
           </table>
 
           <h3 class="mt-4">Destinations</h3>
@@ -498,7 +504,11 @@
                 <th>Notes</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <tr>
+                <td colspan="3" class="text-center text-muted">No data yet</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -583,50 +593,59 @@
         const tbody = document.querySelector("#traveler-table tbody");
         tbody.innerHTML = "";
 
-        travelers
-          .filter(
-            (t) =>
-              !filter ||
-              t.name.toLowerCase().includes(filter.toLowerCase()) ||
-              t.email.toLowerCase().includes(filter.toLowerCase())
-          )
-          .forEach((t) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `<td>${t.name}</td><td>${t.email}</td><td>${t.navScore}</td>`;
-            tbody.appendChild(row);
-          });
+        const filtered = travelers.filter(
+          (t) =>
+            !filter ||
+            t.name.toLowerCase().includes(filter.toLowerCase()) ||
+            t.email.toLowerCase().includes(filter.toLowerCase())
+        );
+
+        if (filtered.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="3" class="text-center text-muted">No data yet</td></tr>';
+          return;
+        }
+
+        filtered.forEach((t) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `<td>${t.name}</td><td>${t.email}</td><td>${t.navScore}</td>`;
+          tbody.appendChild(row);
+        });
       }
 
       function renderDestinationTable(filter = "") {
         const tbody = document.querySelector("#destination-table tbody");
         tbody.innerHTML = "";
 
-        destinations
-          .filter(
-            (d) =>
-              !filter ||
-              d.country.toLowerCase().includes(filter.toLowerCase()) ||
-              d.notes.toLowerCase().includes(filter.toLowerCase())
-          )
-          .forEach((d) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `<td>${d.country}</td><td>${d.recScore}</td><td>${d.notes}</td>`;
-            tbody.appendChild(row);
-          });
+        const filtered = destinations.filter(
+          (d) =>
+            !filter ||
+            d.country.toLowerCase().includes(filter.toLowerCase()) ||
+            d.notes.toLowerCase().includes(filter.toLowerCase())
+        );
+
+        if (filtered.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="3" class="text-center text-muted">No data yet</td></tr>';
+          return;
+        }
+
+        filtered.forEach((d) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `<td>${d.country}</td><td>${d.recScore}</td><td>${d.notes}</td>`;
+          tbody.appendChild(row);
+        });
       }
 
       // ================== SUBMIT HANDLER ==================
       document
         .getElementById("feedback-form")
         .addEventListener("submit", function (e) {
-          e.preventDefault(); // ✅ stop instant submit to PHP
-
-          const interests = Array.from(
-            document.querySelectorAll('input[name="interests"]:checked')
-          ).map((i) => i.value);
+          e.preventDefault();
 
           let valid = true;
 
+          // Validate all fields
           valid &&= validateText(
             document.getElementById("name"),
             /^[A-Za-z\s]{2,50}$/
@@ -638,6 +657,14 @@
           valid &&= validateRange(document.getElementById("siteRating"), 0, 10);
           valid &&= validateSelect(document.getElementById("favDest"));
 
+          const suggestField = document.getElementById("suggestDest");
+          if (suggestField.value.trim().length === 0) {
+            suggestField.classList.add("is-invalid");
+            valid = false;
+          } else {
+            suggestField.classList.remove("is-invalid");
+          }
+
           const notesField = document.getElementById("notes");
           if (notesField.value.trim().length < 10) {
             notesField.classList.add("is-invalid");
@@ -646,12 +673,14 @@
             notesField.classList.remove("is-invalid");
           }
 
-          valid &&= validateCheckboxGroup("interests", "interests-invalid");
+          valid &&= validateCheckboxGroup("interests[]", "interests-invalid");
           valid &&= validateRadioGroup("visitFrequency", "freq-invalid");
 
-          if (!valid) return; // ✅ stay on page, show errors
+          if (!valid) {
+            return;
+          }
 
-          // (Optional) Update tables BEFORE submitting (you’ll lose them after reload)
+          // Update tables before submitting
           const name = document.getElementById("name").value.trim();
           const email = document.getElementById("email").value.trim();
           const siteRating = document.getElementById("siteRating").value;
@@ -660,6 +689,9 @@
             .getElementById("suggestDest")
             .value.trim();
           const notes = document.getElementById("notes").value.trim();
+          const interests = Array.from(
+            document.querySelectorAll('input[name="interests[]"]:checked')
+          ).map((i) => i.value);
 
           travelers.push({ name, email, navScore: siteRating });
           destinations.push({
@@ -673,8 +705,8 @@
           renderTravelerTable();
           renderDestinationTable();
 
-          // ✅ Now submit to PHP (bypasses the submit event so it won’t loop)
-          HTMLFormElement.prototype.submit.call(this);
+          // Submit form to PHP
+          this.submit();
         });
 
       // ================== SEARCH ==================
