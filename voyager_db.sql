@@ -81,6 +81,7 @@ CREATE TABLE `travelers` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `rating` int(11) DEFAULT NULL CHECK (`rating` between 0 and 10)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -88,13 +89,13 @@ CREATE TABLE `travelers` (
 -- Dumping data for table `travelers`
 --
 
-INSERT INTO `travelers` (`id`, `name`, `email`, `rating`) VALUES
-(1, 'Alice Johnson', 'alice.johnson@mail.com', 8),
-(2, 'Bob Smith', 'bob.smith@mail.com', 7),
-(3, 'Charlie Brown', 'charlie.brown@mail.com', 9),
-(4, 'Diana Lee', 'diana.lee@mail.com', 8),
-(5, 'Ethan Miller', 'ethan.miller@mail.com', 6),
-(6, 'Fatima Al Said', 'fatima.alsaid@mail.com', 9);
+INSERT INTO travelers (id, name, email, password, rating) VALUES
+(1, 'Alice Johnson', 'alice.johnson@mail.com', 'pass123', 8),
+(2, 'Bob Smith', 'bob.smith@mail.com', 'pass123', 7),
+(3, 'Charlie Brown', 'charlie.brown@mail.com', 'pass123', 9),
+(4, 'Diana Lee', 'diana.lee@mail.com', 'pass123', 8),
+(5, 'Ethan Miller', 'ethan.miller@mail.com', 'pass123', 6),
+(6, 'Fatima Al Said', 'fatima.alsaid@mail.com', 'pass123', 9);
 
 --
 -- Indexes for dumped tables
