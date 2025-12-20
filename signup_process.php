@@ -3,6 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// ====== ADDED: DB connection (SQL part) ======
+require_once "db.php";
+// ============================================
+
 // Detect if this page was reached by POST submit
 $isPost = ($_SERVER["REQUEST_METHOD"] === "POST");
 
@@ -15,6 +19,59 @@ $terms     = isset($_POST["terms"]) ? "Accepted" : "Not accepted";
 
 // Mask password for display (recommended)
 $maskedPassword = ($password !== "") ? str_repeat("•", strlen($password)) : "";
+
+// ====== ADDED: SQL INSERT into travelers (no UI changes) ======
+$saved = false;
+$dbError = "";
+
+if ($isPost) {
+  // basic validation
+  $validInput = ($firstName !== "" && $lastName !== "" && $email !== "" && $password !== "" && $terms === "Accepted");
+
+  if ($validInput) {
+    // 1) Check if email already exists
+    $check = mysqli_prepare($conn, "SELECT 1 FROM travelers WHERE email = ? LIMIT 1");
+    if ($check) {
+      mysqli_stmt_bind_param($check, "s", $email);
+      mysqli_stmt_execute($check);
+      mysqli_stmt_store_result($check);
+      $exists = (mysqli_stmt_num_rows($check) > 0);
+      mysqli_stmt_close($check);
+
+      if ($exists) {
+        $dbError = "This email is already registered.";
+      } else {
+        // 2) Insert traveler (NOW: name, email, password, rating)
+        $fullName = trim($firstName . " " . $lastName);
+        $rating = 0;
+
+        // store password securely
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+        $ins = mysqli_prepare($conn, "INSERT INTO travelers (name, email, password, rating) VALUES (?, ?, ?, ?)");
+        if ($ins) {
+          mysqli_stmt_bind_param($ins, "sssi", $fullName, $email, $passwordHash, $rating);
+          $saved = mysqli_stmt_execute($ins);
+          if (!$saved) {
+            $dbError = "Insert failed: " . mysqli_error($conn);
+          }
+          mysqli_stmt_close($ins);
+        } else {
+          $dbError = "Prepare failed: " . mysqli_error($conn);
+        }
+      }
+    } else {
+      $dbError = "Prepare failed: " . mysqli_error($conn);
+    }
+  } else {
+    if ($terms !== "Accepted") {
+      $dbError = "You must accept the terms.";
+    } else {
+      $dbError = "Missing required fields.";
+    }
+  }
+}
+// ====== END SQL part ======
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,9 +114,16 @@ $maskedPassword = ($password !== "") ? str_repeat("•", strlen($password)) : ""
     <h2 class="text-center mb-4 travel-title">Sign Up Submitted Data ✨</h2>
 
     <?php if ($isPost) { ?>
-      <div class="alert alert-success text-center">
-        ✔️ Form submitted successfully!
-      </div>
+
+      <?php if ($saved) { ?>
+        <div class="alert alert-success text-center">
+          ✔️ Form submitted successfully! (Saved in MySQL)
+        </div>
+      <?php } else { ?>
+        <div class="alert alert-warning text-center">
+          ⚠️ Form submitted, but not saved in database. <?php echo htmlspecialchars($dbError); ?>
+        </div>
+      <?php } ?>
 
       <div class="table-responsive">
         <table class="table table-bordered align-middle">
