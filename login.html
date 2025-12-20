@@ -170,6 +170,7 @@
                   action="login_process.php"
                   method="post"
                   class="needs-validation"
+                  onsubmit="return validateLogin();"
                   novalidate
                 >
                   <!-- Email -->
@@ -311,6 +312,32 @@
           );
         });
       })();
+    </script>
+    <script>
+      function validateLogin() {
+        let valid = true;
+
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email.value.trim())) {
+          email.classList.add("is-invalid");
+          valid = false;
+        } else {
+          email.classList.remove("is-invalid");
+        }
+
+        if (password.value.trim().length < 6) {
+          password.classList.add("is-invalid");
+          valid = false;
+        } else {
+          password.classList.remove("is-invalid");
+        }
+
+        return valid;
+      }
     </script>
   </body>
 </html>
