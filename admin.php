@@ -15,17 +15,6 @@ if (isset($_POST['add'])) {
         $addMsg = "<div class='alert alert-danger text-center mt-3'>❌ Failed to add guide: " . mysqli_error($conn) . "</div>";
     }
 }
-
-// Handle Delete Guide
-if (isset($_POST['delete'])) {
-    $id = (int)$_POST['guide_id'];
-    $sql = "DELETE FROM guides WHERE id = $id";
-    if (mysqli_query($conn, $sql)) {
-        $delMsg = "<div class='alert alert-danger text-center mt-3'>🗑️ Record #$id has been removed.</div>";
-    } else {
-        $delMsg = "<div class='alert alert-danger text-center mt-3'>❌ Failed to delete guide: " . mysqli_error($conn) . "</div>";
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +38,7 @@ if (isset($_POST['delete'])) {
         <h2 class="text-center mb-4 travel-title">Add New Travel Guide ✈️</h2>
 
         <?php if (!empty($addMsg)) echo $addMsg; ?>
+
         <form method="POST" class="row g-3 mb-4">
             <div class="col-md-6">
                 <input type="text" name="name" class="form-control form-control-lg" placeholder="Guide Name" required>
@@ -64,17 +54,6 @@ if (isset($_POST['delete'])) {
             </div>
             <div class="col-12 d-grid">
                 <button type="submit" name="add" class="btn btn-travel btn-lg text-white">Add Guide</button>
-            </div>
-        </form>
-
-        <h2 class="mt-5 text-center travel-title">Delete a Guide 🗑️</h2>
-        <?php if (!empty($delMsg)) echo $delMsg; ?>
-        <form method="POST" class="row g-3">
-            <div class="col-md-12">
-                <input type="number" name="guide_id" class="form-control form-control-lg" placeholder="Guide ID to Delete" required>
-            </div>
-            <div class="col-12 d-grid">
-                <button type="submit" name="delete" class="btn btn-danger btn-lg">Delete Guide</button>
             </div>
         </form>
     </div>
