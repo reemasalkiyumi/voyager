@@ -230,8 +230,9 @@
       <div class="container">
         <form
           id="feedback-form"
+          action="questionnaire_process.php"
+          method="post"
           class="row g-4 needs-validation bg-white p-4 rounded shadow-sm"
-          novalidate
         >
           <div class="col-12">
             <h2 class="question-title">Voyager — Customer Feedback</h2>
@@ -248,6 +249,7 @@
               class="form-control"
               id="name"
               required
+              name="fullName"
               pattern="^[A-Za-z\s]{2,50}$"
               placeholder="e.g. Rimas Al Kiyumi"
             />
@@ -264,6 +266,7 @@
               class="form-control"
               id="email"
               required
+              name="email"
               placeholder="you@example.com"
             />
             <div class="invalid-feedback">Enter a valid email address.</div>
@@ -280,26 +283,30 @@
               id="siteRating"
               min="0"
               max="10"
+              name="siteRating"
               required
             />
             <div class="invalid-feedback">Enter a number between 0 and 10.</div>
           </div>
 
           <!-- Favorite destination select -->
+          <!-- Favorite destination select -->
           <div class="col-md-6">
             <label for="favDest" class="form-label"
               >Favorite destination page *</label
             >
-            <select id="favDest" class="form-select" required>
+
+            <select id="favDest" name="favDest" class="form-select" required>
               <option value="">Select...</option>
-              <option>Australia</option>
-              <option>Oman</option>
-              <option>Seychelles</option>
-              <option>Morocco</option>
-              <option>Rome</option>
-              <option>Bali</option>
-              <option>Aurusha</option>
+              <option value="Australia">Australia</option>
+              <option value="Oman">Oman</option>
+              <option value="Seychelles">Seychelles</option>
+              <option value="Morocco">Morocco</option>
+              <option value="Rome">Rome</option>
+              <option value="Bali">Bali</option>
+              <option value="Aurusha">Aurusha</option>
             </select>
+
             <div class="invalid-feedback">Select a favorite destination.</div>
           </div>
 
@@ -313,6 +320,7 @@
               class="form-control"
               id="suggestDest"
               required
+              name="suggestDest"
               placeholder="e.g. Iceland"
             />
             <div class="invalid-feedback">Please enter a country.</div>
@@ -380,6 +388,7 @@
               class="form-control"
               id="notes"
               required
+              name="notes"
               minlength="10"
               placeholder="Share what went well or what we can improve..."
             ></textarea>
@@ -576,7 +585,7 @@
       document
         .getElementById("feedback-form")
         .addEventListener("submit", function (e) {
-          e.preventDefault(); // Stop page reload
+          //e.preventDefault(); // Stop page reload
 
           // Collect checked interests
           const interests = Array.from(
