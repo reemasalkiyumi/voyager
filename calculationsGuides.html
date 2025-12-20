@@ -211,11 +211,13 @@
         </p>
 
         <!-- Calculator form -->
-        <form id="calcForm" onsubmit="calculateCost(event)">
+        <form id="calcForm" action="calculate_cost.php" method="post">
           <!-- Guide selection dropdown -->
           <div class="mb-3">
-            <label class="form-label fw-bold">Select Guide</label>
-            <select class="form-select" id="guideSelect" required>
+            <label class="form-label fw-bold" for="guideSelect"
+              >Select Guide</label
+            >
+            <select class="form-select" id="guideSelect" name="guide" required>
               <option value="">Choose a guide...</option>
               <option value="Marie" data-rate="25" data-link="guide1.html">
                 Marie Conti – $25/hr
@@ -246,90 +248,78 @@
 
           <!-- Hours input -->
           <div class="mb-3">
-            <label class="form-label fw-bold">Number of Hours</label>
+            <label class="form-label fw-bold" for="hours"
+              >Number of Hours</label
+            >
             <input
               type="number"
               min="1"
               class="form-control"
               id="hours"
+              name="hours"
               required
             />
           </div>
+          <!-- hidden field that PHP can actually receive -->
+          <input type="hidden" id="rate" name="rate" value="" />
 
           <!-- People count -->
           <div class="mb-3">
-            <label class="form-label fw-bold">Number of People</label>
+            <label class="form-label fw-bold" for="people"
+              >Number of People</label
+            >
             <input
               type="number"
               min="1"
               class="form-control"
               id="people"
+              name="people"
               required
             />
           </div>
 
           <!-- Oldest person's age -->
           <div class="mb-3">
-            <label class="form-label fw-bold">Oldest Person's Age</label>
+            <label class="form-label fw-bold" for="age"
+              >Oldest Person's Age</label
+            >
             <input
               type="number"
               min="1"
               class="form-control"
               id="age"
+              name="age"
               required
             />
           </div>
 
-          <!-- Submit button -->
+          <!-- Submit button (PHP) -->
           <button class="btn btn-success w-100" type="submit">Calculate</button>
         </form>
 
-        <!-- Output result -->
+        <!-- Output result (Preview only) -->
         <div id="result" class="alert alert-info mt-4 d-none"></div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <!-- Same theme footer -->
-    <footer class="footer-custom text-center py-3">
-      <div class="container">
-        <p class="mb-1 footer-title">Voyager</p>
-        <p class="mb-0 footer-text">© 2025 Voyager. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <!-- JS: cost calculator logic -->
-    <script>
-      /* 
-        calculateCost():
-        - Reads user inputs
-        - Applies guide hourly rate
-        - Applies group + age discounts
-        - Shows final cost inside result box
-      */
-      function calculateCost(event) {
-        event.preventDefault();
-        let guide = document.getElementById("guideSelect");
-        let selectedOption = guide.options[guide.selectedIndex];
-        let rate = Number(selectedOption.getAttribute("data-rate"));
-        let hours = Number(document.getElementById("hours").value);
-        let people = Number(document.getElementById("people").value);
-        let age = Number(document.getElementById("age").value);
-        //Base cost calculation
-        let cost = rate * hours * people;
-        //Group discount
-        if (people > 5) cost *= 0.9;
-        //Senior discount
-        if (age > 60) cost *= 0.85;
-        //Display result section
-        let resultBox = document.getElementById("result");
-        resultBox.classList.remove("d-none");
-
-        resultBox.innerHTML = `
-          <strong>Total Cost:</strong> $${cost.toFixed(2)} <br>
-          <strong>Guide:</strong> ${selectedOption.value}
-        `;
+    <script type="text/javascript">
+      function setRateFromSelectedGuide() {
+        var guideSelect = document.getElementById("guideSelect");
+        var opt = guideSelect.options[guideSelect.selectedIndex];
+        var r = opt ? opt.getAttribute("data-rate") || "" : "";
+        document.getElementById("rate").value = r;
       }
+
+      document
+        .getElementById("guideSelect")
+        .addEventListener("change", setRateFromSelectedGuide);
+
+      // IMPORTANT: set rate right before submitting to PHP
+      document
+        .getElementById("calcForm")
+        .addEventListener("submit", function () {
+          setRateFromSelectedGuide();
+        });
     </script>
 
     <!-- Bootstrap JS bundle -->
